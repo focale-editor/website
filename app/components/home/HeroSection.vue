@@ -100,9 +100,10 @@ const platforms = [
   display: grid;
   place-items: center;
   width: min(40rem, 120vw);
-  margin-inline: auto;
+  left: 50%;
   aspect-ratio: 1;
   margin-block: clamp(-11rem, -19vw, -5rem);
+  transform: translateX(-50%);
   pointer-events: none;
 }
 
