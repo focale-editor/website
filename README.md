@@ -90,34 +90,3 @@ generated HTML. An undeclared component simply will not resolve.
 
 `app/assets/styles/_shared.scss` is injected into every component's style block,
 so tokens and mixins are available without importing them.
-
-## Design
-
-The visual language is borrowed from the mark itself — a lens. `ApertureRings.vue`
-draws the focus barrel behind the logo: concentric rings, a graduated scale and
-eight shutter blades, with one lit arc travelling around it. The same barrel
-reappears, quieter, behind the closing call to action.
-
-Elsewhere the page borrows the editor's own chrome rather than the usual landing
-page furniture: monospace labels where a panel would put them, hairline-divided
-grids instead of floating cards, tight corners, and a status-bar footer. The
-palette is the near-neutral grey of the application, with `#007cf9` — the blue of
-the logo's ring — as the only accent.
-
-Everything is defined once as custom properties in `app/assets/styles/_root.scss`.
-The design is dark-only, matching the editor's default shell.
-
-## Notes
-
-* The editor's own source is not public. What is open — and what the footer links
-  to — is this site, the [focale-editor](https://github.com/focale-editor)
-  organisation and the Dart packages at
-  [pub.dev/publishers/focale-editor.app](https://pub.dev/publishers/focale-editor.app).
-* Browser-language detection sends a French visitor from `/` to `/fr`. Because the
-  site is static, that redirect can only happen after hydration, so `/` shows
-  English for a moment and Vue logs a hydration mismatch in the console. Setting
-  `i18n.detectBrowserLanguage` to `false` in `nuxt.config.ts` trades the
-  convenience for a root page that always stays English.
-* OpenVue is at `1.0.0-rc.0`. It is a community continuation of PrimeVue 4 and
-  keeps its `primevue` configuration key, so PrimeVue's documentation still
-  applies — but it is a release candidate, and worth pinning until it settles.
