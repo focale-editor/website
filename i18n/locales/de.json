@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "home": {
+      "title": "Ein fortgeschrittener, lokaler Bildeditor",
+      "description": "Focale ist ein moderner Rasterbildeditor für Linux, Windows und macOS: Ebenen, Masken, nicht-destruktive Korrekturen, Filter und Ebeneneffekte, mit Unterstützung für Photoshop-Dateien. In Entwicklung — hinterlassen Sie Ihre Adresse, um von der ersten Alpha zu erfahren."
+    }
+  },
+  "common": {
+    "skipToContent": "Zum Inhalt springen"
+  },
+  "nav": {
+    "home": "Focale, zurück zur Startseite",
+    "primary": "Haupt",
+    "secondary": "Fußzeile",
+    "features": "Funktionen",
+    "preview": "Vorschau",
+    "roadmap": "Fahrplan",
+    "newsletter": "Benachrichtigen",
+    "notifyMe": "Benachrichtigen",
+    "language": "Sprache",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen"
+  },
+  "hero": {
+    "badge": "In Entwicklung · Alpha in Vorbereitung",
+    "title": "Ein fortgeschrittener Bildeditor, der vollständig",
+    "titleAccent": "auf Ihrem Rechner läuft.",
+    "subtitle": "Ebenen, Masken, nicht-destruktive Korrekturen, Filter und Ebeneneffekte — und die Photoshop-Dateien, die Sie bereits haben, öffnen sich sofort.",
+    "platformsLabel": "Verfügbar für"
+  },
+  "principles": {
+    "advanced": {
+      "title": "Ein fortgeschrittener Editor",
+      "description": "Ebenen und Gruppen, Masken, Füllmethoden, nicht-destruktive Korrekturen, Filter und ein vollständiger Stapel an Ebeneneffekten. Kein Betrachter mit angeschraubtem Pinsel."
+    },
+    "crossPlatform": {
+      "title": "Ein Editor, drei Systeme",
+      "description": "Derselbe Code zielt auf Linux, Windows und macOS, sodass ein Projekt unverändert zwischen ihnen wandert."
+    },
+    "photoshop": {
+      "title": "Versteht sich mit Photoshop",
+      "description": "Öffnet PSD-Dokumente, ABR-Pinsel, PAT-Muster und CSH-Eigenformen: Jahre an Arbeit und Vorgaben kommen mit."
+    }
+  },
+  "preview": {
+    "eyebrow": "Ein Blick auf den Editor",
+    "title": "Ein moderner Editor mit klarer, vertrauter Oberfläche.",
+    "description": "Focale behält die Aufteilung bei, die jeder ernsthafte Bildeditor teilt — Menüleiste, Dokument-Tabs, Werkzeugleiste, Ebenen- und Protokollpalette — und so ist vor der ersten Bearbeitung nichts neu zu lernen.",
+    "tag": "In Arbeit",
+    "alt": "Der Focale-Editor mit einem geöffneten Foto eines Polarlichts, mit Werkzeugleiste, Optionsleiste der Auswahl und Ebenenpalette.",
+    "caption": "Vorläufiges Bildschirmfoto aus einer Entwicklungsfassung. Die Oberfläche verändert sich noch.",
+    "notes": {
+      "menus": "Eine echte Menüleiste und Tastaturbefehle, dort wo Sie sie erwarten.",
+      "panels": "Ebenen, Kanäle, Pfade, Protokoll und Farbfelder in andockbaren Paletten.",
+      "canvas": "Eine Arbeitsfläche, die am Zeiger zoomt und sich mit dem Trackpad verschiebt."
+    }
+  },
+  "features": {
+    "eyebrow": "Funktionen",
+    "title": "Alles, was eine ernsthafte Bearbeitung verlangt.",
+    "description": "Daraus besteht Focale — und das meiste davon läuft bereits in der Entwicklungsfassung.",
+    "note": "Fast alles, was hier steht, funktioniert schon heute; der Rest kommt mit der Alpha. Bei dieser Fassung geht es um Stabilität und Auslieferung, nicht darum, diese Liste fertigzustellen.",
+    "items": {
+      "localFirst": {
+        "title": "Lokal von Grund auf",
+        "description": "Ihre Dokumente liegen auf Ihrer Festplatte. Focale öffnet, bearbeitet und speichert sie lokal und schickt Ihre Arbeit nirgendwohin."
+      },
+      "layers": {
+        "title": "Ebenen und Gruppen",
+        "description": "Rasterebenen, verschachtelte Gruppen und Textebenen, mit Umsortieren per Ziehen, Deckkraft, Füllmethoden, Sperren und Vorschaubildern in Echtzeit."
+      },
+      "nonDestructive": {
+        "title": "Nicht-destruktive Korrekturen",
+        "description": "Farbkorrekturen sitzen als erneut bearbeitbare, umsortierbare Eigenschaften auf einer Ebene und rühren die Ausgangspixel nie an — und lassen sich trotzdem dauerhaft einrechnen, wenn Sie es wollen."
+      },
+      "filters": {
+        "title": "Filter und Filtergalerie",
+        "description": "Die Familien Weichzeichnen, Verzerren, Rauschen, Vergröbern, Rendern, Scharfzeichnen und Stilisieren. Jeder zeigt eine Vorschau im echten Maßstab und lässt sich als eine einzige Bearbeitung rückgängig machen."
+      },
+      "layerEffects": {
+        "title": "Ebeneneffekte",
+        "description": "Abgeflachte Kante und Relief, Kontur, innere und äußere Schatten und Schein, Glanz, Farb-, Verlaufs- und Musterüberlagerung — aus dem Alphakanal der Ebene abgeleitet und beim Zeichnen zusammengesetzt, also bei jedem Zoom exakt."
+      },
+      "tools": {
+        "title": "Eine vollständige Werkzeugleiste",
+        "description": "Pinsel, Buntstift und Radiergummi, Kopierstempel, Weichzeichner, Scharfzeichner, Wischfinger, Abwedler, Nachbelichter und Schwamm, Füllwerkzeug, Verlauf, Text, Pipette und Auswahlwerkzeuge — mit einer gemeinsamen Engine und denselben Reglern."
+      },
+      "masks": {
+        "title": "Ebenenmasken",
+        "description": "Legen Sie eine Maske aus der aktuellen Auswahl an und bemalen, füllen oder verlaufen Sie sie dann, um genau so viel freizulegen, wie Sie möchten."
+      },
+      "formats": {
+        "title": "Öffnen, bearbeiten, exportieren",
+        "description": "PNG, JPEG, WebP, AVIF, JPEG XL, TIFF, BMP und PSD, herein wie hinaus, mit Skalierung, Seitenverhältnis-Sperre und Qualitätsregler — dazu .focale-Projekte für alles dazwischen. Die erweiterte Formatliste kommt mit der Alpha."
+      },
+      "recovery": {
+        "title": "Automatisches Speichern und Wiederherstellen",
+        "description": "Sicherungen liegen neben der Anwendung, nie über Ihrer Datei, und ein wiederhergestelltes Dokument öffnet sich ungespeichert, damit auf der Festplatte nichts versehentlich überschrieben wird."
+      }
+    }
+  },
+  "roadmap": {
+    "eyebrow": "Wo das Projekt steht",
+    "title": "Vier Schritte bis zur ersten Alpha.",
+    "description": "Focale entsteht offen, deshalb hier ein ehrliches Bild statt eines Erscheinungsdatums.",
+    "states": {
+      "done": "Fertig",
+      "inProgress": "In Arbeit",
+      "planned": "Geplant"
+    },
+    "items": {
+      "foundations": {
+        "title": "Ein tragfähiges Fundament",
+        "description": "Das Grundgerüst des Projekts und ein einfacher Bildeditor, der ohne Wackeln öffnet, bearbeitet und speichert."
+      },
+      "features": {
+        "title": "Die Funktionen aufbauen",
+        "description": "Ebenen, Werkzeuge, Auswahlen, Korrekturen, Filter und Ebeneneffekte — die Arbeit, die gerade jetzt läuft."
+      },
+      "debugging": {
+        "title": "Fehlersuche",
+        "description": "Aufspüren, was der Funktionsausbau hinterlassen hat, die Testabdeckung ausweiten und alle drei Systeme erproben."
+      },
+      "alpha": {
+        "title": "Erste öffentliche Alpha",
+        "description": "Eine herunterladbare Fassung. Hinterlassen Sie Ihre Adresse, dann erfahren Sie am Tag der Veröffentlichung davon."
+      }
+    }
+  },
+  "newsletter": {
+    "title": "Seien Sie bei der ersten Alpha dabei.",
+    "description": "Eine E-Mail, sobald die erste herunterladbare Fassung bereitsteht. Kein Newsletter, keine Produktmeldungen dazwischen.",
+    "label": "E-Mail-Adresse",
+    "placeholder": "sie{'@'}beispiel.de",
+    "submit": "Benachrichtigen",
+    "submitting": "Wird gesendet…",
+    "success": "Sie stehen auf der Liste. Wir schreiben einmal, an dem Tag, an dem die Alpha zum Download bereitsteht.",
+    "privacy": "Eine E-Mail zur Veröffentlichung, danach nichts mehr. Sie können sich jederzeit abmelden.",
+    "errors": {
+      "invalidEmail": "Das sieht nicht nach einer E-Mail-Adresse aus.",
+      "unavailable": "Anmeldungen sind derzeit nicht möglich. Bitte versuchen Sie es später erneut.",
+      "rateLimited": "Zu viele Versuche. Bitte warten Sie einen Moment und versuchen Sie es erneut.",
+      "network": "Die Anfrage konnte nicht gesendet werden. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut."
+    }
+  },
+  "footer": {
+    "tagline": "Ein fortgeschrittener, lokal arbeitender Rasterbildeditor für Linux, Windows und macOS.",
+    "copyright": "Copyright © {year} Hugo Delaunay, alle Rechte vorbehalten.",
+    "madeIn": "Made in Europe",
+    "sections": {
+      "product": "Produkt",
+      "openSource": "Open Source"
+    }
+  },
+  "error": {
+    "notFound": {
+      "title": "Diese Seite gibt es nicht.",
+      "description": "Der Link ist womöglich veraltet, oder die Seite wurde noch nicht geschrieben — diese Website wächst weiter, zusammen mit dem Editor."
+    },
+    "unexpected": {
+      "title": "Etwas ist schiefgelaufen.",
+      "description": "Die Seite konnte nicht angezeigt werden. Neu laden hilft meistens; wenn nicht, liegt das Problem bei uns."
+    },
+    "backHome": "Zurück zur Startseite"
+  }
+}

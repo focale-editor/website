@@ -1,0 +1,9 @@
+# Dependencies allowed to run their install scripts. Everything else is blocked
+# by pnpm, so a transitive package cannot execute code at install time.
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  unrs-resolver: true
+minimumReleaseAgeExclude:
+  - '@iconify-json/lucide@1.2.126'
+  - eslint@10.9.1

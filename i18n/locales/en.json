@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "home": {
+      "title": "An advanced local image editor",
+      "description": "Focale is a modern raster image editor for Linux, Windows and macOS: layers, masks, non-destructive adjustments, filters and layer effects, with support for Photoshop files. In development — leave your address to hear about the first alpha."
+    }
+  },
+  "common": {
+    "skipToContent": "Skip to content"
+  },
+  "nav": {
+    "home": "Focale, back to the home page",
+    "primary": "Main",
+    "secondary": "Footer",
+    "features": "Features",
+    "preview": "Preview",
+    "roadmap": "Roadmap",
+    "newsletter": "Get notified",
+    "notifyMe": "Get notified",
+    "language": "Language",
+    "openMenu": "Open the menu",
+    "closeMenu": "Close the menu"
+  },
+  "hero": {
+    "badge": "In development · alpha on the way",
+    "title": "An advanced image editor that runs",
+    "titleAccent": "entirely on your machine.",
+    "subtitle": "Layers, masks, non-destructive adjustments, filters and layer effects — and the Photoshop files you already own open straight away.",
+    "platformsLabel": "Available for"
+  },
+  "principles": {
+    "advanced": {
+      "title": "An advanced editor",
+      "description": "Layers and groups, masks, blend modes, non-destructive adjustments, filters and a full layer-effects stack. Not a viewer with a brush bolted on."
+    },
+    "crossPlatform": {
+      "title": "One editor, three systems",
+      "description": "The same codebase targets Linux, Windows and macOS, so a project moves between them untouched."
+    },
+    "photoshop": {
+      "title": "At home with Photoshop",
+      "description": "Opens PSD documents, ABR brushes, PAT patterns and CSH custom shapes, so years of work and presets come with you."
+    }
+  },
+  "preview": {
+    "eyebrow": "A look at the editor",
+    "title": "A modern editor with a clean, familiar interface.",
+    "description": "Focale keeps the layout every serious image editor shares — a menu bar, document tabs, a tool rail, layer and history panels — so there is nothing to relearn before the first edit.",
+    "tag": "Work in progress",
+    "alt": "The Focale editor with a photograph of an aurora open, showing the tool rail, the selection options bar and the layers panel.",
+    "caption": "Provisional screenshot from a development build. The interface is still changing.",
+    "notes": {
+      "menus": "A real menu bar and keyboard shortcuts, where you expect them.",
+      "panels": "Layers, channels, paths, history and swatches, in dockable panels.",
+      "canvas": "A canvas that zooms on the pointer and pans with the trackpad."
+    }
+  },
+  "features": {
+    "eyebrow": "Features",
+    "title": "Everything a serious editing session needs.",
+    "description": "The pieces below are what Focale is built out of — most of them already running in the development build.",
+    "note": "Almost everything listed here works today; the rest lands with the alpha. That release is about stability and packaging, not about finishing this list.",
+    "items": {
+      "localFirst": {
+        "title": "Local-first by design",
+        "description": "Documents live on your disk. Focale opens, edits and saves them locally, and never sends your work anywhere."
+      },
+      "layers": {
+        "title": "Layers and groups",
+        "description": "Raster layers, nested groups and text layers, with drag-to-reorder, opacity, blend modes, locking and live thumbnails."
+      },
+      "nonDestructive": {
+        "title": "Non-destructive adjustments",
+        "description": "Colour adjustments sit on a layer as re-editable, reorderable properties that never touch the source pixels — and can still be burnt in when you want them permanent."
+      },
+      "filters": {
+        "title": "Filters and a filter gallery",
+        "description": "Blur, distortion, noise, pixelation, render, sharpen and stylize families. Each previews at true scale and undoes as a single edit."
+      },
+      "layerEffects": {
+        "title": "Layer effects",
+        "description": "Bevel and emboss, stroke, inner and outer shadows and glows, satin, colour, gradient and pattern overlays — derived from the layer's alpha and composited at paint time, so they stay exact at any zoom."
+      },
+      "tools": {
+        "title": "A full tool rail",
+        "description": "Brush, pencil and eraser, clone stamp, blur, sharpen, smudge, dodge, burn and sponge, paint bucket, gradient, text, eyedropper and selection tools, sharing one engine and one set of controls."
+      },
+      "masks": {
+        "title": "Layer masks",
+        "description": "Add a mask from the current selection, then paint, fill or gradient it to reveal exactly as much as you want."
+      },
+      "formats": {
+        "title": "Open, edit, export",
+        "description": "PNG, JPEG, WebP, AVIF, JPEG XL, TIFF, BMP and PSD, in and out, with resizing, aspect-ratio locking and quality control — plus .focale projects for everything in between. The wider format list arrives with the alpha."
+      },
+      "recovery": {
+        "title": "Autosave and crash recovery",
+        "description": "Snapshots live beside the application, never on top of your file, and a recovered document opens unsaved so nothing on disk can be overwritten by accident."
+      }
+    }
+  },
+  "roadmap": {
+    "eyebrow": "Where the project stands",
+    "title": "Four steps to the first alpha.",
+    "description": "Focale is built in the open, so here is an honest picture rather than a release date.",
+    "states": {
+      "done": "Done",
+      "inProgress": "In progress",
+      "planned": "Planned"
+    },
+    "items": {
+      "foundations": {
+        "title": "Solid foundations",
+        "description": "The project's groundwork and a simple image editor that opens, edits and saves without falling over."
+      },
+      "features": {
+        "title": "Building the feature set",
+        "description": "Layers, tools, selections, adjustments, filters and layer effects — the work happening right now."
+      },
+      "debugging": {
+        "title": "Debugging",
+        "description": "Hunting down what the feature work left behind, widening test coverage and exercising all three systems."
+      },
+      "alpha": {
+        "title": "First public alpha",
+        "description": "A downloadable build. Leave your address and you will hear about it the day it ships."
+      }
+    }
+  },
+  "newsletter": {
+    "title": "Be there for the first alpha.",
+    "description": "One email when the first downloadable build is ready. No newsletter, no product updates in between.",
+    "label": "Email address",
+    "placeholder": "you{'@'}example.com",
+    "submit": "Notify me",
+    "submitting": "Sending…",
+    "success": "You are on the list. We will write once, the day the alpha can be downloaded.",
+    "privacy": "One email at launch, then nothing. You can unsubscribe at any time.",
+    "errors": {
+      "invalidEmail": "That does not look like an email address.",
+      "unavailable": "Sign-ups are not available right now. Please try again later.",
+      "rateLimited": "Too many attempts. Please wait a moment and try again.",
+      "network": "The request could not be sent. Check your connection and try again."
+    }
+  },
+  "footer": {
+    "tagline": "An advanced, local-first raster image editor for Linux, Windows and macOS.",
+    "copyright": "Copyright © {year} Hugo Delaunay, all rights reserved.",
+    "madeIn": "Made in Europe",
+    "sections": {
+      "product": "Product",
+      "openSource": "Open source"
+    }
+  },
+  "error": {
+    "notFound": {
+      "title": "This page does not exist.",
+      "description": "The link may be out of date, or the page may not have been written yet — this site is still growing alongside the editor."
+    },
+    "unexpected": {
+      "title": "Something went wrong.",
+      "description": "The page could not be displayed. Reloading usually helps; if it does not, the problem is on our side."
+    },
+    "backHome": "Back to the home page"
+  }
+}

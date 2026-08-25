@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "home": {
+      "title": "Un editor di immagini avanzato e locale",
+      "description": "Focale è un editor di immagini raster moderno per Linux, Windows e macOS: livelli, maschere, regolazioni non distruttive, filtri ed effetti di livello, con il supporto dei file di Photoshop. In sviluppo: lascia la tua email per sapere della prima alfa."
+    }
+  },
+  "common": {
+    "skipToContent": "Vai al contenuto"
+  },
+  "nav": {
+    "home": "Focale, torna alla home",
+    "primary": "Principale",
+    "secondary": "Piè di pagina",
+    "features": "Funzionalità",
+    "preview": "Anteprima",
+    "roadmap": "Tabella di marcia",
+    "newsletter": "Avvisami",
+    "notifyMe": "Avvisami",
+    "language": "Lingua",
+    "openMenu": "Apri il menu",
+    "closeMenu": "Chiudi il menu"
+  },
+  "hero": {
+    "badge": "In sviluppo · alfa in arrivo",
+    "title": "Un editor di immagini avanzato che gira",
+    "titleAccent": "interamente sulla tua macchina.",
+    "subtitle": "Livelli, maschere, regolazioni non distruttive, filtri ed effetti di livello, e i file di Photoshop che hai già si aprono subito.",
+    "platformsLabel": "Disponibile per"
+  },
+  "principles": {
+    "advanced": {
+      "title": "Un editor avanzato",
+      "description": "Livelli e gruppi, maschere, metodi di fusione, regolazioni non distruttive, filtri e una pila completa di effetti di livello. Non un visualizzatore con un pennello attaccato sopra."
+    },
+    "crossPlatform": {
+      "title": "Un editor, tre sistemi",
+      "description": "Lo stesso codice punta a Linux, Windows e macOS: un progetto passa dall'uno all'altro senza ritocchi."
+    },
+    "photoshop": {
+      "title": "Compatibile con Photoshop",
+      "description": "Apre documenti PSD, pennelli ABR, motivi PAT e forme personalizzate CSH: anni di lavoro e di preimpostazioni ti seguono."
+    }
+  },
+  "preview": {
+    "eyebrow": "Uno sguardo all'editor",
+    "title": "Un editor moderno, con un'interfaccia pulita e familiare.",
+    "description": "Focale mantiene la disposizione che accomuna ogni editor di immagini serio — barra dei menu, schede dei documenti, barra degli strumenti, pannelli dei livelli e della cronologia — così non c'è nulla da reimparare prima della prima modifica.",
+    "tag": "In lavorazione",
+    "alt": "L'editor Focale con aperta una fotografia di un'aurora, con la barra degli strumenti, la barra delle opzioni di selezione e il pannello dei livelli.",
+    "caption": "Schermata provvisoria, da una versione di sviluppo. L'interfaccia sta ancora cambiando.",
+    "notes": {
+      "menus": "Una vera barra dei menu e scorciatoie da tastiera, dove te le aspetti.",
+      "panels": "Livelli, canali, tracciati, cronologia e campioni, in pannelli agganciabili.",
+      "canvas": "Un'area di lavoro che ingrandisce sul puntatore e si sposta con il trackpad."
+    }
+  },
+  "features": {
+    "eyebrow": "Funzionalità",
+    "title": "Tutto ciò che serve a una vera sessione di ritocco.",
+    "description": "Ecco di che cosa è fatto Focale, e gran parte funziona già nella versione di sviluppo.",
+    "note": "Quasi tutto ciò che è elencato qui funziona già oggi; il resto arriva con l'alfa. Quella versione riguarda la stabilità e la distribuzione, non il completamento di questa lista.",
+    "items": {
+      "localFirst": {
+        "title": "Locale per scelta",
+        "description": "I documenti vivono sul tuo disco. Focale li apre, li modifica e li salva in locale, e non manda mai il tuo lavoro da nessuna parte."
+      },
+      "layers": {
+        "title": "Livelli e gruppi",
+        "description": "Livelli raster, gruppi annidati e livelli di testo, con riordino per trascinamento, opacità, metodi di fusione, blocco e miniature in tempo reale."
+      },
+      "nonDestructive": {
+        "title": "Regolazioni non distruttive",
+        "description": "Le regolazioni di colore si appoggiano a un livello come proprietà rimodificabili e riordinabili che non toccano mai i pixel originali, e restano comunque applicabili in modo definitivo quando lo desideri."
+      },
+      "filters": {
+        "title": "Filtri e galleria dei filtri",
+        "description": "Famiglie sfocatura, distorsione, disturbo, pixelizzazione, rendering, nitidezza e stilizzazione. Ognuno si vede in anteprima a scala reale e si annulla come una singola modifica."
+      },
+      "layerEffects": {
+        "title": "Effetti di livello",
+        "description": "Smusso e rilievo, traccia, ombre e bagliori interni ed esterni, raso, sovrapposizioni di colore, sfumatura e motivo: derivati dall'alfa del livello e composti al momento del disegno, quindi esatti a qualsiasi ingrandimento."
+      },
+      "tools": {
+        "title": "Una barra degli strumenti completa",
+        "description": "Pennello, matita e gomma, timbro clone, sfoca, contrasta, sfumino, scherma, brucia e spugna, secchiello, sfumatura, testo, contagocce e strumenti di selezione, con un unico motore e gli stessi comandi."
+      },
+      "masks": {
+        "title": "Maschere di livello",
+        "description": "Aggiungi una maschera dalla selezione corrente, poi dipingila, riempila o sfumala per rivelare esattamente quello che vuoi."
+      },
+      "formats": {
+        "title": "Apri, modifica, esporta",
+        "description": "PNG, JPEG, WebP, AVIF, JPEG XL, TIFF, BMP e PSD, in entrata e in uscita, con ridimensionamento, blocco delle proporzioni e controllo della qualità, più i progetti .focale per tutto il resto. L'elenco esteso di formati arriva con l'alfa."
+      },
+      "recovery": {
+        "title": "Salvataggio automatico e ripristino",
+        "description": "Le istantanee vivono accanto all'applicazione, mai sopra il tuo file, e un documento ripristinato si apre non salvato: nulla sul disco può essere sovrascritto per sbaglio."
+      }
+    }
+  },
+  "roadmap": {
+    "eyebrow": "A che punto è il progetto",
+    "title": "Quattro passi verso la prima alfa.",
+    "description": "Focale si costruisce alla luce del sole: ecco un quadro onesto invece di una data di uscita.",
+    "states": {
+      "done": "Fatto",
+      "inProgress": "In corso",
+      "planned": "Previsto"
+    },
+    "items": {
+      "foundations": {
+        "title": "Fondamenta solide",
+        "description": "Le basi del progetto e un editor di immagini semplice che apre, modifica e salva senza cedere."
+      },
+      "features": {
+        "title": "Costruire le funzionalità",
+        "description": "Livelli, strumenti, selezioni, regolazioni, filtri ed effetti di livello: il lavoro in corso proprio adesso."
+      },
+      "debugging": {
+        "title": "Debug",
+        "description": "Dare la caccia a ciò che il lavoro sulle funzionalità ha lasciato indietro, ampliare la copertura dei test e mettere alla prova tutti e tre i sistemi."
+      },
+      "alpha": {
+        "title": "Prima alfa pubblica",
+        "description": "Una versione scaricabile. Lascia la tua email e lo saprai il giorno stesso."
+      }
+    }
+  },
+  "newsletter": {
+    "title": "Ci sarai per la prima alfa.",
+    "description": "Una sola email quando la prima versione scaricabile sarà pronta. Nessuna newsletter, nessun aggiornamento nel frattempo.",
+    "label": "Indirizzo email",
+    "placeholder": "tu{'@'}esempio.com",
+    "submit": "Avvisami",
+    "submitting": "Invio…",
+    "success": "Sei nella lista. Ti scriveremo una volta sola, il giorno in cui l'alfa sarà scaricabile.",
+    "privacy": "Una email all'uscita, poi più nulla. Puoi cancellarti quando vuoi.",
+    "errors": {
+      "invalidEmail": "Questo non sembra un indirizzo email.",
+      "unavailable": "Le iscrizioni non sono disponibili al momento. Riprova più tardi.",
+      "rateLimited": "Troppi tentativi. Aspetta un momento e riprova.",
+      "network": "Non è stato possibile inviare la richiesta. Controlla la connessione e riprova."
+    }
+  },
+  "footer": {
+    "tagline": "Un editor di immagini raster avanzato e locale, per Linux, Windows e macOS.",
+    "copyright": "Copyright © {year} Hugo Delaunay, tutti i diritti riservati.",
+    "madeIn": "Made in Europe",
+    "sections": {
+      "product": "Prodotto",
+      "openSource": "Open source"
+    }
+  },
+  "error": {
+    "notFound": {
+      "title": "Questa pagina non esiste.",
+      "description": "Il collegamento potrebbe essere scaduto, oppure la pagina non è ancora stata scritta: questo sito cresce insieme all'editor."
+    },
+    "unexpected": {
+      "title": "Qualcosa è andato storto.",
+      "description": "Non è stato possibile mostrare la pagina. Di solito basta ricaricare; se non basta, il problema è dalla nostra parte."
+    },
+    "backHome": "Torna alla home"
+  }
+}

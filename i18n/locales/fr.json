@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "home": {
+      "title": "Un éditeur d'images avancé et local",
+      "description": "Focale est un éditeur d'images matricielles moderne pour Linux, Windows et macOS : calques, masques, réglages non destructifs, filtres et effets de calque, avec la prise en charge des fichiers Photoshop. En développement — laissez votre adresse pour être prévenu de la première alpha."
+    }
+  },
+  "common": {
+    "skipToContent": "Aller au contenu"
+  },
+  "nav": {
+    "home": "Focale, retour à l'accueil",
+    "primary": "Principale",
+    "secondary": "Pied de page",
+    "features": "Fonctionnalités",
+    "preview": "Aperçu",
+    "roadmap": "Feuille de route",
+    "newsletter": "Être prévenu",
+    "notifyMe": "Être prévenu",
+    "language": "Langue",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
+  },
+  "hero": {
+    "badge": "En développement · alpha à venir",
+    "title": "Un éditeur d'images avancé qui fonctionne",
+    "titleAccent": "entièrement sur votre machine.",
+    "subtitle": "Calques, masques, réglages non destructifs, filtres et effets de calque — et les fichiers Photoshop que vous possédez déjà s'ouvrent directement.",
+    "platformsLabel": "Disponible pour"
+  },
+  "principles": {
+    "advanced": {
+      "title": "Un éditeur avancé",
+      "description": "Calques et groupes, masques, modes de fusion, réglages non destructifs, filtres et une pile complète d'effets de calque. Pas une visionneuse à laquelle on aurait ajouté un pinceau."
+    },
+    "crossPlatform": {
+      "title": "Un éditeur, trois systèmes",
+      "description": "Le même code cible Linux, Windows et macOS : un projet passe de l'un à l'autre sans retouche."
+    },
+    "photoshop": {
+      "title": "Compatible Photoshop",
+      "description": "Ouvre les documents PSD, les brosses ABR, les motifs PAT et les formes personnalisées CSH : des années de travail et de préréglages vous suivent."
+    }
+  },
+  "preview": {
+    "eyebrow": "Un aperçu de l'éditeur",
+    "title": "Un éditeur moderne, à l'interface propre et familière.",
+    "description": "Focale conserve l'agencement que partagent tous les éditeurs d'images sérieux — barre de menus, onglets de documents, barre d'outils, panneaux de calques et d'historique — et il n'y a donc rien à réapprendre avant la première retouche.",
+    "tag": "En cours",
+    "alt": "L'éditeur Focale, une photographie d'aurore boréale ouverte, avec la barre d'outils, la barre d'options de sélection et le panneau des calques.",
+    "caption": "Capture provisoire, issue d'une version de développement. L'interface évolue encore.",
+    "notes": {
+      "menus": "Une vraie barre de menus et des raccourcis clavier, là où vous les attendez.",
+      "panels": "Calques, couches, tracés, historique et nuancier, dans des panneaux ancrables.",
+      "canvas": "Un canevas qui zoome sur le pointeur et se déplace au pavé tactile."
+    }
+  },
+  "features": {
+    "eyebrow": "Fonctionnalités",
+    "title": "Tout ce qu'une vraie séance de retouche demande.",
+    "description": "Voici ce dont Focale est fait — l'essentiel fonctionnant déjà dans la version de développement.",
+    "note": "Presque tout ce qui est listé ici fonctionne aujourd'hui ; le reste arrive avec l'alpha. Cette version porte sur la stabilité et l'empaquetage, pas sur l'achèvement de cette liste.",
+    "items": {
+      "localFirst": {
+        "title": "Local d'abord, par conception",
+        "description": "Vos documents vivent sur votre disque. Focale les ouvre, les modifie et les enregistre localement, et n'envoie jamais votre travail où que ce soit."
+      },
+      "layers": {
+        "title": "Calques et groupes",
+        "description": "Calques matriciels, groupes imbriqués et calques de texte, avec réorganisation par glisser-déposer, opacité, modes de fusion, verrouillage et vignettes en direct."
+      },
+      "nonDestructive": {
+        "title": "Réglages non destructifs",
+        "description": "Les réglages colorimétriques se posent sur un calque comme des propriétés ré-éditables et réordonnables qui ne touchent jamais les pixels d'origine — et restent applicables définitivement quand vous le souhaitez."
+      },
+      "filters": {
+        "title": "Filtres et galerie de filtres",
+        "description": "Familles flou, distorsion, bruit, pixellisation, rendu, netteté et esthétiques. Chacun s'aperçoit à l'échelle réelle et s'annule en une seule action."
+      },
+      "layerEffects": {
+        "title": "Effets de calque",
+        "description": "Biseautage et estampage, contour, ombres et lueurs internes et externes, satin, incrustations de couleur, de dégradé et de motif — dérivés de l'alpha du calque et composités au moment du rendu, donc exacts à n'importe quel zoom."
+      },
+      "tools": {
+        "title": "Une barre d'outils complète",
+        "description": "Pinceau, crayon et gomme, tampon de duplication, flou, netteté, doigt, densité plus et moins, éponge, pot de peinture, dégradé, texte, pipette et outils de sélection, partageant un même moteur et les mêmes réglages."
+      },
+      "masks": {
+        "title": "Masques de calque",
+        "description": "Ajoutez un masque depuis la sélection en cours, puis peignez-le, remplissez-le ou dégradez-le pour révéler exactement ce que vous voulez."
+      },
+      "formats": {
+        "title": "Ouvrir, modifier, exporter",
+        "description": "PNG, JPEG, WebP, AVIF, JPEG XL, TIFF, BMP et PSD, à l'entrée comme à la sortie, avec redimensionnement, verrouillage des proportions et contrôle de la qualité — et les projets .focale pour tout ce qu'il y a entre les deux. La liste élargie de formats arrive avec l'alpha."
+      },
+      "recovery": {
+        "title": "Sauvegarde et récupération après plantage",
+        "description": "Les instantanés vivent à côté de l'application, jamais par-dessus votre fichier, et un document récupéré s'ouvre non enregistré : rien sur le disque ne peut être écrasé par accident."
+      }
+    }
+  },
+  "roadmap": {
+    "eyebrow": "Où en est le projet",
+    "title": "Quatre étapes jusqu'à la première alpha.",
+    "description": "Focale se construit à découvert : voici un état des lieux honnête plutôt qu'une date de sortie.",
+    "states": {
+      "done": "Terminé",
+      "inProgress": "En cours",
+      "planned": "Prévu"
+    },
+    "items": {
+      "foundations": {
+        "title": "Une base saine",
+        "description": "Les fondations du projet et un éditeur d'images simple qui ouvre, modifie et enregistre sans broncher."
+      },
+      "features": {
+        "title": "Ajout des fonctionnalités",
+        "description": "Calques, outils, sélections, réglages, filtres et effets de calque — le travail en cours aujourd'hui."
+      },
+      "debugging": {
+        "title": "Débogage",
+        "description": "Traquer ce que l'ajout de fonctionnalités a laissé derrière lui, étendre la couverture de tests et éprouver les trois systèmes."
+      },
+      "alpha": {
+        "title": "Première alpha publique",
+        "description": "Une version téléchargeable. Laissez votre adresse et vous serez prévenu le jour de sa sortie."
+      }
+    }
+  },
+  "newsletter": {
+    "title": "Soyez là pour la première alpha.",
+    "description": "Un seul courriel, quand la première version téléchargeable sera prête. Pas de lettre d'information, pas d'annonces entre-temps.",
+    "label": "Adresse électronique",
+    "placeholder": "vous{'@'}exemple.com",
+    "submit": "Me prévenir",
+    "submitting": "Envoi…",
+    "success": "Vous êtes sur la liste. Nous vous écrirons une fois, le jour où l'alpha sera téléchargeable.",
+    "privacy": "Un courriel à la sortie, puis plus rien. Vous pouvez vous désinscrire à tout moment.",
+    "errors": {
+      "invalidEmail": "Cela ne ressemble pas à une adresse électronique.",
+      "unavailable": "Les inscriptions ne sont pas disponibles pour le moment. Réessayez plus tard.",
+      "rateLimited": "Trop de tentatives. Patientez un instant puis réessayez.",
+      "network": "La demande n'a pas pu être envoyée. Vérifiez votre connexion et réessayez."
+    }
+  },
+  "footer": {
+    "tagline": "Un éditeur d'images matricielles avancé et local d'abord, pour Linux, Windows et macOS.",
+    "copyright": "Copyright © {year} Hugo Delaunay, tous droits réservés.",
+    "madeIn": "Made in Europe",
+    "sections": {
+      "product": "Produit",
+      "openSource": "Open source"
+    }
+  },
+  "error": {
+    "notFound": {
+      "title": "Cette page n'existe pas.",
+      "description": "Le lien est peut-être périmé, ou la page n'a pas encore été écrite — ce site grandit encore en même temps que l'éditeur."
+    },
+    "unexpected": {
+      "title": "Quelque chose s'est mal passé.",
+      "description": "La page n'a pas pu être affichée. Recharger suffit généralement ; sinon, le problème vient de chez nous."
+    },
+    "backHome": "Retour à l'accueil"
+  }
+}

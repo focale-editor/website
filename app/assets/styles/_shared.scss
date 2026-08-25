@@ -1,0 +1,6 @@
+// Ambient stylesheet injected into every SCSS block by the Vite preprocessor
+// options, so components can use the tokens and mixins without importing them.
+// It must only ever forward declarations: anything that emits CSS here would be
+// duplicated once per style block.
+@forward 'tokens';
+@forward 'mixins';

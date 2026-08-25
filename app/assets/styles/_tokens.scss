@@ -1,0 +1,29 @@
+// Brand palette, taken from the application itself: the logo sits on a dark
+// navy plate (#181f33) and the shutter ring fades into #007cf9. The surfaces
+// around them follow the editor's own chrome, which is a near-neutral grey —
+// keeping the site closer to a tool than to a product page.
+$brand-navy: #181f33;
+$brand-blue: #007cf9;
+$brand-blue-bright: #3d9dff;
+$brand-cyan: #0ab7ff;
+$brand-ink: #edecec;
+$neutral-980: #08090c;
+$neutral-950: #0b0c10;
+$neutral-900: #0f1116;
+$neutral-850: #13151c;
+$neutral-800: #171a22;
+$neutral-750: #1c2029;
+$neutral-700: #232733;
+$neutral-600: #2e3341;
+$neutral-500: #3d4353;
+$neutral-400: #5b6274;
+$neutral-300: #8b93a6;
+$neutral-200: #b9c0cf;
+$neutral-100: #e6e9ef;
+$breakpoint-sm: 30rem; //  480px
+$breakpoint-md: 48rem; //  768px
+$breakpoint-lg: 64rem; // 1024px
+$breakpoint-xl: 80rem; // 1280px
+
+$content-width: 74rem;
+$content-width-narrow: 44rem;

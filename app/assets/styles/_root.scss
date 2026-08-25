@@ -1,0 +1,46 @@
+@use 'sass:color';
+@use 'tokens' as t;
+
+// Everything a component needs at runtime is mirrored as a custom property so
+// a second colour scheme only has to redefine this block.
+:root {
+  --color-canvas: #{t.$neutral-950};
+  --color-canvas-raised: #{t.$neutral-900};
+  --color-panel: #{t.$neutral-850};
+  --color-panel-strong: #{t.$neutral-800};
+  --color-panel-hover: #{t.$neutral-750};
+  --color-line: #{rgba(#3d4353, 0.5)};
+  --color-line-strong: #{rgba(#5b6274, 0.62)};
+  --color-text: #{t.$neutral-100};
+  --color-text-muted: #{t.$neutral-300};
+  --color-text-subtle: #{t.$neutral-400};
+  --color-accent: #{t.$brand-blue};
+  --color-accent-bright: #{t.$brand-blue-bright};
+  --color-accent-contrast: #fff;
+  --color-accent-soft: #{rgba(#007cf9, 0.12)};
+  --color-accent-line: #{rgba(#007cf9, 0.4)};
+  --color-accent-ring: #{rgba(#3d9dff, 0.6)};
+  --color-success: #3ddc97;
+  --color-danger: #ff6b6b;
+  --font-display: 'Space Grotesk', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  // The editor's own chrome is barely rounded, so the site keeps corners tight
+  // rather than reaching for the pill shapes every landing page shares.
+  --radius-xs: 0.1875rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.625rem;
+  --radius-full: 999rem;
+  --shadow-panel: 0 1px 0 #{rgba(#fff, 0.03)} inset;
+  --shadow-window: 0 40px 90px -40px #{rgba(#000, 0.9)};
+  --header-height: 3.75rem;
+  --section-gap: clamp(3.5rem, 7vw, 6.25rem);
+
+  // Transparency checkerboard, the one motif every image editor shares.
+  --checker: repeating-conic-gradient(
+    #{rgba(#fff, 0.028)} 0% 25%,
+    transparent 0% 50%
+  ) 0 0 / 16px 16px;
+}

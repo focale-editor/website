@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "home": {
+      "title": "Un editor de imágenes avanzado y local",
+      "description": "Focale es un editor de imágenes de mapa de bits moderno para Linux, Windows y macOS: capas, máscaras, ajustes no destructivos, filtros y efectos de capa, con compatibilidad con los archivos de Photoshop. En desarrollo: deja tu correo para enterarte de la primera alfa."
+    }
+  },
+  "common": {
+    "skipToContent": "Ir al contenido"
+  },
+  "nav": {
+    "home": "Focale, volver al inicio",
+    "primary": "Principal",
+    "secondary": "Pie de página",
+    "features": "Funciones",
+    "preview": "Vista previa",
+    "roadmap": "Hoja de ruta",
+    "newsletter": "Avísame",
+    "notifyMe": "Avísame",
+    "language": "Idioma",
+    "openMenu": "Abrir el menú",
+    "closeMenu": "Cerrar el menú"
+  },
+  "hero": {
+    "badge": "En desarrollo · alfa en camino",
+    "title": "Un editor de imágenes avanzado que funciona",
+    "titleAccent": "enteramente en tu máquina.",
+    "subtitle": "Capas, máscaras, ajustes no destructivos, filtros y efectos de capa, y los archivos de Photoshop que ya tienes se abren directamente.",
+    "platformsLabel": "Disponible para"
+  },
+  "principles": {
+    "advanced": {
+      "title": "Un editor avanzado",
+      "description": "Capas y grupos, máscaras, modos de fusión, ajustes no destructivos, filtros y una pila completa de efectos de capa. No es un visor con un pincel añadido."
+    },
+    "crossPlatform": {
+      "title": "Un editor, tres sistemas",
+      "description": "El mismo código apunta a Linux, Windows y macOS, así que un proyecto pasa de uno a otro sin retoques."
+    },
+    "photoshop": {
+      "title": "Compatible con Photoshop",
+      "description": "Abre documentos PSD, pinceles ABR, motivos PAT y formas personalizadas CSH: años de trabajo y de preajustes te acompañan."
+    }
+  },
+  "preview": {
+    "eyebrow": "Un vistazo al editor",
+    "title": "Un editor moderno, con una interfaz limpia y familiar.",
+    "description": "Focale mantiene la disposición que comparten todos los editores de imágenes serios —barra de menús, pestañas de documento, barra de herramientas, paneles de capas e historial—, así que no hay nada que reaprender antes de la primera edición.",
+    "tag": "En curso",
+    "alt": "El editor Focale con una fotografía de una aurora abierta, mostrando la barra de herramientas, la barra de opciones de selección y el panel de capas.",
+    "caption": "Captura provisional de una versión de desarrollo. La interfaz aún está cambiando.",
+    "notes": {
+      "menus": "Una barra de menús de verdad y atajos de teclado, donde los esperas.",
+      "panels": "Capas, canales, trazados, historial y muestras, en paneles acoplables.",
+      "canvas": "Un lienzo que amplía sobre el puntero y se desplaza con el panel táctil."
+    }
+  },
+  "features": {
+    "eyebrow": "Funciones",
+    "title": "Todo lo que pide una sesión de edición de verdad.",
+    "description": "Esto es de lo que está hecho Focale, y la mayor parte ya funciona en la versión de desarrollo.",
+    "note": "Casi todo lo que aparece aquí funciona hoy; el resto llega con la alfa. Esa versión trata de estabilidad y empaquetado, no de terminar esta lista.",
+    "items": {
+      "localFirst": {
+        "title": "Local por diseño",
+        "description": "Tus documentos viven en tu disco. Focale los abre, los edita y los guarda en local, y nunca envía tu trabajo a ninguna parte."
+      },
+      "layers": {
+        "title": "Capas y grupos",
+        "description": "Capas de mapa de bits, grupos anidados y capas de texto, con reordenación arrastrando, opacidad, modos de fusión, bloqueo y miniaturas en vivo."
+      },
+      "nonDestructive": {
+        "title": "Ajustes no destructivos",
+        "description": "Los ajustes de color se posan sobre una capa como propiedades reeditables y reordenables que nunca tocan los píxeles de origen, y aun así pueden aplicarse de forma definitiva cuando lo quieras."
+      },
+      "filters": {
+        "title": "Filtros y galería de filtros",
+        "description": "Familias de desenfoque, distorsión, ruido, pixelado, render, enfoque y estilización. Cada uno se previsualiza a escala real y se deshace como una sola edición."
+      },
+      "layerEffects": {
+        "title": "Efectos de capa",
+        "description": "Bisel y relieve, trazo, sombras y resplandores internos y externos, satinado, superposiciones de color, degradado y motivo: derivados del alfa de la capa y compuestos al dibujar, así que siguen siendo exactos a cualquier zoom."
+      },
+      "tools": {
+        "title": "Una barra de herramientas completa",
+        "description": "Pincel, lápiz y borrador, tampón de clonar, desenfocar, enfocar, dedo, sobreexponer, subexponer y esponja, bote de pintura, degradado, texto, cuentagotas y herramientas de selección, compartiendo un único motor y los mismos controles."
+      },
+      "masks": {
+        "title": "Máscaras de capa",
+        "description": "Añade una máscara a partir de la selección actual y después píntala, rellénala o degrádala para revelar exactamente lo que quieras."
+      },
+      "formats": {
+        "title": "Abrir, editar, exportar",
+        "description": "PNG, JPEG, WebP, AVIF, JPEG XL, TIFF, BMP y PSD, tanto de entrada como de salida, con redimensionado, bloqueo de proporciones y control de calidad, además de proyectos .focale para todo lo demás. La lista ampliada de formatos llega con la alfa."
+      },
+      "recovery": {
+        "title": "Autoguardado y recuperación",
+        "description": "Las instantáneas viven junto a la aplicación, nunca encima de tu archivo, y un documento recuperado se abre sin guardar, de modo que nada del disco puede sobrescribirse por accidente."
+      }
+    }
+  },
+  "roadmap": {
+    "eyebrow": "Cómo va el proyecto",
+    "title": "Cuatro pasos hasta la primera alfa.",
+    "description": "Focale se construye a la vista de todos, así que aquí va un estado honesto en lugar de una fecha de lanzamiento.",
+    "states": {
+      "done": "Hecho",
+      "inProgress": "En curso",
+      "planned": "Previsto"
+    },
+    "items": {
+      "foundations": {
+        "title": "Bases sólidas",
+        "description": "Los cimientos del proyecto y un editor de imágenes sencillo que abre, edita y guarda sin fallar."
+      },
+      "features": {
+        "title": "Construir las funciones",
+        "description": "Capas, herramientas, selecciones, ajustes, filtros y efectos de capa: el trabajo que está ocurriendo ahora mismo."
+      },
+      "debugging": {
+        "title": "Depuración",
+        "description": "Cazar lo que el trabajo de funciones dejó atrás, ampliar la cobertura de pruebas y poner a prueba los tres sistemas."
+      },
+      "alpha": {
+        "title": "Primera alfa pública",
+        "description": "Una versión descargable. Deja tu correo y te avisaremos el día que salga."
+      }
+    }
+  },
+  "newsletter": {
+    "title": "No te pierdas la primera alfa.",
+    "description": "Un solo correo cuando la primera versión descargable esté lista. Sin boletín ni novedades entre medias.",
+    "label": "Dirección de correo",
+    "placeholder": "tu{'@'}ejemplo.com",
+    "submit": "Avísame",
+    "submitting": "Enviando…",
+    "success": "Ya estás en la lista. Te escribiremos una vez, el día que la alfa se pueda descargar.",
+    "privacy": "Un correo en el lanzamiento y nada más. Puedes darte de baja cuando quieras.",
+    "errors": {
+      "invalidEmail": "Esto no parece una dirección de correo.",
+      "unavailable": "Las suscripciones no están disponibles ahora mismo. Inténtalo más tarde.",
+      "rateLimited": "Demasiados intentos. Espera un momento y vuelve a probar.",
+      "network": "No se pudo enviar la solicitud. Comprueba tu conexión e inténtalo de nuevo."
+    }
+  },
+  "footer": {
+    "tagline": "Un editor de imágenes de mapa de bits avanzado y local, para Linux, Windows y macOS.",
+    "copyright": "Copyright © {year} Hugo Delaunay, todos los derechos reservados.",
+    "madeIn": "Made in Europe",
+    "sections": {
+      "product": "Producto",
+      "openSource": "Código abierto"
+    }
+  },
+  "error": {
+    "notFound": {
+      "title": "Esta página no existe.",
+      "description": "Puede que el enlace esté caducado o que la página aún no se haya escrito: este sitio sigue creciendo junto al editor."
+    },
+    "unexpected": {
+      "title": "Algo ha salido mal.",
+      "description": "No se ha podido mostrar la página. Recargar suele bastar; si no, el problema es nuestro."
+    },
+    "backHome": "Volver al inicio"
+  }
+}
