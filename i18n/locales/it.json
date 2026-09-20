@@ -31,7 +31,7 @@
   "principles": {
     "advanced": {
       "title": "Un editor avanzato",
-      "description": "Livelli e gruppi, maschere, metodi di fusione, regolazioni non distruttive, filtri e una pila completa di effetti di livello. Non un visualizzatore con un pennello attaccato sopra."
+      "description": "Sviluppo RAW, livelli e maschere, oggetti avanzati, regolazioni non distruttive e automazione: strumenti per costruire un'immagine e rivedere le tue scelte."
     },
     "crossPlatform": {
       "title": "Un editor, tre sistemi",
@@ -41,6 +41,13 @@
       "title": "Compatibile con Photoshop",
       "description": "Apre documenti PSD, pennelli ABR, motivi PAT e forme personalizzate CSH: anni di lavoro e di preimpostazioni ti seguono."
     }
+  },
+  "origins": {
+    "title": "Perché è nato Focale",
+    "need": "Focale è nato da un bisogno molto concreto: ritoccare le mie foto su Linux con un editor avanzato, locale e piacevole da usare. Non trovavo uno strumento adatto al mio modo di lavorare.",
+    "alternatives": "Tra quelli che avevo provato, KolourPaint era troppo semplice per le mie esigenze, Krita troppo orientato al disegno e Photopea pensato soprattutto per il web, con pubblicità. GIMP, invece, mi sembrava complicato da imparare.",
+    "linux": "Photoshop e Affinity non erano pensati per Linux. Per me, usarli sul mio sistema significava ricorrere a una macchina virtuale per Photoshop o a Wine per Affinity.",
+    "vision": "Ho quindi iniziato a costruire l'editor che mi mancava. Focale è nato su Linux ed è pensato anche per Windows e macOS, con lo stesso obiettivo: strumenti di ritocco avanzati, un'interfaccia familiare e immagini che restano sulla tua macchina."
   },
   "preview": {
     "eyebrow": "Uno sguardo all'editor",
@@ -58,8 +65,8 @@
   "features": {
     "eyebrow": "Funzionalità",
     "title": "Tutto ciò che serve a una vera sessione di ritocco.",
-    "description": "Ecco di che cosa è fatto Focale, e gran parte funziona già nella versione di sviluppo.",
-    "note": "Quasi tutto ciò che è elencato qui funziona già oggi; il resto arriva con l'alfa. Quella versione riguarda la stabilità e la distribuzione, non il completamento di questa lista.",
+    "description": "Queste funzionalità sono integrate nella versione di sviluppo. Focale entra ora nella fase di debug e stabilizzazione.",
+    "note": "La prima alfa pubblica deve ancora arrivare. Proseguono i test di stabilità, compatibilità dei formati e funzionamento sui tre sistemi.",
     "items": {
       "localFirst": {
         "title": "Locale per scelta",
@@ -67,42 +74,68 @@
       },
       "layers": {
         "title": "Livelli e gruppi",
-        "description": "Livelli raster, gruppi annidati e livelli di testo, con riordino per trascinamento, opacità, metodi di fusione, blocco e miniature in tempo reale."
+        "description": "Livelli raster, di testo, forma, riempimento e regolazione, gruppi annidati e maschere di ritaglio. Organizzali trascinando, con metodi di fusione, blocco e miniature in tempo reale."
       },
       "nonDestructive": {
         "title": "Regolazioni non distruttive",
-        "description": "Le regolazioni di colore si appoggiano a un livello come proprietà rimodificabili e riordinabili che non toccano mai i pixel originali, e restano comunque applicabili in modo definitivo quando lo desideri."
+        "description": "Valori tonali, curve, esposizione, bilanciamento colore e tabelle di consultazione: usa le regolazioni supportate in pile modificabili o livelli di regolazione, preservando i pixel originali."
       },
-      "filters": {
-        "title": "Filtri e galleria dei filtri",
-        "description": "Famiglie sfocatura, distorsione, disturbo, pixelizzazione, rendering, nitidezza e stilizzazione. Ognuno si vede in anteprima a scala reale e si annulla come una singola modifica."
+      "smartObjects": {
+        "title": "Oggetti e filtri avanzati",
+        "description": "Incorpora o collega sorgenti, modificane il contenuto e applica trasformazioni e filtri modificabili. Aggiorna un file collegato o crea una copia indipendente quando serve."
       },
-      "layerEffects": {
-        "title": "Effetti di livello",
-        "description": "Smusso e rilievo, traccia, ombre e bagliori interni ed esterni, raso, sovrapposizioni di colore, sfumatura e motivo: derivati dall'alfa del livello e composti al momento del disegno, quindi esatti a qualsiasi ingrandimento."
+      "raw": {
+        "title": "Sviluppo RAW",
+        "description": "Uno spazio dedicato con bilanciamento del bianco, esposizione, curve, riduzione del rumore, correzioni obiettivo e regolazioni locali. Usa questi controlli anche sui livelli con il filtro Camera Raw."
+      },
+      "colorManagement": {
+        "title": "Colore e alta precisione",
+        "description": "Documenti RGB o CMYK a 8, 16 o 32 bit per canale, con assegnazione e conversione dei profili ICC. I progetti .focale conservano i dati raster nel metodo colore e nella precisione originali."
       },
       "tools": {
-        "title": "Una barra degli strumenti completa",
-        "description": "Pennello, matita e gomma, timbro clone, sfoca, contrasta, sfumino, scherma, brucia e spugna, secchiello, sfumatura, testo, contagocce e strumenti di selezione, con un unico motore e gli stessi comandi."
+        "title": "Pittura e ritocco",
+        "description": "Pennelli personalizzabili, pennello miscela colori, gomme, timbri, strumenti correttivi, toppa e spostamento in base al contenuto. Completa i ritocchi con ritaglio, trasformazioni, sfumature e strumenti scherma e brucia."
       },
       "masks": {
-        "title": "Maschere di livello",
-        "description": "Aggiungi una maschera dalla selezione corrente, poi dipingila, riempila o sfumala per rivelare esattamente quello che vuoi."
+        "title": "Selezioni e maschere",
+        "description": "Lazo libero, poligonale e magnetico, bacchetta magica, selezione rapida e pennello di selezione. Combina le selezioni e affina le aree visibili con maschere dipinte o vettoriali."
+      },
+      "vector": {
+        "title": "Testo, tracciati e forme",
+        "description": "Testo modificabile, penna e penna curvatura, punti di ancoraggio e forme personalizzate. Crea livelli forma con riempimento e traccia, oppure converti i tracciati in selezioni."
+      },
+      "filters": {
+        "title": "Filtri e galleria filtri",
+        "description": "Sfocatura, distorsione, rumore, nitidezza ed effetti artistici, con anteprima e annullamento. Combina gli effetti nella galleria e usa i filtri supportati in una pila di filtri avanzati modificabile."
+      },
+      "layerEffects": {
+        "title": "Effetti e stili di livello",
+        "description": "Smusso, traccia, ombre, bagliori, raso e sovrapposizioni di colore, sfumatura o motivo. Riutilizza le combinazioni con gli stili Focale e l'importazione ed esportazione di librerie Photoshop ASL."
+      },
+      "automation": {
+        "title": "Azioni ed elaborazione in serie",
+        "description": "Registra e riproduci sequenze di operazioni, poi condividile come file .faction. Elabora una cartella o i documenti aperti con opzioni di esportazione e denominazione dei file."
+      },
+      "animation": {
+        "title": "GIF animate modificabili",
+        "description": "Apri una GIF come fotogrammi modificabili, regola durata e visibilità e visualizza l'anteprima in ciclo. Conserva l'animazione nel progetto .focale ed esportala in GIF."
       },
       "formats": {
         "title": "Apri, modifica, esporta",
-        "description": "PNG, JPEG, WebP, AVIF, JPEG XL, TIFF, BMP e PSD, in entrata e in uscita, con ridimensionamento, blocco delle proporzioni e controllo della qualità, più i progetti .focale per tutto il resto. L'elenco esteso di formati arriva con l'alfa."
+        "description": "PNG, JPEG, WebP, AVIF, HEIF/HEIC, JPEG XL, TIFF, BMP, QOI, TGA, GIF e OpenEXR, oltre a PSD/PSB con livelli. Esporta con ridimensionamento e opzioni adatte a ogni formato."
       },
       "recovery": {
         "title": "Salvataggio automatico e ripristino",
         "description": "Le istantanee vivono accanto all'applicazione, mai sopra il tuo file, e un documento ripristinato si apre non salvato: nulla sul disco può essere sovrascritto per sbaglio."
       }
-    }
+    },
+    "showLess": "Mostra meno funzionalità",
+    "showMore": "Altre funzionalità"
   },
   "roadmap": {
     "eyebrow": "A che punto è il progetto",
     "title": "Quattro passi verso la prima alfa.",
-    "description": "Focale si costruisce alla luce del sole: ecco un quadro onesto invece di una data di uscita.",
+    "description": "Fase 3 di 4: le funzionalità sono integrate. Il lavoro si concentra ora su correzioni, prestazioni e verifiche prima dell'alfa pubblica.",
     "states": {
       "done": "Fatto",
       "inProgress": "In corso",
@@ -115,11 +148,11 @@
       },
       "features": {
         "title": "Costruire le funzionalità",
-        "description": "Livelli, strumenti, selezioni, regolazioni, filtri ed effetti di livello: il lavoro in corso proprio adesso."
+        "description": "Livelli, ritocco, sviluppo RAW, oggetti avanzati, animazione e automazione sono integrati nella versione di sviluppo."
       },
       "debugging": {
-        "title": "Debug",
-        "description": "Dare la caccia a ciò che il lavoro sulle funzionalità ha lasciato indietro, ampliare la copertura dei test e mettere alla prova tutti e tre i sistemi."
+        "title": "Debug e stabilizzazione",
+        "description": "Correggere i difetti, migliorare le prestazioni e verificare file, strumenti e installazioni su Linux, Windows e macOS."
       },
       "alpha": {
         "title": "Prima alfa pubblica",

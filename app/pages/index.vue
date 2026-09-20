@@ -11,6 +11,7 @@ usePageSeo(() => ({
 <template>
   <div>
     <HeroSection />
+    <OriginsSection />
     <PreviewSection />
     <FeaturesSection />
     <RoadmapSection />

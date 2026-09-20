@@ -189,12 +189,12 @@ const platforms = [
   opacity: 0.85;
 }
 
-// A single bordered strip, split into three cells: the editor's own panels are
-// built the same way, sharing hairlines rather than floating apart.
+// Give each principle the same rounded panel outline as the other sections.
 .hero-principles {
   @include content-container;
 
   display: grid;
+  gap: 1rem;
   margin-top: clamp(2.5rem, 5vw, 3.5rem);
   padding-left: clamp(1.25rem, 5vw, 2.5rem);
   list-style: none;
@@ -209,27 +209,18 @@ const platforms = [
   padding: 1.5rem 1.5rem 1.625rem;
   background: var(--color-panel);
   border: 1px solid var(--color-line);
-
-  @include from($breakpoint-md) {
-    & + & {
-      border-left: 0;
-    }
-  }
-
-  @include until($breakpoint-md) {
-    & + & {
-      border-top: 0;
-    }
-  }
+  border-radius: var(--radius-lg);
+  overflow: hidden;
 
   // A short accent tick over the top edge, aligned with the index.
   &::before {
     position: absolute;
-    top: -1px;
-    left: -1px;
+    top: 0;
+    left: 1.5rem;
     width: 2.25rem;
     height: 2px;
     background: var(--color-accent);
+    border-radius: var(--radius-full);
     content: '';
   }
 }

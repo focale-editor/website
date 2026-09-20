@@ -25,10 +25,16 @@ export function useFeatures(): FeatureCard[] {
     { id: 'localFirst', icon: 'lucide:hard-drive' },
     { id: 'layers', icon: 'lucide:layers' },
     { id: 'nonDestructive', icon: 'lucide:sliders-horizontal' },
-    { id: 'filters', icon: 'lucide:wand-sparkles' },
-    { id: 'layerEffects', icon: 'lucide:sparkles' },
+    { id: 'smartObjects', icon: 'lucide:component' },
+    { id: 'raw', icon: 'lucide:camera' },
+    { id: 'colorManagement', icon: 'lucide:palette' },
     { id: 'tools', icon: 'lucide:brush' },
     { id: 'masks', icon: 'lucide:circle-dashed' },
+    { id: 'vector', icon: 'lucide:pen-tool' },
+    { id: 'filters', icon: 'lucide:wand-sparkles' },
+    { id: 'layerEffects', icon: 'lucide:sparkles' },
+    { id: 'automation', icon: 'lucide:workflow' },
+    { id: 'animation', icon: 'lucide:clapperboard' },
     { id: 'formats', icon: 'lucide:file-image' },
     { id: 'recovery', icon: 'lucide:life-buoy' },
   ]
@@ -47,8 +53,8 @@ export function usePrinciples(): FeatureCard[] {
 export function useRoadmap(): RoadmapEntry[] {
   return [
     { id: 'foundations', state: 'done' },
-    { id: 'features', state: 'inProgress' },
-    { id: 'debugging', state: 'planned' },
+    { id: 'features', state: 'done' },
+    { id: 'debugging', state: 'inProgress' },
     { id: 'alpha', state: 'planned' },
   ]
 }

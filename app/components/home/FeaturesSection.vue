@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const features = useFeatures()
+const previewCount = 3
+const expanded = ref(false)
 </script>
 
 <template>
@@ -12,11 +14,13 @@ const features = useFeatures()
     :description="t('features.description')"
   >
     <ul
+      id="features-list"
       class="features"
       role="list"
     >
       <li
-        v-for="feature in features"
+        v-for="(feature, index) in features"
+        v-show="expanded || index < previewCount"
         :key="feature.id"
         class="features-cell"
       >
@@ -31,6 +35,29 @@ const features = useFeatures()
         </p>
       </li>
     </ul>
+
+    <div
+      v-if="features.length > previewCount"
+      class="features-actions"
+    >
+      <Button
+        type="button"
+        severity="secondary"
+        outlined
+        class="features-toggle"
+        :label="expanded ? t('features.showLess') : t('features.showMore')"
+        :aria-expanded="expanded"
+        aria-controls="features-list"
+        @click="expanded = !expanded"
+      >
+        <template #icon>
+          <Icon
+            :name="expanded ? 'lucide:chevron-up' : 'lucide:chevron-down'"
+            aria-hidden="true"
+          />
+        </template>
+      </Button>
+    </div>
 
     <p class="features-note">
       <Icon name="lucide:info" />
@@ -93,6 +120,17 @@ const features = useFeatures()
   margin-top: 0.4rem;
   color: var(--color-text-muted);
   font-size: 0.9375rem;
+}
+
+.features-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.features-toggle {
+  min-height: 2.75rem;
+  text-align: center;
 }
 
 .features-note {

@@ -31,7 +31,7 @@
   "principles": {
     "advanced": {
       "title": "Un éditeur avancé",
-      "description": "Calques et groupes, masques, modes de fusion, réglages non destructifs, filtres et une pile complète d'effets de calque. Pas une visionneuse à laquelle on aurait ajouté un pinceau."
+      "description": "Développement RAW, calques et masques, objets dynamiques, réglages non destructifs et automatisation : les outils pour construire une image et revenir sur vos choix."
     },
     "crossPlatform": {
       "title": "Un éditeur, trois systèmes",
@@ -41,6 +41,13 @@
       "title": "Compatible Photoshop",
       "description": "Ouvre les documents PSD, les brosses ABR, les motifs PAT et les formes personnalisées CSH : des années de travail et de préréglages vous suivent."
     }
+  },
+  "origins": {
+    "title": "Pourquoi Focale est né",
+    "need": "Focale est né d'un besoin très concret : faire mes retouches photo sur Linux avec un éditeur avancé, local et agréable à utiliser. Je ne trouvais pas d'outil qui corresponde à ma façon de travailler.",
+    "alternatives": "Parmi ceux que j'avais essayés, KolourPaint était trop simple pour mes besoins, Krita trop orienté dessin, et Photopea pensé d'abord pour le web, avec de la publicité. GIMP, de son côté, me paraissait compliqué à prendre en main.",
+    "linux": "Photoshop et Affinity ne ciblaient pas Linux. Les utiliser sur mon système impliquait pour moi une machine virtuelle pour Photoshop, ou un passage par Wine pour Affinity.",
+    "vision": "J'ai donc commencé à construire l'éditeur qui me manquait. Focale est né sur Linux et vise aussi Windows et macOS, avec la même envie : des outils de retouche avancés, une interface familière et des images qui restent sur votre machine."
   },
   "preview": {
     "eyebrow": "Un aperçu de l'éditeur",
@@ -58,8 +65,8 @@
   "features": {
     "eyebrow": "Fonctionnalités",
     "title": "Tout ce qu'une vraie séance de retouche demande.",
-    "description": "Voici ce dont Focale est fait — l'essentiel fonctionnant déjà dans la version de développement.",
-    "note": "Presque tout ce qui est listé ici fonctionne aujourd'hui ; le reste arrive avec l'alpha. Cette version porte sur la stabilité et l'empaquetage, pas sur l'achèvement de cette liste.",
+    "description": "Ces fonctionnalités sont intégrées à la version de développement. Focale entre maintenant dans sa phase de débogage et de stabilisation.",
+    "note": "La première alpha publique est encore à venir. Les tests de stabilité, de compatibilité des formats et de fonctionnement sur les trois systèmes se poursuivent.",
     "items": {
       "localFirst": {
         "title": "Local d'abord, par conception",
@@ -67,42 +74,68 @@
       },
       "layers": {
         "title": "Calques et groupes",
-        "description": "Calques matriciels, groupes imbriqués et calques de texte, avec réorganisation par glisser-déposer, opacité, modes de fusion, verrouillage et vignettes en direct."
+        "description": "Calques matriciels, texte, formes, remplissages et réglages, groupes imbriqués et masques d'écrêtage. Organisez-les par glisser-déposer, avec modes de fusion, verrouillage et vignettes en direct."
       },
       "nonDestructive": {
         "title": "Réglages non destructifs",
-        "description": "Les réglages colorimétriques se posent sur un calque comme des propriétés ré-éditables et réordonnables qui ne touchent jamais les pixels d'origine — et restent applicables définitivement quand vous le souhaitez."
+        "description": "Niveaux, courbes, exposition, balance des couleurs et tables de correspondance : retrouvez les réglages compatibles dans des piles rééditables ou des calques de réglage, sans altérer les pixels d'origine."
+      },
+      "smartObjects": {
+        "title": "Objets et filtres dynamiques",
+        "description": "Incorporez ou liez des sources, modifiez leur contenu et appliquez des transformations et des filtres rééditables. Actualisez un fichier lié ou créez une copie indépendante quand vous en avez besoin."
+      },
+      "raw": {
+        "title": "Développement RAW",
+        "description": "Un espace dédié avec balance des blancs, exposition, courbes, réduction du bruit, corrections optiques et réglages locaux. Retrouvez aussi ces réglages sur vos calques avec le filtre Camera Raw."
+      },
+      "colorManagement": {
+        "title": "Couleurs et haute précision",
+        "description": "Documents RVB ou CMJN en 8, 16 ou 32 bits par couche, avec attribution et conversion de profils ICC. Les projets .focale conservent les données matricielles dans leur mode et leur précision d'origine."
+      },
+      "tools": {
+        "title": "Peinture et retouche",
+        "description": "Pinceaux personnalisables, mélangeur, gommes, tampons, correcteurs, pièce et déplacement basé sur le contenu. Complétez vos retouches avec le recadrage, les transformations, les dégradés et les outils de densité."
+      },
+      "masks": {
+        "title": "Sélections et masques",
+        "description": "Lassos libre, polygonal et magnétique, baguette magique, sélection rapide et pinceau de sélection. Combinez vos sélections et affinez les zones visibles avec des masques peints ou vectoriels."
+      },
+      "vector": {
+        "title": "Texte, tracés et formes",
+        "description": "Texte éditable, plume et plume de courbure, points d'ancrage et formes personnalisées. Créez des calques de forme avec fond et contour, ou transformez vos tracés en sélections."
       },
       "filters": {
         "title": "Filtres et galerie de filtres",
-        "description": "Familles flou, distorsion, bruit, pixellisation, rendu, netteté et esthétiques. Chacun s'aperçoit à l'échelle réelle et s'annule en une seule action."
+        "description": "Flou, distorsion, bruit, netteté et effets artistiques, avec aperçu et annulation. Combinez plusieurs effets dans la galerie et retrouvez les filtres compatibles dans une pile dynamique rééditable."
       },
       "layerEffects": {
-        "title": "Effets de calque",
-        "description": "Biseautage et estampage, contour, ombres et lueurs internes et externes, satin, incrustations de couleur, de dégradé et de motif — dérivés de l'alpha du calque et composités au moment du rendu, donc exacts à n'importe quel zoom."
+        "title": "Effets et styles de calque",
+        "description": "Biseautage, contour, ombres, lueurs, satin et incrustations de couleur, de dégradé ou de motif. Réutilisez vos combinaisons avec les styles Focale et l'import/export de bibliothèques Photoshop ASL."
       },
-      "tools": {
-        "title": "Une barre d'outils complète",
-        "description": "Pinceau, crayon et gomme, tampon de duplication, flou, netteté, doigt, densité plus et moins, éponge, pot de peinture, dégradé, texte, pipette et outils de sélection, partageant un même moteur et les mêmes réglages."
+      "automation": {
+        "title": "Actions et traitement par lot",
+        "description": "Enregistrez et rejouez des suites d'opérations, puis échangez-les au format .faction. Traitez un dossier ou vos documents ouverts avec des options d'export et de nommage des fichiers."
       },
-      "masks": {
-        "title": "Masques de calque",
-        "description": "Ajoutez un masque depuis la sélection en cours, puis peignez-le, remplissez-le ou dégradez-le pour révéler exactement ce que vous voulez."
+      "animation": {
+        "title": "GIF animés éditables",
+        "description": "Ouvrez un GIF en images éditables, ajustez leur durée et leur visibilité, puis prévisualisez la lecture en boucle. Conservez l'animation dans votre projet .focale et exportez-la en GIF."
       },
       "formats": {
         "title": "Ouvrir, modifier, exporter",
-        "description": "PNG, JPEG, WebP, AVIF, JPEG XL, TIFF, BMP et PSD, à l'entrée comme à la sortie, avec redimensionnement, verrouillage des proportions et contrôle de la qualité — et les projets .focale pour tout ce qu'il y a entre les deux. La liste élargie de formats arrive avec l'alpha."
+        "description": "PNG, JPEG, WebP, AVIF, HEIF/HEIC, JPEG XL, TIFF, BMP, QOI, TGA, GIF et OpenEXR, ainsi que PSD/PSB avec calques. Exportez avec redimensionnement et options adaptées à chaque format."
       },
       "recovery": {
         "title": "Sauvegarde et récupération après plantage",
         "description": "Les instantanés vivent à côté de l'application, jamais par-dessus votre fichier, et un document récupéré s'ouvre non enregistré : rien sur le disque ne peut être écrasé par accident."
       }
-    }
+    },
+    "showLess": "Réduire la liste",
+    "showMore": "Plus de fonctionnalités"
   },
   "roadmap": {
     "eyebrow": "Où en est le projet",
     "title": "Quatre étapes jusqu'à la première alpha.",
-    "description": "Focale se construit à découvert : voici un état des lieux honnête plutôt qu'une date de sortie.",
+    "description": "Étape 3 sur 4 : les fonctionnalités sont en place. Le travail porte maintenant sur les corrections, les performances et la validation avant l'alpha publique.",
     "states": {
       "done": "Terminé",
       "inProgress": "En cours",
@@ -115,11 +148,11 @@
       },
       "features": {
         "title": "Ajout des fonctionnalités",
-        "description": "Calques, outils, sélections, réglages, filtres et effets de calque — le travail en cours aujourd'hui."
+        "description": "Calques, retouche, développement RAW, objets dynamiques, animation et automatisation sont intégrés à la version de développement."
       },
       "debugging": {
-        "title": "Débogage",
-        "description": "Traquer ce que l'ajout de fonctionnalités a laissé derrière lui, étendre la couverture de tests et éprouver les trois systèmes."
+        "title": "Débogage et stabilisation",
+        "description": "Corriger les défauts, affiner les performances et éprouver les fichiers, les outils et les installations sur Linux, Windows et macOS."
       },
       "alpha": {
         "title": "Première alpha publique",

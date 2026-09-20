@@ -31,7 +31,7 @@
   "principles": {
     "advanced": {
       "title": "Un editor avanzado",
-      "description": "Capas y grupos, máscaras, modos de fusión, ajustes no destructivos, filtros y una pila completa de efectos de capa. No es un visor con un pincel añadido."
+      "description": "Revelado RAW, capas y máscaras, objetos inteligentes, ajustes no destructivos y automatización: herramientas para crear una imagen y revisar tus decisiones."
     },
     "crossPlatform": {
       "title": "Un editor, tres sistemas",
@@ -41,6 +41,13 @@
       "title": "Compatible con Photoshop",
       "description": "Abre documentos PSD, pinceles ABR, motivos PAT y formas personalizadas CSH: años de trabajo y de preajustes te acompañan."
     }
+  },
+  "origins": {
+    "title": "Por qué nació Focale",
+    "need": "Focale nació de una necesidad muy concreta: retocar mis fotos en Linux con un editor avanzado, local y cómodo de usar. No encontraba una herramienta que encajara con mi forma de trabajar.",
+    "alternatives": "Entre las que había probado, KolourPaint era demasiado sencillo para mis necesidades, Krita estaba demasiado orientado al dibujo y Photopea estaba pensado principalmente para la web, con publicidad. GIMP, por su parte, me resultaba complicado de aprender.",
+    "linux": "Photoshop y Affinity no estaban dirigidos a Linux. Para mí, usarlos en mi sistema implicaba una máquina virtual para Photoshop o recurrir a Wine para Affinity.",
+    "vision": "Así que empecé a construir el editor que me faltaba. Focale nació en Linux y también está pensado para Windows y macOS, con el mismo objetivo: herramientas de edición avanzadas, una interfaz familiar e imágenes que permanecen en tu equipo."
   },
   "preview": {
     "eyebrow": "Un vistazo al editor",
@@ -58,8 +65,8 @@
   "features": {
     "eyebrow": "Funciones",
     "title": "Todo lo que pide una sesión de edición de verdad.",
-    "description": "Esto es de lo que está hecho Focale, y la mayor parte ya funciona en la versión de desarrollo.",
-    "note": "Casi todo lo que aparece aquí funciona hoy; el resto llega con la alfa. Esa versión trata de estabilidad y empaquetado, no de terminar esta lista.",
+    "description": "Estas funciones están integradas en la versión de desarrollo. Focale entra ahora en la fase de depuración y estabilización.",
+    "note": "La primera alfa pública aún está por llegar. Continúan las pruebas de estabilidad, compatibilidad de formatos y funcionamiento en los tres sistemas.",
     "items": {
       "localFirst": {
         "title": "Local por diseño",
@@ -67,42 +74,68 @@
       },
       "layers": {
         "title": "Capas y grupos",
-        "description": "Capas de mapa de bits, grupos anidados y capas de texto, con reordenación arrastrando, opacidad, modos de fusión, bloqueo y miniaturas en vivo."
+        "description": "Capas de mapa de bits, texto, formas, relleno y ajuste, grupos anidados y máscaras de recorte. Organízalas arrastrando, con modos de fusión, bloqueo y miniaturas en vivo."
       },
       "nonDestructive": {
         "title": "Ajustes no destructivos",
-        "description": "Los ajustes de color se posan sobre una capa como propiedades reeditables y reordenables que nunca tocan los píxeles de origen, y aun así pueden aplicarse de forma definitiva cuando lo quieras."
+        "description": "Niveles, curvas, exposición, equilibrio de color y tablas de consulta: utiliza los ajustes compatibles en pilas reeditables o capas de ajuste sin alterar los píxeles originales."
+      },
+      "smartObjects": {
+        "title": "Objetos y filtros inteligentes",
+        "description": "Incrusta o enlaza fuentes, edita su contenido y aplica transformaciones y filtros reeditables. Actualiza un archivo enlazado o crea una copia independiente cuando lo necesites."
+      },
+      "raw": {
+        "title": "Revelado RAW",
+        "description": "Un espacio dedicado con balance de blancos, exposición, curvas, reducción de ruido, correcciones de lente y ajustes locales. Usa también estos controles en tus capas con el filtro Camera Raw."
+      },
+      "colorManagement": {
+        "title": "Color y alta precisión",
+        "description": "Documentos RGB o CMYK a 8, 16 o 32 bits por canal, con asignación y conversión de perfiles ICC. Los proyectos .focale conservan los datos de mapa de bits en su modo de color y precisión originales."
+      },
+      "tools": {
+        "title": "Pintura y retoque",
+        "description": "Pinceles personalizables, pincel mezclador, borradores, tampones, correctores, parche y movimiento según el contenido. Completa tus retoques con recorte, transformaciones, degradados y herramientas de sobreexposición y subexposición."
+      },
+      "masks": {
+        "title": "Selecciones y máscaras",
+        "description": "Lazos libre, poligonal y magnético, varita mágica, selección rápida y pincel de selección. Combina selecciones y ajusta las zonas visibles con máscaras pintadas o vectoriales."
+      },
+      "vector": {
+        "title": "Texto, trazados y formas",
+        "description": "Texto editable, pluma y pluma de curvatura, puntos de ancla y formas personalizadas. Crea capas de forma con relleno y trazo, o convierte trazados en selecciones."
       },
       "filters": {
         "title": "Filtros y galería de filtros",
-        "description": "Familias de desenfoque, distorsión, ruido, pixelado, render, enfoque y estilización. Cada uno se previsualiza a escala real y se deshace como una sola edición."
+        "description": "Desenfoque, distorsión, ruido, enfoque y efectos artísticos, con vista previa y opción de deshacer. Combina efectos en la galería y usa los filtros compatibles en una pila inteligente reeditable."
       },
       "layerEffects": {
-        "title": "Efectos de capa",
-        "description": "Bisel y relieve, trazo, sombras y resplandores internos y externos, satinado, superposiciones de color, degradado y motivo: derivados del alfa de la capa y compuestos al dibujar, así que siguen siendo exactos a cualquier zoom."
+        "title": "Efectos y estilos de capa",
+        "description": "Bisel, trazo, sombras, resplandores, satinado y superposiciones de color, degradado o motivo. Reutiliza tus combinaciones con estilos Focale e importación y exportación de bibliotecas Photoshop ASL."
       },
-      "tools": {
-        "title": "Una barra de herramientas completa",
-        "description": "Pincel, lápiz y borrador, tampón de clonar, desenfocar, enfocar, dedo, sobreexponer, subexponer y esponja, bote de pintura, degradado, texto, cuentagotas y herramientas de selección, compartiendo un único motor y los mismos controles."
+      "automation": {
+        "title": "Acciones y procesamiento por lotes",
+        "description": "Graba y reproduce secuencias de operaciones y compártelas como archivos .faction. Procesa una carpeta o tus documentos abiertos con opciones de exportación y nombres de archivo."
       },
-      "masks": {
-        "title": "Máscaras de capa",
-        "description": "Añade una máscara a partir de la selección actual y después píntala, rellénala o degrádala para revelar exactamente lo que quieras."
+      "animation": {
+        "title": "GIF animados editables",
+        "description": "Abre un GIF como fotogramas editables, ajusta su duración y visibilidad y previsualiza la reproducción en bucle. Conserva la animación en tu proyecto .focale y expórtala como GIF."
       },
       "formats": {
         "title": "Abrir, editar, exportar",
-        "description": "PNG, JPEG, WebP, AVIF, JPEG XL, TIFF, BMP y PSD, tanto de entrada como de salida, con redimensionado, bloqueo de proporciones y control de calidad, además de proyectos .focale para todo lo demás. La lista ampliada de formatos llega con la alfa."
+        "description": "PNG, JPEG, WebP, AVIF, HEIF/HEIC, JPEG XL, TIFF, BMP, QOI, TGA, GIF y OpenEXR, además de PSD/PSB con capas. Exporta con redimensionado y opciones adaptadas a cada formato."
       },
       "recovery": {
         "title": "Autoguardado y recuperación",
         "description": "Las instantáneas viven junto a la aplicación, nunca encima de tu archivo, y un documento recuperado se abre sin guardar, de modo que nada del disco puede sobrescribirse por accidente."
       }
-    }
+    },
+    "showLess": "Mostrar menos funciones",
+    "showMore": "Más funciones"
   },
   "roadmap": {
     "eyebrow": "Cómo va el proyecto",
     "title": "Cuatro pasos hasta la primera alfa.",
-    "description": "Focale se construye a la vista de todos, así que aquí va un estado honesto en lugar de una fecha de lanzamiento.",
+    "description": "Etapa 3 de 4: las funciones ya están integradas. El trabajo se centra ahora en las correcciones, el rendimiento y la validación antes de la alfa pública.",
     "states": {
       "done": "Hecho",
       "inProgress": "En curso",
@@ -115,11 +148,11 @@
       },
       "features": {
         "title": "Construir las funciones",
-        "description": "Capas, herramientas, selecciones, ajustes, filtros y efectos de capa: el trabajo que está ocurriendo ahora mismo."
+        "description": "Capas, retoque, revelado RAW, objetos inteligentes, animación y automatización están integrados en la versión de desarrollo."
       },
       "debugging": {
-        "title": "Depuración",
-        "description": "Cazar lo que el trabajo de funciones dejó atrás, ampliar la cobertura de pruebas y poner a prueba los tres sistemas."
+        "title": "Depuración y estabilización",
+        "description": "Corregir errores, mejorar el rendimiento y probar archivos, herramientas e instalaciones en Linux, Windows y macOS."
       },
       "alpha": {
         "title": "Primera alfa pública",

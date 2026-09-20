@@ -31,7 +31,7 @@
   "principles": {
     "advanced": {
       "title": "An advanced editor",
-      "description": "Layers and groups, masks, blend modes, non-destructive adjustments, filters and a full layer-effects stack. Not a viewer with a brush bolted on."
+      "description": "RAW development, layers and masks, smart objects, non-destructive adjustments and automation: tools to build an image and revisit your choices."
     },
     "crossPlatform": {
       "title": "One editor, three systems",
@@ -41,6 +41,13 @@
       "title": "At home with Photoshop",
       "description": "Opens PSD documents, ABR brushes, PAT patterns and CSH custom shapes, so years of work and presets come with you."
     }
+  },
+  "origins": {
+    "title": "Why Focale began",
+    "need": "Focale grew out of a very practical need: editing my photos on Linux with an advanced, local editor that felt comfortable to use. I could not find a tool that matched the way I worked.",
+    "alternatives": "Among the tools I had tried, KolourPaint was too basic for my needs, Krita too focused on drawing, and Photopea built primarily for the web, with advertising. GIMP, meanwhile, felt difficult to get to grips with.",
+    "linux": "Photoshop and Affinity did not target Linux. For me, using them on my system meant a virtual machine for Photoshop or going through Wine for Affinity.",
+    "vision": "So I started building the editor I was missing. Focale began on Linux and also targets Windows and macOS, with the same aim: advanced editing tools, a familiar interface and images that stay on your machine."
   },
   "preview": {
     "eyebrow": "A look at the editor",
@@ -58,8 +65,8 @@
   "features": {
     "eyebrow": "Features",
     "title": "Everything a serious editing session needs.",
-    "description": "The pieces below are what Focale is built out of — most of them already running in the development build.",
-    "note": "Almost everything listed here works today; the rest lands with the alpha. That release is about stability and packaging, not about finishing this list.",
+    "description": "These features are integrated into the development version. Focale is now entering its debugging and stabilization phase.",
+    "note": "The first public alpha is still ahead. Testing continues for stability, format compatibility and operation across all three platforms.",
     "items": {
       "localFirst": {
         "title": "Local-first by design",
@@ -67,42 +74,68 @@
       },
       "layers": {
         "title": "Layers and groups",
-        "description": "Raster layers, nested groups and text layers, with drag-to-reorder, opacity, blend modes, locking and live thumbnails."
+        "description": "Raster, text, shape, fill and adjustment layers, nested groups and clipping masks. Arrange them by drag and drop, with blend modes, locking and live thumbnails."
       },
       "nonDestructive": {
         "title": "Non-destructive adjustments",
-        "description": "Colour adjustments sit on a layer as re-editable, reorderable properties that never touch the source pixels — and can still be burnt in when you want them permanent."
+        "description": "Levels, curves, exposure, colour balance and lookup tables: use supported adjustments in editable stacks or adjustment layers while preserving the original pixels."
       },
-      "filters": {
-        "title": "Filters and a filter gallery",
-        "description": "Blur, distortion, noise, pixelation, render, sharpen and stylize families. Each previews at true scale and undoes as a single edit."
+      "smartObjects": {
+        "title": "Smart objects and filters",
+        "description": "Embed or link sources, edit their contents and apply editable transforms and filters. Refresh a linked file or create an independent copy when you need one."
       },
-      "layerEffects": {
-        "title": "Layer effects",
-        "description": "Bevel and emboss, stroke, inner and outer shadows and glows, satin, colour, gradient and pattern overlays — derived from the layer's alpha and composited at paint time, so they stay exact at any zoom."
+      "raw": {
+        "title": "RAW development",
+        "description": "A dedicated workspace with white balance, exposure, curves, noise reduction, lens corrections and local adjustments. Use these controls on your layers through the Camera Raw filter too."
+      },
+      "colorManagement": {
+        "title": "Colour and high precision",
+        "description": "RGB or CMYK documents at 8, 16 or 32 bits per channel, with ICC profile assignment and conversion. Focale projects retain raster data in its original colour mode and precision."
       },
       "tools": {
-        "title": "A full tool rail",
-        "description": "Brush, pencil and eraser, clone stamp, blur, sharpen, smudge, dodge, burn and sponge, paint bucket, gradient, text, eyedropper and selection tools, sharing one engine and one set of controls."
+        "title": "Painting and retouching",
+        "description": "Customizable brushes, mixer brush, erasers, stamps, healing tools, patching and content-aware moves. Finish your edits with cropping, transforms, gradients and dodge and burn tools."
       },
       "masks": {
-        "title": "Layer masks",
-        "description": "Add a mask from the current selection, then paint, fill or gradient it to reveal exactly as much as you want."
+        "title": "Selections and masks",
+        "description": "Freehand, polygonal and magnetic lassos, magic wand, quick selection and selection brush. Combine selections and refine visible areas with painted or vector masks."
+      },
+      "vector": {
+        "title": "Text, paths and shapes",
+        "description": "Editable text, pen and curvature pen, anchor points and custom shapes. Create shape layers with fills and strokes, or turn paths into selections."
+      },
+      "filters": {
+        "title": "Filters and filter gallery",
+        "description": "Blur, distortion, noise, sharpening and artistic effects, with previews and undo. Combine effects in the gallery and use supported filters in an editable smart-filter stack."
+      },
+      "layerEffects": {
+        "title": "Layer effects and styles",
+        "description": "Bevel, stroke, shadows, glows, satin and colour, gradient or pattern overlays. Reuse your combinations with Focale styles and Photoshop ASL library import and export."
+      },
+      "automation": {
+        "title": "Actions and batch processing",
+        "description": "Record and replay sequences of operations, then share them as .faction files. Process a folder or your open documents with export and file-naming options."
+      },
+      "animation": {
+        "title": "Editable animated GIFs",
+        "description": "Open a GIF as editable frames, adjust their timing and visibility, then preview looped playback. Keep the animation in your .focale project and export it as a GIF."
       },
       "formats": {
         "title": "Open, edit, export",
-        "description": "PNG, JPEG, WebP, AVIF, JPEG XL, TIFF, BMP and PSD, in and out, with resizing, aspect-ratio locking and quality control — plus .focale projects for everything in between. The wider format list arrives with the alpha."
+        "description": "PNG, JPEG, WebP, AVIF, HEIF/HEIC, JPEG XL, TIFF, BMP, QOI, TGA, GIF and OpenEXR, plus layered PSD/PSB. Export with resizing and options suited to each format."
       },
       "recovery": {
         "title": "Autosave and crash recovery",
         "description": "Snapshots live beside the application, never on top of your file, and a recovered document opens unsaved so nothing on disk can be overwritten by accident."
       }
-    }
+    },
+    "showLess": "Show fewer features",
+    "showMore": "More features"
   },
   "roadmap": {
     "eyebrow": "Where the project stands",
     "title": "Four steps to the first alpha.",
-    "description": "Focale is built in the open, so here is an honest picture rather than a release date.",
+    "description": "Stage 3 of 4: the features are in place. Work now focuses on fixes, performance and validation before the public alpha.",
     "states": {
       "done": "Done",
       "inProgress": "In progress",
@@ -115,11 +148,11 @@
       },
       "features": {
         "title": "Building the feature set",
-        "description": "Layers, tools, selections, adjustments, filters and layer effects — the work happening right now."
+        "description": "Layers, retouching, RAW development, smart objects, animation and automation are integrated into the development version."
       },
       "debugging": {
-        "title": "Debugging",
-        "description": "Hunting down what the feature work left behind, widening test coverage and exercising all three systems."
+        "title": "Debugging and stabilization",
+        "description": "Fix defects, refine performance and test files, tools and installation on Linux, Windows and macOS."
       },
       "alpha": {
         "title": "First public alpha",

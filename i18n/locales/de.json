@@ -31,7 +31,7 @@
   "principles": {
     "advanced": {
       "title": "Ein fortgeschrittener Editor",
-      "description": "Ebenen und Gruppen, Masken, Füllmethoden, nicht-destruktive Korrekturen, Filter und ein vollständiger Stapel an Ebeneneffekten. Kein Betrachter mit angeschraubtem Pinsel."
+      "description": "RAW-Entwicklung, Ebenen und Masken, Smartobjekte, nicht-destruktive Korrekturen und Automatisierung: Werkzeuge zum Gestalten und späteren Überarbeiten Ihrer Bilder."
     },
     "crossPlatform": {
       "title": "Ein Editor, drei Systeme",
@@ -41,6 +41,13 @@
       "title": "Versteht sich mit Photoshop",
       "description": "Öffnet PSD-Dokumente, ABR-Pinsel, PAT-Muster und CSH-Eigenformen: Jahre an Arbeit und Vorgaben kommen mit."
     }
+  },
+  "origins": {
+    "title": "Warum Focale entstanden ist",
+    "need": "Focale entstand aus einem ganz konkreten Bedürfnis: meine Fotos unter Linux mit einem fortgeschrittenen, lokalen und angenehm bedienbaren Editor zu bearbeiten. Ich fand kein Werkzeug, das zu meiner Arbeitsweise passte.",
+    "alternatives": "Von den Programmen, die ich ausprobiert hatte, war KolourPaint für meine Bedürfnisse zu einfach, Krita zu stark auf das Zeichnen ausgerichtet und Photopea vor allem für das Web gedacht, mit Werbung. GIMP wiederum erschien mir schwer zugänglich.",
+    "linux": "Photoshop und Affinity waren nicht für Linux vorgesehen. Sie auf meinem System zu nutzen, bedeutete für mich eine virtuelle Maschine für Photoshop oder den Umweg über Wine für Affinity.",
+    "vision": "Also begann ich, den Editor zu entwickeln, der mir fehlte. Focale entstand unter Linux und richtet sich auch an Windows und macOS, mit demselben Ziel: fortgeschrittene Bildbearbeitung, eine vertraute Oberfläche und Bilder, die auf Ihrem Rechner bleiben."
   },
   "preview": {
     "eyebrow": "Ein Blick auf den Editor",
@@ -58,8 +65,8 @@
   "features": {
     "eyebrow": "Funktionen",
     "title": "Alles, was eine ernsthafte Bearbeitung verlangt.",
-    "description": "Daraus besteht Focale — und das meiste davon läuft bereits in der Entwicklungsfassung.",
-    "note": "Fast alles, was hier steht, funktioniert schon heute; der Rest kommt mit der Alpha. Bei dieser Fassung geht es um Stabilität und Auslieferung, nicht darum, diese Liste fertigzustellen.",
+    "description": "Diese Funktionen sind in die Entwicklungsversion integriert. Focale geht jetzt in die Phase der Fehlersuche und Stabilisierung über.",
+    "note": "Die erste öffentliche Alpha steht noch bevor. Tests zur Stabilität, Formatkompatibilität und zum Betrieb auf allen drei Plattformen laufen weiter.",
     "items": {
       "localFirst": {
         "title": "Lokal von Grund auf",
@@ -67,42 +74,68 @@
       },
       "layers": {
         "title": "Ebenen und Gruppen",
-        "description": "Rasterebenen, verschachtelte Gruppen und Textebenen, mit Umsortieren per Ziehen, Deckkraft, Füllmethoden, Sperren und Vorschaubildern in Echtzeit."
+        "description": "Raster-, Text-, Form-, Füll- und Einstellungsebenen, verschachtelte Gruppen und Schnittmasken. Ordnen Sie sie per Ziehen an, mit Füllmethoden, Sperren und Vorschaubildern in Echtzeit."
       },
       "nonDestructive": {
         "title": "Nicht-destruktive Korrekturen",
-        "description": "Farbkorrekturen sitzen als erneut bearbeitbare, umsortierbare Eigenschaften auf einer Ebene und rühren die Ausgangspixel nie an — und lassen sich trotzdem dauerhaft einrechnen, wenn Sie es wollen."
+        "description": "Tonwertkorrektur, Kurven, Belichtung, Farbbalance und Lookup-Tabellen: Nutzen Sie unterstützte Korrekturen in bearbeitbaren Stapeln oder Einstellungsebenen, ohne die ursprünglichen Pixel zu verändern."
+      },
+      "smartObjects": {
+        "title": "Smartobjekte und Smartfilter",
+        "description": "Betten Sie Quellen ein oder verknüpfen Sie sie, bearbeiten Sie ihre Inhalte und wenden Sie bearbeitbare Transformationen und Filter an. Aktualisieren Sie verknüpfte Dateien oder erstellen Sie unabhängige Kopien."
+      },
+      "raw": {
+        "title": "RAW-Entwicklung",
+        "description": "Ein eigener Arbeitsbereich mit Weißabgleich, Belichtung, Kurven, Rauschreduzierung, Objektivkorrekturen und lokalen Anpassungen. Über den Camera Raw-Filter stehen diese Regler auch für Ihre Ebenen bereit."
+      },
+      "colorManagement": {
+        "title": "Farbe und hohe Präzision",
+        "description": "RGB- oder CMYK-Dokumente mit 8, 16 oder 32 Bit pro Kanal sowie Zuweisung und Konvertierung von ICC-Profilen. Focale-Projekte bewahren Rasterdaten in ihrem ursprünglichen Farbmodus und ihrer Präzision."
+      },
+      "tools": {
+        "title": "Malen und Retuschieren",
+        "description": "Anpassbare Pinsel, Mischpinsel, Radierer, Stempel, Reparaturwerkzeuge, Ausbessern und inhaltsbasiertes Verschieben. Ergänzen Sie Ihre Retusche durch Freistellen, Transformationen, Verläufe, Abwedler und Nachbelichter."
+      },
+      "masks": {
+        "title": "Auswahlen und Masken",
+        "description": "Freihand-, Polygon- und magnetisches Lasso, Zauberstab, Schnellauswahl und Auswahlpinsel. Kombinieren Sie Auswahlen und verfeinern Sie sichtbare Bereiche mit gemalten Masken oder Vektormasken."
+      },
+      "vector": {
+        "title": "Text, Pfade und Formen",
+        "description": "Bearbeitbarer Text, Zeichenstift und Rundungszeichenstift, Ankerpunkte und eigene Formen. Erstellen Sie Formebenen mit Füllung und Kontur oder wandeln Sie Pfade in Auswahlen um."
       },
       "filters": {
         "title": "Filter und Filtergalerie",
-        "description": "Die Familien Weichzeichnen, Verzerren, Rauschen, Vergröbern, Rendern, Scharfzeichnen und Stilisieren. Jeder zeigt eine Vorschau im echten Maßstab und lässt sich als eine einzige Bearbeitung rückgängig machen."
+        "description": "Weichzeichnen, Verzerren, Rauschen, Schärfen und künstlerische Effekte mit Vorschau und Rückgängig-Funktion. Kombinieren Sie Effekte in der Galerie und nutzen Sie unterstützte Filter in einem bearbeitbaren Smartfilter-Stapel."
       },
       "layerEffects": {
-        "title": "Ebeneneffekte",
-        "description": "Abgeflachte Kante und Relief, Kontur, innere und äußere Schatten und Schein, Glanz, Farb-, Verlaufs- und Musterüberlagerung — aus dem Alphakanal der Ebene abgeleitet und beim Zeichnen zusammengesetzt, also bei jedem Zoom exakt."
+        "title": "Ebeneneffekte und Stile",
+        "description": "Abgeflachte Kanten, Konturen, Schatten, Schein, Glanz sowie Farb-, Verlaufs- und Musterüberlagerungen. Verwenden Sie Kombinationen mit Focale-Stilen sowie dem Import und Export von Photoshop-ASL-Bibliotheken wieder."
       },
-      "tools": {
-        "title": "Eine vollständige Werkzeugleiste",
-        "description": "Pinsel, Buntstift und Radiergummi, Kopierstempel, Weichzeichner, Scharfzeichner, Wischfinger, Abwedler, Nachbelichter und Schwamm, Füllwerkzeug, Verlauf, Text, Pipette und Auswahlwerkzeuge — mit einer gemeinsamen Engine und denselben Reglern."
+      "automation": {
+        "title": "Aktionen und Stapelverarbeitung",
+        "description": "Zeichnen Sie Arbeitsschritte auf, spielen Sie sie erneut ab und teilen Sie sie als .faction-Dateien. Verarbeiten Sie einen Ordner oder geöffnete Dokumente mit Optionen für Export und Dateinamen."
       },
-      "masks": {
-        "title": "Ebenenmasken",
-        "description": "Legen Sie eine Maske aus der aktuellen Auswahl an und bemalen, füllen oder verlaufen Sie sie dann, um genau so viel freizulegen, wie Sie möchten."
+      "animation": {
+        "title": "Bearbeitbare GIF-Animationen",
+        "description": "Öffnen Sie ein GIF als bearbeitbare Einzelbilder, passen Sie Dauer und Sichtbarkeit an und prüfen Sie die Wiedergabe in einer Schleife. Speichern Sie die Animation im .focale-Projekt und exportieren Sie sie als GIF."
       },
       "formats": {
         "title": "Öffnen, bearbeiten, exportieren",
-        "description": "PNG, JPEG, WebP, AVIF, JPEG XL, TIFF, BMP und PSD, herein wie hinaus, mit Skalierung, Seitenverhältnis-Sperre und Qualitätsregler — dazu .focale-Projekte für alles dazwischen. Die erweiterte Formatliste kommt mit der Alpha."
+        "description": "PNG, JPEG, WebP, AVIF, HEIF/HEIC, JPEG XL, TIFF, BMP, QOI, TGA, GIF und OpenEXR sowie PSD/PSB mit Ebenen. Exportieren Sie mit Skalierung und passenden Optionen für jedes Format."
       },
       "recovery": {
         "title": "Automatisches Speichern und Wiederherstellen",
         "description": "Sicherungen liegen neben der Anwendung, nie über Ihrer Datei, und ein wiederhergestelltes Dokument öffnet sich ungespeichert, damit auf der Festplatte nichts versehentlich überschrieben wird."
       }
-    }
+    },
+    "showLess": "Weniger Funktionen anzeigen",
+    "showMore": "Weitere Funktionen"
   },
   "roadmap": {
     "eyebrow": "Wo das Projekt steht",
     "title": "Vier Schritte bis zur ersten Alpha.",
-    "description": "Focale entsteht offen, deshalb hier ein ehrliches Bild statt eines Erscheinungsdatums.",
+    "description": "Phase 3 von 4: Die Funktionen sind integriert. Im Mittelpunkt stehen nun Fehlerkorrekturen, Leistung und Prüfungen vor der öffentlichen Alpha.",
     "states": {
       "done": "Fertig",
       "inProgress": "In Arbeit",
@@ -115,11 +148,11 @@
       },
       "features": {
         "title": "Die Funktionen aufbauen",
-        "description": "Ebenen, Werkzeuge, Auswahlen, Korrekturen, Filter und Ebeneneffekte — die Arbeit, die gerade jetzt läuft."
+        "description": "Ebenen, Retusche, RAW-Entwicklung, Smartobjekte, Animation und Automatisierung sind in die Entwicklungsversion integriert."
       },
       "debugging": {
-        "title": "Fehlersuche",
-        "description": "Aufspüren, was der Funktionsausbau hinterlassen hat, die Testabdeckung ausweiten und alle drei Systeme erproben."
+        "title": "Fehlersuche und Stabilisierung",
+        "description": "Fehler beheben, die Leistung verbessern und Dateien, Werkzeuge sowie die Installation unter Linux, Windows und macOS prüfen."
       },
       "alpha": {
         "title": "Erste öffentliche Alpha",

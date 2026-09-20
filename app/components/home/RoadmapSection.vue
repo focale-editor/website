@@ -20,6 +20,7 @@ const currentIndex = computed(() => roadmap.findIndex(entry => entry.state === '
         v-for="(entry, index) in roadmap"
         :key="entry.id"
         class="roadmap-step"
+        :aria-current="index === currentIndex ? 'step' : undefined"
         :class="[
           `roadmap-step-${entry.state}`,
           { 'roadmap-step-current': index === currentIndex },
@@ -123,7 +124,10 @@ const currentIndex = computed(() => roadmap.findIndex(entry => entry.state === '
   }
 }
 
-.roadmap-step-done .roadmap-rule,
+.roadmap-step-done .roadmap-rule {
+  background: var(--color-accent-line);
+}
+
 .roadmap-step-current .roadmap-rule {
   background: linear-gradient(90deg, var(--color-accent-line), var(--color-accent-line) 50%, var(--color-line-strong) 50%);
 }
