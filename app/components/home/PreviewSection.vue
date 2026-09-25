@@ -13,8 +13,8 @@ const { t } = useI18n()
       <img
         src="/images/screenshot.webp"
         class="preview-image"
-        width="1384"
-        height="848"
+        width="1088"
+        height="723"
         :alt="t('preview.alt')"
         loading="lazy"
         decoding="async"
