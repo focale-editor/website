@@ -54,17 +54,6 @@ export default defineNuxtConfig({
   future: { compatibilityVersion: 4 },
   compatibilityDate: '2026-08-25',
 
-  nitro: {
-    preset: 'github-pages',
-    prerender: {
-      crawlLinks: true,
-      routes: ['/', '/fr', '/es', '/it', '/pt', '/de'],
-      // The crawler picks `/sitemap.xml` out of the sitemap module's runtime
-      // config and would render the SPA shell there, shadowing the real index.
-      ignore: ['/sitemap.xml'],
-    },
-  },
-
   vite: {
     css: {
       preprocessorOptions: {
@@ -166,5 +155,11 @@ export default defineNuxtConfig({
 
   robots: {
     disallow: [],
+  },
+
+  sitemap: {
+    // GitHub Pages needs a real file at /sitemap.xml, not the redirect that
+    // automatic per-locale sitemaps create for a static build.
+    sitemaps: false,
   },
 })
