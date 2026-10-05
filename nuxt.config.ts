@@ -134,11 +134,11 @@ export default defineNuxtConfig({
   // The module keeps its PrimeVue-era configuration key.
   primevue: {
     // Auto-import would register all eighty-odd components and inline every
-    // component's theme CSS into each page. Naming the three the site actually
+    // component's theme CSS into each page. Naming only the components the site
     // uses cuts the generated HTML by roughly two thirds.
     autoImport: false,
     components: {
-      include: ['Button', 'Carousel', 'InputText', 'Select'],
+      include: ['Button', 'Carousel', 'Drawer', 'InputText', 'Select'],
     },
     directives: {
       include: [],
