@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "references": [
+    {
+      "file": "focale-format.md",
+      "bytes": 98142,
+      "sha256": "874761923b7b2164c6a93731f18da544f59f5d05586f97072163e214de37ca30"
+    },
+    {
+      "file": "brush-presets.md",
+      "bytes": 13236,
+      "sha256": "3c209f4a3563c90c29805739581c46bc5d7420d560f61451d018654e4f144c45"
+    },
+    {
+      "file": "pattern-presets.md",
+      "bytes": 6079,
+      "sha256": "9da96c5c3830fd04cee76b291f832fa1dc44165dc837002fd798bf10c4d7344c"
+    },
+    {
+      "file": "custom-shape-presets.md",
+      "bytes": 6519,
+      "sha256": "fb0f3459189bd8525c4b36f5116e1ba9fbd3e1cb1d2fdd9cba798e1f19df7f63"
+    },
+    {
+      "file": "style-presets.md",
+      "bytes": 2659,
+      "sha256": "fe2c08a1f0d983ed34b2f3828b65c87303dcea3446948ed510eb7376084e9f41"
+    },
+    {
+      "file": "reusable-presets.md",
+      "bytes": 3526,
+      "sha256": "bfad732e914ad5f2e2bab0c79d817eb52310f82943ab6f1780961c2e666be816"
+    },
+    {
+      "file": "actions.md",
+      "bytes": 14529,
+      "sha256": "ae80f056be0b20aa1b37dccd1f9b1c126738f71cbbf8022c1ef190806e6c06d6"
+    }
+  ]
+}

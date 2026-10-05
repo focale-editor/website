@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const principles = usePrinciples()
+const { latestRelease } = useDownloads()
 
 // Product names, so they stay identical in every locale.
 const platforms = [
@@ -24,7 +25,7 @@ const platforms = [
     <div class="hero-inner">
       <p class="hero-status">
         <span class="hero-status-dot" />
-        {{ t('hero.badge') }}
+        {{ latestRelease ? t('downloads.available', { version: latestRelease.version }) : t('hero.badge') }}
       </p>
 
       <h1 class="hero-title">
@@ -37,7 +38,16 @@ const platforms = [
       </p>
 
       <div class="hero-actions">
-        <NewsletterForm compact />
+        <Button
+          v-if="latestRelease"
+          as="a"
+          href="#downloads"
+          :label="t('downloads.title')"
+        />
+        <NewsletterForm
+          v-else
+          compact
+        />
       </div>
 
       <ul
@@ -133,10 +143,16 @@ const platforms = [
   display: inline-flex;
   gap: 0.5rem;
   align-items: center;
-  color: var(--color-text-muted);
+  max-width: 100%;
+  padding: 0.5rem 0.875rem;
+  color: var(--color-accent-bright);
+  background: var(--color-accent-soft);
+  border: 1px solid var(--color-accent-line);
+  border-radius: var(--radius-full);
 }
 
 .hero-status-dot {
+  flex: none;
   width: 0.375rem;
   height: 0.375rem;
   background: var(--color-accent-bright);

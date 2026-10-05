@@ -6,7 +6,6 @@ const { ticks = 72 } = defineProps<{
 
 const uid = useId()
 const fadeId = computed(() => `aperture-fade-${uid}`)
-const sweepId = computed(() => `aperture-sweep-${uid}`)
 
 /**
  * Graduations around the focus ring, as a lens barrel carries them.
@@ -58,29 +57,6 @@ const blades = computed(() => Array.from({ length: 8 }, (_, index) => index * 45
           stop-opacity="0"
         />
       </radialGradient>
-      <linearGradient
-        :id="sweepId"
-        x1="0"
-        y1="0"
-        x2="1"
-        y2="1"
-      >
-        <stop
-          offset="0"
-          stop-color="#007cf9"
-          stop-opacity="0"
-        />
-        <stop
-          offset="0.5"
-          stop-color="#007cf9"
-          stop-opacity="0.85"
-        />
-        <stop
-          offset="1"
-          stop-color="#0ab7ff"
-          stop-opacity="0"
-        />
-      </linearGradient>
       <mask :id="`${fadeId}-mask`">
         <rect
           x="-260"
@@ -92,76 +68,70 @@ const blades = computed(() => Array.from({ length: 8 }, (_, index) => index * 45
       </mask>
     </defs>
 
-    <g :mask="`url(#${fadeId}-mask)`">
-      <g
-        fill="none"
-        stroke="currentColor"
-      >
-        <circle
-          r="74"
-          stroke-opacity="0.3"
-        />
-        <circle
-          r="112"
-          stroke-opacity="0.24"
-        />
-        <circle
-          r="168"
-          stroke-opacity="0.13"
-        />
-        <circle
-          r="236"
-          stroke-opacity="0.07"
-        />
+    <g class="rings-artwork">
+      <g :mask="`url(#${fadeId}-mask)`">
+        <g
+          fill="none"
+          stroke="currentColor"
+        >
+          <circle
+            r="74"
+            stroke-opacity="0.3"
+          />
+          <circle
+            r="112"
+            stroke-opacity="0.24"
+          />
+          <circle
+            r="168"
+            stroke-opacity="0.13"
+          />
+          <circle
+            r="236"
+            stroke-opacity="0.07"
+          />
+        </g>
+
+        <g stroke="currentColor">
+          <line
+            v-for="mark in graduations"
+            :key="mark.angle"
+            x1="0"
+            :y1="-112"
+            x2="0"
+            :y2="-112 + mark.length"
+            :stroke-width="mark.width"
+            :stroke-opacity="mark.opacity"
+            :transform="`rotate(${mark.angle})`"
+          />
+        </g>
+
+        <!-- Eight open chords echoing the shutter blades inside the mark. -->
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-opacity="0.14"
+          stroke-width="1"
+        >
+          <path
+            v-for="angle in blades"
+            :key="angle"
+            d="M 0.0 -74.0 L 68.4 -28.3"
+            :transform="`rotate(${angle})`"
+          />
+        </g>
       </g>
 
-      <g stroke="currentColor">
-        <line
-          v-for="mark in graduations"
-          :key="mark.angle"
-          x1="0"
-          :y1="-112"
-          x2="0"
-          :y2="-112 + mark.length"
-          :stroke-width="mark.width"
-          :stroke-opacity="mark.opacity"
-          :transform="`rotate(${mark.angle})`"
-        />
-      </g>
-
-      <!-- Eight open chords echoing the shutter blades inside the mark. -->
-      <g
-        fill="none"
-        stroke="currentColor"
-        stroke-opacity="0.14"
-        stroke-width="1"
-      >
+      <!-- A flat accent arc echoes the current logo. -->
+      <g>
         <path
-          v-for="angle in blades"
-          :key="angle"
-          d="M 0.0 -74.0 L 68.4 -28.3"
-          :transform="`rotate(${angle})`"
+          d="M 0 -112 A 112 112 0 0 1 101.5 47.3"
+          fill="none"
+          stroke="var(--color-accent)"
+          stroke-width="1.5"
+          stroke-linecap="round"
         />
       </g>
-    </g>
-
-    <!-- One lit arc, taken from the blue sweep on the logo's inner ring. -->
-    <g class="rings-sweep">
-      <!-- An invisible full circle forces the group's box to be centred on the
-           origin, so the rotation below turns along the barrel rather than
-           swinging the arc around it. -->
-      <circle
-        r="236"
-        fill="none"
-        stroke="none"
-      />
-      <path
-        d="M 0 -112 A 112 112 0 0 1 101.5 47.3"
-        fill="none"
-        :stroke="`url(#${sweepId})`"
-        stroke-width="1.5"
-        stroke-linecap="round"
-      />
     </g>
   </svg>
 </template>
@@ -175,21 +145,21 @@ const blades = computed(() => Array.from({ length: 8 }, (_, index) => index * 45
   overflow: visible;
 }
 
-.rings-sweep {
+// Rotate the artwork inside the SVG so the CTA's positioning transform stays
+// independent. The outer circle makes the artwork's bounds symmetrical around
+// SVG (0, 0), so fill-box keeps the pivot at the centre of the drawn rings.
+.rings-artwork {
+  transform-box: fill-box;
+  transform-origin: center;
+
   @include motion-safe {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: rings-sweep 24s linear infinite;
+    animation: rings-spin 120s linear infinite;
   }
 }
 
-@keyframes rings-sweep {
-  from {
-    transform: rotate(0deg);
-  }
-
+@keyframes rings-spin {
   to {
-    transform: rotate(360deg);
+    transform: rotate(-360deg);
   }
 }
 </style>

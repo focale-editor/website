@@ -1,5 +1,6 @@
 import { fileURLToPath } from 'node:url'
 import { focalePreset } from './app/theme/openvue-preset'
+import { documentationArticles } from './app/utils/documentation'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -27,7 +28,7 @@ export default defineNuxtConfig({
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
       ],
       meta: [
-        { name: 'theme-color', content: '#0b0c10' },
+        { name: 'theme-color', content: '#0e1421' },
       ],
     },
   },
@@ -48,6 +49,7 @@ export default defineNuxtConfig({
       loopsFormId: '',
       repositoryUrl: 'https://github.com/focale-editor/website',
       packagesUrl: 'https://pub.dev/publishers/focale-editor.app',
+      downloadCatalogUrl: 'https://get.focale-editor.app/downloads.json',
     },
   },
 
@@ -124,6 +126,8 @@ export default defineNuxtConfig({
     clientBundle: {
       scan: true,
       sizeLimitKb: 512,
+      // Navigation icons come from data, so include them for static client routing.
+      icons: ['lucide:book-open', 'lucide:scale', 'lucide:code-xml', ...Object.values(documentationArticles).map(page => page.icon)],
     },
   },
 
@@ -134,7 +138,7 @@ export default defineNuxtConfig({
     // uses cuts the generated HTML by roughly two thirds.
     autoImport: false,
     components: {
-      include: ['Button', 'InputText', 'Select'],
+      include: ['Button', 'Carousel', 'InputText', 'Select'],
     },
     directives: {
       include: [],

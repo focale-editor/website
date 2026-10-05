@@ -54,12 +54,42 @@
     "title": "Un éditeur moderne, à l'interface propre et familière.",
     "description": "Focale conserve l'agencement que partagent tous les éditeurs d'images sérieux — barre de menus, onglets de documents, barre d'outils, panneaux de calques et d'historique — et il n'y a donc rien à réapprendre avant la première retouche.",
     "tag": "En cours",
-    "alt": "L'éditeur Focale, une photographie d'aurore boréale ouverte, avec la barre d'outils, la barre d'options de sélection et le panneau des calques.",
-    "caption": "Capture provisoire, issue d'une version de développement. L'interface évolue encore.",
+    "caption": "Captures d'une version de développement. L'interface évolue encore.",
     "notes": {
       "menus": "Une vraie barre de menus et des raccourcis clavier, là où vous les attendez.",
       "panels": "Calques, couches, tracés, historique et nuancier, dans des panneaux ancrables.",
       "canvas": "Un canevas qui zoome sur le pointeur et se déplace au pavé tactile."
+    },
+    "carouselLabel": "Captures de l'éditeur Focale",
+    "carouselRole": "carrousel",
+    "slideRole": "capture",
+    "interfaceTheme": "Thème de l'interface",
+    "chooseView": "Choisir une vue",
+    "previous": "Capture précédente",
+    "next": "Capture suivante",
+    "slidePosition": "Capture {current} sur {total}",
+    "slideStatus": "{title}, capture {current} sur {total}. Thème {theme}.",
+    "themes": {
+      "dark": "Sombre",
+      "light": "Clair"
+    },
+    "slides": {
+      "editor": {
+        "title": "L'éditeur",
+        "alt": "Focale avec une scène d'aurore boréale, la barre d'outils et le panneau des calques."
+      },
+      "curves": {
+        "title": "Courbes",
+        "alt": "Réglage des courbes dans Focale avec aperçu de l'image et points de contrôle."
+      },
+      "home": {
+        "title": "Accueil",
+        "alt": "Accueil de Focale avec création de documents, ouverture de fichiers et documents récents."
+      },
+      "typography": {
+        "title": "Typographie",
+        "alt": "Affiche Éclipse dans Focale avec calques de texte, formes et panneau de typographie."
+      }
     }
   },
   "features": {
@@ -195,5 +225,1225 @@
       "description": "La page n'a pas pu être affichée. Recharger suffit généralement ; sinon, le problème vient de chez nous."
     },
     "backHome": "Retour à l'accueil"
+  },
+  "downloads": {
+    "title": "Télécharger Focale",
+    "description": "Choisissez la version adaptée à votre ordinateur.",
+    "available": "La version {version} est disponible",
+    "releaseNotes": "Notes de version",
+    "download": "Télécharger le {format}",
+    "downloadFor": "Télécharger pour {platform}",
+    "unsignedPreview": "Installateur de prévisualisation sans certificat de signature public.",
+    "installHint": "Enregistrez vos projets et fermez Focale avant d’installer une nouvelle version.",
+    "linuxHint": "Linux : extrayez l’archive ZIP complète, puis lancez ./install.sh dans son dossier. Cette première version vise les systèmes récents compatibles avec Ubuntu 22.04 ou ultérieur et nécessite GTK 3."
+  },
+  "docs": {
+    "title": "Documentation",
+    "overview": "Vue d’ensemble",
+    "navigation": "Navigation de la documentation",
+    "description": "Guides et informations de référence pour Focale.",
+    "licenses": {
+      "title": "Licences et crédits",
+      "description": "Les bibliothèques, modèles et données qui contribuent au fonctionnement de Focale.",
+      "rightsTitle": "Vos droits",
+      "rights": "Focale comprend du code applicatif propriétaire et des composants tiers. Chaque composant conserve sa licence. Ces licences restent applicables, y compris la modification et la rétro-ingénierie pour déboguer les modifications des composants LGPL.",
+      "offlineTitle": "Consultation hors ligne",
+      "offline": "Ouvrez À propos de Focale → Licences dans l’application pour rechercher les notices de votre version. Les textes des licences et les adresses des sources y sont consultables sans connexion.",
+      "dataTitle": "Profils optiques et données linguistiques",
+      "data": "La base de profils Lensfun est adaptée en un catalogue JSON compact : les champs sont sélectionnés et les entrées normalisées. Cette adaptation reste sous CC BY-SA 3.0 et crédite les contributeurs de Lensfun. Les dictionnaires de césure, les données Unicode et le modèle de détection des visages conservent aussi leurs propres notices.",
+      "catalogueTitle": "Notices complémentaires",
+      "catalogueDescription": "Ce catalogue de référence couvre les bibliothèques natives et les données intégrées. L’application installée contient toutes les notices de sa version, y compris celles de Flutter et des paquets Dart."
+    },
+    "sources": {
+      "title": "Sources des composants tiers",
+      "description": "Obtenir les sources correspondantes et reconstruire les bibliothèques natives remplaçables.",
+      "downloadTitle": "Retrouver votre version",
+      "download": "Le bouton Sources de cette version, dans À propos → Licences, ouvre l’archive correspondante. Elle est aussi disponible parmi les fichiers de la release publique concernée. Faites correspondre la version et le numéro de build ; les dernières sources amont ne les remplacent pas.",
+      "releases": "Consulter les versions publiées",
+      "contentsTitle": "Contenu de l’archive",
+      "contents": "L’archive contient les versions exactes des paquets publics RawKit, ImcodecNative et dbus, les sources des codecs, les correctifs appliqués par les scripts des paquets, les notices et les instructions de reconstruction. Un manifeste indique les versions et les empreintes SHA-256. Les sources applicatives de Focale sont distinctes.",
+      "rebuildTitle": "Reconstruire une bibliothèque",
+      "rebuild": "Installez Python 3.12+, CMake 3.25+ et les outils C/C++ de votre système. Extrayez l’archive, exécutez la première commande, modifiez la bibliothèque dans work/, puis compilez la passerelle souhaitée. README.txt précise les options d’architecture et de compilation.",
+      "replaceTitle": "Utiliser votre bibliothèque modifiée",
+      "replace": "Fermez Focale et remplacez la bibliothèque concernée dans une copie accessible en écriture de l’application, en conservant son nom et une interface C compatible. Gardez l’installation d’origine pour pouvoir revenir en arrière.",
+      "macos": "Sur macOS, replace_macos.py crée une application distincte, signée localement, avec la bibliothèque reconstruite. L’application officielle conserve sa politique de signature. La copie locale n’est plus une version notariée de Focale.",
+      "managed": "Pour les installations Microsoft Store et Flatpak, suivez les instructions de l’archive pour créer une copie accessible en écriture hors de l’installation gérée. Conservez le runtime et l’architecture correspondants.",
+      "patentsTitle": "Brevets des codecs",
+      "patents": "Les licences logicielles et les droits sur les brevets sont distincts. Les notices et l’archive de sources n’accordent pas de licence générale sur les brevets, notamment pour HEVC/HEIC."
+    },
+    "groups": {
+      "overview": "Vue d’ensemble",
+      "guides": "Aide utilisateur",
+      "reference": "Références techniques",
+      "about": "Licences et sources",
+      "nativeFormats": "Formats natifs"
+    },
+    "browse": "Parcourir la documentation",
+    "startHere": "Commencez par la prise en main, puis consultez le guide d’édition pour le travail quotidien. Les références détaillent les plateformes, la compatibilité et les formats natifs.",
+    "developmentNote": "Documentation vérifiée dans les sources de l’application le 5 octobre 2026. Focale évolue activement ; les commandes et paquets disponibles peuvent varier selon le build.",
+    "onThisPage": "Dans cette page",
+    "screenshotNote": "Illustration issue des captures de l’éditeur. L’interface peut différer dans votre version.",
+    "completeReference": "Références complètes des formats",
+    "referenceDescription": "Téléchargez les spécifications Markdown complètes en anglais : schémas, règles de validation et détails de compatibilité.",
+    "downloadReference": "Télécharger {file}",
+    "otherGuides": "Autres pages de documentation",
+    "articles": {
+      "gettingStarted": {
+        "title": "Prise en main",
+        "description": "Ouvrir une image, réaliser une première retouche et conserver un projet modifiable.",
+        "sections": {
+          "first": {
+            "title": "Votre premier document",
+            "steps": [
+              "Téléchargez le paquet correspondant à votre système et à votre processeur dans la section de téléchargement du site.",
+              "Depuis l’accueil, ouvrez une image ou créez un document. La boîte Nouveau document permet de choisir les dimensions, la résolution, le mode colorimétrique, la profondeur et le fond.",
+              "Enregistrez une copie de travail avec Fichier → Enregistrer sous. Le format .focale conserve les calques et le contenu modifiable.",
+              "Sélectionnez un calque, choisissez un outil et faites une retouche. Annuler et Rétablir permettent d’essayer un autre résultat.",
+              "Utilisez Fichier → Exporter pour produire une image à partager. Conservez le projet .focale pour poursuivre les modifications."
+            ]
+          },
+          "workspace": {
+            "title": "Se repérer dans l’éditeur",
+            "paragraphs": [
+              "Les outils se trouvent à gauche, leurs options au-dessus du canevas, et les panneaux comme Calques et Historique à droite. Chaque document ouvert possède son propre onglet.",
+              "Un clic droit sur un groupe d’outils permet de choisir un outil associé. Dans Calques, sélectionnez la vignette de l’image pour modifier les pixels, ou celle du masque pour modifier la couverture."
+            ]
+          },
+          "save": {
+            "title": "Enregistrer et exporter",
+            "paragraphs": [
+              "L’enregistrement en .focale conserve la structure du document. L’exportation produit une image ou un document d’échange distinct, dans le format choisi ; elle ne remplace pas votre projet de travail.",
+              "La retouche ne modifie pas les fichiers image ou RAW importés. Un objet dynamique lié peut toutefois dépendre d’une source externe : conservez-la ou incorporez-la avant de partager le projet."
+            ]
+          },
+          "recover": {
+            "title": "Protéger son travail",
+            "paragraphs": [
+              "Activez les instantanés de récupération dans Préférences → Enregistrement automatique. Ils sont conservés dans le stockage de l’application et ne remplacent pas votre fichier de projet.",
+              "Après une interruption, récupérez les documents proposés et enregistrez-les explicitement. Un document récupéré s’ouvre sans destination enregistrée pour vous laisser choisir où le conserver."
+            ]
+          }
+        }
+      },
+      "userGuide": {
+        "title": "Guide d’édition",
+        "description": "Calques, sélections, masques, réglages, retouche et opérations réutilisables.",
+        "sections": {
+          "layers": {
+            "title": "Choisir le calque à modifier",
+            "paragraphs": [
+              "Séparez pixels, texte, formes et réglages sur des calques distincts. Renommez-les et regroupez les éléments associés pour garder un document lisible.",
+              "Visibilité, opacité et mode de fusion déterminent la contribution d’un calque au rendu. Avant de peindre, sélectionnez la bonne vignette : un masque reçoit de la couverture, pas de la couleur."
+            ]
+          },
+          "selections": {
+            "title": "Limiter une retouche avec une sélection",
+            "paragraphs": [
+              "Les outils de sélection rectangulaire, lasso, sélection rapide et baguette magique définissent la zone modifiée. Les modes d’ajout, de soustraction et d’intersection l’affinent ; Sélectionner et masquer travaille sa bordure.",
+              "Un masque de calque cache le contenu sans supprimer les pixels. Peignez en noir pour cacher, en blanc pour révéler, en gris pour une couverture partielle. Désélectionnez si une ancienne sélection limite votre pinceau."
+            ]
+          },
+          "adjustments": {
+            "title": "Corriger les tons et les couleurs",
+            "paragraphs": [
+              "Choisissez un calque de réglage pour conserver une correction modifiable. Courbes, Niveaux et les autres réglages restent alors indépendants des pixels d’origine.",
+              "Les réglages destructifs et les filtres modifient les pixels et sont inscrits dans l’historique. Les objets dynamiques peuvent conserver une pile de filtres dynamiques modifiables pour les opérations prises en charge. Vérifiez le calque et la sélection actifs avant d’appliquer une correction."
+            ]
+          },
+          "retouch": {
+            "title": "Retoucher une photographie",
+            "paragraphs": [
+              "Pinceau et gomme agissent sur les pixels ou le masque sélectionné. Correcteurs et tampon réparent des zones localisées ; les outils d’échantillonnage nécessitent la source indiquée dans leurs options.",
+              "Commencez avec une taille de brosse modérée et vérifiez le résultat à 100 %. Taille, dureté, opacité et dynamique agissent sur des aspects différents du trait ; les contrôles de pression dépendent de la tablette et de la plateforme."
+            ]
+          },
+          "text": {
+            "title": "Ajouter du texte et des formes",
+            "paragraphs": [
+              "Les calques de texte conservent une typographie modifiable. Les calques de forme conservent leur géométrie vectorielle ; les outils de forme peuvent aussi créer des tracés ou des pixels. Choisissez leur mode avant de dessiner.",
+              "Les polices sont recherchées sur la machine. Une police absente peut être remplacée à l’affichage tout en conservant la famille demandée dans le document. Installez la police d’origine pour retrouver la mise en page prévue."
+            ]
+          },
+          "workflow": {
+            "title": "Organiser les panneaux et répéter des opérations",
+            "paragraphs": [
+              "Fenêtre → Espace de travail propose Essentiels, Photographie, Peinture et Prépresse. Déplacez les onglets entre les groupes, détachez des palettes dans l’éditeur et enregistrez votre disposition.",
+              "Le panneau Actions enregistre les opérations prises en charge et les rejoue. Le traitement par lots applique une action à plusieurs fichiers. Vérifiez les étapes non prises en charge et essayez un nouveau traitement sur des copies."
+            ]
+          },
+          "exports": {
+            "title": "Exporter un document ou des calques",
+            "paragraphs": [
+              "Fichier → Exporter donne accès au format, aux dimensions et aux options du codec choisi. L’exportation rapide réutilise le dernier préréglage raster, notamment les échelles et les suffixes.",
+              "Le menu contextuel de Calques permet aussi d’exporter les calques, groupes et plans de travail sélectionnés. Les calques ordinaires utilisent leurs limites visibles ; les plans de travail conservent leur rectangle de canevas."
+            ]
+          }
+        }
+      },
+      "shortcuts": {
+        "title": "Raccourcis clavier",
+        "description": "Les raccourcis par défaut sur ordinateur et leur personnalisation.",
+        "sections": {
+          "defaults": {
+            "title": "Commandes courantes",
+            "paragraphs": [
+              "Ctrl est le modificateur principal sous Linux et Windows ; Commande (Cmd) le remplace sur macOS. Le tableau donne les valeurs par défaut. Les menus et la recherche de commandes affichent vos affectations effectives."
+            ],
+            "table": {
+              "headers": [
+                "Commande",
+                "Linux / Windows",
+                "macOS"
+              ],
+              "rows": [
+                [
+                  "Nouveau document",
+                  "Ctrl+N",
+                  "Cmd+N"
+                ],
+                [
+                  "Ouvrir",
+                  "Ctrl+O",
+                  "Cmd+O"
+                ],
+                [
+                  "Enregistrer",
+                  "Ctrl+S",
+                  "Cmd+S"
+                ],
+                [
+                  "Enregistrer sous",
+                  "Ctrl+Shift+S",
+                  "Cmd+Shift+S"
+                ],
+                [
+                  "Exporter",
+                  "Ctrl+Alt+Shift+W",
+                  "Cmd+Option+Shift+W"
+                ],
+                [
+                  "Annuler",
+                  "Ctrl+Z",
+                  "Cmd+Z"
+                ],
+                [
+                  "Rétablir",
+                  "Ctrl+Shift+Z",
+                  "Cmd+Shift+Z"
+                ],
+                [
+                  "Tout sélectionner",
+                  "Ctrl+A",
+                  "Cmd+A"
+                ],
+                [
+                  "Désélectionner",
+                  "Ctrl+D",
+                  "Cmd+D"
+                ],
+                [
+                  "Inverser la sélection",
+                  "Ctrl+Shift+I",
+                  "Cmd+Shift+I"
+                ],
+                [
+                  "Transformation manuelle",
+                  "Ctrl+T",
+                  "Cmd+T"
+                ],
+                [
+                  "Nouveau calque raster",
+                  "Ctrl+Shift+N",
+                  "Cmd+Shift+N"
+                ],
+                [
+                  "Grouper les calques",
+                  "Ctrl+G",
+                  "Cmd+G"
+                ],
+                [
+                  "Sélection vers un nouveau calque",
+                  "Ctrl+J",
+                  "Cmd+J"
+                ],
+                [
+                  "Adapter le canevas",
+                  "Ctrl+0",
+                  "Cmd+0"
+                ],
+                [
+                  "Taille réelle",
+                  "Ctrl+1",
+                  "Cmd+1"
+                ],
+                [
+                  "Préférences",
+                  "Ctrl+K",
+                  "Cmd+K"
+                ],
+                [
+                  "Rechercher des commandes",
+                  "Ctrl+Shift+P",
+                  "Cmd+Shift+P"
+                ]
+              ]
+            }
+          },
+          "tools": {
+            "title": "Groupes d’outils",
+            "paragraphs": [
+              "Les lettres seules choisissent un groupe : V Déplacement, M Sélection géométrique, L Lasso, W Sélection, C Recadrage, I Échantillonnage, J Correction, B Peinture, S Tampon, Y Historique, E Gomme, G Remplissage, O Tons, P Plume, A Sélection de tracé, T Texte, K Cadre, U Forme et Z Zoom.",
+              "Maj avec la lettre du groupe parcourt les outils associés. Le groupe mémorise le dernier outil utilisé. Les raccourcis d’outils ne remplacent pas la saisie lorsque vous modifiez du texte."
+            ]
+          },
+          "customize": {
+            "title": "Personnaliser les raccourcis",
+            "paragraphs": [
+              "Ouvrez Fenêtre → Raccourcis clavier, recherchez une commande et choisissez Modifier. Supprimer désactive une affectation ; Restaurer rétablit une commande ; Restaurer les valeurs par défaut efface les personnalisations.",
+              "Une combinaison déjà utilisée est transférée à la nouvelle commande, laissant la précédente sans raccourci. Les espaces de travail et les raccourcis appartiennent à l’application, pas aux projets .focale."
+            ]
+          }
+        }
+      },
+      "platforms": {
+        "title": "Plateformes supportées",
+        "description": "Systèmes de bureau, processeurs compatibles et installation.",
+        "sections": {
+          "desktop": {
+            "title": "Cibles de bureau",
+            "paragraphs": [
+              "Ces cibles sont configurées dans l’application actuelle. La section de téléchargement fait référence pour les paquets réellement publiés : une cible configurée ne signifie pas qu’un installateur est déjà disponible."
+            ],
+            "table": {
+              "headers": [
+                "Plateforme",
+                "Processeur",
+                "Paquet / prérequis"
+              ],
+              "rows": [
+                [
+                  "Linux",
+                  "x86-64",
+                  "Archive ZIP complète ; GTK 3 et système compatible avec la base de compilation Ubuntu 22.04."
+                ],
+                [
+                  "Windows",
+                  "x86-64",
+                  "Installateur natif ; consultez les prérequis fournis avec la version publiée."
+                ],
+                [
+                  "macOS",
+                  "Apple Silicon / arm64",
+                  "DMG contenant Focale.app ; cible de déploiement macOS 12 ou ultérieur."
+                ],
+                [
+                  "macOS",
+                  "Intel / x86-64",
+                  "DMG Intel distinct ; cible de déploiement macOS 12 ou ultérieur."
+                ]
+              ]
+            }
+          },
+          "linux": {
+            "title": "Installer sur Linux",
+            "paragraphs": [
+              "Extrayez toute l’archive ZIP dans un dossier, fermez Focale, puis lancez le script install.sh depuis ce dossier. Il installe l’application pour le compte courant dans ~/.local/opt/focale et enregistre le lanceur et les types de fichiers.",
+              "L’application nécessite GTK 3, et l’installateur shared-mime-info. Copier uniquement l’exécutable laisse de côté les bibliothèques et les ressources. Le canal Flatpak géré est distinct du canal ZIP direct."
+            ]
+          },
+          "macos": {
+            "title": "Installer sur macOS",
+            "paragraphs": [
+              "Choisissez Apple Silicon ou Intel selon votre Mac, ouvrez le DMG et copiez Focale.app dans Applications. Conservez le paquet applicatif complet.",
+              "L’état de signature est indiqué avec le paquet publié. La cible du code source ne prouve pas à elle seule que chaque version de macOS et chaque appareil ont été testés."
+            ]
+          },
+          "windows": {
+            "title": "Installer sur Windows",
+            "paragraphs": [
+              "Utilisez l’installateur x64 de votre version et enregistrez les projets avant de remplacer une installation. Le paquet Microsoft Store relève d’un canal géré distinct.",
+              "Les installations Store et Flatpak n’utilisent pas le programme de mise à jour directe : leurs mises à jour passent par le canal de distribution correspondant."
+            ]
+          },
+          "resources": {
+            "title": "Mémoire et mises à jour",
+            "paragraphs": [
+              "Cette documentation ne donne pas de minimum universel de RAM mesuré. Dimensions, profondeur, calques et historique influencent la consommation. Préférences → Performances règle des budgets de données ; les codecs et le GPU peuvent utiliser de la mémoire supplémentaire.",
+              "Enregistrez et fermez les documents avant une mise à jour. Conservez une copie de travail antérieure lors d’un changement de version."
+            ]
+          }
+        }
+      },
+      "formats": {
+        "title": "Formats d’import et d’export",
+        "description": "Choisir entre projet modifiable, image aplatie et document d’échange.",
+        "sections": {
+          "choose": {
+            "title": "Choisir le bon fichier",
+            "paragraphs": [
+              "Conservez le projet de travail en .focale. Exportez une image raster pour la partager, ou un PSD/PSB pour échanger des calques avec un autre éditeur.",
+              "Changer une extension ne convertit pas un fichier. Utilisez Enregistrer ou Exporter et vérifiez le résultat lors du passage entre applications."
+            ]
+          },
+          "raster": {
+            "title": "Formats d’image",
+            "paragraphs": [
+              "Les pipelines de bureau proposent les formats raster ci-dessous à l’import et à l’export. Les options et métadonnées disponibles dépendent du codec choisi."
+            ],
+            "table": {
+              "headers": [
+                "Format",
+                "Utilisation dans Focale",
+                "À savoir"
+              ],
+              "rows": [
+                [
+                  "PNG",
+                  "Import / export",
+                  "Échange sans perte et transparence."
+                ],
+                [
+                  "JPEG (.jpg, .jpeg)",
+                  "Import / export",
+                  "Compression avec perte réglable ; pas de canal alpha. Choisissez un fond pour un contenu transparent."
+                ],
+                [
+                  "GIF",
+                  "Import / export",
+                  "L’import animé crée des calques d’images ; l’export animé utilise les durées du document."
+                ],
+                [
+                  "WebP",
+                  "Import / export",
+                  "L’export est actuellement sans perte ; le réglage de qualité ne le contrôle pas."
+                ],
+                [
+                  "AVIF",
+                  "Import / export",
+                  "Qualité réglable et transparence selon les capacités de l’encodeur."
+                ],
+                [
+                  "HEIF / HEIC",
+                  "Import / export",
+                  "La couleur reste encodée avec perte, même à une qualité de 100."
+                ],
+                [
+                  "JPEG XL (.jxl)",
+                  "Import / export",
+                  "L’application n’expose actuellement pas de réglage de qualité avec perte."
+                ],
+                [
+                  "OpenEXR (.exr)",
+                  "Import / export",
+                  "Prise en charge bornée, en lignes et partie unique ; tuiles, deep, multipart et certaines compressions sont refusés."
+                ],
+                [
+                  "TIFF (.tif, .tiff)",
+                  "Import / export",
+                  "L’import peut conserver les échantillons natifs et profils pris en charge."
+                ],
+                [
+                  "BMP, QOI, TGA",
+                  "Import / export",
+                  "Autres conteneurs raster ; vérifiez la transparence dans l’application destinataire."
+                ]
+              ]
+            }
+          },
+          "layered": {
+            "title": "PSD et PSB",
+            "paragraphs": [
+              "Focale importe et exporte des documents Photoshop avec calques. Texte, formes, masques, réglages et effets restent modifiables lorsqu’ils correspondent au modèle de Focale.",
+              "Les propriétés non prises en charge peuvent utiliser un aperçu raster enregistré ou un aperçu fusionné. Ce comportement ne garantit pas une compatibilité complète avec Photoshop. Conservez l’original et comparez le rendu."
+            ]
+          },
+          "raw": {
+            "title": "RAW d’appareil photo",
+            "paragraphs": [
+              "Les RAW courants s’ouvrent dans un espace de développement dédié. Réglez exposition, couleur, optique et corrections locales, puis validez l’image développée dans l’éditeur.",
+              "Le RAW est réservé à l’import : l’export ne recrée pas les données du capteur. La prise en charge d’un appareil dépend de RawKit et de son décodeur sous-jacent ; conservez le RAW d’origine."
+            ]
+          },
+          "colour": {
+            "title": "Couleur et précision",
+            "paragraphs": [
+              "Un projet peut conserver modes colorimétriques natifs, profondeur et profils ICC pris en charge. Une exportation aplatie dépend de son encodeur et de son traitement ; vérifiez les options avant de l’utiliser comme archive de haute précision.",
+              "PNG et JPEG proposent des options de métadonnées et de profil sRGB pour les exports courants. Ces options ne sont pas universelles. Préférez .focale lorsque les informations de couleur modifiables doivent être conservées."
+            ]
+          }
+        }
+      },
+      "projectFormat": {
+        "title": "Le format de projet .focale",
+        "description": "Structure ZIP, manifeste version 1, rasters exacts et données portables du document.",
+        "sections": {
+          "structure": {
+            "title": "Organisation de l’archive",
+            "paragraphs": [
+              "Un fichier .focale est une archive ZIP standard, sans chiffrement ni obfuscation. manifest.json est obligatoire ; preview.png est une vignette facultative dont le plus grand côté ne dépasse pas 512 pixels.",
+              "Rasters, masques, canaux, profils ICC incorporés, sources placées, documents imbriqués et motifs importés ont des répertoires distincts. Les noms encodent des identifiants opaques et ne sont pas interprétés comme des chemins."
+            ]
+          },
+          "manifest": {
+            "title": "Un manifeste versionné",
+            "paragraphs": [
+              "L’étiquette racine est focale et l’écriture actuelle utilise la version 1. Le lecteur refuse une version plus récente non prise en charge plutôt que d’en deviner le sens.",
+              "Le manifeste contient géométrie, mode colorimétrique, profondeur, profils et arbre de calques, ainsi que les éventuels tracés, repères, canaux, tranches, compositions, animations et variables. L’exemple ci-dessous est un extrait, pas un projet complet chargeable."
+            ]
+          },
+          "raster": {
+            "title": "PNG et entrées exactes .fcraster",
+            "paragraphs": [
+              "Les rasters de données RVB8 sRGB peuvent utiliser PNG. Le RVB8 avec profil et les autres modes ou profondeurs utilisent .fcraster pour conserver les échantillons et leur précision. Les pixels sont prémultipliés ; les pixels entièrement transparents ont des composantes nulles.",
+              "La version 1 de .fcraster commence par un en-tête de 32 octets. Les entiers sont en little-endian ; chaque pixel contient ses composantes puis l’alpha. L’écriture actuelle compresse cette charge avec zlib."
+            ],
+            "table": {
+              "headers": [
+                "Position",
+                "Octets",
+                "Champ"
+              ],
+              "rows": [
+                [
+                  "0",
+                  "8",
+                  "Signature ASCII FCRASTER"
+                ],
+                [
+                  "8",
+                  "2",
+                  "Version du conteneur : 1"
+                ],
+                [
+                  "10",
+                  "1",
+                  "Indice de mode : RGB, CMYK, Grayscale, Lab, Indexed, Bitmap, Duotone, Multichannel"
+                ],
+                [
+                  "11",
+                  "1",
+                  "Bits par canal : 1, 8, 16 ou 32"
+                ],
+                [
+                  "12",
+                  "1",
+                  "Nombre de canaux entrelacés : 2, 4 ou 5"
+                ],
+                [
+                  "13",
+                  "1",
+                  "Drapeaux : prémultiplication, little-endian, zlib ; écriture actuelle 0x07"
+                ],
+                [
+                  "14",
+                  "2",
+                  "Taille de l’en-tête : 32"
+                ],
+                [
+                  "16",
+                  "4",
+                  "Largeur"
+                ],
+                [
+                  "20",
+                  "4",
+                  "Hauteur"
+                ],
+                [
+                  "24",
+                  "8",
+                  "Longueur canonique décodée en octets"
+                ]
+              ]
+            }
+          },
+          "tiles": {
+            "title": "Tuiles raster indépendantes",
+            "paragraphs": [
+              "Un raster à plusieurs tuiles peut utiliser un descripteur JSON .fctiles à la place d’une entrée PNG ou .fcraster unique. Il décrit les dimensions, le format natif, les rectangles des tuiles et leurs références.",
+              "Les tuiles couvrent l’image sans trou ni chevauchement, dans l’ordre des lignes. Chaque axe est limité à 4096 pixels. Les charges exactes sont dédupliquées sous objects/raster/N.fcraster ; un projet utilisateur garde ses objets dans le ZIP."
+            ]
+          },
+          "modes": {
+            "title": "Modes et profondeurs",
+            "table": {
+              "headers": [
+                "Mode",
+                "Profondeurs prises en charge"
+              ],
+              "rows": [
+                [
+                  "RVB, Niveaux de gris",
+                  "8, 16, 32 bits"
+                ],
+                [
+                  "CMJN, Lab, Multicanal",
+                  "8, 16 bits"
+                ],
+                [
+                  "Couleurs indexées, Bichromie",
+                  "8 bits"
+                ],
+                [
+                  "Bitmap",
+                  "1 bit"
+                ]
+              ]
+            }
+          },
+          "safety": {
+            "title": "Validation et portabilité",
+            "paragraphs": [
+              "Les lecteurs et écrivains actuels limitent le ZIP à 1 Gio, 10 000 entrées, un manifeste de 16 Mio et 512 Mio par entrée. Les rasters décodés ont aussi leurs limites de géométrie et de mémoire. Les noms possédés en double, données obligatoires absentes et échantillons incompatibles sont refusés.",
+              "Les sources incorporées voyagent avec le projet ; les sources liées peuvent nécessiter leur chemin d’origine. Les polices ne sont pas incorporées. Inspectez une copie et consultez la référence complète avant d’écrire un lecteur."
+            ]
+          },
+          "history": {
+            "title": "Ce que le projet ne contient pas",
+            "paragraphs": [
+              "L’historique complet des commandes Annuler, la disposition de l’interface, les raccourcis et les catalogues locaux de préréglages sont des données de l’application. Ils ne constituent pas une session intégrée au projet portable.",
+              "Les points de récupération peuvent utiliser un stockage d’objets partagé adjacent. Ce sont des données gérées par l’application, à distinguer d’un fichier .focale utilisateur autonome."
+            ]
+          }
+        }
+      },
+      "presetFormats": {
+        "title": "Formats natifs de préréglages et d’actions",
+        "description": "Bibliothèques portables de brosses, motifs, formes, styles, couleurs et automatisations.",
+        "sections": {
+          "catalogue": {
+            "title": "Identifiants des formats",
+            "paragraphs": [
+              "Ces formats utilisateur sont des fichiers JSON UTF-8 avec une étiquette et une version explicites. Exportez depuis le catalogue correspondant pour sauvegarder ou partager vos préréglages ; les caches locaux sont des détails d’implémentation."
+            ],
+            "table": {
+              "headers": [
+                "Extension",
+                "Version",
+                "Étiquette racine",
+                "Contenu"
+              ],
+              "rows": [
+                [
+                  ".fbrush",
+                  "1",
+                  "focale-brush-presets",
+                  "Préréglages de brosse, pointes échantillonnées et textures"
+                ],
+                [
+                  ".fpattern",
+                  "1",
+                  "focale-pattern-presets",
+                  "Métadonnées de motifs et tuiles RGBA dédupliquées"
+                ],
+                [
+                  ".fshape",
+                  "1",
+                  "focale-custom-shape-presets",
+                  "Contours vectoriels et métadonnées de formes"
+                ],
+                [
+                  ".fstyle",
+                  "1",
+                  "focale-style-presets",
+                  "Effets de calque et options de fusion modifiables"
+                ],
+                [
+                  ".fswatch",
+                  "1",
+                  "focale-color-swatches",
+                  "Couleurs ARGB avec alpha non prémultiplié"
+                ],
+                [
+                  ".fgradient",
+                  "1",
+                  "focale-gradient-presets",
+                  "Étapes de couleur/alpha, milieux et interpolation"
+                ],
+                [
+                  ".fcurve",
+                  "1",
+                  "focale-curve-presets",
+                  "Courbes composite, rouge, verte et bleue"
+                ],
+                [
+                  ".faction",
+                  "1",
+                  "focale-action-set",
+                  "Un ensemble d’actions et ses ressources de peinture"
+                ]
+              ]
+            }
+          },
+          "envelope": {
+            "title": "Une bibliothèque JSON portable",
+            "paragraphs": [
+              "La plupart des bibliothèques contiennent un tableau presets. Un paquet d’actions contient plutôt un ensemble set, ses actions et leurs étapes. Identifiants, noms et valeurs sont typés et validés, pas interprétés comme du code arbitraire.",
+              "L’exemple est une bibliothèque de dégradés version 1. Les schémas exacts, limites et règles de compatibilité figurent dans les références téléchargeables."
+            ]
+          },
+          "assets": {
+            "title": "Ressources raster et vectorielles",
+            "paragraphs": [
+              "Les pointes de brosse encodent en Base64 un octet de couverture par pixel. Les motifs encodent du RGBA non prémultiplié dans l’ordre des lignes, quatre octets par pixel. Les formes conservent des points vectoriels normalisés et des poignées de Bézier relatives.",
+              "Les paquets natifs de brosses et motifs incorporent leurs ressources référencées. Dimensions, longueurs et identités sont vérifiées avant la création des textures. Les plafonds de ressources et de taille varient selon le format."
+            ]
+          },
+          "compatibility": {
+            "title": "Échanger des bibliothèques Photoshop",
+            "items": [
+              "La compatibilité ne couvre pas toutes les versions historiques ni toutes les fonctionnalités de Photoshop.",
+              "Les formats natifs conservent les valeurs propres à Focale. Les pixels des motifs ASL et certaines valeurs Adobe dépendantes du contexte ne se retrouvent pas dans tous les catalogues natifs."
+            ],
+            "table": {
+              "headers": [
+                "Famille",
+                "Format Adobe",
+                "Sens actuel"
+              ],
+              "rows": [
+                [
+                  "Brosses",
+                  "ABR",
+                  "Import et export"
+                ],
+                [
+                  "Motifs",
+                  "PAT",
+                  "Import et export"
+                ],
+                [
+                  "Formes",
+                  "CSH",
+                  "Import et export"
+                ],
+                [
+                  "Styles",
+                  "ASL",
+                  "Import et export des effets pris en charge"
+                ],
+                [
+                  "Nuanciers",
+                  "ACO",
+                  "Import seulement"
+                ],
+                [
+                  "Dégradés",
+                  "GRD",
+                  "Import seulement"
+                ],
+                [
+                  "Courbes",
+                  "ACV",
+                  "Import seulement"
+                ],
+                [
+                  "Actions",
+                  "ATN",
+                  "Import et export ; seules les opérations prises en charge sont exécutables"
+                ]
+              ]
+            }
+          },
+          "actions": {
+            "title": "Versions et exécution des actions",
+            "paragraphs": [
+              "La racine contient un seul set, ses actions et leurs steps, ainsi que sampledTips et patterns. Une étape décrit id, enabled, operation et ses parameters typés. Pointes de brosse principale/double et motifs actifs sont incorporés pour ne pas dépendre du catalogue d’une autre installation.",
+              "Plafonds : 256 Mio, 2 048 actions, 32 768 étapes, 64 Mio de pointes et 128 Mio de motifs décodés. L’import attribue de nouvelles identités. Les opérations et paramètres inconnus sont conservés comme non pris en charge, jamais exécutés par une ancienne version."
+            ]
+          }
+        }
+      },
+      "troubleshooting": {
+        "title": "Dépannage et récupération",
+        "description": "Récupérer son travail, comprendre une retouche inattendue et préparer un signalement utile.",
+        "sections": {
+          "recovery": {
+            "title": "Après un plantage ou une interruption",
+            "paragraphs": [
+              "Au lancement suivant, sélectionnez les documents à récupérer puis choisissez Récupérer. Les documents non sélectionnés restent proposés plus tard ; des données de récupération supprimées ne sont pas une sauvegarde.",
+              "Les documents récupérés s’ouvrent sans être enregistrés. Utilisez Enregistrer sous et vérifiez leur contenu avant de remplacer un projet existant. Gardez aussi des copies régulières de vos projets."
+            ]
+          },
+          "painting": {
+            "title": "Un outil ne modifie pas l’image",
+            "items": [
+              "Vérifiez le document actif et le calque sélectionné.",
+              "Sélectionnez la vignette des pixels ou celle du masque souhaité.",
+              "Vérifiez visibilité, verrouillage, opacité et sélection active.",
+              "Certains outils nécessitent un calque raster, un échantillon source ou un contexte de texte/tracé. La recherche de commandes et l’état du menu indiquent la disponibilité."
+            ]
+          },
+          "files": {
+            "title": "Un fichier ne s’ouvre pas ou ne s’enregistre pas",
+            "paragraphs": [
+              "Un format .focale plus récent nécessite une version qui le comprend. Pour des données endommagées, préservez l’original et examinez une copie. La présence de manifest.json dans un ZIP ne suffit pas à en faire un projet valide.",
+              "Vérifiez les droits d’écriture et l’espace libre de la destination. Dimensions, profondeur et nombre de calques peuvent dépasser les budgets ou les limites du format. Le quota du navigateur est distinct de l’espace libre du disque."
+            ]
+          },
+          "appearance": {
+            "title": "Les polices ou couleurs diffèrent",
+            "paragraphs": [
+              "Installez les familles de polices du document et vérifiez attribution de profil, conversion et épreuvage. Les fonctionnalités PSD/PSB non prises en charge peuvent apparaître comme des aperçus en pixels.",
+              "Un objet dynamique lié nécessite sa source. Rétablissez le lien ou incorporez-la lors d’un transfert. Comparez les exports dans une application qui respecte leur profil colorimétrique."
+            ]
+          },
+          "diagnostics": {
+            "title": "Rapports d’erreurs et traitement local",
+            "paragraphs": [
+              "L’édition et les traitements des documents sont locaux. Les versions configurées pour les rapports d’erreurs peuvent envoyer des événements techniques si Préférences → Diagnostics → Envoyer automatiquement les rapports d’erreurs est activé.",
+              "Ni capture ni contenu de document ne sont joints intentionnellement, mais les rapports de plantage natifs peuvent contenir des fragments de mémoire du processus. Désactivez l’envoi automatique dans Diagnostics pour bloquer les nouveaux rapports. Sous Linux et Windows, redémarrez après réactivation pour rétablir la capture native."
+            ]
+          },
+          "report": {
+            "title": "Préparer un signalement reproductible",
+            "paragraphs": [
+              "Notez version et build, système et processeur, étapes exactes, format et dimensions approximatives, texte d’erreur et résultat sur un petit document neuf.",
+              "Utilisez un exemple minimal non sensible ou une capture vérifiée. N’envoyez pas de projet privé ou de dossier de récupération par défaut. Précisez les polices tierces, sources liées ou bibliothèques de préréglages impliquées."
+            ]
+          }
+        }
+      },
+      "brushFormat": {
+        "title": "Brosses (.fbrush)",
+        "description": "Réglages de brosse, pointes échantillonnées et textures portables.",
+        "sections": {
+          "use": {
+            "title": "Utilisation dans l’application",
+            "paragraphs": [
+              "Le panneau Brosses crée, renomme, importe et exporte les préréglages utilisateur. Édition → Définir une forme prédéfinie capture la sélection visible ou le document. Les brosses intégrées ne sont pas exportées."
+            ]
+          },
+          "schema": {
+            "title": "Structure du fichier",
+            "paragraphs": [
+              "JSON UTF-8 avec une étiquette de format et une version explicites. Le lecteur et l’écriture actuels utilisent la version 1. L’exemple présente l’enveloppe de la bibliothèque ; la référence complète décrit les schémas détaillés des valeurs.",
+              "presets contient les réglages nommés : taille, espacement, dynamique, texture et brosse double. assets incorpore les pointes en Base64, un octet de couverture par pixel. patterns incorpore les textures RGBA non prémultipliées, quatre octets par pixel. Les ressources référencées accompagnent la bibliothèque."
+            ],
+            "table": {
+              "headers": [
+                "Champ",
+                "Valeur"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fbrush"
+                ],
+                [
+                  "format",
+                  "focale-brush-presets"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Encodage",
+                  "JSON UTF-8"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validation et limites",
+            "paragraphs": [
+              "Le fichier est limité à 256 Mio, les pointes décodées à 64 Mio et les motifs décodés à 128 Mio. Dimensions, points d’ancrage, identifiants, longueurs et références sont vérifiés. Une ressource manquante fait échouer l’import."
+            ]
+          },
+          "exchange": {
+            "title": "Échange avec Photoshop",
+            "paragraphs": [
+              "ABR importe et exporte les brosses échantillonnées ou procédurales prises en charge. Tous les réglages Photoshop ne correspondent pas exactement ; conservez .fbrush comme sauvegarde native."
+            ]
+          }
+        }
+      },
+      "patternFormat": {
+        "title": "Motifs (.fpattern)",
+        "description": "Tuiles RGBA réutilisables, métadonnées et pixels dédupliqués.",
+        "sections": {
+          "use": {
+            "title": "Utilisation dans l’application",
+            "paragraphs": [
+              "Importez et exportez depuis un sélecteur de motifs. Édition → Définir un motif capture le document ou une sélection rectangulaire nette, sans contour progressif. Modifier un motif ouvre une copie indépendante ; définissez le résultat comme nouveau préréglage."
+            ]
+          },
+          "schema": {
+            "title": "Structure du fichier",
+            "paragraphs": [
+              "JSON UTF-8 avec une étiquette de format et une version explicites. Le lecteur et l’écriture actuels utilisent la version 1. L’exemple présente l’enveloppe de la bibliothèque ; la référence complète décrit les schémas détaillés des valeurs.",
+              "presets contient id, name, patternId et l’éventuel groupPath. assets contient un identifiant dérivé du contenu, width, height et rgba en Base64 : RGBA non prémultiplié dans l’ordre des lignes. Plusieurs préréglages peuvent partager une tuile. Le fichier conserve des motifs aplatis, pas les calques de leur document source."
+            ],
+            "table": {
+              "headers": [
+                "Champ",
+                "Valeur"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fpattern"
+                ],
+                [
+                  "format",
+                  "focale-pattern-presets"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Encodage",
+                  "JSON UTF-8"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validation et limites",
+            "paragraphs": [
+              "Plafonds : 256 Mio encodés, 128 Mio de RGBA décodé, 4 096 préréglages et ressources, 4 096 pixels par axe et 16 millions de pixels par tuile. Identités et longueurs exactes sont contrôlées."
+            ]
+          },
+          "exchange": {
+            "title": "Échange avec Photoshop",
+            "paragraphs": [
+              "PAT importe les modes pris en charge en RGBA8 et exporte les pixels, noms, ordre et groupes compatibles. Les motifs procéduraux intégrés sont exclus des exports natifs."
+            ]
+          }
+        }
+      },
+      "shapeFormat": {
+        "title": "Formes (.fshape)",
+        "description": "Contours vectoriels nommés, proportions et géométrie de Bézier.",
+        "sections": {
+          "use": {
+            "title": "Utilisation dans l’application",
+            "paragraphs": [
+              "Le catalogue de formes personnalisées importe et exporte les formes utilisateur. Dessinez un préréglage comme calque de forme pour garder sa géométrie modifiable. Supprimer une entrée du catalogue ne change pas les formes déjà placées."
+            ]
+          },
+          "schema": {
+            "title": "Structure du fichier",
+            "paragraphs": [
+              "JSON UTF-8 avec une étiquette de format et une version explicites. Le lecteur et l’écriture actuels utilisent la version 1. L’exemple présente l’enveloppe de la bibliothèque ; la référence complète décrit les schémas détaillés des valeurs.",
+              "presets contient id, name, sourceAspectRatio, groupPath, sortOrder et outline. Les sous-tracés conservent des points normalisés, des poignées relatives inX/inY et outX/outY, la fermeture, les opérations de combinaison et les règles de remplissage. La bibliothèque ne contient pas de pixels raster."
+            ],
+            "table": {
+              "headers": [
+                "Champ",
+                "Valeur"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fshape"
+                ],
+                [
+                  "format",
+                  "focale-custom-shape-presets"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Encodage",
+                  "JSON UTF-8"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validation et limites",
+            "paragraphs": [
+              "La bibliothèque est limitée à 128 Mio et 8 192 préréglages ; un préréglage à 16 Mio et 100 000 points. Noms, coordonnées et hiérarchie sont bornés. Une collision reçoit un nouvel identifiant ; une entrée invalide fait échouer l’ensemble."
+            ]
+          },
+          "exchange": {
+            "title": "Échange avec Photoshop",
+            "paragraphs": [
+              "CSH conserve les contours, poignées, proportions, ordre, groupes et opérations pris en charge à l’import/export. .fcshape est un cache interne par entrée ; utilisez .fshape pour les échanges."
+            ]
+          }
+        }
+      },
+      "styleFormat": {
+        "title": "Styles de calque (.fstyle)",
+        "description": "Effets de calque et options de fusion avancées modifiables.",
+        "sections": {
+          "use": {
+            "title": "Utilisation dans l’application",
+            "paragraphs": [
+              "Le panneau Styles capture ou applique un style et importe ou exporte les bibliothèques. Appliquer est annulable ; modifier le catalogue ne change pas les documents ouverts. Les styles intégrés ne sont pas exportés."
+            ]
+          },
+          "schema": {
+            "title": "Structure du fichier",
+            "paragraphs": [
+              "JSON UTF-8 avec une étiquette de format et une version explicites. Le lecteur et l’écriture actuels utilisent la version 1. L’exemple présente l’enveloppe de la bibliothèque ; la référence complète décrit les schémas détaillés des valeurs.",
+              "presets contient des objets style nommés, leurs groupes éventuels, fillOpacity, effects et les plages Fusion si. Les effets activés ou désactivés restent modifiables : le fichier ne conserve pas seulement des vignettes de rendu."
+            ],
+            "table": {
+              "headers": [
+                "Champ",
+                "Valeur"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fstyle"
+                ],
+                [
+                  "format",
+                  "focale-style-presets"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Encodage",
+                  "JSON UTF-8"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validation et limites",
+            "paragraphs": [
+              "Plafonds : 16 Mio et 4 096 préréglages, noms et identifiants de 4 096 unités UTF-16 et 32 niveaux de groupes. Doublons ou entrées invalides font échouer l’import complet."
+            ]
+          },
+          "exchange": {
+            "title": "Échange avec Photoshop",
+            "paragraphs": [
+              "ASL conserve les effets et options que Focale peut reproduire. Les pixels des motifs incorporés dans ASL sont actuellement ignorés ; .fstyle conserve la représentation native modifiable."
+            ]
+          }
+        }
+      },
+      "swatchFormat": {
+        "title": "Nuanciers (.fswatch)",
+        "description": "Couleurs nommées et valeurs ARGB portables non prémultipliées.",
+        "sections": {
+          "use": {
+            "title": "Utilisation dans l’application",
+            "paragraphs": [
+              "Le panneau Nuancier capture, supprime, importe et exporte les couleurs utilisateur. Choisir une couleur change la couleur courante ; modifier le catalogue ne recolore pas les documents existants."
+            ]
+          },
+          "schema": {
+            "title": "Structure du fichier",
+            "paragraphs": [
+              "JSON UTF-8 avec une étiquette de format et une version explicites. Le lecteur et l’écriture actuels utilisent la version 1. L’exemple présente l’enveloppe de la bibliothèque ; la référence complète décrit les schémas détaillés des valeurs.",
+              "Chaque entrée de presets contient id, name, color et l’éventuel groupPath. color est un entier ARGB non signé avec alpha non prémultiplié, pas une chaîne CSS. Par exemple, 4278190080 représente un noir opaque."
+            ],
+            "table": {
+              "headers": [
+                "Champ",
+                "Valeur"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fswatch"
+                ],
+                [
+                  "format",
+                  "focale-color-swatches"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Encodage",
+                  "JSON UTF-8"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validation et limites",
+            "paragraphs": [
+              "Plafonds : 16 Mio et 4 096 entrées. Noms et identifiants sont limités à 4 096 unités UTF-16, les groupes à 32 segments. Une collision à l’import reçoit un nouvel identifiant. Les entrées intégrées sont exclues."
+            ]
+          },
+          "exchange": {
+            "title": "Échange avec Photoshop",
+            "paragraphs": [
+              "ACO est réservé à l’import. Les valeurs Adobe prises en charge sont converties vers le modèle du catalogue. Exportez .fswatch pour conserver noms, groupes et valeurs Focale."
+            ]
+          }
+        }
+      },
+      "gradientFormat": {
+        "title": "Dégradés (.fgradient)",
+        "description": "Étapes de couleur et d’alpha, points médians et interpolation.",
+        "sections": {
+          "use": {
+            "title": "Utilisation dans l’application",
+            "paragraphs": [
+              "L’éditeur partagé de dégradés importe et exporte le catalogue utilisateur. Choisir un préréglage change le dégradé courant ; modifier le catalogue ne remplace pas ceux déjà enregistrés dans un document."
+            ]
+          },
+          "schema": {
+            "title": "Structure du fichier",
+            "paragraphs": [
+              "JSON UTF-8 avec une étiquette de format et une version explicites. Le lecteur et l’écriture actuels utilisent la version 1. L’exemple présente l’enveloppe de la bibliothèque ; la référence complète décrit les schémas détaillés des valeurs.",
+              "Chaque entrée possède id, name, un éventuel groupPath et gradient. Celui-ci contient interpolation et des stops ordonnés avec position, color ARGB et l’éventuel midpoint. Le format natif conserve les valeurs du dégradé créé."
+            ],
+            "table": {
+              "headers": [
+                "Champ",
+                "Valeur"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fgradient"
+                ],
+                [
+                  "format",
+                  "focale-gradient-presets"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Encodage",
+                  "JSON UTF-8"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validation et limites",
+            "paragraphs": [
+              "Plafonds : 16 Mio et 4 096 entrées. Un dégradé contient 2 à 256 étapes strictement ordonnées, de 0 à 1. Une interpolation inconnue, un doublon ou une étape invalide fait échouer tout le fichier."
+            ]
+          },
+          "exchange": {
+            "title": "Échange avec Photoshop",
+            "paragraphs": [
+              "GRD importe seulement les dégradés personnalisés solides pris en charge. Utilisez .fgradient pour sauvegarder et échanger les valeurs natives ; toutes les variantes Photoshop ne sont pas garanties."
+            ]
+          }
+        }
+      },
+      "curveFormat": {
+        "title": "Courbes (.fcurve)",
+        "description": "Courbes réutilisables composite, rouge, verte et bleue.",
+        "sections": {
+          "use": {
+            "title": "Utilisation dans l’application",
+            "paragraphs": [
+              "Le réglage Courbes importe et exporte son catalogue. Appliquer un préréglage change le réglage courant ; modifier le catalogue laisse les réglages déjà créés inchangés."
+            ]
+          },
+          "schema": {
+            "title": "Structure du fichier",
+            "paragraphs": [
+              "JSON UTF-8 avec une étiquette de format et une version explicites. Le lecteur et l’écriture actuels utilisent la version 1. L’exemple présente l’enveloppe de la bibliothèque ; la référence complète décrit les schémas détaillés des valeurs.",
+              "Chaque entrée possède id, name, un éventuel groupPath et curves avec rgb, red, green et blue. Une courbe est un tableau plat : toutes les abscisses x, puis les ordonnées y correspondantes. [0, 1, 0, 1] représente la courbe identité à deux points."
+            ],
+            "table": {
+              "headers": [
+                "Champ",
+                "Valeur"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fcurve"
+                ],
+                [
+                  "format",
+                  "focale-curve-presets"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Encodage",
+                  "JSON UTF-8"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validation et limites",
+            "paragraphs": [
+              "Plafonds : 16 Mio et 4 096 entrées. Une courbe contient 2 à 256 points dans le carré unité, avec abscisses strictement croissantes et extrémités 0 et 1. Des données invalides font échouer la bibliothèque."
+            ]
+          },
+          "exchange": {
+            "title": "Échange avec Photoshop",
+            "paragraphs": [
+              "ACV est réservé à l’import. Les courbes Photoshop prises en charge correspondent aux quatre canaux natifs. Utilisez .fcurve pour sauvegarder et partager le préréglage Focale complet."
+            ]
+          }
+        }
+      },
+      "actionFormat": {
+        "title": "Actions (.faction)",
+        "description": "Un ensemble d’actions portable, ses étapes et ressources de peinture.",
+        "sections": {
+          "use": {
+            "title": "Utilisation dans l’application",
+            "paragraphs": [
+              "Le panneau Actions importe, exporte, enregistre et rejoue un ensemble. Vérifiez les étapes avant exécution ; Fichier → Automatisation → Traitement par lots applique une action à plusieurs fichiers."
+            ]
+          },
+          "schema": {
+            "title": "Structure du fichier",
+            "paragraphs": [
+              "JSON UTF-8 avec une étiquette de format et une version explicites. Le lecteur et l’écriture actuels utilisent la version 1. L’exemple présente l’enveloppe de la bibliothèque ; la référence complète décrit les schémas détaillés des valeurs.",
+              "La racine contient un seul set, ses actions et leurs steps, ainsi que sampledTips et patterns. Une étape décrit id, enabled, operation et ses parameters typés. Pointes de brosse principale/double et motifs actifs sont incorporés pour ne pas dépendre du catalogue d’une autre installation."
+            ],
+            "table": {
+              "headers": [
+                "Champ",
+                "Valeur"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".faction"
+                ],
+                [
+                  "format",
+                  "focale-action-set"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Encodage",
+                  "JSON UTF-8"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validation et limites",
+            "paragraphs": [
+              "Plafonds : 256 Mio, 2 048 actions, 32 768 étapes, 64 Mio de pointes et 128 Mio de motifs décodés. L’import attribue de nouvelles identités. Les opérations et paramètres inconnus sont conservés comme non pris en charge, jamais exécutés par une ancienne version."
+            ]
+          },
+          "exchange": {
+            "title": "Échange avec Photoshop",
+            "paragraphs": [
+              "ATN importe et exporte les opérations reconnues pour la lecture. Les événements non pris en charge restent désactivés. .faction est l’ensemble natif portable, distinct du catalogue interne qui peut contenir plusieurs ensembles."
+            ]
+          }
+        }
+      }
+    }
   }
 }

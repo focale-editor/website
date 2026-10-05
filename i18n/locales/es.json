@@ -54,12 +54,42 @@
     "title": "Un editor moderno, con una interfaz limpia y familiar.",
     "description": "Focale mantiene la disposición que comparten todos los editores de imágenes serios —barra de menús, pestañas de documento, barra de herramientas, paneles de capas e historial—, así que no hay nada que reaprender antes de la primera edición.",
     "tag": "En curso",
-    "alt": "El editor Focale con una fotografía de una aurora abierta, mostrando la barra de herramientas, la barra de opciones de selección y el panel de capas.",
-    "caption": "Captura provisional de una versión de desarrollo. La interfaz aún está cambiando.",
+    "caption": "Capturas de una versión de desarrollo. La interfaz sigue evolucionando.",
     "notes": {
       "menus": "Una barra de menús de verdad y atajos de teclado, donde los esperas.",
       "panels": "Capas, canales, trazados, historial y muestras, en paneles acoplables.",
       "canvas": "Un lienzo que amplía sobre el puntero y se desplaza con el panel táctil."
+    },
+    "carouselLabel": "Capturas del editor Focale",
+    "carouselRole": "carrusel",
+    "slideRole": "captura",
+    "interfaceTheme": "Tema de la interfaz",
+    "chooseView": "Elegir una vista",
+    "previous": "Captura anterior",
+    "next": "Captura siguiente",
+    "slidePosition": "Captura {current} de {total}",
+    "slideStatus": "{title}, captura {current} de {total}. Tema {theme}.",
+    "themes": {
+      "dark": "Oscuro",
+      "light": "Claro"
+    },
+    "slides": {
+      "editor": {
+        "title": "Editor",
+        "alt": "Focale con una escena de aurora boreal, la barra de herramientas y el panel de capas."
+      },
+      "curves": {
+        "title": "Curvas",
+        "alt": "Ajuste de curvas en Focale con vista previa de la imagen y puntos de control."
+      },
+      "home": {
+        "title": "Inicio",
+        "alt": "Pantalla de inicio de Focale con creación de documentos, apertura de archivos y documentos recientes."
+      },
+      "typography": {
+        "title": "Tipografía",
+        "alt": "Cartel Eclipse en Focale con capas de texto, formas y controles tipográficos."
+      }
     }
   },
   "features": {
@@ -195,5 +225,1225 @@
       "description": "No se ha podido mostrar la página. Recargar suele bastar; si no, el problema es nuestro."
     },
     "backHome": "Volver al inicio"
+  },
+  "downloads": {
+    "title": "Descargar Focale",
+    "description": "Elige la versión para tu ordenador.",
+    "available": "La versión {version} está disponible",
+    "releaseNotes": "Notas de la versión",
+    "download": "Descargar {format}",
+    "downloadFor": "Descargar para {platform}",
+    "unsignedPreview": "Instalador de vista previa sin certificado público de firma.",
+    "installHint": "Guarda tus proyectos y cierra Focale antes de instalar una nueva versión.",
+    "linuxHint": "Linux: extrae el ZIP completo y ejecuta ./install.sh en su carpeta. Esta primera versión está destinada a sistemas recientes compatibles con Ubuntu 22.04 o posterior y requiere GTK 3."
+  },
+  "docs": {
+    "title": "Documentación",
+    "overview": "Resumen",
+    "navigation": "Navegación de la documentación",
+    "description": "Guías e información de referencia para Focale.",
+    "licenses": {
+      "title": "Licencias y créditos",
+      "description": "Las bibliotecas, modelos y datos que hacen posible Focale.",
+      "rightsTitle": "Tus derechos",
+      "rights": "Focale incluye código de aplicación propietario y componentes de terceros. Cada componente conserva su licencia. Estos derechos siguen vigentes, incluida la modificación y la ingeniería inversa para depurar cambios en componentes LGPL.",
+      "offlineTitle": "Disponible sin conexión",
+      "offline": "Abre Acerca de Focale → Licencias para buscar los avisos de tu versión instalada. Los textos y las direcciones del código fuente están disponibles sin conexión.",
+      "dataTitle": "Perfiles ópticos y datos lingüísticos",
+      "data": "La base Lensfun se adapta a un catálogo JSON compacto: se seleccionan campos y se normalizan entradas. Esta adaptación conserva CC BY-SA 3.0 y el reconocimiento a los colaboradores de Lensfun. Los patrones de separación silábica, los datos Unicode y el modelo de detección facial conservan también sus avisos.",
+      "catalogueTitle": "Avisos adicionales",
+      "catalogueDescription": "Este catálogo de referencia cubre bibliotecas nativas y datos incorporados. La aplicación instalada incluye todos los avisos de su versión, incluidos Flutter y los paquetes Dart."
+    },
+    "sources": {
+      "title": "Código fuente de terceros",
+      "description": "Obtén las fuentes correspondientes y recompila las bibliotecas nativas reemplazables.",
+      "downloadTitle": "Encuentra tu versión",
+      "download": "El botón de código fuente de esta versión, en Acerca de → Licencias, abre el archivo correspondiente. También está entre los archivos de la publicación pública. Deben coincidir la versión y el número de compilación; las últimas fuentes originales no los sustituyen.",
+      "releases": "Ver versiones publicadas",
+      "contentsTitle": "Contenido del archivo",
+      "contents": "El archivo contiene los paquetes públicos exactos de RawKit, ImcodecNative y dbus, las fuentes de los códecs, los parches aplicados por los scripts, los avisos y las instrucciones de compilación. Un manifiesto registra versiones y sumas SHA-256. El código de Focale es independiente.",
+      "rebuildTitle": "Recompila una biblioteca",
+      "rebuild": "Instala Python 3.12+, CMake 3.25+ y las herramientas C/C++ de tu sistema. Extrae el archivo, ejecuta el primer comando, modifica la biblioteca en work/ y compila la interfaz deseada. README.txt detalla las opciones de arquitectura y compilador.",
+      "replaceTitle": "Usa tu biblioteca modificada",
+      "replace": "Cierra Focale y reemplaza la biblioteca en una copia de la aplicación con permisos de escritura. Conserva su nombre y una interfaz C compatible. Guarda la instalación original para poder recuperarla.",
+      "macos": "En macOS, replace_macos.py crea una aplicación independiente firmada localmente con la biblioteca reconstruida. La aplicación oficial conserva su política de firma. La copia local deja de ser una versión notarizada de Focale.",
+      "managed": "Para Microsoft Store y Flatpak, sigue las instrucciones del archivo para crear una copia modificable fuera de la instalación gestionada. Conserva el entorno de ejecución y la arquitectura correspondientes.",
+      "patentsTitle": "Patentes de los códecs",
+      "patents": "Las licencias de software y los derechos de patentes son distintos. Los avisos y el archivo de fuentes no conceden una licencia general de patentes, en particular para HEVC/HEIC."
+    },
+    "groups": {
+      "overview": "Resumen",
+      "guides": "Guías de usuario",
+      "reference": "Referencia técnica",
+      "about": "Licencias y fuentes",
+      "nativeFormats": "Formatos nativos"
+    },
+    "browse": "Explorar la documentación",
+    "startHere": "Empieza por Primeros pasos y consulta la guía de edición para el trabajo diario. La referencia detalla plataformas, compatibilidad y formatos nativos.",
+    "developmentNote": "Verificado con el código de la aplicación el 5 de octubre de 2026. Focale está en desarrollo activo; comandos y paquetes pueden variar según la compilación.",
+    "onThisPage": "En esta página",
+    "screenshotNote": "Ilustración de las capturas del editor. La interfaz puede variar en tu versión.",
+    "completeReference": "Referencias completas de formatos",
+    "referenceDescription": "Descarga especificaciones Markdown completas en inglés, con esquemas, validación y compatibilidad.",
+    "downloadReference": "Descargar {file}",
+    "otherGuides": "Otras páginas de documentación",
+    "articles": {
+      "gettingStarted": {
+        "title": "Primeros pasos",
+        "description": "Abrir una imagen, hacer una primera edición y guardar un proyecto editable.",
+        "sections": {
+          "first": {
+            "title": "Tu primer documento",
+            "steps": [
+              "Descarga el paquete para tu sistema y procesador desde la sección de descargas del sitio.",
+              "En Inicio, abre una imagen o crea un documento. Nuevo documento permite elegir dimensiones, resolución, modo de color, profundidad y fondo.",
+              "Guarda una copia de trabajo con Archivo → Guardar como. .focale conserva las capas y el contenido editable.",
+              "Selecciona una capa y una herramienta. Deshacer y Rehacer permiten probar otro resultado.",
+              "Usa Archivo → Exportar para compartir una imagen y conserva el proyecto .focale para seguir editando."
+            ]
+          },
+          "workspace": {
+            "title": "Orientarse en el editor",
+            "paragraphs": [
+              "Las herramientas están a la izquierda, sus opciones encima del lienzo y los paneles Capas e Historial a la derecha. Cada documento tiene su pestaña.",
+              "Haz clic derecho en un grupo para elegir otra herramienta. En Capas, selecciona la miniatura de imagen para editar píxeles o la de máscara para editar cobertura."
+            ]
+          },
+          "save": {
+            "title": "Guardar y exportar",
+            "paragraphs": [
+              "Guardar en .focale conserva la estructura. Exportar crea una imagen o documento de intercambio separado, sin sustituir el proyecto editable.",
+              "La edición no modifica las imágenes ni los RAW importados. Un objeto inteligente vinculado puede depender de un archivo externo: consérvalo o incrústalo antes de compartir."
+            ]
+          },
+          "recover": {
+            "title": "Proteger el trabajo",
+            "paragraphs": [
+              "Activa las instantáneas en Preferencias → Guardado automático. Se conservan en el almacenamiento de la aplicación y no sobrescriben el proyecto.",
+              "Tras una interrupción, recupera los documentos propuestos y guárdalos explícitamente. Se abren sin guardar para que elijas el destino."
+            ]
+          }
+        }
+      },
+      "userGuide": {
+        "title": "Guía de edición",
+        "description": "Capas, selecciones, máscaras, ajustes, retoque y operaciones reutilizables.",
+        "sections": {
+          "layers": {
+            "title": "Elegir la capa",
+            "paragraphs": [
+              "Separa píxeles, texto, formas y ajustes en capas. Ponles nombres y agrupa los elementos relacionados.",
+              "Visibilidad, opacidad y modo de fusión controlan el resultado. Antes de pintar, elige la miniatura adecuada: una máscara recibe cobertura, no color."
+            ]
+          },
+          "selections": {
+            "title": "Limitar una edición",
+            "paragraphs": [
+              "Marco, lazo, selección rápida y varita mágica definen el área. Añadir, restar e intersectar la refinan; Seleccionar y aplicar máscara refina los bordes.",
+              "Una máscara oculta sin borrar: negro oculta, blanco revela y gris cubre parcialmente. Deselecciona si una selección anterior limita el pincel."
+            ]
+          },
+          "adjustments": {
+            "title": "Ajustar tonos y colores",
+            "paragraphs": [
+              "Una capa de ajuste mantiene editable la corrección, separada de los píxeles originales.",
+              "Los ajustes destructivos y filtros cambian píxeles y se registran en el historial. Los objetos inteligentes conservan filtros inteligentes editables para operaciones compatibles. Comprueba capa y selección antes de aplicar."
+            ]
+          },
+          "retouch": {
+            "title": "Retocar fotografías",
+            "paragraphs": [
+              "Pincel y borrador actúan sobre los píxeles o la máscara seleccionada. Correctores y tampón reparan áreas pequeñas; las herramientas de muestreo necesitan una fuente.",
+              "Empieza con un tamaño moderado y revisa al 100 %. Tamaño, dureza, opacidad y dinámica tienen funciones diferentes. La presión depende de la tableta y plataforma."
+            ]
+          },
+          "text": {
+            "title": "Texto y formas",
+            "paragraphs": [
+              "El texto conserva su tipografía editable y las formas su geometría vectorial. Elige el modo de salida: formas, trazados o píxeles.",
+              "Las fuentes se buscan en el equipo. Una sustitución visual conserva la familia solicitada en el documento. Instala la fuente original para reproducir la composición."
+            ]
+          },
+          "workflow": {
+            "title": "Paneles y automatización",
+            "paragraphs": [
+              "Ventana → Espacio de trabajo ofrece Esenciales, Fotografía, Pintura y Preimpresión. Mueve pestañas, separa paletas dentro del editor y guarda tu distribución.",
+              "Acciones graba y reproduce operaciones compatibles. El procesamiento por lotes aplica una acción a varios archivos. Revisa pasos no compatibles y prueba con copias."
+            ]
+          },
+          "exports": {
+            "title": "Exportar documentos o capas",
+            "paragraphs": [
+              "Archivo → Exportar ofrece formato, dimensiones y opciones del codec. Exportación rápida reutiliza el último ajuste raster, con escalas y sufijos.",
+              "El menú de Capas exporta también capas, grupos y mesas de trabajo seleccionados. Las capas usan sus límites visibles; las mesas conservan su rectángulo de lienzo."
+            ]
+          }
+        }
+      },
+      "shortcuts": {
+        "title": "Atajos de teclado",
+        "description": "Asignaciones predeterminadas de escritorio y personalización.",
+        "sections": {
+          "defaults": {
+            "title": "Comandos habituales",
+            "paragraphs": [
+              "Ctrl es el modificador principal en Linux y Windows; en macOS se usa Comando (Cmd). Los menús y la búsqueda muestran las asignaciones efectivas."
+            ],
+            "table": {
+              "headers": [
+                "Comando",
+                "Linux / Windows",
+                "macOS"
+              ],
+              "rows": [
+                [
+                  "Nuevo documento",
+                  "Ctrl+N",
+                  "Cmd+N"
+                ],
+                [
+                  "Abrir",
+                  "Ctrl+O",
+                  "Cmd+O"
+                ],
+                [
+                  "Guardar",
+                  "Ctrl+S",
+                  "Cmd+S"
+                ],
+                [
+                  "Guardar como",
+                  "Ctrl+Shift+S",
+                  "Cmd+Shift+S"
+                ],
+                [
+                  "Exportar",
+                  "Ctrl+Alt+Shift+W",
+                  "Cmd+Option+Shift+W"
+                ],
+                [
+                  "Deshacer",
+                  "Ctrl+Z",
+                  "Cmd+Z"
+                ],
+                [
+                  "Rehacer",
+                  "Ctrl+Shift+Z",
+                  "Cmd+Shift+Z"
+                ],
+                [
+                  "Seleccionar todo",
+                  "Ctrl+A",
+                  "Cmd+A"
+                ],
+                [
+                  "Deseleccionar",
+                  "Ctrl+D",
+                  "Cmd+D"
+                ],
+                [
+                  "Invertir selección",
+                  "Ctrl+Shift+I",
+                  "Cmd+Shift+I"
+                ],
+                [
+                  "Transformación libre",
+                  "Ctrl+T",
+                  "Cmd+T"
+                ],
+                [
+                  "Nueva capa raster",
+                  "Ctrl+Shift+N",
+                  "Cmd+Shift+N"
+                ],
+                [
+                  "Agrupar capas",
+                  "Ctrl+G",
+                  "Cmd+G"
+                ],
+                [
+                  "Selección a nueva capa",
+                  "Ctrl+J",
+                  "Cmd+J"
+                ],
+                [
+                  "Ajustar lienzo",
+                  "Ctrl+0",
+                  "Cmd+0"
+                ],
+                [
+                  "Tamaño real",
+                  "Ctrl+1",
+                  "Cmd+1"
+                ],
+                [
+                  "Preferencias",
+                  "Ctrl+K",
+                  "Cmd+K"
+                ],
+                [
+                  "Buscar comandos",
+                  "Ctrl+Shift+P",
+                  "Cmd+Shift+P"
+                ]
+              ]
+            }
+          },
+          "tools": {
+            "title": "Grupos de herramientas",
+            "paragraphs": [
+              "V Mover, M Marco, L Lazo, W Selección, C Recorte, I Muestreo, J Corrección, B Pintura, S Tampón, Y Historial, E Borrador, G Relleno, O Tonos, P Pluma, A Selección de trazado, T Texto, K Marco de imagen, U Forma y Z Zoom.",
+              "Mayús y la letra recorren las herramientas del grupo. Cada grupo recuerda la última utilizada. Los atajos no sustituyen la escritura al editar texto."
+            ]
+          },
+          "customize": {
+            "title": "Personalizar atajos",
+            "paragraphs": [
+              "En Ventana → Atajos de teclado, busca el comando y elige Cambiar. Quitar desactiva una asignación; Restaurar recupera una; Restaurar valores predeterminados borra las personalizaciones.",
+              "Una combinación ya usada pasa al nuevo comando y deja al anterior sin atajo. Espacios de trabajo y atajos son preferencias de la aplicación, no del proyecto .focale."
+            ]
+          }
+        }
+      },
+      "platforms": {
+        "title": "Plataformas compatibles",
+        "description": "Sistemas de escritorio, procesadores compatibles e instalación.",
+        "sections": {
+          "desktop": {
+            "title": "Versiones de escritorio",
+            "paragraphs": [
+              "Estas plataformas están configuradas en el código actual. Consulta Descargas para saber qué paquetes se han publicado; una configuración no garantiza un instalador disponible."
+            ],
+            "table": {
+              "headers": [
+                "Plataforma",
+                "Procesador",
+                "Paquete / requisito"
+              ],
+              "rows": [
+                [
+                  "Linux",
+                  "x86-64",
+                  "ZIP completo; GTK 3 y sistema compatible con la base Ubuntu 22.04."
+                ],
+                [
+                  "Windows",
+                  "x86-64",
+                  "Instalador nativo; consulta los requisitos de la versión publicada."
+                ],
+                [
+                  "macOS",
+                  "Apple Silicon / arm64",
+                  "DMG con Focale.app; objetivo de despliegue macOS 12 o posterior."
+                ],
+                [
+                  "macOS",
+                  "Intel / x86-64",
+                  "DMG Intel independiente; objetivo macOS 12 o posterior."
+                ]
+              ]
+            }
+          },
+          "linux": {
+            "title": "Instalar en Linux",
+            "paragraphs": [
+              "Extrae el ZIP completo, cierra Focale y ejecuta install.sh desde esa carpeta. Instala para el usuario actual en ~/.local/opt/focale y registra el lanzador y tipos de archivo.",
+              "Necesita GTK 3 y shared-mime-info para la instalación. Copiar solo el ejecutable omite bibliotecas y recursos. Flatpak es un canal gestionado separado del ZIP."
+            ]
+          },
+          "macos": {
+            "title": "Instalar en macOS",
+            "paragraphs": [
+              "Elige Apple Silicon o Intel, abre el DMG y copia Focale.app a Aplicaciones. Conserva el paquete completo.",
+              "El estado de firma acompaña al paquete publicado. El objetivo del código no demuestra pruebas en todas las versiones o dispositivos."
+            ]
+          },
+          "windows": {
+            "title": "Instalar en Windows",
+            "paragraphs": [
+              "Usa el instalador x64 de la versión y guarda antes de reemplazar la instalación. Microsoft Store constituye otro canal gestionado.",
+              "Store y Flatpak reciben actualizaciones desde sus canales, sin el actualizador directo."
+            ]
+          },
+          "resources": {
+            "title": "Memoria y actualizaciones",
+            "paragraphs": [
+              "No se ha medido un mínimo universal de RAM. Dimensiones, profundidad, capas e historial influyen. Preferencias → Rendimiento limita cargas de datos; codecs y GPU pueden consumir memoria adicional.",
+              "Guarda y cierra antes de actualizar. Conserva una copia anterior al cambiar de versión."
+            ]
+          }
+        }
+      },
+      "formats": {
+        "title": "Formatos de importación y exportación",
+        "description": "Proyectos editables, imágenes aplanadas e intercambio de capas.",
+        "sections": {
+          "choose": {
+            "title": "Elegir el archivo",
+            "paragraphs": [
+              "Conserva .focale para trabajar. Exporta una imagen raster para compartir o PSD/PSB para intercambiar capas.",
+              "Cambiar la extensión no convierte el archivo. Usa Guardar o Exportar y comprueba el resultado en la otra aplicación."
+            ]
+          },
+          "raster": {
+            "title": "Formatos de imagen",
+            "paragraphs": [
+              "La importación y exportación de escritorio ofrecen estos formatos. Opciones y metadatos dependen del codec."
+            ],
+            "table": {
+              "headers": [
+                "Formato",
+                "Uso",
+                "Detalle"
+              ],
+              "rows": [
+                [
+                  "PNG",
+                  "Importación / exportación",
+                  "Sin pérdida y con transparencia."
+                ],
+                [
+                  "JPEG (.jpg, .jpeg)",
+                  "Importación / exportación",
+                  "Calidad con pérdida; sin alfa. Elige fondo para zonas transparentes."
+                ],
+                [
+                  "GIF",
+                  "Importación / exportación",
+                  "La importación animada crea capas de fotogramas; la exportación usa sus duraciones."
+                ],
+                [
+                  "WebP",
+                  "Importación / exportación",
+                  "Exportación actualmente sin pérdida; no utiliza el control de calidad."
+                ],
+                [
+                  "AVIF",
+                  "Importación / exportación",
+                  "Calidad ajustable y transparencia según el codificador."
+                ],
+                [
+                  "HEIF / HEIC",
+                  "Importación / exportación",
+                  "El color sigue siendo con pérdida, incluso a calidad 100."
+                ],
+                [
+                  "JPEG XL (.jxl)",
+                  "Importación / exportación",
+                  "No se expone un control de calidad con pérdida."
+                ],
+                [
+                  "OpenEXR (.exr)",
+                  "Importación / exportación",
+                  "Soporte limitado de una parte y líneas; rechaza mosaicos, deep, multipart y ciertas compresiones."
+                ],
+                [
+                  "TIFF (.tif, .tiff)",
+                  "Importación / exportación",
+                  "Puede importar muestras nativas y perfiles compatibles."
+                ],
+                [
+                  "BMP, QOI, TGA",
+                  "Importación / exportación",
+                  "Otros contenedores raster; comprueba la transparencia en destino."
+                ]
+              ]
+            }
+          },
+          "layered": {
+            "title": "PSD y PSB",
+            "paragraphs": [
+              "Texto, formas, máscaras, ajustes y efectos permanecen editables cuando corresponden al modelo de Focale.",
+              "Las funciones no compatibles pueden usar previsualizaciones raster o fusionadas. No garantiza compatibilidad completa con Photoshop. Conserva el original y compara el resultado."
+            ]
+          },
+          "raw": {
+            "title": "RAW de cámara",
+            "paragraphs": [
+              "Abre RAW habituales en el espacio de revelado. Ajusta exposición, color, óptica y correcciones locales antes de pasar la imagen al editor.",
+              "Solo importación: la exportación no recrea datos del sensor. La cámara depende de RawKit y su decodificador; conserva el original."
+            ]
+          },
+          "colour": {
+            "title": "Color y precisión",
+            "paragraphs": [
+              "El proyecto conserva modos nativos, profundidad y perfiles ICC compatibles. Un exportado aplanado depende del codificador y del procesamiento: revisa las opciones para archivar alta precisión.",
+              "PNG y JPEG ofrecen opciones de metadatos y perfil sRGB. No todos los codecs las ofrecen. Usa .focale para conservar información de color editable."
+            ]
+          }
+        }
+      },
+      "projectFormat": {
+        "title": "Formato de proyecto .focale",
+        "description": "Archivo ZIP, manifiesto versión 1 y almacenamiento exacto de rasters.",
+        "sections": {
+          "structure": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "Es un ZIP estándar, sin cifrado ni ofuscación. manifest.json es obligatorio; preview.png es opcional, con un lado máximo de 512 píxeles.",
+              "Rasters, máscaras, canales, perfiles ICC, fuentes colocadas, documentos anidados y patrones tienen directorios propios. Los nombres codifican identificadores opacos, no rutas."
+            ]
+          },
+          "manifest": {
+            "title": "Manifiesto con versión",
+            "paragraphs": [
+              "La etiqueta raíz es focale y el escritor actual utiliza la versión 1. Se rechazan versiones posteriores no compatibles.",
+              "Guarda geometría, color, profundidad, perfiles y árbol de capas, con trazados, guías, canales, sectores, composiciones, animación y variables opcionales. El ejemplo es un fragmento, no un proyecto completo."
+            ]
+          },
+          "raster": {
+            "title": "PNG y .fcraster",
+            "paragraphs": [
+              "RGB8 sRGB puede usar PNG. RGB8 con perfil y otros modos o profundidades usan .fcraster. Los píxeles son premultiplicados; los transparentes tienen muestras de proceso nulas.",
+              "La versión 1 tiene una cabecera de 32 bytes, enteros little-endian y muestras entrelazadas seguidas de alfa por píxel. El escritor comprime con zlib."
+            ],
+            "table": {
+              "headers": [
+                "Posición",
+                "Bytes",
+                "Campo"
+              ],
+              "rows": [
+                [
+                  "0",
+                  "8",
+                  "Firma ASCII FCRASTER"
+                ],
+                [
+                  "8",
+                  "2",
+                  "Versión: 1"
+                ],
+                [
+                  "10",
+                  "1",
+                  "Índice: RGB, CMYK, Grayscale, Lab, Indexed, Bitmap, Duotone, Multichannel"
+                ],
+                [
+                  "11",
+                  "1",
+                  "Bits por canal: 1, 8, 16 o 32"
+                ],
+                [
+                  "12",
+                  "1",
+                  "Canales: 2, 4 o 5"
+                ],
+                [
+                  "13",
+                  "1",
+                  "Indicadores premultiplicado, little-endian y zlib; valor actual 0x07"
+                ],
+                [
+                  "14",
+                  "2",
+                  "Tamaño de cabecera: 32"
+                ],
+                [
+                  "16",
+                  "4",
+                  "Anchura"
+                ],
+                [
+                  "20",
+                  "4",
+                  "Altura"
+                ],
+                [
+                  "24",
+                  "8",
+                  "Longitud canónica decodificada"
+                ]
+              ]
+            }
+          },
+          "tiles": {
+            "title": "Mosaicos independientes",
+            "paragraphs": [
+              "Un raster dividido puede usar un descriptor JSON .fctiles con dimensiones, formato nativo, rectángulos y referencias.",
+              "Cubren la imagen en orden de filas, sin huecos ni solapamiento; cada eje está limitado a 4096 píxeles. Los datos se deduplican en objects/raster/N.fcraster y permanecen dentro del ZIP del usuario."
+            ]
+          },
+          "modes": {
+            "title": "Modos y profundidades",
+            "table": {
+              "headers": [
+                "Modo",
+                "Profundidad"
+              ],
+              "rows": [
+                [
+                  "RGB, Escala de grises",
+                  "8, 16, 32 bits"
+                ],
+                [
+                  "CMYK, Lab, Multicanal",
+                  "8, 16 bits"
+                ],
+                [
+                  "Indexado, Duotono",
+                  "8 bits"
+                ],
+                [
+                  "Mapa de bits",
+                  "1 bit"
+                ]
+              ]
+            }
+          },
+          "safety": {
+            "title": "Validación y portabilidad",
+            "paragraphs": [
+              "Límites actuales: ZIP de 1 GiB, 10 000 entradas, manifiesto de 16 MiB y 512 MiB por entrada. Los rasters decodificados tienen límites adicionales. Nombres duplicados, datos obligatorios ausentes y muestras incompatibles se rechazan.",
+              "Las fuentes incrustadas viajan con el proyecto; las vinculadas pueden necesitar su ruta original. No se incrustan fuentes tipográficas. Inspecciona una copia y consulta la especificación completa."
+            ]
+          },
+          "history": {
+            "title": "Datos ajenos al proyecto",
+            "paragraphs": [
+              "El historial completo de Deshacer, distribución, atajos y catálogos locales son estado de la aplicación, no de la sesión portátil.",
+              "Los puntos de recuperación pueden usar un almacén compartido adyacente. No los confundas con un .focale autónomo del usuario."
+            ]
+          }
+        }
+      },
+      "presetFormats": {
+        "title": "Formatos nativos de ajustes y acciones",
+        "description": "Bibliotecas portátiles de pinceles, patrones, formas, estilos y automatización.",
+        "sections": {
+          "catalogue": {
+            "title": "Identificadores",
+            "paragraphs": [
+              "JSON UTF-8 con etiqueta y versión explícitas. Exporta desde el catálogo correspondiente para guardar o compartir; las cachés no son el formato portátil."
+            ],
+            "table": {
+              "headers": [
+                "Extensión",
+                "Versión",
+                "Etiqueta raíz",
+                "Contenido"
+              ],
+              "rows": [
+                [
+                  ".fbrush",
+                  "1",
+                  "focale-brush-presets",
+                  "Ajustes de pincel, puntas muestreadas y texturas"
+                ],
+                [
+                  ".fpattern",
+                  "1",
+                  "focale-pattern-presets",
+                  "Metadatos y mosaicos RGBA deduplicados"
+                ],
+                [
+                  ".fshape",
+                  "1",
+                  "focale-custom-shape-presets",
+                  "Contornos vectoriales y metadatos de formas"
+                ],
+                [
+                  ".fstyle",
+                  "1",
+                  "focale-style-presets",
+                  "Efectos de capa y fusión editables"
+                ],
+                [
+                  ".fswatch",
+                  "1",
+                  "focale-color-swatches",
+                  "Colores ARGB con alfa no premultiplicado"
+                ],
+                [
+                  ".fgradient",
+                  "1",
+                  "focale-gradient-presets",
+                  "Paradas de color/alfa, puntos medios e interpolación"
+                ],
+                [
+                  ".fcurve",
+                  "1",
+                  "focale-curve-presets",
+                  "Curvas compuesta, roja, verde y azul"
+                ],
+                [
+                  ".faction",
+                  "1",
+                  "focale-action-set",
+                  "Un conjunto de acciones con recursos de pintura"
+                ]
+              ]
+            }
+          },
+          "envelope": {
+            "title": "Biblioteca JSON",
+            "paragraphs": [
+              "La mayoría contiene presets; las acciones contienen un set con acciones y pasos. Identificadores, nombres y valores se validan y no son código ejecutable arbitrario.",
+              "El ejemplo es una biblioteca de degradados versión 1. Los esquemas exactos y límites están en las referencias descargables."
+            ]
+          },
+          "assets": {
+            "title": "Recursos raster y vectoriales",
+            "paragraphs": [
+              "Las puntas usan un byte de cobertura por píxel en Base64. Los patrones usan cuatro bytes RGBA sin premultiplicar, en orden de filas. Las formas guardan anclas normalizadas y manejadores Bézier relativos.",
+              "Los paquetes nativos incrustan sus recursos. Se verifican dimensiones, longitudes e identidades antes de crear texturas; los límites dependen del formato."
+            ]
+          },
+          "compatibility": {
+            "title": "Bibliotecas Photoshop",
+            "items": [
+              "No abarca todas las versiones ni funciones de Photoshop.",
+              "Los formatos nativos conservan valores de Focale. Píxeles de patrones ASL y ciertos valores de contexto Adobe no se trasladan a todos los catálogos."
+            ],
+            "table": {
+              "headers": [
+                "Familia",
+                "Adobe",
+                "Dirección actual"
+              ],
+              "rows": [
+                [
+                  "Pinceles",
+                  "ABR",
+                  "Importación y exportación"
+                ],
+                [
+                  "Patrones",
+                  "PAT",
+                  "Importación y exportación"
+                ],
+                [
+                  "Formas",
+                  "CSH",
+                  "Importación y exportación"
+                ],
+                [
+                  "Estilos",
+                  "ASL",
+                  "Importación y exportación de efectos compatibles"
+                ],
+                [
+                  "Muestras",
+                  "ACO",
+                  "Solo importación"
+                ],
+                [
+                  "Degradados",
+                  "GRD",
+                  "Solo importación"
+                ],
+                [
+                  "Curvas",
+                  "ACV",
+                  "Solo importación"
+                ],
+                [
+                  "Acciones",
+                  "ATN",
+                  "Importación y exportación; ejecución solo de operaciones compatibles"
+                ]
+              ]
+            }
+          },
+          "actions": {
+            "title": "Versiones y ejecución",
+            "paragraphs": [
+              "Contiene un set, sus actions y steps, además de sampledTips y patterns. Cada paso guarda id, enabled, operation y parameters tipados. Puntas y patrones activos se incrustan para evitar depender de otro catálogo.",
+              "Hasta 256 MiB, 2.048 acciones y 32.768 pasos; puntas 64 MiB y patrones 128 MiB decodificados. Importar asigna nuevas identidades. Operaciones desconocidas quedan como no compatibles y no se ejecutan en versiones anteriores."
+            ]
+          }
+        }
+      },
+      "troubleshooting": {
+        "title": "Solución de problemas",
+        "description": "Recuperación, ediciones inesperadas e informes reproducibles.",
+        "sections": {
+          "recovery": {
+            "title": "Tras una interrupción",
+            "paragraphs": [
+              "Al reiniciar, selecciona documentos y pulsa Recuperar. Los no seleccionados quedan para después; los descartados no son copias de seguridad.",
+              "Se abren sin guardar. Usa Guardar como y comprueba antes de reemplazar un proyecto. Conserva copias periódicas."
+            ]
+          },
+          "painting": {
+            "title": "Una herramienta no cambia la imagen",
+            "items": [
+              "Comprueba documento y capa activos.",
+              "Selecciona la miniatura de píxeles o de máscara adecuada.",
+              "Comprueba visibilidad, bloqueo, opacidad y selección.",
+              "Algunas herramientas requieren capa raster, muestra o contexto de texto/trazado. Consulta disponibilidad en menús y búsqueda."
+            ]
+          },
+          "files": {
+            "title": "No se abre o guarda un archivo",
+            "paragraphs": [
+              "Una versión nueva del formato requiere una aplicación compatible. Conserva originales dañados y examina copias. Un ZIP con manifest.json no basta para ser válido.",
+              "Verifica permisos y espacio. Dimensiones, profundidad y capas pueden superar presupuestos. La cuota del navegador es distinta del espacio del disco."
+            ]
+          },
+          "appearance": {
+            "title": "Fuentes o colores distintos",
+            "paragraphs": [
+              "Instala las fuentes y revisa asignación, conversión y prueba de color. Funciones PSD/PSB no compatibles pueden aparecer como previsualizaciones raster.",
+              "Revincula o incrusta fuentes externas de objetos inteligentes. Compara en una aplicación que respete perfiles."
+            ]
+          },
+          "diagnostics": {
+            "title": "Diagnóstico y trabajo local",
+            "paragraphs": [
+              "La edición es local. Una compilación configurada puede enviar eventos técnicos si Preferencias → Diagnóstico → Enviar informes automáticamente está activo.",
+              "No se adjuntan deliberadamente capturas ni documentos, pero volcados nativos pueden contener fragmentos de memoria. Desactiva para impedir nuevos envíos. En Linux y Windows reinicia tras reactivar la captura nativa."
+            ]
+          },
+          "report": {
+            "title": "Preparar un informe",
+            "paragraphs": [
+              "Incluye versión y compilación, sistema y procesador, pasos, formato, dimensiones, error y resultado con un documento pequeño.",
+              "Usa un ejemplo mínimo no sensible o captura revisada. No envíes proyectos privados ni carpetas de recuperación por defecto. Indica fuentes, recursos vinculados y bibliotecas implicados."
+            ]
+          }
+        }
+      },
+      "brushFormat": {
+        "title": "Pinceles (.fbrush)",
+        "description": "Ajustes, puntas muestreadas y texturas portátiles.",
+        "sections": {
+          "use": {
+            "title": "Uso en la aplicación",
+            "paragraphs": [
+              "El panel Pinceles crea, renombra, importa y exporta ajustes del usuario. Editar → Definir pincel captura la selección visible o el documento. Los pinceles integrados no se exportan."
+            ]
+          },
+          "schema": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "JSON UTF-8 con etiqueta y versión explícitas. El lector y escritor actuales usan la versión 1. El ejemplo muestra la estructura de la biblioteca; la referencia completa detalla los valores.",
+              "presets guarda tamaño, espaciado, dinámica, textura y pincel doble. assets incluye puntas Base64 con un byte de cobertura por píxel. patterns incluye texturas RGBA sin premultiplicar, cuatro bytes por píxel. Los recursos viajan con la biblioteca."
+            ],
+            "table": {
+              "headers": [
+                "Campo",
+                "Valor"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fbrush"
+                ],
+                [
+                  "format",
+                  "focale-brush-presets"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Codificación",
+                  "JSON UTF-8"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validación y límites",
+            "paragraphs": [
+              "Límites: 256 MiB de archivo, 64 MiB de puntas y 128 MiB de patrones decodificados. Se comprueban dimensiones, anclas, identificadores, longitudes y referencias. Un recurso ausente impide importar."
+            ]
+          },
+          "exchange": {
+            "title": "Intercambio con Photoshop",
+            "paragraphs": [
+              "ABR importa y exporta pinceles compatibles. No todos los ajustes Photoshop coinciden; conserva .fbrush como copia nativa."
+            ]
+          }
+        }
+      },
+      "patternFormat": {
+        "title": "Patrones (.fpattern)",
+        "description": "Mosaicos RGBA con metadatos y píxeles deduplicados.",
+        "sections": {
+          "use": {
+            "title": "Uso en la aplicación",
+            "paragraphs": [
+              "Importa o exporta desde el selector de patrones. Editar → Definir patrón captura el documento o una selección rectangular sin suavizado. Editar un patrón abre una copia; define el resultado como nuevo ajuste."
+            ]
+          },
+          "schema": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "JSON UTF-8 con etiqueta y versión explícitas. El lector y escritor actuales usan la versión 1. El ejemplo muestra la estructura de la biblioteca; la referencia completa detalla los valores.",
+              "presets contiene id, name, patternId y groupPath opcional. assets incluye identidad derivada del contenido, width, height y rgba Base64 por filas sin premultiplicar. Varios ajustes comparten un mosaico. Guarda imágenes aplanadas, no capas de origen."
+            ],
+            "table": {
+              "headers": [
+                "Campo",
+                "Valor"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fpattern"
+                ],
+                [
+                  "format",
+                  "focale-pattern-presets"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Codificación",
+                  "JSON UTF-8"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validación y límites",
+            "paragraphs": [
+              "Máximo: 256 MiB codificados, 128 MiB RGBA decodificados, 4.096 ajustes y recursos, 4.096 píxeles por eje y 16 millones por mosaico. Identidades y longitudes se validan."
+            ]
+          },
+          "exchange": {
+            "title": "Intercambio con Photoshop",
+            "paragraphs": [
+              "PAT importa modos compatibles en RGBA8 y exporta píxeles, nombres, orden y grupos compatibles. Los patrones integrados se omiten."
+            ]
+          }
+        }
+      },
+      "shapeFormat": {
+        "title": "Formas (.fshape)",
+        "description": "Contornos vectoriales, proporciones y geometría Bézier.",
+        "sections": {
+          "use": {
+            "title": "Uso en la aplicación",
+            "paragraphs": [
+              "El catálogo de formas personalizadas importa y exporta formas del usuario. Dibújalas como capas de forma para conservar geometría editable. Borrar una entrada no cambia formas ya colocadas."
+            ]
+          },
+          "schema": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "JSON UTF-8 con etiqueta y versión explícitas. El lector y escritor actuales usan la versión 1. El ejemplo muestra la estructura de la biblioteca; la referencia completa detalla los valores.",
+              "presets contiene id, name, sourceAspectRatio, groupPath, sortOrder y outline. Subtrazados guardan anclas normalizadas, manejadores relativos inX/inY y outX/outY, cierre, combinaciones y reglas de relleno. No contiene píxeles raster."
+            ],
+            "table": {
+              "headers": [
+                "Campo",
+                "Valor"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fshape"
+                ],
+                [
+                  "format",
+                  "focale-custom-shape-presets"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Codificación",
+                  "JSON UTF-8"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validación y límites",
+            "paragraphs": [
+              "Hasta 128 MiB y 8.192 ajustes; cada ajuste hasta 16 MiB y 100.000 anclas. Nombres, coordenadas y jerarquía están limitados. Las colisiones reciben otra identidad; una entrada inválida rechaza la biblioteca."
+            ]
+          },
+          "exchange": {
+            "title": "Intercambio con Photoshop",
+            "paragraphs": [
+              "CSH intercambia contornos, manejadores, proporciones, orden y grupos compatibles. .fcshape es caché interna; usa .fshape para compartir."
+            ]
+          }
+        }
+      },
+      "styleFormat": {
+        "title": "Estilos de capa (.fstyle)",
+        "description": "Efectos y opciones avanzadas de fusión editables.",
+        "sections": {
+          "use": {
+            "title": "Uso en la aplicación",
+            "paragraphs": [
+              "Estilos captura o aplica el estilo de capa e importa/exporta bibliotecas. Aplicar se puede deshacer; editar el catálogo no cambia documentos abiertos. Los integrados no se exportan."
+            ]
+          },
+          "schema": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "JSON UTF-8 con etiqueta y versión explícitas. El lector y escritor actuales usan la versión 1. El ejemplo muestra la estructura de la biblioteca; la referencia completa detalla los valores.",
+              "presets guarda objetos style con nombre, grupos, fillOpacity, effects y rangos Fusionar si. Efectos activos e inactivos permanecen editables, no son solo miniaturas."
+            ],
+            "table": {
+              "headers": [
+                "Campo",
+                "Valor"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fstyle"
+                ],
+                [
+                  "format",
+                  "focale-style-presets"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Codificación",
+                  "JSON UTF-8"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validación y límites",
+            "paragraphs": [
+              "Hasta 16 MiB y 4.096 ajustes, nombres e identidades de 4.096 unidades UTF-16 y 32 niveles. Duplicados o valores inválidos rechazan toda la importación."
+            ]
+          },
+          "exchange": {
+            "title": "Intercambio con Photoshop",
+            "paragraphs": [
+              "ASL conserva efectos reproducibles. Se omiten píxeles de patrones ASL incrustados; .fstyle conserva el modelo nativo editable."
+            ]
+          }
+        }
+      },
+      "swatchFormat": {
+        "title": "Muestras de color (.fswatch)",
+        "description": "Colores con nombre y valores ARGB sin premultiplicar.",
+        "sections": {
+          "use": {
+            "title": "Uso en la aplicación",
+            "paragraphs": [
+              "Muestras captura, elimina, importa y exporta colores. Elegir uno cambia el color actual; editar el catálogo no recolorea documentos existentes."
+            ]
+          },
+          "schema": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "JSON UTF-8 con etiqueta y versión explícitas. El lector y escritor actuales usan la versión 1. El ejemplo muestra la estructura de la biblioteca; la referencia completa detalla los valores.",
+              "Cada presets tiene id, name, color y groupPath opcional. color es un entero ARGB sin signo con alfa sin premultiplicar, no texto CSS. 4278190080 representa negro opaco."
+            ],
+            "table": {
+              "headers": [
+                "Campo",
+                "Valor"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fswatch"
+                ],
+                [
+                  "format",
+                  "focale-color-swatches"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Codificación",
+                  "JSON UTF-8"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validación y límites",
+            "paragraphs": [
+              "Hasta 16 MiB y 4.096 entradas; nombres e ids de 4.096 unidades UTF-16 y 32 segmentos de grupo. Las colisiones reciben nuevas identidades. No incluye integrados."
+            ]
+          },
+          "exchange": {
+            "title": "Intercambio con Photoshop",
+            "paragraphs": [
+              "ACO solo importa valores compatibles al modelo del catálogo. Exporta .fswatch para conservar nombres, grupos y valores nativos."
+            ]
+          }
+        }
+      },
+      "gradientFormat": {
+        "title": "Degradados (.fgradient)",
+        "description": "Paradas de color y alfa, puntos medios e interpolación.",
+        "sections": {
+          "use": {
+            "title": "Uso en la aplicación",
+            "paragraphs": [
+              "El editor compartido de degradados importa y exporta el catálogo. Elegir un ajuste cambia el degradado actual; editar el catálogo no sustituye los ya guardados en documentos."
+            ]
+          },
+          "schema": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "JSON UTF-8 con etiqueta y versión explícitas. El lector y escritor actuales usan la versión 1. El ejemplo muestra la estructura de la biblioteca; la referencia completa detalla los valores.",
+              "Cada entrada tiene id, name, groupPath opcional y gradient. Incluye interpolation y stops ordenados con position, color ARGB y midpoint opcional."
+            ],
+            "table": {
+              "headers": [
+                "Campo",
+                "Valor"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fgradient"
+                ],
+                [
+                  "format",
+                  "focale-gradient-presets"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Codificación",
+                  "JSON UTF-8"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validación y límites",
+            "paragraphs": [
+              "Hasta 16 MiB y 4.096 entradas. Cada degradado tiene 2–256 paradas ordenadas de 0 a 1. Interpolación desconocida, duplicados o paradas inválidas rechazan todo el archivo."
+            ]
+          },
+          "exchange": {
+            "title": "Intercambio con Photoshop",
+            "paragraphs": [
+              "GRD solo importa degradados sólidos personalizados compatibles. Usa .fgradient para copia e intercambio nativo; no todas las variantes Photoshop se admiten."
+            ]
+          }
+        }
+      },
+      "curveFormat": {
+        "title": "Curvas (.fcurve)",
+        "description": "Curvas compuesta, roja, verde y azul reutilizables.",
+        "sections": {
+          "use": {
+            "title": "Uso en la aplicación",
+            "paragraphs": [
+              "Curvas importa y exporta su catálogo. Aplicar cambia el ajuste actual; editar el catálogo no cambia ajustes creados anteriormente."
+            ]
+          },
+          "schema": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "JSON UTF-8 con etiqueta y versión explícitas. El lector y escritor actuales usan la versión 1. El ejemplo muestra la estructura de la biblioteca; la referencia completa detalla los valores.",
+              "Cada entrada tiene id, name, groupPath opcional y curves con rgb, red, green y blue. Cada curva es una lista plana: primero todas las x, después sus y. [0, 1, 0, 1] es la identidad de dos puntos."
+            ],
+            "table": {
+              "headers": [
+                "Campo",
+                "Valor"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fcurve"
+                ],
+                [
+                  "format",
+                  "focale-curve-presets"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Codificación",
+                  "JSON UTF-8"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validación y límites",
+            "paragraphs": [
+              "Hasta 16 MiB y 4.096 entradas. Cada curva tiene 2–256 puntos en el cuadrado unidad, entradas crecientes y extremos 0 y 1. Datos inválidos rechazan la biblioteca."
+            ]
+          },
+          "exchange": {
+            "title": "Intercambio con Photoshop",
+            "paragraphs": [
+              "ACV solo importa curvas compatibles a los cuatro canales. Usa .fcurve para conservar y compartir el ajuste completo."
+            ]
+          }
+        }
+      },
+      "actionFormat": {
+        "title": "Acciones (.faction)",
+        "description": "Un conjunto portátil con pasos y recursos de pintura.",
+        "sections": {
+          "use": {
+            "title": "Uso en la aplicación",
+            "paragraphs": [
+              "Acciones importa, exporta, graba y reproduce un conjunto. Revisa los pasos; Archivo → Automatizar → Lote aplica una acción a varios archivos."
+            ]
+          },
+          "schema": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "JSON UTF-8 con etiqueta y versión explícitas. El lector y escritor actuales usan la versión 1. El ejemplo muestra la estructura de la biblioteca; la referencia completa detalla los valores.",
+              "Contiene un set, sus actions y steps, además de sampledTips y patterns. Cada paso guarda id, enabled, operation y parameters tipados. Puntas y patrones activos se incrustan para evitar depender de otro catálogo."
+            ],
+            "table": {
+              "headers": [
+                "Campo",
+                "Valor"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".faction"
+                ],
+                [
+                  "format",
+                  "focale-action-set"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Codificación",
+                  "JSON UTF-8"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validación y límites",
+            "paragraphs": [
+              "Hasta 256 MiB, 2.048 acciones y 32.768 pasos; puntas 64 MiB y patrones 128 MiB decodificados. Importar asigna nuevas identidades. Operaciones desconocidas quedan como no compatibles y no se ejecutan en versiones anteriores."
+            ]
+          },
+          "exchange": {
+            "title": "Intercambio con Photoshop",
+            "paragraphs": [
+              "ATN intercambia operaciones reconocidas; eventos no compatibles siguen desactivados. .faction es el conjunto nativo portátil, distinto del catálogo interno de múltiples conjuntos."
+            ]
+          }
+        }
+      }
+    }
   }
 }

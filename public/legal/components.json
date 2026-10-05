@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 1,
+  "components": [
+    {
+      "name": "brotli",
+      "version": "028fb5a",
+      "license": "MIT",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "notice": "brotli.txt",
+      "sha256": "2b9827e56f73ee904560d8fd4102b02016bc7cc7bffc1045d1271e66366e520c"
+    },
+    {
+      "name": "highway",
+      "version": "457c891",
+      "license": "Apache-2.0 OR BSD-3-Clause",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "notice": "highway.txt",
+      "sha256": "dcf96fb0bd59b9b73df4ad789271d9cf086179518b2b1b0b448541aa6ef45915"
+    },
+    {
+      "name": "imath",
+      "version": "3.2.3",
+      "license": "BSD-style permissive license",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "notice": "imath.txt",
+      "sha256": "373c48443507e364d7f81fb768cfbe939963876f02928a732be31b4e250942d1"
+    },
+    {
+      "name": "kvazaar",
+      "version": "2.3.2",
+      "license": "BSD-3-Clause / ISC",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "notice": "kvazaar.txt",
+      "sha256": "c405a00f5c8fe251bdfae6089a27c4c37012b13555a94ff7b50ed1a6d5dea2a1"
+    },
+    {
+      "name": "libaom",
+      "version": "3.14.1",
+      "license": "BSD-2-Clause and patent grant",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "notice": "libaom.txt",
+      "sha256": "690e423551fa1bbda0badd9e603e37fac17adb8bf8f32bc7cc36368f498afb88"
+    },
+    {
+      "name": "libde265",
+      "version": "1.1.2",
+      "license": "LGPL-3.0-or-later",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "notice": "libde265.txt",
+      "sha256": "4f76e634c13af8d966d5fcc8568600ac7d93217bb7a621d8c0000ae69c9c4daa"
+    },
+    {
+      "name": "libdeflate",
+      "version": "1.26",
+      "license": "MIT",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "notice": "libdeflate.txt",
+      "sha256": "ec7886cb03a050e50b195f049cad067a523650df1fb65f2bce23bd6bd386c28f"
+    },
+    {
+      "name": "libheif",
+      "version": "1.21.2",
+      "license": "LGPL-3.0-or-later",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "notice": "libheif.txt",
+      "sha256": "d46bbc465725b32de70ac5003b54d48f5fa295fef35059fec20aa7f831b54b9c"
+    },
+    {
+      "name": "libjpeg",
+      "version": "3.2.0",
+      "license": "IJG / BSD-3-Clause / Zlib",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "notice": "libjpeg.txt",
+      "sha256": "e5c35c09c619a2a01d71189ab5b63101fcaf9190148bfa2535f5bb2ff7a03a9b"
+    },
+    {
+      "name": "libjxl",
+      "version": "0.12.0",
+      "license": "BSD-3-Clause and patent grant",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "notice": "libjxl.txt",
+      "sha256": "9bac342acfae4f032f7fab7588daa523835349e2055257f7e9ae48b7b42ed80c"
+    },
+    {
+      "name": "libpng",
+      "version": "1.6.58",
+      "license": "libpng-2.0",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "notice": "libpng.txt",
+      "sha256": "877d812013bd255fe8ee537cd6b7e3f216e1791e8cbdf98ea72332158d757b2c"
+    },
+    {
+      "name": "libtiff",
+      "version": "4.7.2",
+      "license": "BSD-style permissive license",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "notice": "libtiff.txt",
+      "sha256": "31c26e382faaab2b548479ac477d903dd80efe9dd36060d67d3f3de4685df6d5"
+    },
+    {
+      "name": "libwebp",
+      "version": "1.6.0",
+      "license": "BSD-3-Clause and patent grant",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "notice": "libwebp.txt",
+      "sha256": "1790bfb4b59d535c435a1349848ca057e21e20f68ba303fcf1960ccfab619247"
+    },
+    {
+      "name": "openexr",
+      "version": "3.4.14",
+      "license": "BSD-3-Clause / OpenJPH BSD-2-Clause",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "notice": "openexr.txt",
+      "sha256": "a1590d5cb4ce2bac0b2a5bcdf287e8c5a0bb0f368979786fdc5d0b18ca742503"
+    },
+    {
+      "name": "qoi",
+      "version": "97bacc8",
+      "license": "MIT",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "notice": "qoi.txt",
+      "sha256": "5cc7d687d6f99a6cd4e92d8d03559cf0d90b6823a274253bb76fac0b0bec2f36"
+    },
+    {
+      "name": "skcms",
+      "version": "96d9171",
+      "license": "BSD-style permissive license",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "notice": "skcms.txt",
+      "sha256": "f10316565dc8e166adc753b44e177b2d6c6f2082641e9d6fb3daf2af6743010f"
+    },
+    {
+      "name": "zlib",
+      "version": "1.3.2",
+      "license": "Zlib",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "notice": "zlib.txt",
+      "sha256": "0423bccb0bd4efc13c31bf2d6014d26ea251c1fe2a38b05ba7ebbf4492d9bfae"
+    },
+    {
+      "name": "LibRaw",
+      "version": "0.22.2",
+      "license": "LGPL-2.1 native / CDDL-1.0 Web",
+      "sourceUrl": "https://github.com/focale-editor/rawkit/tree/0.3.3",
+      "notice": "libraw.txt",
+      "sha256": "22ff4b6c44665fa9464e3d20f36b52b25695793f7694c3486a01fd8c8d0b15dc"
+    },
+    {
+      "name": "Little CMS",
+      "version": "2.19.1",
+      "license": "MIT",
+      "sourceUrl": "https://github.com/mm2/Little-CMS/releases/tag/lcms2.19.1",
+      "notice": "little-cms.txt",
+      "sha256": "b0e281822aec47b345419539738ad93820309793097d5251462a7f487355f77f"
+    },
+    {
+      "name": "Dartface LBP face model",
+      "version": "OpenCV LBP improved cascade",
+      "license": "BSD-3-Clause",
+      "sourceUrl": "https://github.com/opencv/opencv/blob/4.x/data/lbpcascades/lbpcascade_frontalface_improved.xml",
+      "notice": "dartface-lbp-face-model.txt",
+      "sha256": "3d08ea419508df813818328c91ff7210789dd34eb1f0142d28889477c136323d"
+    },
+    {
+      "name": "dbus",
+      "version": "0.7.15",
+      "license": "MPL-2.0",
+      "sourceUrl": "https://pub.dev/api/archives/dbus-0.7.15.tar.gz",
+      "notice": "dbus.txt",
+      "sha256": "d141d8b82f85f854a60529b9b54f3947e8c8b82898a91306e0f3980c2d41168a"
+    },
+    {
+      "name": "LLVM OpenMP",
+      "version": "runtime selected by compiler",
+      "license": "Apache-2.0 WITH LLVM-exception",
+      "sourceUrl": "https://github.com/llvm/llvm-project/tree/main/openmp",
+      "notice": "llvm-openmp.txt",
+      "sha256": "fdad1758a9e1f9d5a81e18879b3406772115edc92c24bfa36b70c654f325e8e4"
+    },
+    {
+      "name": "GCC OpenMP",
+      "version": "only when built with GCC",
+      "license": "GPL-3.0 WITH GCC-exception-3.1",
+      "sourceUrl": "https://gcc.gnu.org/onlinedocs/libgomp/Copying.html",
+      "notice": "gcc-openmp.txt",
+      "sha256": "71137cc7dc8014da1e8aed6ec3c5ec13c5cf2b905b408a42bb7980efbb2c18ac"
+    },
+    {
+      "name": "Sentry Native and Crashpad",
+      "version": "Sentry Native 0.16.6",
+      "license": "MIT / Apache-2.0 and component notices",
+      "sourceUrl": "https://github.com/getsentry/sentry-native/tree/0.16.6",
+      "notice": "sentry-native-and-crashpad.txt",
+      "sha256": "819a40e0d35efcd61748736871bfe85d8fe10517bfdfb8ed71325f97f826e1bd"
+    },
+    {
+      "name": "Sentry Cocoa",
+      "version": "8.58.4",
+      "license": "MIT",
+      "sourceUrl": "https://github.com/getsentry/sentry-cocoa/tree/8.58.4",
+      "notice": "sentry-cocoa.txt",
+      "sha256": "1784335a04bbe8014b9bf0f6a373f7b3804855792545702199dbdd6e2c5b6ad1"
+    },
+    {
+      "name": "Lensfun profile database",
+      "version": "bbd4332a9ec566fd9aa548c9e0d8ced238c56261",
+      "license": "CC-BY-SA-3.0",
+      "sourceUrl": "https://github.com/lensfun/lensfun/tree/bbd4332a9ec566fd9aa548c9e0d8ced238c56261/data",
+      "notice": "lensfun-profile-database.txt",
+      "sha256": "a89228fbe6954576ca59624497278fd581e88044b34402409180490202cfdfc8"
+    },
+    {
+      "name": "Unicode character names",
+      "version": "Unicode 17",
+      "license": "Unicode-3.0",
+      "sourceUrl": "https://www.unicode.org/Public/17.0.0/ucd/UnicodeData.txt",
+      "notice": "unicode-character-names.txt",
+      "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96"
+    },
+    {
+      "name": "Hyphenatorx engine",
+      "version": "1.5.11",
+      "license": "BSD-3-Clause",
+      "sourceUrl": "https://pub.dev/packages/hyphenatorx/versions/1.5.11",
+      "notice": "hyphenatorx-engine.txt",
+      "sha256": "e5a9b7b3973bdfeb21348d3268227ba51c0dc82e5bf3c9d3a1993c5480bc560c"
+    },
+    {
+      "name": "French hyphenation patterns",
+      "version": "tables incorporated from hyphenatorx 1.5.11",
+      "license": "MIT",
+      "sourceUrl": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/master/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-fr.tex",
+      "notice": "french-hyphenation-patterns.txt",
+      "sha256": "5923dafd67f0f095ff5021b3beb9b8b3db6fae941b32d6c130c0f25c517b6547"
+    },
+    {
+      "name": "British English hyphenation patterns",
+      "version": "tables incorporated from hyphenatorx 1.5.11",
+      "license": "MIT",
+      "sourceUrl": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/master/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-en-gb.tex",
+      "notice": "british-english-hyphenation-patterns.txt",
+      "sha256": "f6327ca86707526a65738b28927864ebe9314f02c8167f860e24b47bac4138c5"
+    },
+    {
+      "name": "US English hyphenation patterns",
+      "version": "tables incorporated from hyphenatorx 1.5.11",
+      "license": "Permissive copying and distribution notice",
+      "sourceUrl": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/master/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-en-us.tex",
+      "notice": "us-english-hyphenation-patterns.txt",
+      "sha256": "77098746d3e4fbcf270e78318d9d6befcb2dda50d0e2891239841556d29e1cd0"
+    },
+    {
+      "name": "libwacom",
+      "version": "2.19.1",
+      "license": "MIT-style permissive license",
+      "sourceUrl": "https://raw.githubusercontent.com/linuxwacom/libwacom/libwacom-2.19.1/COPYING",
+      "notice": "libwacom.txt",
+      "sha256": "65425589a37ca2b3f4c74af5382859112b71a28bfff53d42afea4eaeaa999b5b"
+    },
+    {
+      "name": "libevdev",
+      "version": "1.13.7",
+      "license": "MIT-style permissive license",
+      "sourceUrl": "https://gitlab.freedesktop.org/libevdev/libevdev/-/raw/libevdev-1.13.7/COPYING",
+      "notice": "libevdev.txt",
+      "sha256": "6f13de7ce28e4948ba95170e0723ee1254c1978ce1f127af82aeca597b567cb9"
+    }
+  ]
+}

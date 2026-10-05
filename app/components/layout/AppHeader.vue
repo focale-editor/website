@@ -2,6 +2,7 @@
 const { t } = useI18n()
 const localePath = useLocalePath()
 const { headerLinks } = useSiteNavigation()
+const { latestRelease } = useDownloads()
 
 const isMenuOpen = ref(false)
 const route = useRoute()
@@ -53,8 +54,8 @@ function closeMenu(): void {
           <LocaleSwitcher />
           <Button
             as="a"
-            href="#newsletter"
-            :label="t('nav.notifyMe')"
+            :href="localePath('index') + (latestRelease ? '#downloads' : '#newsletter')"
+            :label="latestRelease ? t('downloads.title') : t('nav.notifyMe')"
             size="small"
             class="header-cta"
             @click="closeMenu"

@@ -21,26 +21,30 @@ export interface NavigationSection {
 /**
  * Single source of truth for the site's navigation.
  *
- * Pages that do not exist yet — documentation, FAQ, terms, privacy, contact —
+ * Pages that do not exist yet — FAQ, terms, privacy, contact —
  * are added here once, and both the header and the footer pick them up.
  */
 export function useSiteNavigation() {
   const { public: config } = useRuntimeConfig()
+  const localePath = useLocalePath()
+  const home = (hash: string) => localePath('index') + hash
 
   const headerLinks = computed<NavigationLink[]>(() => [
-    { label: 'nav.features', to: '#features' },
-    { label: 'nav.preview', to: '#preview' },
-    { label: 'nav.roadmap', to: '#roadmap' },
+    { label: 'nav.features', to: home('#features') },
+    { label: 'nav.preview', to: home('#preview') },
+    { label: 'nav.roadmap', to: home('#roadmap') },
+    { label: 'docs.title', to: localePath('/docs') },
   ])
 
   const footerSections = computed<NavigationSection[]>(() => [
     {
       titleKey: 'footer.sections.product',
       links: [
-        { label: 'nav.features', to: '#features' },
-        { label: 'nav.preview', to: '#preview' },
-        { label: 'nav.roadmap', to: '#roadmap' },
-        { label: 'nav.newsletter', to: '#newsletter' },
+        { label: 'nav.features', to: home('#features') },
+        { label: 'nav.preview', to: home('#preview') },
+        { label: 'nav.roadmap', to: home('#roadmap') },
+        { label: 'nav.newsletter', to: home('#newsletter') },
+        { label: 'docs.title', to: localePath('/docs') },
       ],
     },
     {

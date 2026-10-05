@@ -87,9 +87,15 @@ ol[role='list'] {
   @include focus-ring;
 }
 
+@media (forced-colors: active) {
+  :focus-visible {
+    outline-color: Highlight;
+  }
+}
+
 ::selection {
   color: var(--color-text);
-  background: rgb(0, 124, 249, 32%);
+  background: var(--color-accent-line);
 }
 
 // Visible only once focused, as the first tab stop of every page.
@@ -131,4 +137,12 @@ ol[role='list'] {
   --p-focus-ring-color: var(--color-accent-ring);
   --p-focus-ring-width: 2px;
   --p-focus-ring-offset: 2px;
+}
+
+// Keep the filled primary button's text and icons white on the button itself,
+// including the header link and both newsletter submit buttons.
+.p-button {
+  --p-button-primary-color: #fff;
+  --p-button-primary-hover-color: #fff;
+  --p-button-primary-active-color: #fff;
 }

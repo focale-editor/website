@@ -1,25 +1,21 @@
-// Brand palette, taken from the application itself: the logo sits on a dark
-// navy plate (#181f33) and the shutter ring fades into #007cf9. The surfaces
-// around them follow the editor's own chrome, which is a near-neutral grey —
-// keeping the site closer to a tool than to a product page.
+// The current logo pairs a navy plate, slate aperture and a flat, muted blue arc.
 $brand-navy: #181f33;
-$brand-blue: #007cf9;
-$brand-blue-bright: #3d9dff;
-$brand-cyan: #0ab7ff;
-$brand-ink: #edecec;
-$neutral-980: #08090c;
-$neutral-950: #0b0c10;
-$neutral-900: #0f1116;
-$neutral-850: #13151c;
-$neutral-800: #171a22;
-$neutral-750: #1c2029;
-$neutral-700: #232733;
-$neutral-600: #2e3341;
-$neutral-500: #3d4353;
-$neutral-400: #5b6274;
-$neutral-300: #8b93a6;
-$neutral-200: #b9c0cf;
-$neutral-100: #e6e9ef;
+$brand-blue: #538bd5;
+$brand-blue-bright: #83abe0;
+$brand-ink: #edf0f4;
+$neutral-980: #0a101b;
+$neutral-950: #0e1421;
+$neutral-900: #131b2b;
+$neutral-850: #182235;
+$neutral-800: #202c42;
+$neutral-750: #253149;
+$neutral-700: #2d3a51;
+$neutral-600: #354056;
+$neutral-500: #3f4b62;
+$neutral-400: #97a4b9;
+$neutral-300: #b4bfd0;
+$neutral-200: #d0d7e2;
+$neutral-100: #edf0f4;
 $breakpoint-sm: 30rem; //  480px
 $breakpoint-md: 48rem; //  768px
 $breakpoint-lg: 64rem; // 1024px
