@@ -36,7 +36,7 @@ export function parseDownloadCatalog(value: unknown): DownloadRelease | null {
       throw new Error('Incomplete download release')
     }
     const url = new URL(asset.url)
-    const prefix = `https://github.com/focale-editor/releases/releases/download/${release.tag}/Focale-`
+    const prefix = `https://github.com/focale-editor/get-focale/releases/download/${release.tag}/Focale-`
     if (!url.href.startsWith(prefix) || url.username || url.password || url.search || url.hash) {
       throw new Error('Unexpected download destination')
     }

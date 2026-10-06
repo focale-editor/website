@@ -16,11 +16,7 @@ usePageSeo(() => ({
     <FeaturesSection />
     <RoadmapSection />
     <DownloadsSection />
-    <noscript>
-      <PageSection>
-      <a href="https://github.com/focale-editor/releases/releases">{{ t('downloads.title') }}</a>
-      </PageSection>
-    </noscript>
+    <NoScriptDownloads />
     <NewsletterSection />
   </div>
 </template>

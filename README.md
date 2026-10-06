@@ -43,10 +43,19 @@ pnpm lint            # ESLint, with @nuxt/eslint's stylistic rules
 pnpm typecheck       # vue-tsc against the generated Nuxt types
 pnpm generate        # the static build, exactly as CI runs it
 node --experimental-strip-types --test test/browser_locale_redirect.test.ts
+pnpm test:hydration  # run after generate, against the actual static HTML and JS
 ```
 
 `pnpm generate` writes `.output/public`, which can be served with any static
 server (`pnpm dlx serve .output/public`).
+
+The hydration test executes the generated client bundle in jsdom with HTML
+scripting enabled. It covers the six locales, browser-language redirection,
+saved preferences, explicit routes, query parameters and anchors, and the
+download fallback without JavaScript. This is a DOM regression check, not a
+browser layout test. Keep `NoScriptDownloads`' contents as escaped, opaque HTML:
+with scripting enabled the HTML parser treats `<noscript>` contents as text,
+so Vue must not try to hydrate nested components there.
 
 ## Configuration
 
@@ -69,8 +78,8 @@ reports that signups are unavailable, rather than posting into the void.
 ## Deployment
 
 `.github/workflows/deploy.yml` runs on every push to `main`: it tests language
-redirection, generates
-the site and uploads it to GitHub Pages. `NUXT_PUBLIC_LOOPS_FORM_ID` is read from
+redirection, generates the site, checks hydration and uploads it to GitHub Pages.
+`NUXT_PUBLIC_LOOPS_FORM_ID` is read from
 the `LOOPS_FORM_ID` repository secret.
 
 Two things have to be set once, in the repository settings:

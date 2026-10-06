@@ -20,7 +20,7 @@ const platforms = {
   >
     <p class="release-version">
       {{ t('downloads.available', { version: latestRelease.version }) }}
-      <a :href="`https://github.com/focale-editor/releases/releases/tag/${latestRelease.tag}`">{{ t('downloads.releaseNotes') }}</a>
+      <a :href="`https://github.com/focale-editor/get-focale/releases/tag/${latestRelease.tag}`">{{ t('downloads.releaseNotes') }}</a>
     </p>
     <ul
       class="download-list"

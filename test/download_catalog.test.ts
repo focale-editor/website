@@ -7,7 +7,7 @@ function catalog() {
     releases: [{
       version: '0.1.1', tag: '0.1.1',
       downloads: Object.fromEntries(downloadTargets.map(target => [target, {
-        url: `https://github.com/focale-editor/releases/releases/download/0.1.1/Focale-0.1.1+2-${target}.zip`, platformSigned: false,
+        url: `https://github.com/focale-editor/get-focale/releases/download/0.1.1/Focale-0.1.1+2-${target}.zip`, platformSigned: false,
       }])),
     }],
   }
@@ -27,8 +27,12 @@ test('partial releases are hidden', () => {
   assert.throws(() => parseDownloadCatalog(value))
 })
 
-test('foreign origins and URLs for another tag are rejected', () => {
-  for (const url of ['https://example.com/Focale.zip', 'https://github.com/focale-editor/releases/releases/download/0.1.2/Focale.zip']) {
+test('foreign origins, former repositories and URLs for another tag are rejected', () => {
+  for (const url of [
+    'https://example.com/Focale.zip',
+    'https://github.com/focale-editor/releases/releases/download/0.1.1/Focale-0.1.1+2-linux-x64.zip',
+    'https://github.com/focale-editor/get-focale/releases/download/0.1.2/Focale.zip',
+  ]) {
     const value = catalog()
     value.releases[0]!.downloads['linux-x64']!.url = url
     assert.throws(() => parseDownloadCatalog(value))
