@@ -1,5 +1,7 @@
 # Layer style preset libraries
 
+[Documentation](../README.md) · [File formats](README.md)
+
 Focale stores reusable layer effects and advanced blending options separately
 from documents. The **Styles** panel applies a complete preset to the selected
 layer, captures the selected layer's current style and manages portable

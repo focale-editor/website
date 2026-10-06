@@ -1,5 +1,7 @@
 # Reusable colour, gradient, and curve presets
 
+[Documentation](../README.md) · [File formats](README.md)
+
 Focale keeps colour swatches, gradients and four-channel Curves values in
 global persisted catalogues. The Swatches panel can capture, remove, import and
 export colours. Every shared gradient editor uses the same gradient catalogue,
@@ -72,7 +74,7 @@ all Focale values without pretending to emit undocumented variants. Parsing is
 bounded and leaves the user-interface isolate for potentially large files.
 
 Layer-style presets and Photoshop `.asl` interchange are documented separately
-in `docs/style-presets.md`. Brush `.fbrush`/`.abr`, pattern
+in `docs/formats/styles.md`. Brush `.fbrush`/`.abr`, pattern
 `.fpattern`/`.pat`, and custom-shape `.fshape`/`.csh` libraries keep their own
 typed catalogues and codec-kit boundaries.
 

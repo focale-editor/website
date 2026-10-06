@@ -1,9 +1,19 @@
 # Brush preset libraries
 
+[Documentation](../README.md) · [File formats](README.md)
+
 Focale stores reusable procedural and sampled brushes independently from
 documents. The Brushes panel applies built-in presets, creates, renames and
 deletes user presets, and imports or exports the mutable catalogue as a native
 `.fbrush` bundle or a Photoshop `.abr` library.
+
+## Contents
+
+* [Defining a sampled tip from a document](#defining-a-sampled-tip-from-a-document)
+* [Native `.fbrush` format](#native-fbrush-format)
+* [Local sampled-tip assets](#local-sampled-tip-assets)
+* [Advanced Brush Settings groups](#advanced-brush-settings-groups)
+* [ABR compatibility](#abr-compatibility)
 
 ## Defining a sampled tip from a document
 
@@ -118,7 +128,7 @@ is validated before a GPU image is created. A referenced asset that is missing
 or conflicts with another asset invalidates the import rather than silently
 changing the preset. Sampled tips and patterns are part of public version 1;
 missing optional catalogues default to empty lists. Development versions 2–3
-require the one-time [baseline conversion](persistence-baseline.md).
+are not public compatibility versions; see the [development-file policy](persistence-policy.md).
 
 The settings object uses the complete `BrushSettings` serialization for
 forward-compatible decoding. Capture, decoding and export normalize current

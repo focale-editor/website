@@ -1,5 +1,7 @@
 # Actions and batch processing
 
+[Documentation](../README.md) · [File formats](README.md)
+
 Focale records reusable editing intent rather than serializing undo objects or
 pointer events. The Actions panel stores named sets, actions, and ordered steps;
 the batch workflow applies one action either to a folder without opening
@@ -9,6 +11,13 @@ This follows the hierarchy and primary controls documented for
 [Photopea Actions](https://www.photopea.com/learn/actions) and the
 [Photoshop Actions panel](https://helpx.adobe.com/photoshop/desktop/automate-tasks/automation-settings-and-presets/use-the-actions-panel.html).
 ADR 0102 records the execution and ownership boundaries.
+
+## Contents
+
+* [Recording and playback](#recording-and-playback)
+* [Supported semantic operations](#supported-semantic-operations)
+* [Native `.faction` format](#native-faction-format)
+* [Advanced batches](#advanced-batches)
 
 ## Recording and playback
 
@@ -161,8 +170,8 @@ Identifiers are stable inside the file but receive fresh identities when a set
 is imported, so importing the same library twice cannot collide with the local
 catalogue. Unknown operation identifiers and their parameters are preserved for
 forward compatibility, displayed as unsupported, and never executed by an
-older build. Development version 2 requires the one-time
-[baseline conversion](persistence-baseline.md).
+older build. Development version 2 is not a public compatibility version; see
+the [development-file policy](persistence-policy.md).
 
 Version 1 makes paint actions self-contained. Every active referenced imported
 primary or dual brush tip and every active imported brush/effect pattern is

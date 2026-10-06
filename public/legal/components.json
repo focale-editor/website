@@ -141,7 +141,7 @@
       "name": "LibRaw",
       "version": "0.22.2",
       "license": "LGPL-2.1 native / CDDL-1.0 Web",
-      "sourceUrl": "https://github.com/focale-editor/rawkit/tree/0.3.3",
+      "sourceUrl": "https://github.com/focale-editor/rawkit/tree/0.3.4",
       "notice": "libraw.txt",
       "sha256": "22ff4b6c44665fa9464e3d20f36b52b25695793f7694c3486a01fd8c8d0b15dc"
     },

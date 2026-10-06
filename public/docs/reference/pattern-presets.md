@@ -1,5 +1,7 @@
 # Pattern preset libraries
 
+[Documentation](../README.md) · [File formats](README.md)
+
 Focale keeps reusable patterns independently from documents. Every pattern
 selector shows the six built-in procedural patterns and the imported catalogue.
 Its footer imports `.fpattern` or Photoshop `.pat` libraries and offers

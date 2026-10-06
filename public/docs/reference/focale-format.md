@@ -1,10 +1,32 @@
 # The `.focale` project format
 
+[Documentation](../README.md) · [File formats](README.md)
+
+The `.focale` archive stores an editable document, its raster data and reusable
+resources. This reference defines its entries, metadata, validation rules and
+compatibility policy, including the distinct managed recovery representation.
+
 **Current version:** 1 (first public release)
 
 A `.focale` file is an ordinary ZIP archive. Nothing in it is encrypted or
 obfuscated: a project can be inspected, repaired or salvaged with standard
 tools, which matters more than a few saved bytes.
+
+## Contents
+
+* [Layout](#layout)
+* [`manifest.json`](#manifestjson)
+* [Validation on load](#validation-on-load)
+* [Slices](#slices)
+* [Frame animation](#frame-animation)
+* [Layer compositions](#layer-compositions)
+* [Variables and data sets](#variables-and-data-sets)
+* [Guides](#guides)
+* [Count groups](#count-groups)
+* [Compatibility policy](#compatibility-policy)
+* [Independent raster tiles](#independent-raster-tiles)
+* [Managed differential recovery checkpoints](#managed-differential-recovery-checkpoints)
+* [Browser portability](#browser-portability)
 
 ## Layout
 
@@ -1149,7 +1171,7 @@ after removal; and `sourceAspectRatio` controls Shift-constrained drawing. The
 built-in `preset` remains a harmless fallback for readers that do not receive a
 usable outline. Deleting the global preset cannot alter this embedded geometry.
 The global catalogue's portable `.fshape` representation is documented in
-`docs/custom-shape-presets.md`; it is not embedded wholesale in a project.
+`docs/formats/shapes.md`; it is not embedded wholesale in a project.
 
 `extraComponents` is optional and ordered. Each entry keeps another procedural
 `geometry`, the `operation` that folds it into the accumulated path (`union`,
@@ -1254,7 +1276,7 @@ The content identity and decoded byte count are revalidated before a GPU image
 is created. A missing, malformed or mismatched referenced entry corrupts the
 project instead of silently changing it to the checker pattern. The internal
 `.fptile` representation is not an interchange format; `.fpattern` is the
-portable pattern-library format documented in `docs/pattern-presets.md`.
+portable pattern-library format documented in `docs/formats/patterns.md`.
 
 ### `transform`
 
@@ -1849,9 +1871,9 @@ without changing their authored metadata or binary image payloads. Dependent
 `editableDocumentByteLength` values follow the converted nested archive lengths.
 Older development
 layouts must first be saved by a compatible development build. See
-[Persistence baseline](persistence-baseline.md) and [ADR 0265](adr/0265-first-release-persistence-baseline.md).
+[Persistence baseline](persistence-policy.md) and [ADR 0265](../adr/0265-first-release-persistence-baseline.md).
 
-In particular, shared tile objects from [ADR 0157](adr/0157-shared-archive-tile-objects.md)
+In particular, shared tile objects from [ADR 0157](../adr/0157-shared-archive-tile-objects.md)
 replace the earlier per-occurrence tile layout. Tiled descriptors without the
 required `objects` array are no longer supported. Portable saves remain
 self-contained; the managed checkpoint format is internal recovery storage.

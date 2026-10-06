@@ -1,5 +1,7 @@
 # Custom-shape presets
 
+[Documentation](../README.md) · [File formats](README.md)
+
 Focale's Custom Shape tool uses a global vector catalogue. Five built-in shapes
 are always available; portable `.fshape` libraries, Photoshop CSH libraries and
 paths defined inside Focale can add user presets without changing the
@@ -66,7 +68,7 @@ Coordinates use the preset's normalized vector space. `inX`/`inY` and
 `outX`/`outY` are handles relative to their anchor. Each subpath may additionally
 store `closed`, `operation` (`union`, `subtract`, `intersect` or `exclude`),
 `fillRule` (`nonZero` or `evenOdd`) and smooth anchor types using the same
-`VectorPath` contract as `docs/focale-format.md`.
+`VectorPath` contract as `docs/formats/focale.md`.
 
 Identifiers, names, hierarchy, order and source proportion survive a native
 round trip. Importing an identity already used by a built-in or local entry

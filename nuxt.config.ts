@@ -107,18 +107,9 @@ export default defineNuxtConfig({
     ],
     defaultDirection: 'ltr',
     baseUrl: 'https://focale-editor.app',
-    // A visitor whose browser asks for one of the six languages lands in it.
-    // On a statically generated site that redirect necessarily happens after
-    // hydration, so `/` renders in English for a moment and Vue logs a
-    // hydration mismatch. Set this to `false` to trade the convenience for a
-    // silent console and a root page that always stays English.
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'focale_locale',
-      alwaysRedirect: false,
-      fallbackLocale: 'en',
-      redirectOn: 'root',
-    },
+    // Static HTML must hydrate in its route's language. The client plugin
+    // detects preferences and redirects from `/` once hydration is complete.
+    detectBrowserLanguage: false,
   },
 
   icon: {

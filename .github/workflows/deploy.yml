@@ -33,6 +33,8 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Test browser language redirection
+        run: node --experimental-strip-types --test test/browser_locale_redirect.test.ts
       - name: Generate the static site
         run: pnpm generate
         env:

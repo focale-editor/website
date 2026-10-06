@@ -7,12 +7,27 @@ The site is a statically generated Nuxt application, published to GitHub Pages a
 <https://focale-editor.app>. It presents the editor, its downloads and signup,
 and provides user guides and technical format references.
 
+## Feedback and help
+
+[Focale Community](https://github.com/focale-editor/community) centralizes bug
+reports, feature requests, improvements and questions about the editor, website,
+documentation and downloads. Include the page URL for website reports.
+
 ## Stack
 
 Nuxt 4 · OpenVue · `@nuxtjs/i18n` · SCSS · TypeScript, built with pnpm.
 
 Six locales ship today — English, French, Spanish, Italian, Portuguese and German —
 with English served unprefixed and the rest under `/fr`, `/es`, `/it`, `/pt`, `/de`.
+
+The static page hydrates in its URL's language. On arrival at `/`,
+`app/plugins/browser-locale.client.ts` redirects through `onNuxtReady`, after
+hydration (including async pages), to the saved
+`focale_locale` preference, or the supported browser language (English fallback).
+The redirect preserves query parameters and anchors, replaces the history entry
+and leaves explicit localized or documentation links alone. Manual language
+changes update the same one-year cookie. Keep module-level browser detection
+disabled so it cannot change translations before hydration.
 
 ## Development
 
@@ -27,6 +42,7 @@ Quality gates, all expected to pass before a push:
 pnpm lint            # ESLint, with @nuxt/eslint's stylistic rules
 pnpm typecheck       # vue-tsc against the generated Nuxt types
 pnpm generate        # the static build, exactly as CI runs it
+node --experimental-strip-types --test test/browser_locale_redirect.test.ts
 ```
 
 `pnpm generate` writes `.output/public`, which can be served with any static
@@ -52,7 +68,8 @@ reports that signups are unavailable, rather than posting into the void.
 
 ## Deployment
 
-`.github/workflows/deploy.yml` runs on every push to `main`: it lints, generates
+`.github/workflows/deploy.yml` runs on every push to `main`: it tests language
+redirection, generates
 the site and uploads it to GitHub Pages. `NUXT_PUBLIC_LOOPS_FORM_ID` is read from
 the `LOOPS_FORM_ID` repository secret.
 
@@ -76,7 +93,6 @@ app/
 └── theme/        the OpenVue preset, aligned with the editor's palette
 i18n/locales/     one JSON file per language
 public/           favicon.ico, apple-touch-icon, og-image, CNAME
-tools/            editor assets, documentation and notice synchronization
 ```
 
 Adding a page means adding `app/pages/<name>.vue`, its keys to the six locale
@@ -93,19 +109,23 @@ so tokens and mixins are available without importing them.
 
 ## Editor branding and screenshots
 
-The logo, favicons, social image and screenshot gallery come from the Focale
-checkout. To refresh them (requires Pillow and `rsvg-convert`):
+The private Focale application's **Publish Focale** workflow produces the logo,
+favicons, social image, reviewed notices and downloadable format references. It
+commits only selected public resources to this repository; the resulting push
+runs the Pages deployment. Building or developing this website requires neither
+private source access nor an editor checkout.
 
-```bash
-python3 tools/sync_editor_assets.py
-# For another checkout:
-python3 tools/sync_editor_assets.py --focale-source /path/to/Focale
-```
+Maintainers with access to Focale can run **Publish Focale → website** on a chosen
+source ref to refresh resources without a desktop release. Enable `screenshots`
+only when regenerating the gallery. Release publication updates other resources
+automatically from its source tag. The workflow and its `FOCALE_WEBSITE_TOKEN`
+are configured in Focale, not here; no local directory conventions are required.
 
-The script reads `assets/branding` and `artifacts/screenshots/sources`, then writes
-the website assets under `public`. Screenshots are exported as responsive WebP
-images and thumbnails. The gallery offers four views in both editor themes,
-using French captures on `/fr` and English captures for the other locales.
+The gallery uses four scenes, both themes and French/English captures, encoded
+as 1600/3200-pixel WebP images plus 320-pixel thumbnails. French routes use French
+captures; other locales use English. Original PNGs and capture manifests remain
+in the private source repository's Actions artifacts. Changes to scene IDs or
+image dimensions require coordinating this public contract with the editor.
 Palette tokens and the OpenVue preset are maintained in `app/assets/styles` and
 `app/theme/openvue-preset.ts`.
 
@@ -153,33 +173,21 @@ The public guides were checked against the editor source on 5 October 2026.
 Keep claims tied to the implementation: configured platform targets are not
 necessarily published releases, and interchange support is not complete foreign
 feature compatibility. On review, update `docs.developmentNote` in every locale.
-The editor's `docs/user-documentation.md` maps public topics to their source of
-truth. The full English native-format references are copied without modification:
+The editor's `docs/development/website.md` maps public topics to their source of
+truth. The full English native-format references are exported without modification
+into `public/docs/reference/`, with stable download filenames and a SHA-256
+manifest. Application sources and release configuration are excluded. Changes to
+the editor specifications should be followed by a workflow refresh and a review
+of the six-language summaries. Validate with the quality gates above and inspect
+the generated documentation routes and sitemap under `.output/public`.
 
-```bash
-python3 tools/sync_documentation.py
-python3 tools/sync_documentation.py --check
-# Another source checkout:
-python3 tools/sync_documentation.py --focale-source /path/to/Focale
-```
-
-This explicit seven-file allowlist writes `public/docs/reference/` and a SHA-256
-manifest. No application sources or release configuration are exported. Refresh
-the copies after changing the editor specifications and review the six-language
-summaries against code. Validate with the quality gates above and inspect the
-generated documentation routes and sitemap under `.output/public`.
-
-Refresh the public original notices from the reviewed editor catalogue with:
-
-```bash
-python3 tools/sync_licenses.py
-# Another source checkout:
-python3 tools/sync_licenses.py --source /path/to/Focale/assets/legal
-python3 -m unittest discover -s test -p '*_test.py'
-```
-
-The script validates the complete notice allowlist and hashes before copying
-into `public/legal`. It does not copy application sources or private release
-configuration. Commit the resulting public files with the documentation changes.
-The site's catalogue describes the current review; an installed application's
+Original license notices are exported to `public/legal` after their hashes and
+complete allowlist have been validated. The public catalogue omits private build
+recipe metadata. These checked-in files are sufficient for the website build.
+The site's catalogue describes its current review; an installed application's
 license dialog and its versioned release source archive describe that version.
+
+Editor-specific synchronization scripts and their Python tests live together in
+Focale's `tool/website_sync/`, with one entry point and a usage guide. Local
+previews, when needed, use that tool with an explicit output directory. This
+website has no editor synchronization tools or Python dependency.
