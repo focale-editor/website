@@ -123,16 +123,15 @@ are configured in Focale, not here; no local directory conventions are required.
 
 The gallery uses four scenes, both themes and French/English captures, encoded
 as 1600/3200-pixel WebP images plus 320-pixel thumbnails. French routes use French
-captures; other locales use English. Original PNGs and capture manifests remain
-in the private source repository's Actions artifacts. Changes to scene IDs or
-image dimensions require coordinating this public contract with the editor.
+captures; other locales use English. Changes to scene IDs or image dimensions
+require coordinating this public contract with the editor.
 Palette tokens and the OpenVue preset are maintained in `app/assets/styles` and
 `app/theme/openvue-preset.ts`.
 
 ## Desktop downloads
 
 `useDownloads` loads `https://get.focale-editor.app/downloads.json` in the browser.
-The private Focale distribution workflow publishes this catalog only after the
+The Focale distribution workflow publishes this catalog only after the
 macOS Apple Silicon, macOS Intel, Windows x64 and Linux x64 artifacts are available.
 `DownloadsSection` presents their GitHub Release attachments on this main site;
 the header and hero switch to download actions once a complete release is present.
@@ -150,14 +149,8 @@ platforms, import/export formats, native projects and native preset libraries,
 alongside the existing licenses and corresponding-source pages. Each portable
 library has its own page: `.fbrush`, `.fpattern`, `.fshape`, `.fstyle`, `.fswatch`,
 `.fgradient`, `.fcurve` and `.faction`, with usage, schema, examples, validation
-limits and interchange directions. Application architecture is not published.
-All pages ship in the six site languages. Desktop navigation sits along the
-viewport's left edge without a surrounding card or repeated documentation title;
-mobile navigation uses an OpenVue Drawer opened by a labelled button. It closes
-on navigation, Escape, backdrop dismissal or a switch to the desktop breakpoint.
-Dismissal returns focus to the button; the modal locks scrolling and makes the
-background inert. Articles include section anchors,
-accessible format tables and localized editor illustrations where relevant.
+limits and interchange directions.
+All pages ship in the six site languages.
 
 `DocumentationArticle` renders the structured `docs.articles` content in the
 locale JSON files; `DocumentationLayout` also serves the notices pages.
@@ -168,26 +161,3 @@ so JSON braces are not parsed as translation placeholders. `useDocumentation`
 supplies both the index and navigation. `documentationExamples.ts` holds the
 dedicated native-library JSON examples. Navigation back to homepage anchors
 works from documentation routes too.
-
-The public guides were checked against the editor source on 5 October 2026.
-Keep claims tied to the implementation: configured platform targets are not
-necessarily published releases, and interchange support is not complete foreign
-feature compatibility. On review, update `docs.developmentNote` in every locale.
-The editor's `docs/development/website.md` maps public topics to their source of
-truth. The full English native-format references are exported without modification
-into `public/docs/reference/`, with stable download filenames and a SHA-256
-manifest. Application sources and release configuration are excluded. Changes to
-the editor specifications should be followed by a workflow refresh and a review
-of the six-language summaries. Validate with the quality gates above and inspect
-the generated documentation routes and sitemap under `.output/public`.
-
-Original license notices are exported to `public/legal` after their hashes and
-complete allowlist have been validated. The public catalogue omits private build
-recipe metadata. These checked-in files are sufficient for the website build.
-The site's catalogue describes its current review; an installed application's
-license dialog and its versioned release source archive describe that version.
-
-Editor-specific synchronization scripts and their Python tests live together in
-Focale's `tool/website_sync/`, with one entry point and a usage guide. Local
-previews, when needed, use that tool with an explicit output directory. This
-website has no editor synchronization tools or Python dependency.
