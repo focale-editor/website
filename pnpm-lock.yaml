@@ -6369,6 +6369,8 @@ snapshots:
       '@eslint/core': 1.2.1
       levn: 0.4.1
 
+  '@exodus/bytes@1.16.0': {}
+
   '@fingerprintjs/botd@2.0.0': {}
 
   '@humanfs/core@0.19.2':

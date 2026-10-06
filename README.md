@@ -39,12 +39,16 @@ pnpm dev             # http://localhost:3000
 Quality gates, all expected to pass before a push:
 
 ```bash
+pnpm install --frozen-lockfile
 pnpm lint            # ESLint, with @nuxt/eslint's stylistic rules
 pnpm typecheck       # vue-tsc against the generated Nuxt types
 pnpm generate        # the static build, exactly as CI runs it
 node --experimental-strip-types --test test/browser_locale_redirect.test.ts
 pnpm test:hydration  # run after generate, against the actual static HTML and JS
 ```
+
+After dependency changes, verify the full frozen installation in a clean
+checkout. A lockfile-only check can miss missing transitive dependency snapshots.
 
 `pnpm generate` writes `.output/public`, which can be served with any static
 server (`pnpm dlx serve .output/public`).
