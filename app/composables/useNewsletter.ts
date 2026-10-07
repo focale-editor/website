@@ -49,8 +49,9 @@ export function useNewsletter() {
   /**
    * Submits the current address to Loops.
    *
-   * The locale is sent along as a user group so a future launch announcement
-   * can be written in the language the visitor signed up in.
+   * The locale is sent as a contact property for localized announcements.
+   * Do not set userGroup here: Loops updates that property on existing contacts,
+   * which would remove the founders group assigned by the application.
    */
   async function subscribe(locale: string): Promise<void> {
     if (isSubmitting.value) {
@@ -75,7 +76,7 @@ export function useNewsletter() {
     // Loops expects a form-encoded body; sending JSON silently yields a 400.
     const body = new URLSearchParams({
       email: address,
-      userGroup: 'alpha-waitlist',
+      source: 'Focale website',
       mailingLists: '',
       locale,
     })

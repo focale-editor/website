@@ -37,7 +37,10 @@ const platforms = [
         {{ t('hero.subtitle') }}
       </p>
 
-      <div class="hero-actions">
+      <div
+        :id="latestRelease ? undefined : 'newsletter'"
+        class="hero-actions"
+      >
         <Button
           v-if="latestRelease"
           as="a"

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { locale, locales, setLocale, t } = useI18n()
+const preferredLocale = useLocalePreference()
 
 /** One entry of the language list. */
 interface LocaleOption {
@@ -19,6 +20,7 @@ const options = computed<LocaleOption[]>(() =>
 const selected = computed({
   get: () => locale.value,
   set: (value: string) => {
+    preferredLocale.value = value
     void setLocale(value as typeof locale.value)
   },
 })

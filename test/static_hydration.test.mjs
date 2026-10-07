@@ -17,8 +17,23 @@ async function source(url) {
   return await readFile(resolve(output, `.${path}`), 'utf8')
 }
 
+test('/issues provides a static redirect to the community issue chooser without JavaScript', async () => {
+  const destination = 'https://github.com/focale-editor/community/issues/new/choose'
+  const dom = new JSDOM(await source(`${origin}/issues`))
+  try {
+    const refresh = dom.window.document.querySelector('meta[http-equiv="refresh"]')?.content
+    assert.ok(refresh, 'the generated alias redirects without the Nuxt client')
+    assert.equal(refresh.match(/^0;\s*url=(.+)$/i)?.[1], destination)
+    assert.equal(dom.window.document.querySelector('a')?.href, destination, 'a fallback link remains available')
+    assert.equal(dom.window.document.querySelector('link[rel="canonical"]')?.href, destination)
+  }
+  finally {
+    dom.window.close()
+  }
+})
+
 /** Execute the generated client bundle over its SSR HTML, with browser parsing. */
-async function hydrate({ path = '/', language = 'en-US', cookie, expectedLocale = 'en', expectedPath = path } = {}) {
+async function hydrate({ path = '/', language = 'en-US', cookie, expectedLocale = 'en', expectedPath = path, interact } = {}) {
   const url = `${origin}${path}`
   const messages = []
   const virtualConsole = new VirtualConsole()
@@ -42,6 +57,7 @@ async function hydrate({ path = '/', language = 'en-US', cookie, expectedLocale 
     window.IntersectionObserver = class { observe() {} unobserve() {} disconnect() {} }
     window.matchMedia = media => ({ matches: false, media, addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {} })
     window.scrollTo = () => {}
+    window.HTMLElement.prototype.scrollIntoView = () => {}
     // Keep the live distribution service out of this deterministic static test.
     window.fetch = async (input) => {
       const target = new URL(typeof input === 'string' ? input : input.url, url)
@@ -99,11 +115,15 @@ async function hydrate({ path = '/', language = 'en-US', cookie, expectedLocale 
     assert.equal(nuxt.isHydrating, false, 'hydration completes')
     assert.equal(nuxt.$i18n.locale.value, expectedLocale)
     assert.equal(window.location.pathname, expectedPath)
+    await interact?.({ window, nuxt })
+    await new Promise(resolve => setTimeout(resolve, 50))
     assert.deepEqual(messages, [], 'no hydration warnings or runtime errors')
     return {
       search: window.location.search,
       hash: window.location.hash,
       cookie: window.document.cookie,
+      path: window.location.pathname,
+      locale: nuxt.$i18n.locale.value,
     }
   }
   finally {
@@ -113,13 +133,39 @@ async function hydrate({ path = '/', language = 'en-US', cookie, expectedLocale 
 
 for (const locale of locales) {
   const path = locale === 'en' ? '/' : `/${locale}/`
+  test(`prerenders and hydrates the changelog in ${locale}`, async () => {
+    const route = `${path}changelog`
+    const translations = JSON.parse(await readFile(new URL(`../i18n/locales/${locale}.json`, import.meta.url), 'utf8'))
+    const catalogue = JSON.parse(await source(`${origin}/changelog.json`))
+    const dom = new JSDOM(await source(`${origin}${route}`))
+    try {
+      const document = dom.window.document
+      assert.equal(document.querySelector('h1')?.textContent.trim(), translations.changelog.title)
+      assert.equal(document.querySelector('link[rel="canonical"]')?.href.replace(/\/$/, ''), `${origin}${route}`)
+      assert.equal(document.querySelectorAll('.changelog-release').length, catalogue.releases.length)
+      assert.ok(document.querySelector(`footer a[href="${route}"]`))
+      if (!catalogue.releases.length) {
+        assert.equal(document.querySelector('#changelog-empty-title')?.textContent.trim(), translations.changelog.emptyTitle)
+      }
+      for (const release of catalogue.releases) {
+        const article = document.getElementById(`v${release.version}`)
+        assert.equal(article?.querySelector('time')?.dateTime, release.date)
+        assert.deepEqual([...article.querySelectorAll('.release-changes li span')].map(item => item.textContent), release.changes.map(change => change.description))
+        assert.equal(article.querySelectorAll('script, img').length, 0, 'notes cannot inject HTML')
+      }
+    }
+    finally {
+      dom.window.close()
+    }
+    await hydrate({ path: route, language: 'en-US', expectedLocale: locale })
+  })
   test(`hydrates ${path} in ${locale} with JavaScript enabled`, async () => {
     // A different browser preference must not change explicitly localized URLs.
     await hydrate({ path, language: 'en-US', expectedLocale: locale })
   })
   test(`redirects / to the ${locale} browser locale after hydration`, async () => {
     const result = await hydrate({ language: locale, expectedLocale: locale, expectedPath: locale === 'en' ? '/' : `/${locale}` })
-    assert.match(result.cookie, new RegExp(`focale_locale=${locale}(?:;|$)`))
+    assert.equal(result.cookie, '', 'automatic detection must not save a manual preference')
   })
   test(`keeps a localized download link without JavaScript (${locale})`, async () => {
     const dom = new JSDOM(await source(`${origin}${path}`))
@@ -137,7 +183,48 @@ for (const locale of locales) {
 }
 
 test('the saved English choice wins over a French browser', async () => {
-  await hydrate({ language: 'fr-FR', cookie: 'en' })
+  await hydrate({ language: 'fr-FR', cookie: 'manual:en' })
+})
+
+for (const cookie of ['en', 'de', 'manual:xx']) {
+  test(`ignores the stale preference ${cookie} in an existing French session`, async () => {
+    const result = await hydrate({ language: 'fr-FR', cookie, expectedLocale: 'fr', expectedPath: '/fr' })
+    assert.equal(result.cookie, '', 'the stale preference is cleared')
+  })
+}
+
+test('following an explicit localized URL does not save a manual choice', async () => {
+  const result = await hydrate({
+    path: '/fr/', language: 'fr-FR', expectedLocale: 'fr',
+    interact: async ({ nuxt }) => {
+      await nuxt.runWithContext(() => nuxt.$router.push('/de/docs/faction/'))
+    },
+  })
+  assert.equal(result.locale, 'de')
+  assert.equal(result.cookie, '')
+})
+
+test('a selection in the language menu saves an explicit preference', async () => {
+  const result = await hydrate({
+    path: '/fr/', language: 'fr-FR', expectedLocale: 'fr',
+    interact: async ({ window, nuxt }) => {
+      const select = window.document.querySelector('.locale-switcher-select')
+      select.dispatchEvent(new window.MouseEvent('click', { bubbles: true }))
+      await new Promise(resolve => setTimeout(resolve, 20))
+      const english = [...window.document.querySelectorAll('[role="option"]')].find(option => option.textContent === 'English')
+      assert.ok(english, 'the language menu offers English')
+      english.dispatchEvent(new window.MouseEvent('mousedown', { bubbles: true }))
+      english.dispatchEvent(new window.MouseEvent('mouseup', { bubbles: true }))
+      english.dispatchEvent(new window.MouseEvent('click', { bubbles: true }))
+      const deadline = Date.now() + 5000
+      while (Date.now() < deadline && (nuxt.$i18n.locale.value !== 'en' || window.location.pathname !== '/')) {
+        await new Promise(resolve => setTimeout(resolve, 20))
+      }
+    },
+  })
+  assert.equal(result.locale, 'en')
+  assert.equal(result.path, '/')
+  assert.match(decodeURIComponent(result.cookie), /focale_locale=manual:en(?:;|$)/)
 })
 
 test('automatic redirection retains query parameters and anchors', async () => {

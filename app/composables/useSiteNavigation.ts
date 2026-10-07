@@ -30,10 +30,9 @@ export function useSiteNavigation() {
   const home = (hash: string) => localePath('index') + hash
 
   const headerLinks = computed<NavigationLink[]>(() => [
-    { label: 'nav.features', to: home('#features') },
-    { label: 'nav.preview', to: home('#preview') },
-    { label: 'nav.roadmap', to: home('#roadmap') },
+    { label: 'nav.homePage', to: localePath('index') },
     { label: 'docs.title', to: localePath('/docs') },
+    { label: 'nav.contribute', to: localePath('/support') },
   ])
 
   const footerSections = computed<NavigationSection[]>(() => [
@@ -43,8 +42,9 @@ export function useSiteNavigation() {
         { label: 'nav.features', to: home('#features') },
         { label: 'nav.preview', to: home('#preview') },
         { label: 'nav.roadmap', to: home('#roadmap') },
-        { label: 'nav.newsletter', to: home('#newsletter') },
         { label: 'docs.title', to: localePath('/docs') },
+        { label: 'changelog.title', to: localePath('/changelog') },
+        { label: 'support.title', to: localePath('/support') },
       ],
     },
     {

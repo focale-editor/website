@@ -14,9 +14,9 @@ export default defineNuxtConfig({
     '@openvue/nuxt-module',
   ],
 
-  // Flat component names keep the markup readable as the tree grows; the
-  // sub-folders stay purely for organisation.
-  components: [{ path: '~/components', pathPrefix: false }],
+  // Shared components keep flat names. Homepage sections are imported locally
+  // by index.vue rather than being available through component auto-imports.
+  components: [{ path: '~/components', pathPrefix: false, ignore: ['home/**'] }],
 
   devtools: { enabled: true },
 

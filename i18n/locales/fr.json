@@ -10,6 +10,8 @@
   },
   "nav": {
     "home": "Focale, retour à l'accueil",
+    "homePage": "Accueil",
+    "contribute": "Contribuer",
     "primary": "Principale",
     "secondary": "Pied de page",
     "features": "Fonctionnalités",
@@ -23,8 +25,8 @@
   },
   "hero": {
     "badge": "En développement · alpha à venir",
-    "title": "Un éditeur d'images avancé qui fonctionne",
-    "titleAccent": "entièrement sur votre machine.",
+    "title": "Retouchez, composez et créez",
+    "titleAccent": "avec précision.",
     "subtitle": "Calques, masques, réglages non destructifs, filtres et effets de calque — et les fichiers Photoshop que vous possédez déjà s'ouvrent directement.",
     "platformsLabel": "Disponible pour"
   },
@@ -1445,5 +1447,46 @@
         }
       }
     }
+  },
+  "support": {
+    "title": "Supporter Focale",
+    "home": {
+      "title": "Faisons grandir Focale ensemble.",
+      "description": "Tester Focale, partager une idée, en parler autour de vous ou faire un don : il y a plusieurs façons de contribuer.",
+      "action": "Comment contribuer"
+    },
+    "eyebrow": "Aidez Focale à grandir",
+    "heading": "Un outil créatif qui avance grâce à vous.",
+    "description": "Focale est en alpha et son modèle économique n’a pas encore été décidé. Tester le logiciel, partager votre expérience ou soutenir son développement contribue à la suite du projet.",
+    "donateTitle": "Soutenir le développement",
+    "donateDescription": "Votre contribution donne à Focale du temps pour grandir. Les dons sont facultatifs et indépendants de l’inscription parmi les fondateurs.",
+    "donateAction": "Faire un don",
+    "tryTitle": "Essayez-le. Dites ce qui compte.",
+    "tryDescription": "Utilisez Focale sur un vrai projet, explorez ses outils et partagez ce qui fonctionne et ce qui mérite d’être amélioré.",
+    "tryAction": "Télécharger Focale",
+    "bugTitle": "Signaler un bug",
+    "bugDescription": "Précisez les étapes pour le reproduire, votre système et la version de Focale. Un petit fichier d’exemple peut aider, à condition de ne contenir aucune donnée privée.",
+    "bugAction": "Ouvrir un rapport de bug",
+    "ideaTitle": "Partager une idée",
+    "ideaDescription": "Un parcours peu pratique, une fonction manquante ou un détail : expliquez ce que vous souhaitez réaliser et comment Focale pourrait vous aider.",
+    "ideaAction": "Proposer une amélioration",
+    "shareTitle": "Faire connaître le projet",
+    "shareDescription": "Partagez Focale avec une personne qui aime la retouche d’images. Vos créations et vos retours aident aussi à le faire découvrir.",
+    "shareAction": "Copier le lien du site",
+    "copied": "Lien copié",
+    "copyError": "Copie impossible. Vous pouvez partager directement https://focale-editor.app.",
+    "foundersTitle": "Là dès le début ?",
+    "foundersDescription": "Inscrivez votre adresse email dans le dialogue d’accueil de l’application pour rejoindre les fondateurs. Si le modèle économique change, les fondateurs recevront gratuitement une clé de licence. Aucun don n’est nécessaire.",
+    "thanks": "Merci de contribuer à l’avenir de Focale."
+  },
+  "changelog": {
+    "title": "Historique des versions",
+    "description": "Les nouveautés, améliorations et corrections de chaque version de Focale.",
+    "eyebrow": "Les mises à jour de Focale",
+    "emptyTitle": "La première version se prépare",
+    "emptyDescription": "Focale est encore en développement. Dès la publication de la première version, vous retrouverez ici ses notes de version.",
+    "follow": "Suivre la première alpha",
+    "originalLanguage": "Les notes de version sont présentées dans leur langue d’origine.",
+    "noChanges": "Aucun changement supplémentaire indiqué pour cette version."
   }
 }

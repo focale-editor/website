@@ -10,6 +10,8 @@
   },
   "nav": {
     "home": "Focale, zurück zur Startseite",
+    "homePage": "Startseite",
+    "contribute": "Mitwirken",
     "primary": "Haupt",
     "secondary": "Fußzeile",
     "features": "Funktionen",
@@ -23,8 +25,8 @@
   },
   "hero": {
     "badge": "In Entwicklung · Alpha in Vorbereitung",
-    "title": "Ein fortgeschrittener Bildeditor, der vollständig",
-    "titleAccent": "auf Ihrem Rechner läuft.",
+    "title": "Retuschieren, komponieren und gestalten",
+    "titleAccent": "mit Präzision.",
     "subtitle": "Ebenen, Masken, nicht-destruktive Korrekturen, Filter und Ebeneneffekte — und die Photoshop-Dateien, die Sie bereits haben, öffnen sich sofort.",
     "platformsLabel": "Verfügbar für"
   },
@@ -1445,5 +1447,46 @@
         }
       }
     }
+  },
+  "support": {
+    "title": "Focale unterstützen",
+    "home": {
+      "title": "Gemeinsam bringen wir Focale voran.",
+      "description": "Focale ausprobieren, eine Idee teilen, das Projekt bekannt machen oder spenden: Es gibt viele Möglichkeiten, mitzuwirken.",
+      "action": "So kannst du mitwirken"
+    },
+    "eyebrow": "Hilf Focale zu wachsen",
+    "heading": "Ein kreatives Werkzeug, das mit deiner Hilfe wächst.",
+    "description": "Focale ist in der Alpha-Phase. Das künftige Geschäftsmodell steht noch nicht fest. Testen, Erfahrungen teilen oder die Entwicklung unterstützen: All das gestaltet die Zukunft des Projekts.",
+    "donateTitle": "Entwicklung unterstützen",
+    "donateDescription": "Dein Beitrag gibt Focale mehr Zeit zum Wachsen. Spenden sind freiwillig und unabhängig von der Registrierung als Gründungsmitglied.",
+    "donateAction": "Spenden",
+    "tryTitle": "Probiere es aus. Sag, was dir wichtig ist.",
+    "tryDescription": "Nutze Focale für ein echtes Projekt, erkunde die Werkzeuge und teile mit, was funktioniert und was besser werden kann.",
+    "tryAction": "Focale herunterladen",
+    "bugTitle": "Einen Fehler melden",
+    "bugDescription": "Beschreibe die Schritte zur Reproduktion, dein Betriebssystem und die Focale-Version. Eine kleine Beispieldatei hilft, sofern sie keine privaten Daten enthält.",
+    "bugAction": "Fehlerbericht erstellen",
+    "ideaTitle": "Eine Idee teilen",
+    "ideaDescription": "Ein umständlicher Ablauf, eine fehlende Funktion oder ein Detail: Erkläre dein Ziel und wie Focale dabei helfen könnte.",
+    "ideaAction": "Verbesserung vorschlagen",
+    "shareTitle": "Das Projekt bekannt machen",
+    "shareDescription": "Teile Focale mit jemandem, der gerne Bilder bearbeitet. Deine Projekte und Rückmeldungen helfen anderen, es zu entdecken.",
+    "shareAction": "Website-Link kopieren",
+    "copied": "Link kopiert",
+    "copyError": "Kopieren fehlgeschlagen. Du kannst https://focale-editor.app direkt teilen.",
+    "foundersTitle": "Von Anfang an dabei?",
+    "foundersDescription": "Registriere deine E-Mail-Adresse im Willkommensdialog der App, um Gründungsmitglied zu werden. Falls sich das Geschäftsmodell ändert, erhalten Gründungsmitglieder kostenlos einen Lizenzschlüssel. Eine Spende ist nicht erforderlich.",
+    "thanks": "Danke, dass du Focale mitgestaltest."
+  },
+  "changelog": {
+    "title": "Versionsverlauf",
+    "description": "Neue Funktionen, Verbesserungen und Fehlerbehebungen in jeder Focale-Version.",
+    "eyebrow": "Focale-Updates",
+    "emptyTitle": "Die erste Version ist in Arbeit",
+    "emptyDescription": "Focale wird noch entwickelt. Sobald die erste Version veröffentlicht ist, findest du hier die Versionshinweise.",
+    "follow": "Die erste Alpha verfolgen",
+    "originalLanguage": "Die Versionshinweise werden in ihrer Originalsprache angezeigt.",
+    "noChanges": "Für diese Version sind keine weiteren Änderungen aufgeführt."
   }
 }

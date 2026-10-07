@@ -13,6 +13,10 @@ and provides user guides and technical format references.
 reports, feature requests, improvements and questions about the editor, website,
 documentation and downloads. Include the page URL for website reports.
 
+`/issues` redirects to the community's issue-template chooser. Its standalone
+`public/issues/index.html` uses a meta refresh and a fallback link, so the alias
+works on GitHub Pages without JavaScript or a Nuxt hydration step.
+
 ## Stack
 
 Nuxt 4 · OpenVue · `@nuxtjs/i18n` · SCSS · TypeScript, built with pnpm.
@@ -22,11 +26,15 @@ with English served unprefixed and the rest under `/fr`, `/es`, `/it`, `/pt`, `/
 
 The static page hydrates in its URL's language. On arrival at `/`,
 `app/plugins/browser-locale.client.ts` redirects through `onNuxtReady`, after
-hydration (including async pages), to the saved
-`focale_locale` preference, or the supported browser language (English fallback).
+hydration (including async pages), to an explicit saved language choice, or the
+supported browser language (English fallback).
 The redirect preserves query parameters and anchors, replaces the history entry
-and leaves explicit localized or documentation links alone. Manual language
-changes update the same one-year cookie. Keep module-level browser detection
+and leaves explicit localized or documentation links alone. Only selections in
+`LocaleSwitcher` write the one-year `focale_locale` cookie, as `manual:<code>`.
+Automatic detection and route changes do not save a preference. Older bare-code
+cookies have an ambiguous origin; ignore and clear them on arrival at `/`, then
+detect the browser language again. `useLocalePreference` shares this contract
+between the selector and redirect plugin. Keep module-level browser detection
 disabled so it cannot change translations before hydration.
 
 ## Development
@@ -43,7 +51,7 @@ pnpm install --frozen-lockfile
 pnpm lint            # ESLint, with @nuxt/eslint's stylistic rules
 pnpm typecheck       # vue-tsc against the generated Nuxt types
 pnpm generate        # the static build, exactly as CI runs it
-node --experimental-strip-types --test test/browser_locale_redirect.test.ts
+node --experimental-strip-types --test test/browser_locale_redirect.test.ts test/newsletter.test.ts test/changelog.test.ts
 pnpm test:hydration  # run after generate, against the actual static HTML and JS
 ```
 
@@ -99,7 +107,7 @@ The custom domain lives in `public/CNAME`, so it survives every deployment.
 app/
 ├── assets/
 │   └── styles/   SCSS tokens, mixins and the global stylesheet
-├── components/   layout/, home/, docs/ and ui/ (reusable components)
+├── components/   shared layout/, docs/, ui/ and local home/ sections
 ├── composables/  newsletter, navigation, SEO and content sources
 ├── layouts/      the shell every page renders into
 ├── pages/        one route per file
@@ -112,6 +120,17 @@ Adding a page means adding `app/pages/<name>.vue`, its keys to the six locale
 files, and — if it belongs in the navigation — an entry in
 `app/composables/useSiteNavigation.ts`, which both the header and the footer read.
 
+The sections in `app/components/home/` belong to the homepage. They are excluded
+from Nuxt's component auto-imports and imported explicitly by `app/pages/index.vue`.
+Shared layout, documentation and UI components retain flat auto-imported names.
+
+The header has three page links: Home, Documentation and Contribute (`/support`).
+Homepage section anchors remain in the footer. `SupportSection` introduces ways
+to help the project after the downloads and links to the localized support page;
+its copy lives in `support.home` in each locale file. The signup form remains in
+the hero at `#newsletter` until a release is available; there is no separate
+alpha signup section at the bottom of the homepage.
+
 **Using a new OpenVue component means naming it in `primevue.components.include`
 in `nuxt.config.ts`.** Auto-import is deliberately off: it registers all eighty-odd
 components and inlines every one's theme CSS into every page, which tripled the
@@ -119,6 +138,27 @@ generated HTML. An undeclared component simply will not resolve.
 
 `app/assets/styles/_shared.scss` is injected into every component's style block,
 so tokens and mixins are available without importing them.
+
+## Release notes
+
+`/changelog` and its localized routes show the checked-in `public/changelog.json`
+export. The private editor's **Publish Focale** workflow refreshes it from the
+published source tag after desktop publication; its normal push then rebuilds
+this site. No new credentials or runtime GitHub request are needed here.
+
+The initial catalogue is empty because there is no published source changelog
+yet. The page displays a translated waiting state until notes arrive. Dates and
+page navigation are localized in all six languages; reviewed notes retain their
+source language. Each version has a stable `#v1.2.3` anchor. The footer links to
+the localized history.
+
+Schema version 1 contains `releases` in newest-first order, each with `version`,
+ISO `date` and `changes` (plain-text `kind` and `description`). Invalid exports
+fail static generation. Notes are rendered with Vue text interpolation, without
+HTML or Markdown execution. The editor exporter understands its configured
+`dart run release` template, excludes Unreleased sections and removes private
+links. Coordinate format changes with `tool/website_sync/changelog.py` in Focale.
+Do not invent release entries here; the source changelog is authoritative.
 
 ## Editor branding and screenshots
 
@@ -140,6 +180,9 @@ captures; other locales use English. Changes to scene IDs or image dimensions
 require coordinating this public contract with the editor.
 Palette tokens and the OpenVue preset are maintained in `app/assets/styles` and
 `app/theme/openvue-preset.ts`.
+The hero uses a translated title and accent phrase; the English social image
+keeps “Retouch, compose and create” followed by the blue “with precision.”.
+Its composition is generated by Focale's `tool/website_sync/branding.py`.
 
 ## Desktop downloads
 
