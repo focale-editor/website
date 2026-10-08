@@ -2,6 +2,16 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "version": "0.0.5",
+      "date": "2026-10-08",
+      "changes": [
+        {
+          "kind": "CHORE",
+          "description": "Updated the database directory in release mode."
+        }
+      ]
+    },
+    {
       "version": "0.0.4",
       "date": "2026-10-08",
       "changes": [
