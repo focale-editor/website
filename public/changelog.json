@@ -1,4 +1,39 @@
 {
   "schemaVersion": 1,
-  "releases": []
+  "releases": [
+    {
+      "version": "0.0.3",
+      "date": "2026-10-08",
+      "changes": [
+        {
+          "kind": "FIX",
+          "description": "Fixed a permission error on Linux."
+        },
+        {
+          "kind": "REFACTOR",
+          "description": "Moved the build script to `get-focale`."
+        }
+      ]
+    },
+    {
+      "version": "0.0.2",
+      "date": "2026-10-08",
+      "changes": [
+        {
+          "kind": "FIX",
+          "description": "Fixed various compilation errors."
+        }
+      ]
+    },
+    {
+      "version": "0.0.1",
+      "date": "2026-10-08",
+      "changes": [
+        {
+          "kind": "RELEASE",
+          "description": "Initial release."
+        }
+      ]
+    }
+  ]
 }
