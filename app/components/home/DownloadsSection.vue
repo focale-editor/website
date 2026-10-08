@@ -2,6 +2,7 @@
 import type { DownloadTarget } from '~/utils/downloadCatalog'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
 const { latestRelease } = useDownloads()
 
 /** Hosted by get-focale next to the catalog; it installs the latest Linux ZIP. */
@@ -96,7 +97,7 @@ async function copyCommand(): Promise<void> {
         {{ latestRelease.version }}
       </template>
       <template #notes>
-        <a :href="`https://github.com/focale-editor/get-focale/releases/tag/${latestRelease.tag}`">{{ t('downloads.releaseNotes') }}</a>
+        <NuxtLink :to="localePath('changelog')">{{ t('downloads.releaseNotes') }}</NuxtLink>
       </template>
     </i18n-t>
 
@@ -157,13 +158,13 @@ async function copyCommand(): Promise<void> {
               :aria-label="`${option.label} · ${t('downloads.downloadFor', { platform: `${platform.name} ${option.detail}` })}`"
               class="download-option"
             >
-              <Icon
-                name="lucide:download"
-                class="option-icon"
-                aria-hidden="true"
-              />
               <span class="option-copy">
                 <span class="option-title">
+                  <Icon
+                    name="lucide:download"
+                    class="option-icon"
+                    aria-hidden="true"
+                  />
                   <span class="option-label">{{ option.label }}</span>
                   <span class="option-tag">{{ option.detail }}</span>
                 </span>
@@ -179,13 +180,13 @@ async function copyCommand(): Promise<void> {
               :href="option.href"
               class="download-option"
             >
-              <Icon
-                name="lucide:package"
-                class="option-icon"
-                aria-hidden="true"
-              />
               <span class="option-copy">
                 <span class="option-title">
+                  <Icon
+                    name="lucide:package"
+                    class="option-icon"
+                    aria-hidden="true"
+                  />
                   <span class="option-label">{{ option.label }}</span>
                   <span class="option-tag">{{ option.detail }}</span>
                 </span>
@@ -198,13 +199,13 @@ async function copyCommand(): Promise<void> {
               class="download-option download-option-disabled"
               aria-disabled="true"
             >
-              <Icon
-                name="lucide:store"
-                class="option-icon"
-                aria-hidden="true"
-              />
               <span class="option-copy">
                 <span class="option-title">
+                  <Icon
+                    name="lucide:store"
+                    class="option-icon"
+                    aria-hidden="true"
+                  />
                   <span class="option-label">{{ option.label }}</span>
                   <span class="option-tag">{{ t('downloads.soon') }}</span>
                 </span>
@@ -374,10 +375,7 @@ async function copyCommand(): Promise<void> {
 }
 
 .download-option {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 0.75rem;
-  align-items: start;
+  display: block;
   padding: 0.875rem 1rem;
   color: var(--color-text);
 
@@ -403,20 +401,19 @@ a.download-option {
 
 .option-icon {
   flex: none;
-  margin-top: 0.1875rem;
   color: var(--color-accent-bright);
   font-size: 1rem;
 }
 
 .option-copy {
   display: grid;
-  gap: 0.25rem;
+  gap: 0.5rem;
 }
 
 .option-title {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 0.625rem;
+  gap: 0.25rem 0.75rem;
   align-items: center;
 }
 
@@ -443,17 +440,13 @@ a.download-option {
 
 .download-command {
   display: grid;
-  gap: 0.625rem;
+  gap: 0.5rem;
   padding: 0.875rem 1rem;
 
   .option-label {
     display: flex;
     gap: 0.75rem;
     align-items: center;
-  }
-
-  .option-icon {
-    margin-top: 0;
   }
 }
 
