@@ -14,6 +14,12 @@ const { id, eyebrow, title, description, narrow = false, muted = false } = defin
   muted?: boolean
 }>()
 
+const slots = defineSlots<{
+  default?: () => unknown
+  /** Illustration shown beside the heading and content on wide screens. */
+  aside?: () => unknown
+}>()
+
 const headingId = computed(() => (id ? `${id}-title` : undefined))
 </script>
 
@@ -26,34 +32,44 @@ const headingId = computed(() => (id ? `${id}-title` : undefined))
   >
     <div
       class="section-inner"
-      :class="{ 'section-inner-narrow': narrow }"
+      :class="{ 'section-inner-narrow': narrow, 'section-inner-split': slots.aside }"
     >
-      <header
-        v-if="title"
-        class="section-header"
-      >
-        <p
-          v-if="eyebrow"
-          class="section-eyebrow"
+      <div class="section-main">
+        <header
+          v-if="title"
+          class="section-header"
         >
-          <span class="section-eyebrow-tick" />
-          {{ eyebrow }}
-        </p>
-        <h2
-          :id="headingId"
-          class="section-title"
-        >
-          {{ title }}
-        </h2>
-        <p
-          v-if="description"
-          class="section-description"
-        >
-          {{ description }}
-        </p>
-      </header>
+          <p
+            v-if="eyebrow"
+            class="section-eyebrow"
+          >
+            <span class="section-eyebrow-tick" />
+            {{ eyebrow }}
+          </p>
+          <h2
+            :id="headingId"
+            class="section-title"
+          >
+            {{ title }}
+          </h2>
+          <p
+            v-if="description"
+            class="section-description"
+          >
+            {{ description }}
+          </p>
+        </header>
 
-      <slot />
+        <slot />
+      </div>
+
+      <div
+        v-if="slots.aside"
+        class="section-aside"
+        aria-hidden="true"
+      >
+        <slot name="aside" />
+      </div>
     </div>
   </section>
 </template>
@@ -74,6 +90,25 @@ const headingId = computed(() => (id ? `${id}-title` : undefined))
 
 .section-inner-narrow {
   max-width: $content-width-narrow;
+}
+
+.section-inner-split {
+  @include from($breakpoint-lg) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.6fr);
+    gap: clamp(2.5rem, 5vw, 4rem);
+    align-items: center;
+  }
+}
+
+.section-aside {
+  display: none;
+  pointer-events: none;
+
+  @include from($breakpoint-lg) {
+    display: grid;
+    place-items: center;
+  }
 }
 
 .section-header {

@@ -13,7 +13,7 @@ const commands = 'python3 rebuild.py unpack --work work\npython3 rebuild.py imco
       <h2>{{ t('docs.sources.downloadTitle') }}</h2>
       <p>{{ t('docs.sources.download') }}</p>
       <p><a href="https://github.com/focale-editor/get-focale/releases">{{ t('docs.sources.releases') }}</a></p>
-      <p><code>Focale-VERSION+BUILD-third-party-sources.zip</code></p>
+      <p><code>focale-VERSION-third-party-sources.zip</code></p>
     </section>
     <section>
       <h2>{{ t('docs.sources.contentsTitle') }}</h2>

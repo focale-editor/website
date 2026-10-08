@@ -195,6 +195,12 @@ An empty or unavailable catalog keeps the existing signup. No website rebuild is
 needed for subsequent desktop versions. `NUXT_PUBLIC_DOWNLOAD_CATALOG_URL` can
 override the endpoint at build time. The GetFocale repository hosts metadata only.
 
+Download validation accepts `focale-<version>-<target>.<extension>` and the
+previous `Focale-<version>+<build>-<target>` names. Windows installers retain
+`-setup.exe` in both conventions; ZIP and MSIX packages omit that suffix.
+Keep both forms so older releases remain downloadable. The target, version,
+extension and public release path must match the catalog entry.
+
 Catalog checks: `node --experimental-strip-types --test test/download_catalog.test.ts`.
 Validation: `pnpm lint`, `pnpm typecheck`, `pnpm generate` (inspect `.output/public`).
 

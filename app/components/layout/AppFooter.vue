@@ -8,78 +8,83 @@ const year = new Date().getFullYear()
 
 <template>
   <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-identity">
-        <NuxtLink
-          :to="localePath('index')"
-          class="footer-brand"
-          :aria-label="t('nav.home')"
+    <div class="footer-container">
+      <div class="footer-inner">
+        <div class="footer-identity">
+          <NuxtLink
+            :to="localePath('index')"
+            class="footer-brand"
+            :aria-label="t('nav.home')"
+          >
+            <FocaleWordmark :size="32" />
+          </NuxtLink>
+          <p class="footer-tagline">
+            {{ t('footer.tagline') }}
+          </p>
+        </div>
+
+        <nav
+          class="footer-columns"
+          :aria-label="t('nav.secondary')"
         >
-          <FocaleWordmark :size="32" />
-        </NuxtLink>
-        <p class="footer-tagline">
-          {{ t('footer.tagline') }}
-        </p>
+          <div
+            v-for="section in footerSections"
+            :key="section.titleKey"
+            class="footer-column"
+          >
+            <h2 class="footer-heading">
+              {{ t(section.titleKey) }}
+            </h2>
+            <ul
+              class="footer-links"
+              role="list"
+            >
+              <li
+                v-for="link in section.links"
+                :key="link.to"
+              >
+                <a
+                  class="footer-link"
+                  :class="{ 'footer-link-mono': link.raw }"
+                  :href="link.to"
+                  :target="link.external ? '_blank' : undefined"
+                  :rel="link.external ? 'noopener noreferrer' : undefined"
+                >
+                  <Icon
+                    v-if="link.external"
+                    name="lucide:arrow-up-right"
+                    class="footer-link-icon"
+                  />
+                  {{ link.raw ? link.label : t(link.label) }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
       </div>
 
-      <nav
-        class="footer-columns"
-        :aria-label="t('nav.secondary')"
-      >
-        <div
-          v-for="section in footerSections"
-          :key="section.titleKey"
-          class="footer-column"
-        >
-          <h2 class="footer-heading">
-            {{ t(section.titleKey) }}
-          </h2>
-          <ul
-            class="footer-links"
-            role="list"
-          >
-            <li
-              v-for="link in section.links"
-              :key="link.to"
-            >
-              <a
-                class="footer-link"
-                :class="{ 'footer-link-mono': link.raw }"
-                :href="link.to"
-                :target="link.external ? '_blank' : undefined"
-                :rel="link.external ? 'noopener noreferrer' : undefined"
-              >
-                <Icon
-                  v-if="link.external"
-                  name="lucide:arrow-up-right"
-                  class="footer-link-icon"
-                />
-                {{ link.raw ? link.label : t(link.label) }}
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-
-    <!-- Laid out like the editor's status bar: hairline above, metadata below. -->
-    <div class="footer-baseline">
-      <p>{{ t('footer.copyright', { year }) }}</p>
-      <p class="footer-origin">
-        <Icon name="lucide:map-pin" />
-        {{ t('footer.madeIn') }}
-      </p>
+      <!-- Laid out like the editor's status bar: hairline above, metadata below. -->
+      <div class="footer-baseline">
+        <p>{{ t('footer.copyright', { year }) }}</p>
+        <p class="footer-origin">
+          <Icon name="lucide:map-pin" />
+          {{ t('footer.madeIn') }}
+        </p>
+      </div>
     </div>
   </footer>
 </template>
 
 <style scoped lang="scss">
 .footer {
-  @include content-container;
-
   padding-top: 3.5rem;
   padding-bottom: 2rem;
   border-top: 1px solid var(--color-line);
+  background: rgb(11, 12, 16, 82%);
+}
+
+.footer-container {
+  @include content-container;
 }
 
 .footer-inner {

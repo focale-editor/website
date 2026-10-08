@@ -67,6 +67,8 @@ const paragraphs = ['need', 'alternatives', 'linux', 'vision'] as const
 <style scoped lang="scss">
 .origins {
   @include content-container;
+
+  margin-bottom: 2.5rem;
 }
 
 .origins-disclosure {

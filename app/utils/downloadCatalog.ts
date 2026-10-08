@@ -1,5 +1,5 @@
-/** Supported architectures with independent updater feeds. */
-export const downloadTargets = ['macos-arm64', 'macos-x64', 'windows-x64', 'linux-x64'] as const
+/** Supported architectures with independent updater feeds, in display order. */
+export const downloadTargets = ['windows-x64', 'macos-arm64', 'macos-x64', 'linux-x64'] as const
 
 /** CPU and operating-system identity of a downloadable application. */
 export type DownloadTarget = typeof downloadTargets[number]
@@ -36,8 +36,17 @@ export function parseDownloadCatalog(value: unknown): DownloadRelease | null {
       throw new Error('Incomplete download release')
     }
     const url = new URL(asset.url)
-    const prefix = `https://github.com/focale-editor/get-focale/releases/download/${release.tag}/Focale-`
-    if (!url.href.startsWith(prefix) || url.username || url.password || url.search || url.hash) {
+    const directory = `/focale-editor/get-focale/releases/download/${release.tag}/`
+    const filename = decodeURIComponent(url.pathname.split('/').at(-1) || '')
+    const extensions = target === 'windows-x64' ? ['zip', 'exe'] : target.startsWith('macos-') ? ['zip', 'dmg'] : ['zip']
+    const currentNames = extensions.map(extension => `focale-${release.version}-${target}${extension === 'exe' ? '-setup' : ''}.${extension}`)
+    // Published releases keep their original links, including their build number.
+    const legacyExtensions = extensions.map(extension => extension === 'exe' ? '-setup\\.exe' : `\\.${extension}`).join('|')
+    const escapedVersion = release.version.replaceAll('.', '\\.')
+    const legacyPattern = new RegExp(`^Focale-${escapedVersion}\\+[1-9]\\d*-${target}(?:${legacyExtensions})$`)
+    if (url.origin !== 'https://github.com' || url.pathname.slice(0, url.pathname.lastIndexOf('/') + 1) !== directory
+      || url.username || url.password || url.search || url.hash
+      || (!currentNames.includes(filename) && !legacyPattern.test(filename))) {
       throw new Error('Unexpected download destination')
     }
     downloads[target] = { url: url.href, platformSigned: asset.platformSigned }

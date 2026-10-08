@@ -8,7 +8,6 @@ const expanded = ref(false)
 <template>
   <PageSection
     id="features"
-    muted
     :eyebrow="t('features.eyebrow')"
     :title="t('features.title')"
     :description="t('features.description')"

@@ -38,6 +38,7 @@ watch([page, theme, locale], () => {
 <template>
   <PageSection
     id="preview"
+    muted
     :eyebrow="t('preview.eyebrow')"
     :title="t('preview.title')"
     :description="t('preview.description')"
