@@ -33,7 +33,7 @@ test('/issues provides a static redirect to the community issue chooser without 
 })
 
 /** Execute the generated client bundle over its SSR HTML, with browser parsing. */
-async function hydrate({ path = '/', language = 'en-US', cookie, expectedLocale = 'en', expectedPath = path, interact } = {}) {
+async function hydrate({ path = '/', language = 'en-US', cookie, expectedLocale = 'en', expectedPath = path, interact, fetchCatalog = () => new Response('{"releases":[]}', { headers: { 'Content-Type': 'application/json' } }) } = {}) {
   const url = `${origin}${path}`
   const messages = []
   const virtualConsole = new VirtualConsole()
@@ -62,7 +62,7 @@ async function hydrate({ path = '/', language = 'en-US', cookie, expectedLocale 
     window.fetch = async (input) => {
       const target = new URL(typeof input === 'string' ? input : input.url, url)
       if (target.origin !== origin) {
-        return new Response('{"releases":[]}', { headers: { 'Content-Type': 'application/json' } })
+        return await fetchCatalog()
       }
       return new Response(await source(target.href), { headers: { 'Content-Type': target.pathname.endsWith('.json') ? 'application/json' : 'text/javascript' } })
     }
@@ -131,6 +131,84 @@ async function hydrate({ path = '/', language = 'en-US', cookie, expectedLocale 
   }
 }
 
+/** Wait for an async catalog response to become visible in the generated app. */
+async function waitFor(check) {
+  const deadline = Date.now() + 5000
+  while (!check() && Date.now() < deadline) await new Promise(resolve => setTimeout(resolve, 20))
+  assert.ok(check(), 'the download state becomes visible')
+}
+
+function assertDownloadActions(document, home) {
+  assert.equal(document.querySelector('input[type="email"], .newsletter-form'), null)
+  assert.equal(document.querySelector('.header-cta')?.getAttribute('href'), `${home}#downloads`)
+  assert.equal(document.querySelector('.hero-actions a')?.getAttribute('href'), '#downloads')
+  for (const selector of ['.header-cta', '.hero-actions a']) {
+    assert.ok(document.querySelector(`${selector} svg[aria-hidden="true"]`), 'download buttons include a decorative icon')
+  }
+}
+
+for (const failure of ['unreachable', 'invalid']) {
+  test(`an ${failure} catalog shows a warning and a direct release link`, async () => {
+    await hydrate({
+      path: '/fr/', expectedLocale: 'fr',
+      fetchCatalog: () => {
+        if (failure === 'unreachable') throw new TypeError('Network unavailable')
+        return new Response('{"releases":[{"version":"0.1.1"}]}', { headers: { 'Content-Type': 'application/json' } })
+      },
+      interact: async ({ window }) => {
+        const document = window.document
+        await waitFor(() => document.querySelector('.download-fallback-link'))
+        assert.equal(document.querySelector('.download-fallback-link').href, 'https://github.com/focale-editor/get-focale/releases')
+        assert.equal(document.querySelector('.download-list'), null)
+        assertDownloadActions(document, '/fr')
+      },
+    })
+  })
+}
+
+test('loading shows an informational status, then a complete release replaces it with downloads', async () => {
+  let finishCatalog
+  const catalogReady = new Promise(resolve => (finishCatalog = resolve))
+  const version = '0.1.1'
+  const filenames = {
+    'windows-x64': `focale-${version}-windows-x64-setup.exe`,
+    'macos-arm64': `focale-${version}-macos-arm64.dmg`,
+    'macos-x64': `focale-${version}-macos-x64.dmg`,
+    'linux-x64': `focale-${version}-linux-x64.zip`,
+  }
+  const downloads = Object.fromEntries(Object.entries(filenames).map(([target, filename]) => [target, {
+    url: `https://github.com/focale-editor/get-focale/releases/download/${version}/${filename}`, platformSigned: true,
+  }]))
+  try {
+    await hydrate({
+      path: '/fr/', expectedLocale: 'fr',
+      fetchCatalog: async () => {
+        await catalogReady
+        return new Response(JSON.stringify({ releases: [{ version, tag: version, downloads }] }), { headers: { 'Content-Type': 'application/json' } })
+      },
+      interact: async ({ window }) => {
+        const document = window.document
+        const translations = JSON.parse(await readFile(new URL('../i18n/locales/fr.json', import.meta.url), 'utf8'))
+        assert.equal(document.querySelector('.download-notice p')?.textContent, translations.downloads.loading)
+        assert.equal(document.querySelector('.download-notice')?.getAttribute('role'), 'status')
+        assert.equal(document.querySelector('.download-fallback-link'), null, 'loading must not announce a failure')
+        assertDownloadActions(document, '/fr')
+        finishCatalog()
+        await waitFor(() => document.querySelector('.download-list'))
+        assert.equal(document.querySelector('.download-notice'), null)
+        assert.equal(document.querySelector('.hero-status')?.textContent.trim(), translations.downloads.available.replace('{version}', version))
+        assert.equal(document.querySelectorAll('.download-card').length, 3)
+        for (const asset of Object.values(downloads)) {
+          assert.ok([...document.querySelectorAll('.download-option[href]')].some(link => link.href === asset.url))
+        }
+      },
+    })
+  }
+  finally {
+    finishCatalog()
+  }
+})
+
 for (const locale of locales) {
   const path = locale === 'en' ? '/' : `/${locale}/`
   test(`prerenders and hydrates the changelog in ${locale}`, async () => {
@@ -161,7 +239,18 @@ for (const locale of locales) {
   })
   test(`hydrates ${path} in ${locale} with JavaScript enabled`, async () => {
     // A different browser preference must not change explicitly localized URLs.
-    await hydrate({ path, language: 'en-US', expectedLocale: locale })
+    const translations = JSON.parse(await readFile(new URL(`../i18n/locales/${locale}.json`, import.meta.url), 'utf8'))
+    await hydrate({
+      path, language: 'en-US', expectedLocale: locale,
+      interact: async ({ window }) => {
+        const document = window.document
+        await waitFor(() => document.querySelector('.download-fallback-link'))
+        assertDownloadActions(document, locale === 'en' ? '/' : `/${locale}`)
+        assert.equal(document.querySelector('.download-notice p')?.textContent, translations.downloads.unavailable)
+        assert.equal(document.querySelector('.download-notice')?.getAttribute('aria-live'), 'polite')
+        assert.equal(document.querySelector('.download-fallback-link').textContent.trim(), translations.downloads.browseReleases)
+      },
+    })
   })
   test(`redirects / to the ${locale} browser locale after hydration`, async () => {
     const result = await hydrate({ language: locale, expectedLocale: locale, expectedPath: locale === 'en' ? '/' : `/${locale}` })
@@ -175,6 +264,8 @@ for (const locale of locales) {
       assert.ok(link, 'download fallback is available without JavaScript')
       assert.equal(link.href, 'https://github.com/focale-editor/get-focale/releases')
       assert.equal(link.textContent, messages.downloads.title)
+      assertDownloadActions(dom.window.document, locale === 'en' ? '/' : `/${locale}`)
+      assert.equal(dom.window.document.querySelector('.download-notice p')?.textContent, messages.downloads.loading)
     }
     finally {
       dom.window.close()

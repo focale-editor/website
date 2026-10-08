@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Un editor di immagini avanzato e locale",
-      "description": "Focale è un editor di immagini raster moderno per Linux, Windows e macOS: livelli, maschere, regolazioni non distruttive, filtri ed effetti di livello, con il supporto dei file di Photoshop. In sviluppo: lascia la tua email per sapere della prima alfa."
+      "description": "Focale è un editor di immagini raster moderno per Linux, Windows e macOS: livelli, maschere, regolazioni non distruttive, filtri ed effetti di livello, con il supporto dei file di Photoshop."
     }
   },
   "common": {
@@ -17,14 +17,12 @@
     "features": "Funzionalità",
     "preview": "Anteprima",
     "roadmap": "Tabella di marcia",
-    "newsletter": "Avvisami",
-    "notifyMe": "Avvisami",
     "language": "Lingua",
     "openMenu": "Apri il menu",
     "closeMenu": "Chiudi il menu"
   },
   "hero": {
-    "badge": "In sviluppo · alfa in arrivo",
+    "badge": "Editor di immagini per desktop",
     "title": "Ritocca, componi e crea",
     "titleAccent": "con precisione.",
     "subtitle": "Livelli, maschere, regolazioni non distruttive, filtri ed effetti di livello, e i file di Photoshop che hai già si aprono subito.",
@@ -192,22 +190,6 @@
       }
     }
   },
-  "newsletter": {
-    "title": "Ci sarai per la prima alfa.",
-    "description": "Una sola email quando la prima versione scaricabile sarà pronta. Nessuna newsletter, nessun aggiornamento nel frattempo.",
-    "label": "Indirizzo email",
-    "placeholder": "tu{'@'}esempio.com",
-    "submit": "Avvisami",
-    "submitting": "Invio…",
-    "success": "Sei nella lista. Ti scriveremo una volta sola, il giorno in cui l'alfa sarà scaricabile.",
-    "privacy": "Una email all'uscita, poi più nulla. Puoi cancellarti quando vuoi.",
-    "errors": {
-      "invalidEmail": "Questo non sembra un indirizzo email.",
-      "unavailable": "Le iscrizioni non sono disponibili al momento. Riprova più tardi.",
-      "rateLimited": "Troppi tentativi. Aspetta un momento e riprova.",
-      "network": "Non è stato possibile inviare la richiesta. Controlla la connessione e riprova."
-    }
-  },
   "footer": {
     "tagline": "Un editor di immagini raster avanzato e locale, per Linux, Windows e macOS.",
     "copyright": "Copyright © {year} Hugo Delaunay, tutti i diritti riservati.",
@@ -231,8 +213,8 @@
   "downloads": {
     "eyebrow": "Windows, macOS e Linux",
     "title": "Scarica Focale",
-    "available": "La versione {version} è disponibile",
-    "release": "La versione {version} è disponibile. Scopri le novità nelle {notes}.",
+    "available": "v{version} disponibile",
+    "release": "v{version} disponibile. Scopri le novità nelle {notes}.",
     "releaseNotes": "note di rilascio",
     "toggle": "Scarica",
     "optionsFor": "Opzioni di download per {platform}",
@@ -250,7 +232,10 @@
     "linuxHint": "Estrai l’intero archivio, poi esegui ./install.sh. Compatibile con le distribuzioni recenti che includono GTK 3.",
     "autoUpdateTitle": "Aggiornamenti automatici",
     "autoUpdate": "Installa Focale una sola volta: l’app ti proporrà le nuove versioni appena vengono pubblicate.",
-    "installHint": "Salva i progetti e chiudi Focale prima di installare una nuova versione."
+    "installHint": "Salva i progetti e chiudi Focale prima di installare una nuova versione.",
+    "loading": "Caricamento dei download…",
+    "unavailable": "I link di download sono temporaneamente non disponibili. Puoi trovare Focale su GitHub.",
+    "browseReleases": "Vedi le versioni su GitHub"
   },
   "docs": {
     "title": "Documentazione",
@@ -1496,9 +1481,8 @@
     "title": "Cronologia delle versioni",
     "description": "Novità, miglioramenti e correzioni di ogni versione di Focale.",
     "eyebrow": "Aggiornamenti di Focale",
-    "emptyTitle": "La prima versione è in arrivo",
-    "emptyDescription": "Focale è ancora in fase di sviluppo. Quando sarà pubblicata la prima versione, troverai qui le note di rilascio.",
-    "follow": "Segui la prima alfa",
+    "emptyTitle": "Nessuna nota di rilascio disponibile",
+    "emptyDescription": "Le note di rilascio non sono ancora disponibili qui. Consulta le versioni pubblicate nella sezione download.",
     "originalLanguage": "Le note di rilascio sono riportate nella lingua originale.",
     "noChanges": "Nessuna modifica aggiuntiva indicata per questa versione."
   }

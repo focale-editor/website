@@ -14,7 +14,7 @@ function catalog(legacy = false, tag = '0.1.1') {
   }
 }
 
-test('empty catalogs keep the existing signup', () => {
+test('empty catalogs have no downloadable release', () => {
   assert.equal(parseDownloadCatalog({ releases: [] }), null)
 })
 

@@ -33,12 +33,10 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Test browser language redirection, newsletter and changelog
-        run: node --experimental-strip-types --test test/browser_locale_redirect.test.ts test/newsletter.test.ts test/changelog.test.ts
+      - name: Test browser language redirection, downloads and changelog
+        run: node --experimental-strip-types --test test/browser_locale_redirect.test.ts test/download_catalog.test.ts test/changelog.test.ts
       - name: Generate the static site
         run: pnpm generate
-        env:
-          NUXT_PUBLIC_LOOPS_FORM_ID: ${{ secrets.LOOPS_FORM_ID }}
       - name: Test generated site hydration
         run: pnpm test:hydration
       - name: Upload the Pages artifact

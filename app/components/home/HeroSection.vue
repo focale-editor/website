@@ -37,20 +37,20 @@ const platforms = [
         {{ t('hero.subtitle') }}
       </p>
 
-      <div
-        :id="latestRelease ? undefined : 'newsletter'"
-        class="hero-actions"
-      >
+      <div class="hero-actions">
         <Button
-          v-if="latestRelease"
           as="a"
           href="#downloads"
+          size="large"
           :label="t('downloads.title')"
-        />
-        <NewsletterForm
-          v-else
-          compact
-        />
+        >
+          <template #icon>
+            <Icon
+              name="lucide:download"
+              aria-hidden="true"
+            />
+          </template>
+        </Button>
       </div>
 
       <ul

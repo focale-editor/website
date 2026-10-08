@@ -43,10 +43,6 @@ export default defineNuxtConfig({
   // Values here are overridable at build time through `NUXT_PUBLIC_*` env vars.
   runtimeConfig: {
     public: {
-      // Public Loops.so newsletter form identifier. Empty until it is provided,
-      // in which case the signup form reports itself as unavailable instead of
-      // posting to an endpoint that cannot exist.
-      loopsFormId: '',
       repositoryUrl: 'https://github.com/focale-editor/website',
       packagesUrl: 'https://pub.dev/publishers/focale-editor.app',
       downloadCatalogUrl: 'https://get.focale-editor.app/downloads.json',
@@ -129,7 +125,7 @@ export default defineNuxtConfig({
     // uses cuts the generated HTML by roughly two thirds.
     autoImport: false,
     components: {
-      include: ['Button', 'Carousel', 'Drawer', 'InputText', 'Select'],
+      include: ['Button', 'Carousel', 'Drawer', 'Select'],
     },
     directives: {
       include: [],

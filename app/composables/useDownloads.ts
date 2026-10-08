@@ -12,10 +12,10 @@ export function useDownloads() {
     try {
       const catalog = await $fetch<unknown>(config.downloadCatalogUrl, { timeout: 10000, retry: 1 })
       latestRelease.value = parseDownloadCatalog(catalog)
-      status.value = 'ready'
+      status.value = latestRelease.value ? 'ready' : 'unavailable'
     }
     catch {
-      // Until distribution is configured, the existing signup stays available.
+      // The download section offers a direct GitHub fallback on failure.
       status.value = 'unavailable'
     }
   })

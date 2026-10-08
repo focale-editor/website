@@ -40,8 +40,8 @@ usePageSeo(() => ({ title: t('changelog.title'), description: t('changelog.descr
         {{ t('changelog.emptyTitle') }}
       </h2>
       <p>{{ t('changelog.emptyDescription') }}</p>
-      <NuxtLink :to="localePath('index') + '#newsletter'">
-        {{ t('changelog.follow') }}
+      <NuxtLink :to="localePath('index') + '#downloads'">
+        {{ t('downloads.title') }}
         <Icon
           name="lucide:arrow-right"
           aria-hidden="true"

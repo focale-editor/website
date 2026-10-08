@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Un éditeur d'images avancé et local",
-      "description": "Focale est un éditeur d'images matricielles moderne pour Linux, Windows et macOS : calques, masques, réglages non destructifs, filtres et effets de calque, avec la prise en charge des fichiers Photoshop. En développement — laissez votre adresse pour être prévenu de la première alpha."
+      "description": "Focale est un éditeur d'images matricielles moderne pour Linux, Windows et macOS : calques, masques, réglages non destructifs, filtres et effets de calque, avec la prise en charge des fichiers Photoshop."
     }
   },
   "common": {
@@ -17,14 +17,12 @@
     "features": "Fonctionnalités",
     "preview": "Aperçu",
     "roadmap": "Feuille de route",
-    "newsletter": "Être prévenu",
-    "notifyMe": "Être prévenu",
     "language": "Langue",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu"
   },
   "hero": {
-    "badge": "En développement · alpha à venir",
+    "badge": "Éditeur d’images pour ordinateur",
     "title": "Retouchez, composez et créez",
     "titleAccent": "avec précision.",
     "subtitle": "Calques, masques, réglages non destructifs, filtres et effets de calque — et les fichiers Photoshop que vous possédez déjà s'ouvrent directement.",
@@ -192,22 +190,6 @@
       }
     }
   },
-  "newsletter": {
-    "title": "Soyez là pour la première alpha.",
-    "description": "Un seul courriel, quand la première version téléchargeable sera prête. Pas de lettre d'information, pas d'annonces entre-temps.",
-    "label": "Adresse électronique",
-    "placeholder": "vous{'@'}exemple.com",
-    "submit": "Me prévenir",
-    "submitting": "Envoi…",
-    "success": "Vous êtes sur la liste. Nous vous écrirons une fois, le jour où l'alpha sera téléchargeable.",
-    "privacy": "Un courriel à la sortie, puis plus rien. Vous pouvez vous désinscrire à tout moment.",
-    "errors": {
-      "invalidEmail": "Cela ne ressemble pas à une adresse électronique.",
-      "unavailable": "Les inscriptions ne sont pas disponibles pour le moment. Réessayez plus tard.",
-      "rateLimited": "Trop de tentatives. Patientez un instant puis réessayez.",
-      "network": "La demande n'a pas pu être envoyée. Vérifiez votre connexion et réessayez."
-    }
-  },
   "footer": {
     "tagline": "Un éditeur d'images matricielles avancé et local d'abord, pour Linux, Windows et macOS.",
     "copyright": "Copyright © {year} Hugo Delaunay, tous droits réservés.",
@@ -231,8 +213,8 @@
   "downloads": {
     "eyebrow": "Windows, macOS et Linux",
     "title": "Télécharger Focale",
-    "available": "La version {version} est disponible",
-    "release": "La version {version} est disponible. Découvrez ses nouveautés dans les {notes}.",
+    "available": "v{version} disponible",
+    "release": "v{version} disponible. Découvrez ses nouveautés dans les {notes}.",
     "releaseNotes": "notes de version",
     "toggle": "Télécharger",
     "optionsFor": "Options de téléchargement pour {platform}",
@@ -250,7 +232,10 @@
     "linuxHint": "Extrayez l’archive complète, puis lancez ./install.sh. Compatible avec les distributions récentes disposant de GTK 3.",
     "autoUpdateTitle": "Mises à jour automatiques",
     "autoUpdate": "Installez Focale une seule fois : l’application vous propose ensuite les nouvelles versions dès leur publication.",
-    "installHint": "Enregistrez vos projets et fermez Focale avant d’installer une nouvelle version."
+    "installHint": "Enregistrez vos projets et fermez Focale avant d’installer une nouvelle version.",
+    "loading": "Chargement des téléchargements…",
+    "unavailable": "Les liens de téléchargement sont temporairement indisponibles. Vous pouvez retrouver Focale sur GitHub.",
+    "browseReleases": "Voir les versions sur GitHub"
   },
   "docs": {
     "title": "Documentation",
@@ -1496,9 +1481,8 @@
     "title": "Historique des versions",
     "description": "Les nouveautés, améliorations et corrections de chaque version de Focale.",
     "eyebrow": "Les mises à jour de Focale",
-    "emptyTitle": "La première version se prépare",
-    "emptyDescription": "Focale est encore en développement. Dès la publication de la première version, vous retrouverez ici ses notes de version.",
-    "follow": "Suivre la première alpha",
+    "emptyTitle": "Aucune note de version disponible",
+    "emptyDescription": "Les notes de version ne sont pas encore disponibles ici. Retrouvez les versions publiées dans la section de téléchargement.",
     "originalLanguage": "Les notes de version sont présentées dans leur langue d’origine.",
     "noChanges": "Aucun changement supplémentaire indiqué pour cette version."
   }

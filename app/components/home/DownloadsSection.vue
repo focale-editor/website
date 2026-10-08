@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import type { DownloadTarget } from '~/utils/downloadCatalog'
+import Message from 'openvue/message'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
-const { latestRelease } = useDownloads()
+const { latestRelease, status } = useDownloads()
+const isLoading = computed(() => status.value === 'idle' || status.value === 'loading')
 
 /** Hosted by get-focale next to the catalog; it installs the latest Linux ZIP. */
 const installCommand = 'curl -fsSL https://get.focale-editor.app/install.sh | bash'
@@ -81,199 +83,244 @@ async function copyCommand(): Promise<void> {
 
 <template>
   <PageSection
-    v-if="latestRelease"
     id="downloads"
     muted
     :eyebrow="t('downloads.eyebrow')"
     :title="t('downloads.title')"
   >
-    <i18n-t
-      keypath="downloads.release"
-      tag="p"
-      scope="global"
-      class="release-version"
-    >
-      <template #version>
-        {{ latestRelease.version }}
-      </template>
-      <template #notes>
-        <NuxtLink :to="localePath('changelog')">{{ t('downloads.releaseNotes') }}</NuxtLink>
-      </template>
-    </i18n-t>
-
-    <ul
-      class="download-list"
-      role="list"
-    >
-      <li
-        v-for="platform in platforms"
-        :key="platform.id"
-        class="download-card"
-        :class="{ 'download-card-open': expanded[platform.id] }"
+    <template v-if="latestRelease">
+      <i18n-t
+        keypath="downloads.release"
+        tag="p"
+        scope="global"
+        class="release-version"
       >
-        <div class="download-heading">
-          <span class="platform-icon">
-            <Icon
-              :name="platform.icon"
-              aria-hidden="true"
-            />
-          </span>
-          <div class="platform-name">
-            <h3>{{ platform.name }}</h3>
-            <p>{{ platform.summary }}</p>
+        <template #version>
+          {{ latestRelease.version }}
+        </template>
+        <template #notes>
+          <NuxtLink :to="localePath('changelog')">{{ t('downloads.releaseNotes') }}</NuxtLink>
+        </template>
+      </i18n-t>
+
+      <ul
+        class="download-list"
+        role="list"
+      >
+        <li
+          v-for="platform in platforms"
+          :key="platform.id"
+          class="download-card"
+          :class="{ 'download-card-open': expanded[platform.id] }"
+        >
+          <div class="download-heading">
+            <span class="platform-icon">
+              <Icon
+                :name="platform.icon"
+                aria-hidden="true"
+              />
+            </span>
+            <div class="platform-name">
+              <h3>{{ platform.name }}</h3>
+              <p>{{ platform.summary }}</p>
+            </div>
           </div>
-        </div>
 
-        <Button
-          :label="t('downloads.toggle')"
-          icon-pos="right"
-          class="download-toggle"
-          :aria-expanded="expanded[platform.id] ? 'true' : 'false'"
-          :aria-controls="`downloads-${platform.id}`"
-          @click="expanded[platform.id] = !expanded[platform.id]"
-        >
-          <template #icon>
-            <Icon
-              name="lucide:chevron-down"
-              class="download-chevron"
-              aria-hidden="true"
-            />
-          </template>
-        </Button>
-
-        <ul
-          v-show="expanded[platform.id]"
-          :id="`downloads-${platform.id}`"
-          class="download-menu"
-          role="list"
-          :aria-label="t('downloads.optionsFor', { platform: platform.name })"
-        >
-          <li
-            v-for="(option, index) in platform.options"
-            :key="index"
+          <Button
+            :label="t('downloads.toggle')"
+            icon-pos="right"
+            class="download-toggle"
+            :aria-expanded="expanded[platform.id] ? 'true' : 'false'"
+            :aria-controls="`downloads-${platform.id}`"
+            @click="expanded[platform.id] = !expanded[platform.id]"
           >
-            <a
-              v-if="option.kind === 'file'"
-              :href="latestRelease.downloads[option.target].url"
-              :aria-label="`${option.label} · ${t('downloads.downloadFor', { platform: `${platform.name} ${option.detail}` })}`"
-              class="download-option"
-            >
-              <span class="option-copy">
-                <span class="option-title">
-                  <Icon
-                    name="lucide:download"
-                    class="option-icon"
-                    aria-hidden="true"
-                  />
-                  <span class="option-label">{{ option.label }}</span>
-                  <span class="option-tag">{{ option.detail }}</span>
-                </span>
-                <span
-                  v-if="noteFor(option)"
-                  class="option-note"
-                >{{ noteFor(option) }}</span>
-              </span>
-            </a>
+            <template #icon>
+              <Icon
+                name="lucide:chevron-down"
+                class="download-chevron"
+                aria-hidden="true"
+              />
+            </template>
+          </Button>
 
-            <a
-              v-else-if="option.kind === 'link'"
-              :href="option.href"
-              class="download-option"
+          <ul
+            v-show="expanded[platform.id]"
+            :id="`downloads-${platform.id}`"
+            class="download-menu"
+            role="list"
+            :aria-label="t('downloads.optionsFor', { platform: platform.name })"
+          >
+            <li
+              v-for="(option, index) in platform.options"
+              :key="index"
             >
-              <span class="option-copy">
-                <span class="option-title">
-                  <Icon
-                    name="lucide:package"
-                    class="option-icon"
-                    aria-hidden="true"
-                  />
-                  <span class="option-label">{{ option.label }}</span>
-                  <span class="option-tag">{{ option.detail }}</span>
-                </span>
-                <span class="option-note">{{ option.note }}</span>
-              </span>
-            </a>
-
-            <div
-              v-else-if="option.kind === 'store'"
-              class="download-option download-option-disabled"
-              aria-disabled="true"
-            >
-              <span class="option-copy">
-                <span class="option-title">
-                  <Icon
-                    name="lucide:store"
-                    class="option-icon"
-                    aria-hidden="true"
-                  />
-                  <span class="option-label">{{ option.label }}</span>
-                  <span class="option-tag">{{ t('downloads.soon') }}</span>
-                </span>
-                <span class="option-note">{{ t('downloads.storeSoon') }}</span>
-              </span>
-            </div>
-
-            <div
-              v-else
-              class="download-command"
-            >
-              <p class="option-label">
-                <Icon
-                  name="lucide:terminal"
-                  class="option-icon"
-                  aria-hidden="true"
-                />
-                {{ t('downloads.oneCommand') }}
-              </p>
-              <div class="command-row">
-                <code class="command-code">{{ installCommand }}</code>
-                <button
-                  type="button"
-                  class="command-copy"
-                  :aria-label="t(commandStatus === 'copied' ? 'downloads.commandCopied' : 'downloads.copyCommand')"
-                  :title="t(commandStatus === 'copied' ? 'downloads.commandCopied' : 'downloads.copyCommand')"
-                  @click="copyCommand"
-                >
-                  <Icon
-                    :name="commandStatus === 'copied' ? 'lucide:check' : 'lucide:copy'"
-                    aria-hidden="true"
-                  />
-                </button>
-              </div>
-              <p class="option-note">
-                {{ t('downloads.oneCommandHint') }}
-              </p>
-              <p
-                class="visually-hidden"
-                aria-live="polite"
+              <a
+                v-if="option.kind === 'file'"
+                :href="latestRelease.downloads[option.target].url"
+                :aria-label="`${option.label} · ${t('downloads.downloadFor', { platform: `${platform.name} ${option.detail}` })}`"
+                class="download-option"
               >
-                {{ commandStatus === 'copied' ? t('downloads.commandCopied') : '' }}
-              </p>
-            </div>
-          </li>
-        </ul>
-      </li>
-    </ul>
+                <span class="option-copy">
+                  <span class="option-title">
+                    <Icon
+                      name="lucide:download"
+                      class="option-icon"
+                      aria-hidden="true"
+                    />
+                    <span class="option-label">{{ option.label }}</span>
+                    <span class="option-tag">{{ option.detail }}</span>
+                  </span>
+                  <span
+                    v-if="noteFor(option)"
+                    class="option-note"
+                  >{{ noteFor(option) }}</span>
+                </span>
+              </a>
 
-    <div class="update-panel">
-      <span class="update-icon">
+              <a
+                v-else-if="option.kind === 'link'"
+                :href="option.href"
+                class="download-option"
+              >
+                <span class="option-copy">
+                  <span class="option-title">
+                    <Icon
+                      name="lucide:package"
+                      class="option-icon"
+                      aria-hidden="true"
+                    />
+                    <span class="option-label">{{ option.label }}</span>
+                    <span class="option-tag">{{ option.detail }}</span>
+                  </span>
+                  <span class="option-note">{{ option.note }}</span>
+                </span>
+              </a>
+
+              <div
+                v-else-if="option.kind === 'store'"
+                class="download-option download-option-disabled"
+                aria-disabled="true"
+              >
+                <span class="option-copy">
+                  <span class="option-title">
+                    <Icon
+                      name="lucide:store"
+                      class="option-icon"
+                      aria-hidden="true"
+                    />
+                    <span class="option-label">{{ option.label }}</span>
+                    <span class="option-tag">{{ t('downloads.soon') }}</span>
+                  </span>
+                  <span class="option-note">{{ t('downloads.storeSoon') }}</span>
+                </span>
+              </div>
+
+              <div
+                v-else
+                class="download-command"
+              >
+                <p class="option-label">
+                  <Icon
+                    name="lucide:terminal"
+                    class="option-icon"
+                    aria-hidden="true"
+                  />
+                  {{ t('downloads.oneCommand') }}
+                </p>
+                <div class="command-row">
+                  <code class="command-code">{{ installCommand }}</code>
+                  <button
+                    type="button"
+                    class="command-copy"
+                    :aria-label="t(commandStatus === 'copied' ? 'downloads.commandCopied' : 'downloads.copyCommand')"
+                    :title="t(commandStatus === 'copied' ? 'downloads.commandCopied' : 'downloads.copyCommand')"
+                    @click="copyCommand"
+                  >
+                    <Icon
+                      :name="commandStatus === 'copied' ? 'lucide:check' : 'lucide:copy'"
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
+                <p class="option-note">
+                  {{ t('downloads.oneCommandHint') }}
+                </p>
+                <p
+                  class="visually-hidden"
+                  aria-live="polite"
+                >
+                  {{ commandStatus === 'copied' ? t('downloads.commandCopied') : '' }}
+                </p>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="update-panel">
+        <span class="update-icon">
+          <Icon
+            name="lucide:refresh-cw"
+            aria-hidden="true"
+          />
+        </span>
+        <div class="update-copy">
+          <h3>{{ t('downloads.autoUpdateTitle') }}</h3>
+          <p>
+            {{ t('downloads.autoUpdate') }}
+            {{ t('downloads.installHint') }}
+          </p>
+        </div>
+      </div>
+    </template>
+    <Message
+      v-else
+      :severity="isLoading ? 'info' : 'warn'"
+      :pt="{ root: { 'role': 'status', 'aria-live': 'polite' } }"
+      class="download-notice"
+    >
+      <template #icon>
         <Icon
-          name="lucide:refresh-cw"
+          :name="isLoading ? 'lucide:info' : 'lucide:triangle-alert'"
           aria-hidden="true"
         />
-      </span>
-      <div class="update-copy">
-        <h3>{{ t('downloads.autoUpdateTitle') }}</h3>
-        <p>
-          {{ t('downloads.autoUpdate') }}
-          {{ t('downloads.installHint') }}
-        </p>
-      </div>
-    </div>
+      </template>
+      <p>{{ t(isLoading ? 'downloads.loading' : 'downloads.unavailable') }}</p>
+      <a
+        v-if="!isLoading"
+        href="https://github.com/focale-editor/get-focale/releases"
+        class="download-fallback-link"
+      >
+        {{ t('downloads.browseReleases') }}
+        <Icon
+          name="lucide:arrow-up-right"
+          aria-hidden="true"
+        />
+      </a>
+    </Message>
   </PageSection>
 </template>
 
 <style scoped lang="scss">
+.download-notice {
+  max-width: 44rem;
+  border-radius: var(--radius-lg);
+
+  :deep(.p-message-content) {
+    align-items: flex-start;
+  }
+}
+
+.download-fallback-link {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  min-height: 2.75rem;
+  margin-top: 0.5rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .release-version {
   margin-bottom: 1.5rem;
   color: var(--color-text-muted);

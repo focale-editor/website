@@ -2,7 +2,6 @@
 const { t } = useI18n()
 const localePath = useLocalePath()
 const { headerLinks } = useSiteNavigation()
-const { latestRelease } = useDownloads()
 
 const isMenuOpen = ref(false)
 const route = useRoute()
@@ -54,12 +53,19 @@ function closeMenu(): void {
           <LocaleSwitcher />
           <Button
             as="a"
-            :href="localePath('index') + (latestRelease ? '#downloads' : '#newsletter')"
-            :label="latestRelease ? t('downloads.title') : t('nav.notifyMe')"
+            :href="localePath('index') + '#downloads'"
+            :label="t('downloads.title')"
             size="small"
             class="header-cta"
             @click="closeMenu"
-          />
+          >
+            <template #icon>
+              <Icon
+                name="lucide:download"
+                aria-hidden="true"
+              />
+            </template>
+          </Button>
         </div>
       </nav>
 
@@ -98,6 +104,7 @@ function closeMenu(): void {
 }
 
 .header-brand {
+  display: flex;
   border-radius: var(--radius-md);
 
   &:focus-visible {

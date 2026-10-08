@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Un editor de imágenes avanzado y local",
-      "description": "Focale es un editor de imágenes de mapa de bits moderno para Linux, Windows y macOS: capas, máscaras, ajustes no destructivos, filtros y efectos de capa, con compatibilidad con los archivos de Photoshop. En desarrollo: deja tu correo para enterarte de la primera alfa."
+      "description": "Focale es un editor de imágenes de mapa de bits moderno para Linux, Windows y macOS: capas, máscaras, ajustes no destructivos, filtros y efectos de capa, con compatibilidad con los archivos de Photoshop."
     }
   },
   "common": {
@@ -17,14 +17,12 @@
     "features": "Funciones",
     "preview": "Vista previa",
     "roadmap": "Hoja de ruta",
-    "newsletter": "Avísame",
-    "notifyMe": "Avísame",
     "language": "Idioma",
     "openMenu": "Abrir el menú",
     "closeMenu": "Cerrar el menú"
   },
   "hero": {
-    "badge": "En desarrollo · alfa en camino",
+    "badge": "Editor de imágenes para ordenador",
     "title": "Retoca, compón y crea",
     "titleAccent": "con precisión.",
     "subtitle": "Capas, máscaras, ajustes no destructivos, filtros y efectos de capa, y los archivos de Photoshop que ya tienes se abren directamente.",
@@ -192,22 +190,6 @@
       }
     }
   },
-  "newsletter": {
-    "title": "No te pierdas la primera alfa.",
-    "description": "Un solo correo cuando la primera versión descargable esté lista. Sin boletín ni novedades entre medias.",
-    "label": "Dirección de correo",
-    "placeholder": "tu{'@'}ejemplo.com",
-    "submit": "Avísame",
-    "submitting": "Enviando…",
-    "success": "Ya estás en la lista. Te escribiremos una vez, el día que la alfa se pueda descargar.",
-    "privacy": "Un correo en el lanzamiento y nada más. Puedes darte de baja cuando quieras.",
-    "errors": {
-      "invalidEmail": "Esto no parece una dirección de correo.",
-      "unavailable": "Las suscripciones no están disponibles ahora mismo. Inténtalo más tarde.",
-      "rateLimited": "Demasiados intentos. Espera un momento y vuelve a probar.",
-      "network": "No se pudo enviar la solicitud. Comprueba tu conexión e inténtalo de nuevo."
-    }
-  },
   "footer": {
     "tagline": "Un editor de imágenes de mapa de bits avanzado y local, para Linux, Windows y macOS.",
     "copyright": "Copyright © {year} Hugo Delaunay, todos los derechos reservados.",
@@ -231,8 +213,8 @@
   "downloads": {
     "eyebrow": "Windows, macOS y Linux",
     "title": "Descargar Focale",
-    "available": "La versión {version} está disponible",
-    "release": "La versión {version} está disponible. Descubre sus novedades en las {notes}.",
+    "available": "v{version} disponible",
+    "release": "v{version} disponible. Descubre sus novedades en las {notes}.",
     "releaseNotes": "notas de la versión",
     "toggle": "Descargar",
     "optionsFor": "Opciones de descarga para {platform}",
@@ -250,7 +232,10 @@
     "linuxHint": "Extrae el archivo completo y ejecuta ./install.sh. Compatible con distribuciones recientes que incluyan GTK 3.",
     "autoUpdateTitle": "Actualizaciones automáticas",
     "autoUpdate": "Instala Focale una sola vez: la aplicación te ofrecerá las nuevas versiones en cuanto se publiquen.",
-    "installHint": "Guarda tus proyectos y cierra Focale antes de instalar una nueva versión."
+    "installHint": "Guarda tus proyectos y cierra Focale antes de instalar una nueva versión.",
+    "loading": "Cargando las descargas…",
+    "unavailable": "Los enlaces de descarga no están disponibles temporalmente. Puedes encontrar Focale en GitHub.",
+    "browseReleases": "Ver versiones en GitHub"
   },
   "docs": {
     "title": "Documentación",
@@ -1496,9 +1481,8 @@
     "title": "Historial de versiones",
     "description": "Novedades, mejoras y correcciones de cada versión de Focale.",
     "eyebrow": "Actualizaciones de Focale",
-    "emptyTitle": "La primera versión está en camino",
-    "emptyDescription": "Focale sigue en desarrollo. Cuando se publique la primera versión, encontrarás aquí sus notas.",
-    "follow": "Seguir la primera alfa",
+    "emptyTitle": "No hay notas de versión disponibles",
+    "emptyDescription": "Las notas de versión aún no están disponibles aquí. Consulta las versiones publicadas en la sección de descargas.",
     "originalLanguage": "Las notas de versión se muestran en su idioma original.",
     "noChanges": "No se indican cambios adicionales para esta versión."
   }

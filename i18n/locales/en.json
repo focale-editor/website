@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "An advanced local image editor",
-      "description": "Focale is a modern raster image editor for Linux, Windows and macOS: layers, masks, non-destructive adjustments, filters and layer effects, with support for Photoshop files. In development — leave your address to hear about the first alpha."
+      "description": "Focale is a modern raster image editor for Linux, Windows and macOS: layers, masks, non-destructive adjustments, filters and layer effects, with support for Photoshop files."
     }
   },
   "common": {
@@ -17,14 +17,12 @@
     "features": "Features",
     "preview": "Preview",
     "roadmap": "Roadmap",
-    "newsletter": "Get notified",
-    "notifyMe": "Get notified",
     "language": "Language",
     "openMenu": "Open the menu",
     "closeMenu": "Close the menu"
   },
   "hero": {
-    "badge": "In development · alpha on the way",
+    "badge": "Desktop image editor",
     "title": "Retouch, compose and create",
     "titleAccent": "with precision.",
     "subtitle": "Layers, masks, non-destructive adjustments, filters and layer effects — and the Photoshop files you already own open straight away.",
@@ -192,22 +190,6 @@
       }
     }
   },
-  "newsletter": {
-    "title": "Be there for the first alpha.",
-    "description": "One email when the first downloadable build is ready. No newsletter, no product updates in between.",
-    "label": "Email address",
-    "placeholder": "you{'@'}example.com",
-    "submit": "Notify me",
-    "submitting": "Sending…",
-    "success": "You are on the list. We will write once, the day the alpha can be downloaded.",
-    "privacy": "One email at launch, then nothing. You can unsubscribe at any time.",
-    "errors": {
-      "invalidEmail": "That does not look like an email address.",
-      "unavailable": "Sign-ups are not available right now. Please try again later.",
-      "rateLimited": "Too many attempts. Please wait a moment and try again.",
-      "network": "The request could not be sent. Check your connection and try again."
-    }
-  },
   "footer": {
     "tagline": "An advanced, local-first raster image editor for Linux, Windows and macOS.",
     "copyright": "Copyright © {year} Hugo Delaunay, all rights reserved.",
@@ -231,8 +213,8 @@
   "downloads": {
     "eyebrow": "Windows, macOS and Linux",
     "title": "Download Focale",
-    "available": "Version {version} is available",
-    "release": "Version {version} is available. See what’s new in the {notes}.",
+    "available": "v{version} available",
+    "release": "v{version} available. See what’s new in the {notes}.",
     "releaseNotes": "release notes",
     "toggle": "Download",
     "optionsFor": "Download options for {platform}",
@@ -250,7 +232,10 @@
     "linuxHint": "Extract the entire archive, then run ./install.sh. Works on recent distributions that provide GTK 3.",
     "autoUpdateTitle": "Automatic updates",
     "autoUpdate": "Install Focale once: the app then offers new versions as soon as they are released.",
-    "installHint": "Save your projects and close Focale before installing a new version."
+    "installHint": "Save your projects and close Focale before installing a new version.",
+    "loading": "Loading downloads…",
+    "unavailable": "Download links are temporarily unavailable. You can still find Focale on GitHub.",
+    "browseReleases": "View releases on GitHub"
   },
   "docs": {
     "title": "Documentation",
@@ -1496,9 +1481,8 @@
     "title": "Release notes",
     "description": "New features, improvements and fixes in each version of Focale.",
     "eyebrow": "Focale updates",
-    "emptyTitle": "The first release is on its way",
-    "emptyDescription": "Focale is still in development. Once the first version is published, you will find its release notes here.",
-    "follow": "Follow the first alpha",
+    "emptyTitle": "No release notes available",
+    "emptyDescription": "Release notes are not available here yet. See the downloads section for published versions.",
     "originalLanguage": "Release notes are shown in their original language.",
     "noChanges": "No additional changes listed for this version."
   }

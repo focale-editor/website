@@ -4,7 +4,7 @@ The landing page for Focale, an advanced, local-first raster image editor for
 Linux, Windows and macOS.
 
 The site is a statically generated Nuxt application, published to GitHub Pages at
-<https://focale-editor.app>. It presents the editor, its downloads and signup,
+<https://focale-editor.app>. It presents the editor and its downloads,
 and provides user guides and technical format references.
 
 ## Feedback and help
@@ -51,7 +51,7 @@ pnpm install --frozen-lockfile
 pnpm lint            # ESLint, with @nuxt/eslint's stylistic rules
 pnpm typecheck       # vue-tsc against the generated Nuxt types
 pnpm generate        # the static build, exactly as CI runs it
-node --experimental-strip-types --test test/browser_locale_redirect.test.ts test/newsletter.test.ts test/changelog.test.ts
+node --experimental-strip-types --test test/browser_locale_redirect.test.ts test/download_catalog.test.ts test/changelog.test.ts
 pnpm test:hydration  # run after generate, against the actual static HTML and JS
 ```
 
@@ -64,40 +64,29 @@ server (`pnpm dlx serve .output/public`).
 The hydration test executes the generated client bundle in jsdom with HTML
 scripting enabled. It covers the six locales, browser-language redirection,
 saved preferences, explicit routes, query parameters and anchors, and the
-download fallback without JavaScript. This is a DOM regression check, not a
+download loading, empty/error and available states, including the fallback
+without JavaScript. This is a DOM regression check, not a
 browser layout test. Keep `NoScriptDownloads`' contents as escaped, opaque HTML:
 with scripting enabled the HTML parser treats `<noscript>` contents as text,
 so Vue must not try to hydrate nested components there.
 
 ## Configuration
 
-One value is read from the environment at build time. Copy `.env.example` to
-`.env` for local work; in CI it comes from a repository secret.
+The public download catalog has a default URL. Copy `.env.example` to `.env`
+only when an override is needed; no signup form or secret is required.
 
 | Variable | Purpose |
 | --- | --- |
-| `NUXT_PUBLIC_LOOPS_FORM_ID` | Public identifier of the [Loops.so](https://loops.so) form that collects alpha signups. |
+| `NUXT_PUBLIC_DOWNLOAD_CATALOG_URL` | Optional URL of the public catalog; defaults to `https://get.focale-editor.app/downloads.json`. |
 
-The site is generated statically, so the signup form posts straight from the
-browser to `https://app.loops.so/api/newsletter-form/<FORM_ID>`. That endpoint
-takes a form identifier rather than an API key, which is what makes it usable
-without a server to hold a secret — the identifier is public by design. Find it
-in Loops under **Forms → your form → Embed**, at the end of the endpoint URL.
-
-Until the variable is set, the form validates the address as usual and then
-reports that signups are unavailable, rather than posting into the void.
+The site is generated statically. `useDownloads` fetches the catalog in the
+browser so releases can appear without rebuilding the website.
 
 ## Deployment
 
 `.github/workflows/deploy.yml` runs on every push to `main`: it tests language
 redirection, generates the site, checks hydration and uploads it to GitHub Pages.
-`NUXT_PUBLIC_LOOPS_FORM_ID` is read from
-the `LOOPS_FORM_ID` repository secret.
-
-Two things have to be set once, in the repository settings:
-
-* **Settings → Pages → Source**: *GitHub Actions*.
-* **Settings → Secrets and variables → Actions**: a `LOOPS_FORM_ID` secret.
+Set **Settings → Pages → Source** to *GitHub Actions* in the repository settings.
 
 The custom domain lives in `public/CNAME`, so it survives every deployment.
 
@@ -108,7 +97,7 @@ app/
 ├── assets/
 │   └── styles/   SCSS tokens, mixins and the global stylesheet
 ├── components/   shared layout/, docs/, ui/ and local home/ sections
-├── composables/  newsletter, navigation, SEO and content sources
+├── composables/  downloads, navigation, SEO and content sources
 ├── layouts/      the shell every page renders into
 ├── pages/        one route per file
 └── theme/        the OpenVue preset, aligned with the editor's palette
@@ -127,9 +116,9 @@ Shared layout, documentation and UI components retain flat auto-imported names.
 The header has three page links: Home, Documentation and Contribute (`/support`).
 Homepage section anchors remain in the footer. `SupportSection` introduces ways
 to help the project after the downloads and links to the localized support page;
-its copy lives in `support.home` in each locale file. The signup form remains in
-the hero at `#newsletter` until a release is available; there is no separate
-alpha signup section at the bottom of the homepage.
+its copy lives in `support.home` in each locale file. The hero and header link
+to `#downloads`, which remains available while the catalog loads or is unavailable.
+The website no longer contains an alpha signup form.
 
 **Using a new OpenVue component means naming it in `primevue.components.include`
 in `nuxt.config.ts`.** Auto-import is deliberately off: it registers all eighty-odd
@@ -146,9 +135,8 @@ export. The private editor's **Publish Focale** workflow refreshes it from the
 published source tag after desktop publication; its normal push then rebuilds
 this site. No new credentials or runtime GitHub request are needed here.
 
-The initial catalogue is empty because there is no published source changelog
-yet. The page displays a translated waiting state until notes arrive. Dates and
-page navigation are localized in all six languages; reviewed notes retain their
+An empty catalogue displays a translated fallback linking to the downloads.
+Dates and page navigation are localized in all six languages; reviewed notes retain their
 source language. Each version has a stable `#v1.2.3` anchor. The footer links to
 the localized history.
 
@@ -190,8 +178,9 @@ Its composition is generated by Focale's `tool/website_sync/branding.py`.
 The Focale distribution workflow publishes this catalog only after the
 macOS Apple Silicon, macOS Intel, Windows x64 and Linux x64 artifacts are available.
 `DownloadsSection` presents their GitHub Release attachments on this main site;
-the header and hero switch to download actions once a complete release is present.
-An empty or unavailable catalog keeps the existing signup. No website rebuild is
+the header and hero always link to the download section. While the catalog loads,
+the section displays a loading status. An empty, invalid or unreachable catalog
+displays a warning with a direct link to GitHub releases. No website rebuild is
 needed for subsequent desktop versions. `NUXT_PUBLIC_DOWNLOAD_CATALOG_URL` can
 override the endpoint at build time. The GetFocale repository hosts metadata only.
 
