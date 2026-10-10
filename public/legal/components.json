@@ -194,12 +194,20 @@
       "sha256": "819a40e0d35efcd61748736871bfe85d8fe10517bfdfb8ed71325f97f826e1bd"
     },
     {
+      "name": "Sentry Breakpad",
+      "version": "25b6b727af49fa383161e7dba4a82ab0661b69b8",
+      "license": "BSD-3-Clause and component notices",
+      "sourceUrl": "https://github.com/getsentry/breakpad/tree/25b6b727af49fa383161e7dba4a82ab0661b69b8",
+      "notice": "sentry-breakpad.txt",
+      "sha256": "b46f9db8c120efc7ea8f8a32e5039126b583e77034ec9b16bfdb4fab89f4fdae"
+    },
+    {
       "name": "Sentry Cocoa",
-      "version": "8.58.4",
-      "license": "MIT",
-      "sourceUrl": "https://github.com/getsentry/sentry-cocoa/tree/8.58.4",
+      "version": "9.27.0",
+      "license": "MIT / BSD-3-Clause / APSL-2.0",
+      "sourceUrl": "https://github.com/getsentry/sentry-cocoa/tree/9.27.0",
       "notice": "sentry-cocoa.txt",
-      "sha256": "1784335a04bbe8014b9bf0f6a373f7b3804855792545702199dbdd6e2c5b6ad1"
+      "sha256": "663f6d792afb6b22998224c3431fdeb60ab1601c74b2dcd279d6bf80894fa84d"
     },
     {
       "name": "Lensfun profile database",
