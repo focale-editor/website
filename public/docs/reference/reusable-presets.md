@@ -8,8 +8,17 @@ export colours. Every shared gradient editor uses the same gradient catalogue,
 and the Curves adjustment exposes the curve catalogue. Applying a value changes
 the current editor; editing a catalogue does not alter existing documents.
 
-Built-in entries precede user entries and cannot be removed or exported. An
-identifier collision during import receives a fresh application identifier.
+Built-in entries precede user entries and cannot be removed or exported. They
+are themselves native libraries shipped with the application and decoded once
+at startup: `assets/presets/swatches.fswatch`, `gradients.fgradient` and
+`curves.fcurve`. Being loaded from the application rather than from the user's
+catalogue is what makes an entry built-in, so none of them is written to the
+saved catalogue. Their identifiers contain `.builtin.` and are stable; the
+interface translates a built-in gradient or curve by identifier and falls back
+to the English `name` of the file, while a built-in swatch is named after its
+colour. See [ADR 0291](../adr/0291-built-in-presets-as-native-assets.md).
+
+An identifier collision during import receives a fresh application identifier.
 Each complete catalogue is limited to 4,096 entries. Names and identifiers are
 limited to 4,096 UTF-16 code units and group paths to 32 nonempty segments.
 

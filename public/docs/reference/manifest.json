@@ -3,33 +3,33 @@
   "references": [
     {
       "file": "focale-format.md",
-      "bytes": 101708,
-      "sha256": "f9701e06b07345ac3032ea1cf573b32ca640883a3ee58648d83909cb5414d4c4"
+      "bytes": 102527,
+      "sha256": "95d566e350bd665f54c7a9f04a679ecb3ddd0df8cfe261142b0216b0483beb55"
     },
     {
       "file": "brush-presets.md",
-      "bytes": 13639,
-      "sha256": "64618f61742553d340ed6e99b6fabf311b73aed4328ea2b12b744435163cc06f"
+      "bytes": 14418,
+      "sha256": "ace505af29d6cdaba2b43c6ffde290196325e68ac13267d4b08d1e6f31bc9f4c"
     },
     {
       "file": "pattern-presets.md",
-      "bytes": 6139,
-      "sha256": "5d48d2e98cd6f3800495e6dfe556f1ba34bcb5399fc58298005b814546cb44a5"
+      "bytes": 7539,
+      "sha256": "0a15f7fff5b8a867dd38f394b1a136525f47a028dd31edffed9336378e821e33"
     },
     {
       "file": "custom-shape-presets.md",
-      "bytes": 6580,
-      "sha256": "7246accb8e783ac13f8eaadb11355735015ee45ac130147d5b46d716556d4690"
+      "bytes": 7625,
+      "sha256": "2baa607d33310b6ecea8312a94bf89d840a97a55fb9b1c896250996b9493cefb"
     },
     {
       "file": "style-presets.md",
-      "bytes": 5592,
-      "sha256": "b04441a8ee5da5b1a2feefb7f67a6a9ce57a340293d8f3764faa7fea721f267b"
+      "bytes": 6104,
+      "sha256": "5a2c2a1d3c397d44dbbb0958fc3db1b8c521c164baab4064c7b30e6a542ec6d0"
     },
     {
       "file": "reusable-presets.md",
-      "bytes": 5347,
-      "sha256": "de333fd95ca1c104f47fda1cb537e44e5081a6751ee7fa039028e9a0708e3afe"
+      "bytes": 5966,
+      "sha256": "79e732e15e693e06244ca76ebf7dfaeaa67f393fb4f35c11cd8048011be69074"
     },
     {
       "file": "actions.md",
@@ -43,8 +43,8 @@
     },
     {
       "file": "contour-presets.md",
-      "bytes": 2867,
-      "sha256": "d19e9c89f3681bde5496528a1ccbcf416c2ea5d65e46862b7557979c93d3e45e"
+      "bytes": 3353,
+      "sha256": "8fcff2787d4b8d972b7df576dbe9fbf794b2d77405e2907e7b1c29fa5279a2b5"
     },
     {
       "file": "duotone-presets.md",

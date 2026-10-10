@@ -1208,7 +1208,7 @@
           "exchange": {
             "title": "Échange avec Photoshop",
             "paragraphs": [
-              "PAT importe les modes pris en charge en RGBA8 et exporte les pixels, noms, ordre et groupes compatibles. Les motifs procéduraux intégrés sont exclus des exports natifs."
+              "PAT importe les modes pris en charge en RGBA8 et exporte les pixels, noms, ordre et groupes compatibles. Les motifs intégrés sont exclus des exports natifs."
             ]
           }
         }

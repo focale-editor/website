@@ -4,16 +4,6 @@
   <desc>A moonlit archipelago with blue northern lights, slate mountains and a sailboat, fading into Focale's navy website canvas.</desc>
   <defs>
     
-    <linearGradient id="sky" x1="560" y1="180" x2="2048" y2="340" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0e1421" />
-      <stop offset="0.36" stop-color="#181F33" />
-      <stop offset="1" stop-color="#202C44" />
-    </linearGradient>
-    <radialGradient id="horizonGlow" cx="0" cy="0" r="1" gradientTransform="translate(1630 385) scale(860 390)" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#538BD5" stop-opacity="0.32" />
-      <stop offset="0.6" stop-color="#538BD5" stop-opacity="0.1" />
-      <stop offset="1" stop-color="#538BD5" stop-opacity="0" />
-    </radialGradient>
     <linearGradient id="auroraVeil" x1="1370" y1="20" x2="1430" y2="256" gradientUnits="userSpaceOnUse">
       <stop stop-color="#538BD5" stop-opacity="0" />
       <stop offset="0.55" stop-color="#538BD5" stop-opacity="0.04" />
@@ -65,19 +55,12 @@
       <stop stop-color="#181F33" />
       <stop offset="1" stop-color="#151B2B" />
     </linearGradient>
-    <linearGradient id="leftFade" x1="420" y1="341" x2="1150" y2="341" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0e1421" />
-      <stop offset="0.45" stop-color="#0e1421" stop-opacity="0.9" />
-      <stop offset="1" stop-color="#0e1421" stop-opacity="0" />
-    </linearGradient>
-  </defs>
+  <linearGradient id="below0" x1="560" y1="180" x2="2048" y2="340" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0e1421" /><stop offset="0.36" stop-color="#181F33" /><stop offset="1" stop-color="#202C44" /></linearGradient><radialGradient id="below1" cx="0" cy="0" r="1" gradientTransform="translate(1630 385) scale(860 390)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#538BD5" stop-opacity="0.32" /><stop offset="0.6" stop-color="#538BD5" stop-opacity="0.1" /><stop offset="1" stop-color="#538BD5" stop-opacity="0" /></radialGradient><linearGradient id="above0" x1="420" y1="341" x2="1150" y2="341" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0e1421" /><stop offset="0.45" stop-color="#0e1421" stop-opacity="0.9" /><stop offset="1" stop-color="#0e1421" stop-opacity="0" /></linearGradient></defs>
 
   
-  <path fill="url(#sky)" d="M0 0H2048V682H0Z" />
-  <path fill="url(#horizonGlow)" d="M650 0H2048V560H650Z" />
 
   
-  <path d="M772 286C974 106 1098 89 1280 141C1469 194 1541 134 1667 63C1798-11 1921-2 2048 36V111C1897 45 1808 71 1679 144C1528 229 1451 265 1267 213C1085 162 963 207 772 286Z" fill="url(#auroraVeil)" />
+  <path d="M0 0H2048V682H0Z" fill="url(#below0)" /><path d="M650 0H2048V560H650Z" fill="url(#below1)" /><path d="M772 286C974 106 1098 89 1280 141C1469 194 1541 134 1667 63C1798-11 1921-2 2048 36V111C1897 45 1808 71 1679 144C1528 229 1451 265 1267 213C1085 162 963 207 772 286Z" fill="url(#auroraVeil)" />
   <path d="M884 255C1060 151 1158 175 1292 211C1458 256 1575 174 1700 110C1834 42 1940 54 2048 90" stroke="url(#auroraEdge)" stroke-width="1.4" />
   <path d="M1020 0C1160 55 1275 34 1395 3L1458 0C1343 79 1192 133 1052 66C1000 41 951 18 899 0Z" fill="url(#auroraVeil)" opacity="0.48" />
   <path d="M1014 40C1193 137 1301 68 1439 12" stroke="url(#auroraEdge)" opacity="0.35" />
@@ -179,5 +162,4 @@
   </g>
 
   
-  <path d="M0 0H1150V682H0Z" fill="url(#leftFade)" />
-</svg>
+<path d="M0 0H1150V682H0Z" fill="url(#above0)" /></svg>

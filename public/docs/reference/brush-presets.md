@@ -9,11 +9,27 @@ deletes user presets, and imports or exports the mutable catalogue as a native
 
 ## Contents
 
+* [Built-in brushes](#built-in-brushes)
 * [Defining a sampled tip from a document](#defining-a-sampled-tip-from-a-document)
 * [Native `.fbrush` format](#native-fbrush-format)
 * [Local sampled-tip assets](#local-sampled-tip-assets)
 * [Advanced Brush Settings groups](#advanced-brush-settings-groups)
 * [ABR compatibility](#abr-compatibility)
+
+## Built-in brushes
+
+The brushes Focale ships are themselves a native bundle,
+`assets/presets/brushes.fbrush`, decoded once at startup. Being loaded from the
+application rather than from the user's library is what makes a preset
+built-in: it cannot be renamed, removed or exported, and it is never written to
+the saved library.
+
+Their identifiers start with `builtin.` and are stable, because saved settings
+refer to them. The interface translates a built-in name by identifier and falls
+back to the English `name` of the file. This catalogue may only hold parametric
+presets: it must leave `assets` and `patterns` empty, and its textures may only
+name built-in patterns. See
+[ADR 0291](../adr/0291-built-in-presets-as-native-assets.md).
 
 ## Defining a sampled tip from a document
 

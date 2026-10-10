@@ -1208,7 +1208,7 @@
           "exchange": {
             "title": "Photoshop interchange",
             "paragraphs": [
-              "PAT import converts supported colour modes to eight-bit RGBA. PAT export preserves supported tile pixels, names, order and groups. Built-in procedural patterns are omitted from native exports."
+              "PAT import converts supported colour modes to eight-bit RGBA. PAT export preserves supported tile pixels, names, order and groups. Built-in patterns are omitted from native exports."
             ]
           }
         }

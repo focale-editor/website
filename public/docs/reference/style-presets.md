@@ -67,6 +67,14 @@ malformed entry reject the complete import, so a partial catalogue can never
 silently replace the user's intent. Built-in styles are not persisted or
 exported.
 
+The built-in styles are themselves a native library,
+`assets/presets/styles.fstyle`, decoded once at startup. Being loaded from the
+application rather than from the user's catalogue is what makes a style
+built-in. Their identifiers start with `style.builtin.` and are stable; the
+interface translates them by identifier and falls back to the English `name` of
+the file. This catalogue may name built-in patterns but must leave `patterns`
+empty. See [ADR 0291](../adr/0291-built-in-presets-as-native-assets.md).
+
 The `style` object uses the same representation as a `.focale` layer. It can
 therefore retain enabled and disabled effects, Fill Opacity and the four
 **Blend If** channel ranges without maintaining a second effect model.

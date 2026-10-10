@@ -7,6 +7,27 @@ are always available; portable `.fshape` libraries, Photoshop CSH libraries and
 paths defined inside Focale can add user presets without changing the
 application bundle.
 
+## Built-in shapes
+
+The shapes Focale ships are themselves a native bundle,
+`assets/presets/shapes.fshape`, decoded once at startup. Being loaded from the
+application rather than from the user's library is what makes a shape
+built-in: it cannot be renamed, removed or exported.
+
+That file is the only description of these shapes. Their identifiers are
+`shape.builtin.` followed by `heart`, `arrow`, `speechBubble`, `lightning` or
+`check`, which is how the interface finds their translation. The
+`shape.builtin.` range is reserved for the shipped catalogue: the user's
+catalogue never stores such an identifier, so importing the shipped file, or
+any library that reuses one, creates copies under fresh `shape.user.*`
+identifiers.
+
+A built-in shape is otherwise an ordinary entry. A document that draws one
+embeds its outline, exactly as it does for an imported shape, and a Shape Blur
+recipe embeds the whole entry; neither depends on the catalogue of the machine
+that opens it. See
+[ADR 0291](../adr/0291-built-in-presets-as-native-assets.md).
+
 ## Catalogue workflow
 
 The Shape field in the Custom Shape options and the sidebar Shapes panel expose

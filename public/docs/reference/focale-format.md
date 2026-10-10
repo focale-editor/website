@@ -572,7 +572,14 @@ A custom Shape Blur operation embeds a bounded, catalogue-independent kernel:
     "radius": 12.0,
     "kernel": {
       "version": 1,
-      "builtIn": "heart",
+      "preset": {
+        "version": 1,
+        "id": "shape.builtin.heart",
+        "name": "Heart",
+        "sourceAspectRatio": 1.0,
+        "sortOrder": 0,
+        "outline": { "id": "shape.builtin.heart", "name": "Heart", "subpaths": [ … ] }
+      },
       "samples": [
         [-0.42, -0.76, 0.75],
         [0.42, -0.76, 0.75]
@@ -584,12 +591,12 @@ A custom Shape Blur operation embeds a bounded, catalogue-independent kernel:
 
 `radius` is finite and lies between 1 and 100 pixels. A kernel contains one to
 64 `[x, y, weight]` samples: coordinates are finite and normalized to `-1..1`,
-and coverage weights are finite in `(0, 1]`. A built-in shape writes its stable
-`builtIn` enum name. An imported shape writes `preset` instead, using the full
-version-1 `CustomShapePresetEntry` representation described for imported Custom
-Shapes below. The sampled footprint is stored as well as that vector metadata,
-so rendering and Action playback do not depend on a mutable machine-wide CSH or
-`.fshape` catalogue. Malformed or unsupported recipes are ignored as unknown
+and coverage weights are finite in `(0, 1]`. `preset` is the full version-1
+`CustomShapePresetEntry` representation of the shape, whether it came from the
+catalogue shipped with Focale or from the user's own; the entry format is
+described in `docs/formats/shapes.md`. The sampled footprint is stored as well
+as that vector metadata, so rendering and Action playback do not depend on any
+machine-wide catalogue. A kernel without a valid `preset` is rejected. Malformed or unsupported recipes are ignored as unknown
 Smart Filter operations.
 
 Legacy entries with top-level `kind` and `settings` are read as catalogue
@@ -1128,8 +1135,8 @@ how a triangle is represented; there is no separate triangle kind), `line`
 `arrowheadLength` in document pixels, and `arrowheadConcavity` from -50 through
 50), `star` (`outerRadius`, `innerRadius`, `points`, optional
 `outerCornerRadius`/`innerCornerRadius`, and `rotation` in radians),
-`preset` (`width`, `height`, a fallback built-in `preset` name, and optionally
-the imported fields below), or `custom` (`pathId`, resolved against the
+`preset` (`width`, `height` and the embedded Custom Shape fields below), or
+`custom` (`pathId`, resolved against the
 document's `paths` at paint time rather than copied, so editing that path
 updates every shape layer using it). An unknown `shapeKind` falls back to a
 small rectangle rather than failing the load.
@@ -1139,19 +1146,17 @@ places that centre and carries any non-uniform scaling, so editing either
 radius does not translate the shape. Outer and inner corner radii apply to the
 tips and indents respectively.
 
-The built-in `preset` names are `heart`, `arrow`, `speechBubble`, `lightning`
-and `check`. They identify normalized, application-owned paths and therefore
-need no entry in `paths`. `custom`, by contrast, always references a real
-document path by id.
+A `preset` geometry carries its own outline and therefore needs no entry in
+`paths`. `custom`, by contrast, always references a real document path by id.
 
-An imported Custom Shape remains autonomous from the machine-wide catalogue:
+Every Custom Shape is autonomous from the machine-wide catalogue, including
+the shapes shipped with Focale, whose identifiers start with `shape.builtin.`:
 
 ```json
 {
   "shapeKind": "preset",
   "width": 240,
   "height": 120,
-  "preset": "heart",
   "presetId": "shape.csh.0123456789abcdef",
   "presetName": "Leaf",
   "sourceAspectRatio": 2,
@@ -1168,9 +1173,13 @@ but its coordinates are normalized to the source shape's reference rectangle
 or, for Edit ▸ Define Custom Shape, to the selected path's rendered bounds.
 Rendering scales them by `width` and `height`. `presetId` lets the properties
 panel find the corresponding global entry; `presetName` keeps a readable label
-after removal; and `sourceAspectRatio` controls Shift-constrained drawing. The
-built-in `preset` remains a harmless fallback for readers that do not receive a
-usable outline. Deleting the global preset cannot alter this embedded geometry.
+after removal; and `sourceAspectRatio` controls Shift-constrained drawing.
+`outline` is required: a `preset` geometry without a usable one is read as a
+rectangle of the stored `width` and `height`, and a missing `presetId` or
+`presetName` is taken from the outline. Deleting or changing the global preset
+cannot alter this embedded geometry. No shape is identified by name alone: the
+`preset` key that development files wrote for `heart`, `arrow`, `speechBubble`,
+`lightning` and `check` is no longer read.
 The global catalogue's portable `.fshape` representation is documented in
 `docs/formats/shapes.md`; it is not embedded wholesale in a project.
 
@@ -1230,7 +1239,10 @@ The Blending Options of a layer, absent unless something is set:
 Effect contours store `curve` as normalized `[x, y]` points, with a third
 component equal to `1` for a corner, plus `range` and `antiAliased`. `range` is
 half of Photoshop's percentage, from 0.02 to 2, so the default 1 is
-Photoshop's 50%; files written before this range accepted 0.1–1.
+Photoshop's 50%; files written before this range accepted 0.1–1. A contour is
+always stored by its curve, including the contours shipped with Focale; one
+without a `curve` reads as linear, and the `profile` name that development
+files wrote is no longer read.
 
 Effects add Photoshop's options as optional keys, each omitted at its default:
 `noise` (0–1) on shadows and glows; `layerKnocksOut: false` on a drop shadow;
@@ -1290,7 +1302,10 @@ same reason the adjustment stack is inline: an effect has no identity outside it
 layer. `enabled` is stored separately from presence — unticking an effect keeps
 its settings — and an effect of an unknown kind is skipped on read, losing that
 one effect rather than the whole project. Built-in patterns keep their
-procedural name. Imported patterns keep a content-derived identifier resolved
+stable name; a well-formed name the reader does not ship is preserved and drawn
+as the shipped `checker` tile (see
+[Pattern preset libraries](patterns.md#built-in-patterns)).
+Imported patterns keep a content-derived identifier resolved
 through the matching `patterns/` entry. Configured disabled effects are
 included when collecting these dependencies, because enabling one after load
 must reproduce its saved appearance.

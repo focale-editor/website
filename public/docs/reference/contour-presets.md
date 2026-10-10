@@ -8,6 +8,14 @@ libraries as native `.fcontour` or Photoshop `.shc` files. Built-in entries
 remain available and are excluded from exports. Applying a preset changes the
 current effect; editing the catalogue does not change existing documents.
 
+The built-in entries are themselves a native library,
+`assets/presets/contours.fcontour`, decoded once at startup, and that file is
+their only description. Their identifiers are `contour.builtin.` followed by
+`linear`, `cone`, `coneInverted`, `halfRound`, `shallowSlope`, `gaussian` or
+`ring`, which is how the interface finds their translation. A `.focale` effect
+never names one of them: it stores the curve it uses. See
+[ADR 0291](../adr/0291-built-in-presets-as-native-assets.md).
+
 ## Native `.fcontour` format
 
 A library is a version-1 UTF-8 JSON envelope with root `format` equal to

@@ -3,9 +3,33 @@
 [Documentation](../README.md) · [File formats](README.md)
 
 Focale keeps reusable patterns independently from documents. Every pattern
-selector shows the six built-in procedural patterns and the imported catalogue.
+selector shows the built-in patterns and the imported catalogue.
 Its footer imports `.fpattern` or Photoshop `.pat` libraries and offers
 separate `.fpattern` and `.pat` exports for the whole mutable catalogue.
+
+## Built-in patterns
+
+The patterns Focale ships are themselves a native bundle,
+`assets/presets/patterns.fpattern`, decoded once at startup. Being loaded from
+the application rather than from the user's library is what makes a preset
+built-in: it cannot be removed or exported, and neither it nor its tile is
+written to the saved catalogue, a document or another preset library.
+
+Each preset identifier in that file is `builtin.` followed by the stable name
+documents and settings store: `checker`, `dots`, `grid`, `diagonalLines`,
+`crossHatch` and `noise`. A name starts with a letter and continues with up to
+63 letters, digits, `_` or `-`. The file names its tiles by content like any
+bundle, but references use the name, so a tile can be redrawn without touching
+the documents that name it. The interface translates a built-in name by
+identifier and falls back to the English `name` of the file.
+
+A reader keeps a well-formed built-in name it does not ship and draws it as the
+shipped `checker` tile, as it does for any tile it cannot find. A file written
+by a later version therefore loses nothing when an earlier one saves it again.
+The catalogue is the only description of these tiles: the `noise` tile is also
+the grain that the Noise option of shadows and glows thins coverage with, and
+should the catalogue itself be unreadable, every pattern draws plain white. See
+[ADR 0291](../adr/0291-built-in-presets-as-native-assets.md).
 
 ## Defining a pattern from a document
 
@@ -31,7 +55,7 @@ Pattern presets are flattened tiles, as they are in Photoshop; neither PAT nor
 `.fpattern` retains the layers from the document that originally created one.
 The pencil action beside any catalogue entry opens an independent raster copy
 at the tile's native dimensions and enables **View ▸ Pattern Preview** for that
-new document. Built-in procedural patterns use their native 32 × 32 tile too.
+new document. Built-in patterns open at the native size of their tile too.
 
 Edits affect only the new document. **Edit ▸ Define Pattern…** stores the
 result as a new preset, so an imported library and every existing document that
@@ -79,9 +103,9 @@ Names and group entries are bounded too. These checks happen before Flutter
 uploads a GPU image. JSON, Base64, identity calculation and pixel conversion
 for large bundles run outside the interface isolate.
 
-Built-in patterns are not exported. They have stable names (`checker`, `dots`,
-`grid`, `diagonalLines`, `crossHatch` and `noise`) and need no asset. A native
-bundle therefore contains only imported presets and the tiles they use.
+[Built-in patterns](#built-in-patterns) are not exported: their stable names
+are enough to find them again. A bundle exported from the catalogue therefore
+contains only imported presets and the tiles they use.
 
 ## Photoshop PAT compatibility
 
