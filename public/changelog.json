@@ -2,6 +2,42 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "version": "0.0.8",
+      "date": "2026-10-10",
+      "changes": [
+        {
+          "kind": "FIX",
+          "description": "Updated Sentry license notices and reviewed dependency metadata."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Improved license reviewing by adding a Github workflow dedicated to it."
+        }
+      ]
+    },
+    {
+      "version": "0.0.7",
+      "date": "2026-10-10",
+      "changes": [
+        {
+          "kind": "FEAT",
+          "description": "Added Photoshop contours support."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added exact layer-effect contours, Porter-Duff blending, and native adjustment presets."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added portable presets and improved Photoshop style fidelity."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added support for more Photoshop formats."
+        }
+      ]
+    },
+    {
       "version": "0.0.6",
       "date": "2026-10-08",
       "changes": [
