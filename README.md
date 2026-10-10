@@ -199,7 +199,9 @@ Validation: `pnpm lint`, `pnpm typecheck`, `pnpm generate` (inspect `.output/pub
 platforms, import/export formats, native projects and native preset libraries,
 alongside the existing licenses and corresponding-source pages. Each portable
 library has its own page: `.fbrush`, `.fpattern`, `.fshape`, `.fstyle`, `.fswatch`,
-`.fgradient`, `.fcurve` and `.faction`, with usage, schema, examples, validation
+`.fgradient`, `.fcurve`, `.fcontour`, `.faction`, `.flevels`,
+`.fhuesaturation`, `.fselectivecolor`, `.fchannelmixer`, `.fblackandwhite`,
+`.fduotone`, `.fcameraraw` and `.fcolorlookup`, with usage, schema, examples, validation
 limits and interchange directions.
 All pages ship in the six site languages.
 

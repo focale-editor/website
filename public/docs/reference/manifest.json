@@ -3,8 +3,8 @@
   "references": [
     {
       "file": "focale-format.md",
-      "bytes": 98999,
-      "sha256": "7ae425d9e3ba2b59449295df9f7b9cbac6156f3c822950eb969af27ae1dfe1d9"
+      "bytes": 101708,
+      "sha256": "f9701e06b07345ac3032ea1cf573b32ca640883a3ee58648d83909cb5414d4c4"
     },
     {
       "file": "brush-presets.md",
@@ -23,18 +23,38 @@
     },
     {
       "file": "style-presets.md",
-      "bytes": 2719,
-      "sha256": "8d2e79cf8ec8b2fa408137e3f66a42fe27335e2a7e84ca307bc36d660754f373"
+      "bytes": 5592,
+      "sha256": "b04441a8ee5da5b1a2feefb7f67a6a9ce57a340293d8f3764faa7fea721f267b"
     },
     {
       "file": "reusable-presets.md",
-      "bytes": 3587,
-      "sha256": "0dec746c97449c4752fb3ddee63496e6b5f96098bd1c2973a4c7eae0ec8db32c"
+      "bytes": 5347,
+      "sha256": "de333fd95ca1c104f47fda1cb537e44e5081a6751ee7fa039028e9a0708e3afe"
     },
     {
       "file": "actions.md",
       "bytes": 14841,
       "sha256": "b30f05969a6458ad856a4df2c9aed9aaae7cdba62685b6d7901986e1bdf58fe4"
+    },
+    {
+      "file": "adjustment-presets.md",
+      "bytes": 6054,
+      "sha256": "80b5017fc082c9fe99b4bd3646838a3f3ee72a8cd48d967405e37dcac15c71d0"
+    },
+    {
+      "file": "contour-presets.md",
+      "bytes": 2867,
+      "sha256": "d19e9c89f3681bde5496528a1ccbcf416c2ea5d65e46862b7557979c93d3e45e"
+    },
+    {
+      "file": "duotone-presets.md",
+      "bytes": 3271,
+      "sha256": "eee05de882221523db2821c4834572a2efc490588717d4bef8286e98343ce87a"
+    },
+    {
+      "file": "camera-raw-presets.md",
+      "bytes": 6701,
+      "sha256": "336014827db44189bcc4bf6311c64559dd839429f49231a0b9e71a72f2009e7e"
     }
   ]
 }

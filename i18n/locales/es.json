@@ -809,12 +809,12 @@
       },
       "presetFormats": {
         "title": "Formatos nativos de ajustes y acciones",
-        "description": "Bibliotecas portátiles de pinceles, patrones, formas, estilos y automatización.",
+        "description": "Bibliotecas nativas y ajustes independientes para pinceles, patrones, formas, estilos, colores y automatización.",
         "sections": {
           "catalogue": {
             "title": "Identificadores",
             "paragraphs": [
-              "JSON UTF-8 con etiqueta y versión explícitas. Exporta desde el catálogo correspondiente para guardar o compartir; las cachés no son el formato portátil."
+              "Estos formatos usan JSON UTF-8 con una etiqueta de formato y una versión explícitas. Guarda o exporta desde el editor o catálogo correspondiente para respaldar y compartir ajustes. Las cachés locales son detalles de implementación."
             ],
             "table": {
               "headers": [
@@ -871,6 +871,60 @@
                   "1",
                   "focale-action-set",
                   "Un conjunto de acciones con recursos de pintura"
+                ],
+                [
+                  ".fcontour",
+                  "1",
+                  "focale-contour-presets",
+                  "Contornos de efectos"
+                ],
+                [
+                  ".flevels",
+                  "1",
+                  "focale-adjustment-preset",
+                  "Niveles"
+                ],
+                [
+                  ".fhuesaturation",
+                  "1",
+                  "focale-adjustment-preset",
+                  "Tono/saturación"
+                ],
+                [
+                  ".fselectivecolor",
+                  "1",
+                  "focale-adjustment-preset",
+                  "Corrección selectiva"
+                ],
+                [
+                  ".fchannelmixer",
+                  "1",
+                  "focale-adjustment-preset",
+                  "Mezclador de canales"
+                ],
+                [
+                  ".fblackandwhite",
+                  "1",
+                  "focale-adjustment-preset",
+                  "Blanco y negro"
+                ],
+                [
+                  ".fduotone",
+                  "1",
+                  "focale-duotone-preset",
+                  "Duotono"
+                ],
+                [
+                  ".fcameraraw",
+                  "1",
+                  "focale-camera-raw-preset",
+                  "Camera Raw"
+                ],
+                [
+                  ".fcolorlookup",
+                  "1",
+                  "focale-adjustment-preset",
+                  "Consulta de colores"
                 ]
               ]
             }
@@ -878,7 +932,7 @@
           "envelope": {
             "title": "Biblioteca JSON",
             "paragraphs": [
-              "La mayoría contiene presets; las acciones contienen un set con acciones y pasos. Identificadores, nombres y valores se validan y no son código ejecutable arbitrario.",
+              "Las bibliotecas contienen presets; los ajustes, kind y settings; las acciones, set. Los archivos de Duotono y Camera Raw contienen settings completos bajo sus propios identificadores de formato.",
               "El ejemplo es una biblioteca de degradados versión 1. Los esquemas exactos y límites están en las referencias descargables."
             ]
           },
@@ -886,14 +940,14 @@
             "title": "Recursos raster y vectoriales",
             "paragraphs": [
               "Las puntas usan un byte de cobertura por píxel en Base64. Los patrones usan cuatro bytes RGBA sin premultiplicar, en orden de filas. Las formas guardan anclas normalizadas y manejadores Bézier relativos.",
-              "Los paquetes nativos incrustan sus recursos. Se verifican dimensiones, longitudes e identidades antes de crear texturas; los límites dependen del formato."
+              "Las bibliotecas nativas de pinceles, motivos y estilos incorporan sus recursos. Camera Raw también incluye perfiles ópticos e ICC de salida; los ajustes de duotono incluyen colores resueltos y curvas."
             ]
           },
           "compatibility": {
             "title": "Bibliotecas Photoshop",
             "items": [
               "No abarca todas las versiones ni funciones de Photoshop.",
-              "Los formatos nativos conservan valores de Focale. Píxeles de patrones ASL y ciertos valores de contexto Adobe no se trasladan a todos los catálogos."
+              "Los ajustes nativos conservan los valores Focale y sus recursos incorporados. El intercambio Adobe cubre el subconjunto compatible y puede cuantificar valores o aproximar la representación."
             ],
             "table": {
               "headers": [
@@ -924,23 +978,68 @@
                 ],
                 [
                   "Muestras",
-                  "ACO",
-                  "Solo importación"
+                  "ACO / ASE / ACT / ACB",
+                  "ACO: importación/exportación; ASE/ACT/ACB: importación"
                 ],
                 [
                   "Degradados",
                   "GRD",
-                  "Solo importación"
+                  "Importación y exportación"
                 ],
                 [
                   "Curvas",
                   "ACV",
-                  "Solo importación"
+                  "Importación y exportación"
                 ],
                 [
                   "Acciones",
                   "ATN",
                   "Importación y exportación; ejecución solo de operaciones compatibles"
+                ],
+                [
+                  "Contornos de efectos",
+                  "SHC",
+                  "Importación y exportación"
+                ],
+                [
+                  "Niveles",
+                  "ALV",
+                  "Importación y exportación"
+                ],
+                [
+                  "Tono/saturación",
+                  "AHU",
+                  "Importación y exportación"
+                ],
+                [
+                  "Corrección selectiva",
+                  "ASV",
+                  "Importación y exportación"
+                ],
+                [
+                  "Mezclador de canales",
+                  "CHA",
+                  "Importación y exportación"
+                ],
+                [
+                  "Blanco y negro",
+                  "BLW",
+                  "Importación y exportación"
+                ],
+                [
+                  "Duotono",
+                  "ADO",
+                  "Solo importación"
+                ],
+                [
+                  "Camera Raw",
+                  "XMP",
+                  "Solo importación"
+                ],
+                [
+                  "Consulta de colores",
+                  "CUBE",
+                  "Solo importación"
                 ]
               ]
             }
@@ -1183,7 +1282,8 @@
             "title": "Estructura del archivo",
             "paragraphs": [
               "JSON UTF-8 con etiqueta y versión explícitas. El lector y escritor actuales usan la versión 1. El ejemplo muestra la estructura de la biblioteca; la referencia completa detalla los valores.",
-              "presets guarda objetos style con nombre, grupos, fillOpacity, effects y rangos Fusionar si. Efectos activos e inactivos permanecen editables, no son solo miniaturas."
+              "presets guarda objetos style con nombre, grupos, fillOpacity, effects y rangos Fusionar si. Efectos activos e inactivos permanecen editables, no son solo miniaturas.",
+              "Cada entrada del array opcional patterns contiene id, width, height, píxeles rgba con alfa no premultiplicado en Base64 y un nombre visible name opcional. patterns[].name es independiente del presets[].name obligatorio de cada estilo. Si el nombre del motivo falta o está vacío, la importación usa el nombre del archivo de biblioteca seguido de un número. Se eliminan los espacios iniciales y finales; los motivos se agrupan bajo el nombre de la biblioteca. Los archivos de versión 1 sin nombres de motivos siguen siendo compatibles."
             ],
             "table": {
               "headers": [
@@ -1213,13 +1313,13 @@
           "limits": {
             "title": "Validación y límites",
             "paragraphs": [
-              "Hasta 16 MiB y 4.096 ajustes, nombres e identidades de 4.096 unidades UTF-16 y 32 niveles. Duplicados o valores inválidos rechazan toda la importación."
+              "Límites: 256 MiB codificados, 256 MiB de píxeles de motivos decodificados y 4096 ajustes; nombres e identificadores: 4096 unidades UTF-16; grupos: 32 niveles. Las entradas inválidas o duplicadas rechazan la biblioteca."
             ]
           },
           "exchange": {
             "title": "Intercambio con Photoshop",
             "paragraphs": [
-              "ASL conserva efectos reproducibles. Se omiten píxeles de patrones ASL incrustados; .fstyle conserva el modelo nativo editable."
+              "ASL importa y exporta los efectos compatibles y sus motivos incorporados. .fstyle también incorpora los motivos de superposiciones, trazos y texturas de bisel. Los degradados de ruido Adobe y algunos efectos siguen siendo aproximaciones."
             ]
           }
         }
@@ -1274,7 +1374,8 @@
           "exchange": {
             "title": "Intercambio con Photoshop",
             "paragraphs": [
-              "ACO solo importa valores compatibles al modelo del catálogo. Exporta .fswatch para conservar nombres, grupos y valores nativos."
+              "ACO importa y exporta colores con nombre. ASE importa colores y grupos; ACT importa tablas de colores sin la entrada transparente. ASE y ACT solo permiten importar. .fswatch conserva alfa, nombres, identificadores y grupos nativos.",
+              "ACB importa colores de catálogo con nombre, omite marcadores vacíos y conserva sus códigos en los identificadores nativos. Esos colores pueden resolver tintas ADO. ASE, ACT y ACB solo se importan; .fswatch conserva colores nativos, nombres y grupos."
             ]
           }
         }
@@ -1329,7 +1430,7 @@
           "exchange": {
             "title": "Intercambio con Photoshop",
             "paragraphs": [
-              "GRD solo importa degradados sólidos personalizados compatibles. Usa .fgradient para copia e intercambio nativo; no todas las variantes Photoshop se admiten."
+              "GRD importa y exporta degradados sólidos compatibles. La exportación cuantiza posiciones y puntos medios y omite la interpolación nativa y los grupos. No se importan ruido ni etapas dependientes del contexto. .fgradient conserva la biblioteca nativa completa."
             ]
           }
         }
@@ -1384,7 +1485,7 @@
           "exchange": {
             "title": "Intercambio con Photoshop",
             "paragraphs": [
-              "ACV solo importa curvas compatibles a los cuatro canales. Usa .fcurve para conservar y compartir el ajuste completo."
+              "ACV permite importar y exportar. La importación añade curvas compatibles de cuatro canales; la exportación guarda las curvas actuales, no todo el catálogo, con la precisión numérica de Adobe. .fcurve conserva la biblioteca nativa completa."
             ]
           }
         }
@@ -1440,6 +1541,518 @@
             "title": "Intercambio con Photoshop",
             "paragraphs": [
               "ATN intercambia operaciones reconocidas; eventos no compatibles siguen desactivados. .faction es el conjunto nativo portátil, distinto del catálogo interno de múltiples conjuntos."
+            ]
+          }
+        }
+      },
+      "levelsFormat": {
+        "title": "Niveles (.flevels)",
+        "description": "Un ajuste preestablecido nativo independiente con todos los parámetros de este ajuste.",
+        "sections": {
+          "use": {
+            "title": "Uso en la aplicación",
+            "paragraphs": [
+              "En el editor del ajuste, Cargar acepta el archivo Focale o su equivalente Photoshop. Guardar el ajuste Focale conserva la precisión nativa; Exportar el ajuste Photoshop escribe el archivo Adobe."
+            ]
+          },
+          "schema": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "El JSON UTF-8 contiene format igual a focale-adjustment-preset, version entera igual a 1, el kind correspondiente y el objeto settings completo. Cada archivo contiene un ajuste, sin recursos externos ni identidad de capa. Todos los parámetros son obligatorios, incluidos los predeterminados."
+            ],
+            "table": {
+              "headers": [
+                "Campo",
+                "Valor"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".flevels"
+                ],
+                [
+                  "format",
+                  "focale-adjustment-preset"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "kind",
+                  "levels"
+                ],
+                [
+                  "Photoshop",
+                  ".alv"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validación y límites",
+            "paragraphs": [
+              "Tamaño máximo: 64 KiB. Se rechaza todo el archivo si el tipo o la versión no coinciden, faltan parámetros, hay parámetros desconocidos, valores no numéricos, no finitos o fuera de rango, o indicadores fraccionarios. No se recortan ni sustituyen valores silenciosamente."
+            ]
+          },
+          "exchange": {
+            "title": "Intercambio con Photoshop",
+            "paragraphs": [
+              "Ambos formatos permiten importar y exportar. Los archivos Photoshop cubren los parámetros compatibles y pueden cuantizar valores; el formato nativo conserva exactamente los valores de Focale."
+            ]
+          }
+        }
+      },
+      "hueSaturationFormat": {
+        "title": "Tono/saturación (.fhuesaturation)",
+        "description": "Un ajuste preestablecido nativo independiente con todos los parámetros de este ajuste.",
+        "sections": {
+          "use": {
+            "title": "Uso en la aplicación",
+            "paragraphs": [
+              "En el editor del ajuste, Cargar acepta el archivo Focale o su equivalente Photoshop. Guardar el ajuste Focale conserva la precisión nativa; Exportar el ajuste Photoshop escribe el archivo Adobe."
+            ]
+          },
+          "schema": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "El JSON UTF-8 contiene format igual a focale-adjustment-preset, version entera igual a 1, el kind correspondiente y el objeto settings completo. Cada archivo contiene un ajuste, sin recursos externos ni identidad de capa. Todos los parámetros son obligatorios, incluidos los predeterminados."
+            ],
+            "table": {
+              "headers": [
+                "Campo",
+                "Valor"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fhuesaturation"
+                ],
+                [
+                  "format",
+                  "focale-adjustment-preset"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "kind",
+                  "hueSaturation"
+                ],
+                [
+                  "Photoshop",
+                  ".ahu"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validación y límites",
+            "paragraphs": [
+              "Tamaño máximo: 64 KiB. Se rechaza todo el archivo si el tipo o la versión no coinciden, faltan parámetros, hay parámetros desconocidos, valores no numéricos, no finitos o fuera de rango, o indicadores fraccionarios. No se recortan ni sustituyen valores silenciosamente."
+            ]
+          },
+          "exchange": {
+            "title": "Intercambio con Photoshop",
+            "paragraphs": [
+              "Ambos formatos permiten importar y exportar. Los archivos Photoshop cubren los parámetros compatibles y pueden cuantizar valores; el formato nativo conserva exactamente los valores de Focale."
+            ]
+          }
+        }
+      },
+      "selectiveColorFormat": {
+        "title": "Corrección selectiva (.fselectivecolor)",
+        "description": "Un ajuste preestablecido nativo independiente con todos los parámetros de este ajuste.",
+        "sections": {
+          "use": {
+            "title": "Uso en la aplicación",
+            "paragraphs": [
+              "En el editor del ajuste, Cargar acepta el archivo Focale o su equivalente Photoshop. Guardar el ajuste Focale conserva la precisión nativa; Exportar el ajuste Photoshop escribe el archivo Adobe."
+            ]
+          },
+          "schema": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "El JSON UTF-8 contiene format igual a focale-adjustment-preset, version entera igual a 1, el kind correspondiente y el objeto settings completo. Cada archivo contiene un ajuste, sin recursos externos ni identidad de capa. Todos los parámetros son obligatorios, incluidos los predeterminados."
+            ],
+            "table": {
+              "headers": [
+                "Campo",
+                "Valor"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fselectivecolor"
+                ],
+                [
+                  "format",
+                  "focale-adjustment-preset"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "kind",
+                  "selectiveColor"
+                ],
+                [
+                  "Photoshop",
+                  ".asv"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validación y límites",
+            "paragraphs": [
+              "Tamaño máximo: 64 KiB. Se rechaza todo el archivo si el tipo o la versión no coinciden, faltan parámetros, hay parámetros desconocidos, valores no numéricos, no finitos o fuera de rango, o indicadores fraccionarios. No se recortan ni sustituyen valores silenciosamente."
+            ]
+          },
+          "exchange": {
+            "title": "Intercambio con Photoshop",
+            "paragraphs": [
+              "Ambos formatos permiten importar y exportar. Los archivos Photoshop cubren los parámetros compatibles y pueden cuantizar valores; el formato nativo conserva exactamente los valores de Focale."
+            ]
+          }
+        }
+      },
+      "channelMixerFormat": {
+        "title": "Mezclador de canales (.fchannelmixer)",
+        "description": "Un ajuste preestablecido nativo independiente con todos los parámetros de este ajuste.",
+        "sections": {
+          "use": {
+            "title": "Uso en la aplicación",
+            "paragraphs": [
+              "En el editor del ajuste, Cargar acepta el archivo Focale o su equivalente Photoshop. Guardar el ajuste Focale conserva la precisión nativa; Exportar el ajuste Photoshop escribe el archivo Adobe."
+            ]
+          },
+          "schema": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "El JSON UTF-8 contiene format igual a focale-adjustment-preset, version entera igual a 1, el kind correspondiente y el objeto settings completo. Cada archivo contiene un ajuste, sin recursos externos ni identidad de capa. Todos los parámetros son obligatorios, incluidos los predeterminados."
+            ],
+            "table": {
+              "headers": [
+                "Campo",
+                "Valor"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fchannelmixer"
+                ],
+                [
+                  "format",
+                  "focale-adjustment-preset"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "kind",
+                  "channelMixer"
+                ],
+                [
+                  "Photoshop",
+                  ".cha"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validación y límites",
+            "paragraphs": [
+              "Tamaño máximo: 64 KiB. Se rechaza todo el archivo si el tipo o la versión no coinciden, faltan parámetros, hay parámetros desconocidos, valores no numéricos, no finitos o fuera de rango, o indicadores fraccionarios. No se recortan ni sustituyen valores silenciosamente."
+            ]
+          },
+          "exchange": {
+            "title": "Intercambio con Photoshop",
+            "paragraphs": [
+              "Ambos formatos permiten importar y exportar. Los archivos Photoshop cubren los parámetros compatibles y pueden cuantizar valores; el formato nativo conserva exactamente los valores de Focale."
+            ]
+          }
+        }
+      },
+      "contourFormat": {
+        "title": "Contornos de efectos (.fcontour)",
+        "description": "Curvas con nombre para la caída de los efectos de capa, con puntos suaves y esquinas.",
+        "sections": {
+          "use": {
+            "title": "Uso en la aplicación",
+            "paragraphs": [
+              "El selector de contornos guarda la curva actual como ajuste con nombre e importa o exporta bibliotecas de usuario en .fcontour o .shc. Los elementos integrados no se exportan. Editar el catálogo no cambia los efectos ya aplicados."
+            ]
+          },
+          "schema": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "Cada entrada de presets contiene id, name, groupPath opcional y curve. Los puntos son [x, y] para un punto suave o [x, y, 1] para una esquina. Las coordenadas nativas van de 0 a 1. El rango y el suavizado del efecto permanecen en el estilo de capa."
+            ],
+            "table": {
+              "headers": [
+                "Campo",
+                "Valor"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fcontour"
+                ],
+                [
+                  "format",
+                  "focale-contour-presets"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Photoshop",
+                  ".shc"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validación y límites",
+            "paragraphs": [
+              "Límites: 16 MiB y 4096 entradas; nombres e identificadores: 4096 unidades UTF-16; grupos: 32 segmentos. Las curvas almacenadas tienen de 2 a 256 puntos finitos. El lector limita y ordena las coordenadas, une abscisas casi iguales y añade extremos ausentes. Una entrada inválida o un identificador duplicado rechaza la biblioteca.",
+              "La curva debe seguir teniendo como máximo 256 puntos tras normalizarla y añadir los extremos ausentes; de lo contrario se rechaza la importación."
+            ]
+          },
+          "exchange": {
+            "title": "Intercambio con Photoshop",
+            "paragraphs": [
+              "SHC importa y exporta nombres, puntos y esquinas. La exportación redondea a la cuadrícula 0–255 y une puntos con la misma x. .fcontour conserva la precisión nativa, los identificadores y los grupos."
+            ]
+          }
+        }
+      },
+      "blackAndWhiteFormat": {
+        "title": "Blanco y negro (.fblackandwhite)",
+        "description": "Pesos y tinte completos del ajuste nativo de blanco y negro.",
+        "sections": {
+          "use": {
+            "title": "Uso en la aplicación",
+            "paragraphs": [
+              "En el editor del ajuste, Cargar acepta el archivo Focale o su equivalente Photoshop. Guardar el ajuste Focale conserva la precisión nativa; Exportar el ajuste Photoshop escribe el archivo Adobe."
+            ]
+          },
+          "schema": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "El JSON UTF-8 contiene format igual a focale-adjustment-preset, version entera igual a 1, el kind correspondiente y el objeto settings completo. Cada archivo contiene un ajuste, sin recursos externos ni identidad de capa. Todos los parámetros son obligatorios, incluidos los predeterminados.",
+              "Los seis pesos reds, yellows, greens, cyans, blues y magentas van de −2 a 3. tint es 0 o 1; tintColor es un entero ARGB sin signo. Se requieren los ocho parámetros."
+            ],
+            "table": {
+              "headers": [
+                "Campo",
+                "Valor"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fblackandwhite"
+                ],
+                [
+                  "format",
+                  "focale-adjustment-preset"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "kind",
+                  "blackAndWhite"
+                ],
+                [
+                  "Photoshop",
+                  ".blw"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validación y límites",
+            "paragraphs": [
+              "Tamaño máximo: 64 KiB. Se rechaza todo el archivo si el tipo o la versión no coinciden, faltan parámetros, hay parámetros desconocidos, valores no numéricos, no finitos o fuera de rango, o indicadores fraccionarios. No se recortan ni sustituyen valores silenciosamente."
+            ]
+          },
+          "exchange": {
+            "title": "Intercambio con Photoshop",
+            "paragraphs": [
+              "Ambos formatos permiten importar y exportar. Los archivos Photoshop cubren los parámetros compatibles y pueden cuantizar valores; el formato nativo conserva exactamente los valores de Focale."
+            ]
+          }
+        }
+      },
+      "duotoneFormat": {
+        "title": "Duotono (.fduotone)",
+        "description": "Tintas, colores de previsualización y curvas de cobertura portátiles.",
+        "sections": {
+          "use": {
+            "title": "Uso en la aplicación",
+            "paragraphs": [
+              "Imagen → Modo permite cargar opciones de duotono y guardar el ajuste preestablecido en un documento de duotono. La carga cambia la interpretación de la placa gris en una operación reversible."
+            ]
+          },
+          "schema": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "settings contiene de una a cuatro tintas ordenadas. Cada tinta incluye name sin espacios sobrantes, color ARGB opaco y curve en Base64 con exactamente 256 bytes de cobertura. photoshopData conserva opcionalmente los datos Adobe originales. Los colores resueltos del catálogo viajan con el archivo."
+            ],
+            "table": {
+              "headers": [
+                "Campo",
+                "Valor"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fduotone"
+                ],
+                [
+                  "format",
+                  "focale-duotone-preset"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Photoshop",
+                  ".ado"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validación y límites",
+            "paragraphs": [
+              "Máximo 128 KiB, de una a cuatro tintas, 63 unidades UTF-16 por nombre, 256 bytes por curva y 64 KiB de datos Adobe. Cualquier dato ausente, desconocido o inválido rechaza todo el archivo."
+            ]
+          },
+          "exchange": {
+            "title": "Intercambio con Photoshop",
+            "paragraphs": [
+              "ADO solo se importa en este flujo. Las tintas de catálogo necesitan el libro ACB correspondiente para resolver sus colores. Tras guardar .fduotone, los colores resueltos y las curvas nativas ya no dependen de ese libro."
+            ]
+          }
+        }
+      },
+      "cameraRawFormat": {
+        "title": "Camera Raw (.fcameraraw)",
+        "description": "Una receta de revelado completa con perfiles y máscaras locales.",
+        "sections": {
+          "use": {
+            "title": "Uso en la aplicación",
+            "paragraphs": [
+              "En la barra de ajustes de Camera Raw, Cargar acepta archivos Focale o Camera Raw XMP; Exportar guarda la receta nativa actual. El botón más sigue guardando un ajuste local con nombre."
+            ]
+          },
+          "schema": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "settings contiene la receta completa: tono, color, curva, detalle, óptica, geometría, calibración y máscaras locales. Los coeficientes ópticos y el perfil ICC RGB de salida personalizado están incorporados. Los campos opcionales siguen las reglas de omisión de la referencia."
+            ],
+            "table": {
+              "headers": [
+                "Campo",
+                "Valor"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fcameraraw"
+                ],
+                [
+                  "format",
+                  "focale-camera-raw-preset"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Photoshop",
+                  ".xmp"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validación y límites",
+            "paragraphs": [
+              "Máximo 24 MiB, con hasta 16 MiB de ICC decodificado, 16 máscaras locales, 4096 puntos de pincel en total y cuatro guías geométricas. Campos obligatorios ausentes, valores desconocidos, perfiles inválidos y ajustes fuera de rango se rechazan sin corregirlos silenciosamente."
+            ]
+          },
+          "exchange": {
+            "title": "Intercambio con Photoshop",
+            "paragraphs": [
+              "Camera Raw XMP aplica los campos compatibles sobre los ajustes actuales. La importación nativa restaura toda la receta sin reasignar su perfil óptico. El filtro Camera Raw adapta los ajustes exclusivos del sensor al uso ráster. No se garantiza un resultado visual idéntico al de Adobe."
+            ]
+          }
+        }
+      },
+      "colorLookupFormat": {
+        "title": "Consulta de colores (.fcolorlookup)",
+        "description": "Una tabla de consulta de colores con precisión de muestras nativa.",
+        "sections": {
+          "use": {
+            "title": "Uso en la aplicación",
+            "paragraphs": [
+              "En Consulta de colores, Cargar acepta .fcolorlookup o .cube. Guardar el ajuste Focale exporta la tabla completa y está disponible cuando hay una tabla cargada."
+            ]
+          },
+          "schema": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "La envoltura usa kind colorLookup y settings vacío. lookupTable contiene name, size, values RGB y los arrays opcionales domainMinimum/domainMaximum cuando difieren del valor predeterminado. Las muestras conservan sus valores float32 nativos."
+            ],
+            "table": {
+              "headers": [
+                "Campo",
+                "Valor"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fcolorlookup"
+                ],
+                [
+                  "format",
+                  "focale-adjustment-preset"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "kind",
+                  "colorLookup"
+                ],
+                [
+                  "Photoshop",
+                  ".cube"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validación y límites",
+            "paragraphs": [
+              "Máximo 32 MiB. El cubo mide 2–64 muestras por eje y contiene exactamente size³ × 3 valores finitos, un nombre de hasta 4096 unidades UTF-16 y dominios de canal válidos. Una tabla ausente o inválida rechaza el ajuste."
+            ]
+          },
+          "exchange": {
+            "title": "Intercambio con Photoshop",
+            "paragraphs": [
+              "CUBE solo se importa. Las tablas unidimensionales compatibles se expanden a cubos tridimensionales. La exportación nativa conserva la tabla resuelta sin depender del archivo CUBE original."
             ]
           }
         }

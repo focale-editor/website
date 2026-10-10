@@ -837,8 +837,9 @@ preserves the source pixel's alpha. Each stop may store `midpoint`, the relative
 position in the segment leading to the following stop where both colours
 contribute equally. It is clamped to `0.05` through `0.95`, defaults to `0.5`
 when omitted and is ignored on the final stop. `interpolation` is one of
-`perceptual`, `linear`, `classic`, `smooth` or `stripes`; unknown values fall
-back to `perceptual`.
+`perceptual`, `linear`, `encoded`, `classic`, `smooth` or `stripes`; unknown values fall
+back to `perceptual`. `encoded` interpolates encoded RGB without easing,
+whereas `linear` interpolates linear-light RGB.
 
 The obsolete `startColor`, `midColor`, `endColor`, `useMidpoint` and `midpoint`
 fields are still accepted on read and converted to a `classic` gradient. New
@@ -1221,10 +1222,41 @@ The Blending Options of a layer, absent unless something is set:
   },
   "effects": [
     {"kind": "dropShadow", "enabled": true, "color": 4278190080, "angle": 120, "distance": 8, "size": 8,
-     "spread": 0, "blendMode": "multiply", "contour": {"profile": "linear", "range": 1, "antiAliased": true}}
+     "spread": 0, "blendMode": "multiply", "contour": {"curve": [[0, 0], [1, 1]], "range": 1, "antiAliased": true}}
   ]
 }
 ```
+
+Effect contours store `curve` as normalized `[x, y]` points, with a third
+component equal to `1` for a corner, plus `range` and `antiAliased`. `range` is
+half of Photoshop's percentage, from 0.02 to 2, so the default 1 is
+Photoshop's 50%; files written before this range accepted 0.1–1.
+
+Effects add Photoshop's options as optional keys, each omitted at its default:
+`noise` (0–1) on shadows and glows; `layerKnocksOut: false` on a drop shadow;
+`technique` (`softer` or `precise`), `jitter` (0–1), `useGradient` and a
+`gradient` ramp on glows; a `contour` on the satin; and on Bevel & Emboss a
+`glossContour`, the `chiselSoft` technique, the `strokeEmboss` style, a `depth`
+up to 10, and texture `invert`, `linkWithLayer` and `phaseX`/`phaseY`.
+Gradient Overlay stores its ramp as a `gradient` object with `shape` (now
+including `shapeBurst` for strokes), `angle`, `scale`, `reverse`, and optional
+`alignWithLayer: false`, `offsetX`/`offsetY` (fractions of the reference bounds) and
+`dither`; files storing `startColor` and `endColor` are still read as a
+two-stop `encoded` ramp, preserving the original native shader interpolation. Pattern Overlay stores `pattern` and `scale` (0.01–10) with the
+same optional anchoring keys as textures. A stroke filled otherwise than with
+its `color` writes `fillType` (`gradient` or `pattern`). Both `gradient` and
+`pattern` objects remain stored regardless of the active fill type so switching
+types does not discard settings. Imported pattern resources are retained even
+for disabled textures and styles captured only in layer compositions.
+Unaligned gradients span the document; unlinked motifs remain anchored in
+document coordinates, including under transformed ancestor groups.
+Curves contain at most 256 points after normalization, including added endpoints;
+imports that cannot satisfy this bound are rejected before saving. Antialiasing
+smooths curve transitions over the device-pixel coverage footprint without
+changing the stored points.
+Legacy `profile` names remain readable when no valid curve is supplied. The
+[contour library specification](contours.md) describes the curve representation
+and native `.fcontour` interchange; applied styles embed the curve itself.
 
 `fillOpacity` is written only when it is below 1, `blendIf` only when at least
 one range is active, and `effects` only when at least one is configured, so a
@@ -2038,3 +2070,7 @@ change the archive or `.fcraster` byte layout. Canonical 16-bit and float32
 samples are serialized directly, independently of browser display readback.
 Pattern and sampled-brush content identifiers use exact low-32-bit products on
 both native and JavaScript runtimes, preserving references across platforms.
+
+## Independent settings exchange
+
+The applied document representations above are also exchangeable independently through [adjustment presets](adjustments.md), including `.fblackandwhite` and `.fcolorlookup`, [`.fduotone`](duotone.md) ink specifications and [`.fcameraraw`](camera-raw.md) development recipes. These files do not change the project container version.

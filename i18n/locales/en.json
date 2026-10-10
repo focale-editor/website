@@ -809,12 +809,12 @@
       },
       "presetFormats": {
         "title": "Native preset and action formats",
-        "description": "Portable libraries for brushes, patterns, shapes, styles, colour and automation.",
+        "description": "Native libraries and standalone adjustment presets for brushes, patterns, shapes, styles, colours and automation.",
         "sections": {
           "catalogue": {
             "title": "Format identifiers",
             "paragraphs": [
-              "These user-facing formats use UTF-8 JSON with an explicit format tag and version. Export through the corresponding catalogue to back up or share presets; local cache files are implementation details."
+              "These user-facing formats use UTF-8 JSON with an explicit format tag and version. Save or export from the corresponding editor or catalogue to back up and share presets. Local caches are implementation details."
             ],
             "table": {
               "headers": [
@@ -871,6 +871,60 @@
                   "1",
                   "focale-action-set",
                   "One action set with referenced paint resources"
+                ],
+                [
+                  ".fcontour",
+                  "1",
+                  "focale-contour-presets",
+                  "Effect contours"
+                ],
+                [
+                  ".flevels",
+                  "1",
+                  "focale-adjustment-preset",
+                  "Levels"
+                ],
+                [
+                  ".fhuesaturation",
+                  "1",
+                  "focale-adjustment-preset",
+                  "Hue/Saturation"
+                ],
+                [
+                  ".fselectivecolor",
+                  "1",
+                  "focale-adjustment-preset",
+                  "Selective Color"
+                ],
+                [
+                  ".fchannelmixer",
+                  "1",
+                  "focale-adjustment-preset",
+                  "Channel Mixer"
+                ],
+                [
+                  ".fblackandwhite",
+                  "1",
+                  "focale-adjustment-preset",
+                  "Black & White"
+                ],
+                [
+                  ".fduotone",
+                  "1",
+                  "focale-duotone-preset",
+                  "Duotone"
+                ],
+                [
+                  ".fcameraraw",
+                  "1",
+                  "focale-camera-raw-preset",
+                  "Camera Raw"
+                ],
+                [
+                  ".fcolorlookup",
+                  "1",
+                  "focale-adjustment-preset",
+                  "Color Lookup"
                 ]
               ]
             }
@@ -878,7 +932,7 @@
           "envelope": {
             "title": "A portable JSON library",
             "paragraphs": [
-              "Most preset libraries contain a presets array. Action bundles instead contain one set with actions and steps. Identifiers, names and values are typed and validated rather than accepted as arbitrary executable code.",
+              "Libraries contain presets, adjustment files contain kind and settings, and action files contain set. Duotone and Camera Raw files contain complete settings under their own format identifiers.",
               "The example is a version-1 gradient library. Exact schemas, bounds and compatibility rules for each family are in the downloadable references."
             ]
           },
@@ -886,14 +940,14 @@
             "title": "Raster and vector assets",
             "paragraphs": [
               "Brush tips encode one coverage byte per pixel in Base64. Pattern assets encode row-major, straight-alpha RGBA with four bytes per pixel. Shapes retain normalized vector anchors and relative Bézier handles.",
-              "Native brush and pattern bundles embed their referenced resources. Dimensions, lengths and content identities are checked before textures are created. Resource and file-size limits differ by format."
+              "Native brush, pattern and style libraries embed their referenced resources. Camera Raw presets also carry optical and output ICC profiles; duotone presets carry resolved ink colours and curves."
             ]
           },
           "compatibility": {
             "title": "Photoshop library interchange",
             "items": [
               "Interchange support does not cover every historical version or every Photoshop feature.",
-              "Native libraries retain Focale’s own values. ASL pattern pixels and some context-dependent Adobe values do not map into every native catalogue."
+              "Native presets retain Focale settings and their embedded resources. Adobe interchange covers the supported subset and may quantize values or approximate rendering."
             ],
             "table": {
               "headers": [
@@ -924,23 +978,68 @@
                 ],
                 [
                   "Swatches",
-                  "ACO",
-                  "Import only"
+                  "ACO / ASE / ACT / ACB",
+                  "ACO: import/export; ASE/ACT/ACB: import"
                 ],
                 [
                   "Gradients",
                   "GRD",
-                  "Import only"
+                  "Import and export"
                 ],
                 [
                   "Curves",
                   "ACV",
-                  "Import only"
+                  "Import and export"
                 ],
                 [
                   "Actions",
                   "ATN",
                   "Import and export; only supported operations can execute"
+                ],
+                [
+                  "Effect contours",
+                  "SHC",
+                  "Import and export"
+                ],
+                [
+                  "Levels",
+                  "ALV",
+                  "Import and export"
+                ],
+                [
+                  "Hue/Saturation",
+                  "AHU",
+                  "Import and export"
+                ],
+                [
+                  "Selective Color",
+                  "ASV",
+                  "Import and export"
+                ],
+                [
+                  "Channel Mixer",
+                  "CHA",
+                  "Import and export"
+                ],
+                [
+                  "Black & White",
+                  "BLW",
+                  "Import and export"
+                ],
+                [
+                  "Duotone",
+                  "ADO",
+                  "Import only"
+                ],
+                [
+                  "Camera Raw",
+                  "XMP",
+                  "Import only"
+                ],
+                [
+                  "Color Lookup",
+                  "CUBE",
+                  "Import only"
                 ]
               ]
             }
@@ -1183,7 +1282,8 @@
             "title": "File structure",
             "paragraphs": [
               "UTF-8 JSON with an explicit format tag and version. The current reader and writer use version 1. The example shows the library envelope; the full reference describes the complete value schemas.",
-              "presets holds named style objects, optional groups, fillOpacity, effects and Blend If ranges. Enabled and disabled effects remain editable: this is not a library of rendered thumbnails."
+              "presets holds named style objects, optional groups, fillOpacity, effects and Blend If ranges. Enabled and disabled effects remain editable: this is not a library of rendered thumbnails.",
+              "Each entry in the optional patterns array contains id, width, height, Base64 straight-alpha rgba pixels and an optional display name. This patterns[].name is separate from the required presets[].name of each style. When a pattern name is absent or blank, import uses the library filename followed by a number. Names are trimmed on import, and patterns are grouped under the library name. Existing version-1 files without pattern names remain supported."
             ],
             "table": {
               "headers": [
@@ -1213,13 +1313,13 @@
           "limits": {
             "title": "Validation and limits",
             "paragraphs": [
-              "Maximum: 16 MiB and 4,096 presets, with names and ids up to 4,096 UTF-16 code units and 32 group levels. Duplicate identities or malformed entries reject the whole import."
+              "Limits: 256 MiB encoded, 256 MiB of decoded pattern pixels and 4096 presets; names and IDs: 4096 UTF-16 units; groups: 32 levels. Invalid entries or duplicates reject the library."
             ]
           },
           "exchange": {
             "title": "Photoshop interchange",
             "paragraphs": [
-              "ASL exchange keeps effects and blending options that Focale can reproduce. Embedded ASL pattern pixels are currently skipped; .fstyle retains the native editable representation."
+              "ASL import and export carry supported effects and their embedded patterns. Native .fstyle also embeds the patterns referenced by overlays, strokes and bevel textures. Adobe noise gradients and some effect rendering remain approximate."
             ]
           }
         }
@@ -1274,7 +1374,8 @@
           "exchange": {
             "title": "Photoshop interchange",
             "paragraphs": [
-              "ACO is import-only. Supported Adobe values are converted to the catalogue colour model. Export .fswatch to preserve Focale names, groups and values."
+              "ACO supports import and export of named colours. ASE imports swatches and groups; ACT imports colour tables without the transparent entry. ASE and ACT are import-only. Use .fswatch to preserve native alpha, names, identifiers and groups.",
+              "ACB imports named colour-book entries, skips placeholders and retains catalogue codes in native identifiers. These colours can resolve matching-system ADO inks. ASE, ACT and ACB are import-only; .fswatch preserves native colours, names and groups."
             ]
           }
         }
@@ -1329,7 +1430,7 @@
           "exchange": {
             "title": "Photoshop interchange",
             "paragraphs": [
-              "GRD is import-only for supported custom solid gradients. Use .fgradient for native backup and exchange; importing a Photoshop file does not guarantee every gradient variant is supported."
+              "GRD supports import and export of supported solid gradients. Export quantizes positions and midpoints and omits the native interpolation choice and groups. Noise and context-dependent stops are not imported. Use .fgradient for the complete native library."
             ]
           }
         }
@@ -1384,7 +1485,7 @@
           "exchange": {
             "title": "Photoshop interchange",
             "paragraphs": [
-              "ACV is import-only. Supported Photoshop curves map to the four native channels. Use .fcurve to back up and share the complete Focale preset."
+              "ACV supports import and export. Import adds supported four-channel curves; export saves the current curve set, not the whole catalogue, with Adobe numeric precision. Use .fcurve for the complete native library."
             ]
           }
         }
@@ -1440,6 +1541,518 @@
             "title": "Photoshop interchange",
             "paragraphs": [
               "ATN import and export use only mapped operations for playback. Unsupported events remain disabled rather than approximated. Keep .faction as the portable native set, distinct from the application’s internal multi-set catalogue."
+            ]
+          }
+        }
+      },
+      "levelsFormat": {
+        "title": "Levels (.flevels)",
+        "description": "A standalone native preset containing all settings of this adjustment.",
+        "sections": {
+          "use": {
+            "title": "Use in the application",
+            "paragraphs": [
+              "In this adjustment’s editor, Load preset accepts the Focale file or its Photoshop counterpart. Save Focale preset keeps native precision; Export Photoshop preset writes the Adobe file."
+            ]
+          },
+          "schema": {
+            "title": "File structure",
+            "paragraphs": [
+              "The UTF-8 JSON envelope has format focale-adjustment-preset, integer version 1, the matching kind and a complete settings object. One file contains one preset; it has no external resources or layer identity. Every setting is required, including defaults."
+            ],
+            "table": {
+              "headers": [
+                "Field",
+                "Value"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".flevels"
+                ],
+                [
+                  "format",
+                  "focale-adjustment-preset"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "kind",
+                  "levels"
+                ],
+                [
+                  "Photoshop",
+                  ".alv"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validation and limits",
+            "paragraphs": [
+              "Maximum size: 64 KiB. A wrong kind or version, missing or unknown settings, nonnumeric or nonfinite values, out-of-range values and fractional toggles reject the whole file. Nothing is clamped or silently replaced."
+            ]
+          },
+          "exchange": {
+            "title": "Photoshop interchange",
+            "paragraphs": [
+              "Both formats can be imported and exported. Photoshop files cover supported settings and may quantize values; use the native preset for an exact backup of Focale values."
+            ]
+          }
+        }
+      },
+      "hueSaturationFormat": {
+        "title": "Hue/Saturation (.fhuesaturation)",
+        "description": "A standalone native preset containing all settings of this adjustment.",
+        "sections": {
+          "use": {
+            "title": "Use in the application",
+            "paragraphs": [
+              "In this adjustment’s editor, Load preset accepts the Focale file or its Photoshop counterpart. Save Focale preset keeps native precision; Export Photoshop preset writes the Adobe file."
+            ]
+          },
+          "schema": {
+            "title": "File structure",
+            "paragraphs": [
+              "The UTF-8 JSON envelope has format focale-adjustment-preset, integer version 1, the matching kind and a complete settings object. One file contains one preset; it has no external resources or layer identity. Every setting is required, including defaults."
+            ],
+            "table": {
+              "headers": [
+                "Field",
+                "Value"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fhuesaturation"
+                ],
+                [
+                  "format",
+                  "focale-adjustment-preset"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "kind",
+                  "hueSaturation"
+                ],
+                [
+                  "Photoshop",
+                  ".ahu"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validation and limits",
+            "paragraphs": [
+              "Maximum size: 64 KiB. A wrong kind or version, missing or unknown settings, nonnumeric or nonfinite values, out-of-range values and fractional toggles reject the whole file. Nothing is clamped or silently replaced."
+            ]
+          },
+          "exchange": {
+            "title": "Photoshop interchange",
+            "paragraphs": [
+              "Both formats can be imported and exported. Photoshop files cover supported settings and may quantize values; use the native preset for an exact backup of Focale values."
+            ]
+          }
+        }
+      },
+      "selectiveColorFormat": {
+        "title": "Selective Color (.fselectivecolor)",
+        "description": "A standalone native preset containing all settings of this adjustment.",
+        "sections": {
+          "use": {
+            "title": "Use in the application",
+            "paragraphs": [
+              "In this adjustment’s editor, Load preset accepts the Focale file or its Photoshop counterpart. Save Focale preset keeps native precision; Export Photoshop preset writes the Adobe file."
+            ]
+          },
+          "schema": {
+            "title": "File structure",
+            "paragraphs": [
+              "The UTF-8 JSON envelope has format focale-adjustment-preset, integer version 1, the matching kind and a complete settings object. One file contains one preset; it has no external resources or layer identity. Every setting is required, including defaults."
+            ],
+            "table": {
+              "headers": [
+                "Field",
+                "Value"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fselectivecolor"
+                ],
+                [
+                  "format",
+                  "focale-adjustment-preset"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "kind",
+                  "selectiveColor"
+                ],
+                [
+                  "Photoshop",
+                  ".asv"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validation and limits",
+            "paragraphs": [
+              "Maximum size: 64 KiB. A wrong kind or version, missing or unknown settings, nonnumeric or nonfinite values, out-of-range values and fractional toggles reject the whole file. Nothing is clamped or silently replaced."
+            ]
+          },
+          "exchange": {
+            "title": "Photoshop interchange",
+            "paragraphs": [
+              "Both formats can be imported and exported. Photoshop files cover supported settings and may quantize values; use the native preset for an exact backup of Focale values."
+            ]
+          }
+        }
+      },
+      "channelMixerFormat": {
+        "title": "Channel Mixer (.fchannelmixer)",
+        "description": "A standalone native preset containing all settings of this adjustment.",
+        "sections": {
+          "use": {
+            "title": "Use in the application",
+            "paragraphs": [
+              "In this adjustment’s editor, Load preset accepts the Focale file or its Photoshop counterpart. Save Focale preset keeps native precision; Export Photoshop preset writes the Adobe file."
+            ]
+          },
+          "schema": {
+            "title": "File structure",
+            "paragraphs": [
+              "The UTF-8 JSON envelope has format focale-adjustment-preset, integer version 1, the matching kind and a complete settings object. One file contains one preset; it has no external resources or layer identity. Every setting is required, including defaults."
+            ],
+            "table": {
+              "headers": [
+                "Field",
+                "Value"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fchannelmixer"
+                ],
+                [
+                  "format",
+                  "focale-adjustment-preset"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "kind",
+                  "channelMixer"
+                ],
+                [
+                  "Photoshop",
+                  ".cha"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validation and limits",
+            "paragraphs": [
+              "Maximum size: 64 KiB. A wrong kind or version, missing or unknown settings, nonnumeric or nonfinite values, out-of-range values and fractional toggles reject the whole file. Nothing is clamped or silently replaced."
+            ]
+          },
+          "exchange": {
+            "title": "Photoshop interchange",
+            "paragraphs": [
+              "Both formats can be imported and exported. Photoshop files cover supported settings and may quantize values; use the native preset for an exact backup of Focale values."
+            ]
+          }
+        }
+      },
+      "contourFormat": {
+        "title": "Effect contours (.fcontour)",
+        "description": "Named falloff curves for layer effects, with smooth points and corners.",
+        "sections": {
+          "use": {
+            "title": "Use in the application",
+            "paragraphs": [
+              "The contour selector saves the current curve as a named preset and imports or exports user libraries as .fcontour or .shc. Built-in entries are excluded from export. Catalogue edits do not change effects already applied."
+            ]
+          },
+          "schema": {
+            "title": "File structure",
+            "paragraphs": [
+              "Each presets entry has id, name, optional groupPath and curve. Points are [x, y] for a smooth point or [x, y, 1] for a corner. Native coordinates use the 0–1 range. Effect range and antialiasing stay with the layer style."
+            ],
+            "table": {
+              "headers": [
+                "Field",
+                "Value"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fcontour"
+                ],
+                [
+                  "format",
+                  "focale-contour-presets"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Photoshop",
+                  ".shc"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validation and limits",
+            "paragraphs": [
+              "Maximum size: 16 MiB and 4,096 entries; names and identifiers: 4,096 UTF-16 units; groups: 32 segments. Stored curves have 2–256 finite points. The reader clamps and sorts coordinates, merges nearly equal x positions and supplies missing endpoints. Invalid entries or duplicate identifiers reject the library.",
+              "The curve must still fit 256 points after normalization and insertion of missing endpoints; otherwise the import is rejected."
+            ]
+          },
+          "exchange": {
+            "title": "Photoshop interchange",
+            "paragraphs": [
+              "SHC imports and exports names, points and corners. Export rounds coordinates to the 0–255 grid and merges points at the same x. Use .fcontour to preserve native precision, identifiers and groups."
+            ]
+          }
+        }
+      },
+      "blackAndWhiteFormat": {
+        "title": "Black & White (.fblackandwhite)",
+        "description": "Complete native black-and-white weights and tint.",
+        "sections": {
+          "use": {
+            "title": "Use in the application",
+            "paragraphs": [
+              "In this adjustment’s editor, Load preset accepts the Focale file or its Photoshop counterpart. Save Focale preset keeps native precision; Export Photoshop preset writes the Adobe file."
+            ]
+          },
+          "schema": {
+            "title": "File structure",
+            "paragraphs": [
+              "The UTF-8 JSON envelope has format focale-adjustment-preset, integer version 1, the matching kind and a complete settings object. One file contains one preset; it has no external resources or layer identity. Every setting is required, including defaults.",
+              "Six colour weights (reds, yellows, greens, cyans, blues, magentas) range from −2 to 3. tint is 0 or 1; tintColor is a whole unsigned ARGB value. All eight parameters are required."
+            ],
+            "table": {
+              "headers": [
+                "Field",
+                "Value"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fblackandwhite"
+                ],
+                [
+                  "format",
+                  "focale-adjustment-preset"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "kind",
+                  "blackAndWhite"
+                ],
+                [
+                  "Photoshop",
+                  ".blw"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validation and limits",
+            "paragraphs": [
+              "Maximum size: 64 KiB. A wrong kind or version, missing or unknown settings, nonnumeric or nonfinite values, out-of-range values and fractional toggles reject the whole file. Nothing is clamped or silently replaced."
+            ]
+          },
+          "exchange": {
+            "title": "Photoshop interchange",
+            "paragraphs": [
+              "Both formats can be imported and exported. Photoshop files cover supported settings and may quantize values; use the native preset for an exact backup of Focale values."
+            ]
+          }
+        }
+      },
+      "duotoneFormat": {
+        "title": "Duotone (.fduotone)",
+        "description": "Portable printing inks, preview colours and coverage curves.",
+        "sections": {
+          "use": {
+            "title": "Use in the application",
+            "paragraphs": [
+              "Image → Mode offers Load duotone options and Save duotone preset for a duotone document. Loading replaces the ink interpretation of the gray plate as one undoable change."
+            ]
+          },
+          "schema": {
+            "title": "File structure",
+            "paragraphs": [
+              "settings contains one to four inks in order. Each ink has a trimmed name, an opaque ARGB color and a Base64 curve of exactly 256 coverage bytes. Optional photoshopData retains the original Adobe payload. Resolved colour-book colours travel with the file."
+            ],
+            "table": {
+              "headers": [
+                "Field",
+                "Value"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fduotone"
+                ],
+                [
+                  "format",
+                  "focale-duotone-preset"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Photoshop",
+                  ".ado"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validation and limits",
+            "paragraphs": [
+              "Maximum 128 KiB, one to four inks, 63 UTF-16 units per name, exactly 256 bytes per curve and at most 64 KiB of Adobe payload. Missing, unknown or invalid data rejects the whole file."
+            ]
+          },
+          "exchange": {
+            "title": "Photoshop interchange",
+            "paragraphs": [
+              "ADO is import-only in the preset workflow. Matching-system inks need the corresponding imported ACB book to resolve their colours. Once saved as .fduotone, those resolved colours and native curves no longer require that book."
+            ]
+          }
+        }
+      },
+      "cameraRawFormat": {
+        "title": "Camera Raw (.fcameraraw)",
+        "description": "A complete development recipe with its embedded profiles and local masks.",
+        "sections": {
+          "use": {
+            "title": "Use in the application",
+            "paragraphs": [
+              "In the Camera Raw preset bar, Load accepts a Focale file or Camera Raw XMP; Export saves the current native recipe. The plus button still saves a named local preset."
+            ]
+          },
+          "schema": {
+            "title": "File structure",
+            "paragraphs": [
+              "settings contains the complete native recipe: tone, colour, curve, detail, optics, geometry, calibration and local masks. Optical coefficients and a custom RGB ICC output profile are embedded. Optional fields follow the canonical omission rules in the reference."
+            ],
+            "table": {
+              "headers": [
+                "Field",
+                "Value"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fcameraraw"
+                ],
+                [
+                  "format",
+                  "focale-camera-raw-preset"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "Photoshop",
+                  ".xmp"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validation and limits",
+            "paragraphs": [
+              "Maximum 24 MiB, including at most 16 MiB of decoded ICC data, 16 local masks, 4096 brush points in total and four geometry guides. Missing required fields, unknown values, invalid profiles or out-of-range settings reject the file without silently changing it."
+            ]
+          },
+          "exchange": {
+            "title": "Photoshop interchange",
+            "paragraphs": [
+              "Camera Raw XMP imports its supported fields over the current settings. Native import restores the entire recipe without rematching its optical profile. Camera Raw Filter normalizes sensor-only settings for raster use. Native export does not promise identical Adobe rendering."
+            ]
+          }
+        }
+      },
+      "colorLookupFormat": {
+        "title": "Color Lookup (.fcolorlookup)",
+        "description": "A portable colour lookup table retaining native sample precision.",
+        "sections": {
+          "use": {
+            "title": "Use in the application",
+            "paragraphs": [
+              "In Color Lookup, Load accepts .fcolorlookup or .cube. Save Focale preset exports the complete loaded table and becomes available once a table exists."
+            ]
+          },
+          "schema": {
+            "title": "File structure",
+            "paragraphs": [
+              "The adjustment envelope uses kind colorLookup and an empty settings object. The required lookupTable contains name, size, RGB values and optional nondefault domainMinimum/domainMaximum arrays. Samples retain their native float32 values."
+            ],
+            "table": {
+              "headers": [
+                "Field",
+                "Value"
+              ],
+              "rows": [
+                [
+                  "Extension",
+                  ".fcolorlookup"
+                ],
+                [
+                  "format",
+                  "focale-adjustment-preset"
+                ],
+                [
+                  "version",
+                  "1"
+                ],
+                [
+                  "kind",
+                  "colorLookup"
+                ],
+                [
+                  "Photoshop",
+                  ".cube"
+                ]
+              ]
+            }
+          },
+          "limits": {
+            "title": "Validation and limits",
+            "paragraphs": [
+              "Maximum 32 MiB. The cube size is 2–64, with exactly size³ × 3 finite samples, a name of at most 4096 UTF-16 units and valid channel domains. A missing or invalid table rejects the entire preset."
+            ]
+          },
+          "exchange": {
+            "title": "Photoshop interchange",
+            "paragraphs": [
+              "CUBE is import-only. Supported one-dimensional tables are expanded to a three-dimensional cube. Native export preserves the resolved table and no longer depends on the original CUBE file."
             ]
           }
         }

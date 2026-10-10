@@ -55,23 +55,43 @@ incorrect value.
 
 ## Photoshop interchange
 
-- `.aco` versions 1 and 2 import RGB, HSB, CMYK, Lab and grayscale swatches.
-  When a file contains the conventional version-1 compatibility section
-  followed by version 2, the named version-2 records take precedence.
-- `.grd` version 5 imports descriptor-backed custom solid gradients, including
-  colour stops, transparency stops, locations and midpoints. RGB, grayscale,
-  CMYK, HSB and Lab colours are converted to sRGB. Noise gradients and
-  foreground/background-dependent stops are skipped because a context-free
-  reusable value cannot reproduce them faithfully.
-- `.acv` versions 1 and 4 import the composite RGB curve followed by red, green
-  and blue channels. AcvKit owns the binary codec, including the optional
-  channel-indexed version-1 section; Focale strictly decodes it with bounded
-  allocations and adapts only the effective semantic curves. Channels beyond
-  the editable RGB model are ignored.
+- `.aco` imports colour swatches and exports named RGB swatches. Native alpha,
+  catalogue identifiers and group paths are retained by `.fswatch`, not ACO.
+  Imports convert supported RGB, HSB, CMYK, Lab and grayscale colours to sRGB;
+  named version-2 records take precedence over a version-1 compatibility section.
+- `.ase` imports Adobe Swatch Exchange libraries and their groups. `.act`
+  imports Photoshop colour tables, omitting the transparent entry. `.acb`
+  imports Photoshop colour books (Pantone, HKS, Toyo and others) grouped under
+  the book's title, with the names Photoshop shows and without the page
+  placeholders; their RGB, CMYK or Lab inks are approximated in sRGB. These
+  three formats are import-only; any can be saved afterward as `.fswatch`.
+- `.ado` Photoshop duotone options replace the inks of a duotone document
+  through Image > Mode > Load duotone options; only the interpretation of the
+  gray plate changes. Each ink keeps its name and transfer curve, sampled
+  between Photoshop's thirteen points. Process and Lab inks are converted to
+  sRGB; Pantone and other matching-system inks only store a catalog code, so
+  their colour comes from an imported `.acb` book whose colour has the same
+  code, and the file is refused when none matches. The original bytes are kept
+  and written back as the PSD duotone data, which Photoshop's documents also
+  use: a duotone PSD opens with its real inks under the same rules, while a
+  document whose inks cannot be shown previews in black.
+- `.grd` imports supported legacy and descriptor-backed custom solid gradients,
+  including colour and transparency stops, midpoints and library groups. Noise
+  gradients and context-dependent foreground/background stops are skipped.
+  GRD export writes user gradients with separate colour and transparency stops,
+  quantizing positions and midpoints; Focale's interpolation choice and catalogue
+  groups are not retained. Use `.fgradient` for the complete native library.
+- `.acv` imports composite RGB, red, green and blue curves from versions 1 and 4.
+  AcvKit owns the bounded binary codec and channel-indexed supplemental data.
+  Extra channels outside Focale's RGB model are ignored. Export writes the
+  current four-channel curve set, not the whole catalogue, on Adobe's numeric
+  grid. `.fcurve` retains the complete native library and point precision.
 
-Adobe files are import-only for these three families; native export preserves
-all Focale values without pretending to emit undocumented variants. Parsing is
-bounded and leaves the user-interface isolate for potentially large files.
+Native export preserves all Focale values. Parsing is bounded and leaves the
+user-interface isolate for potentially large files. Layer-effect contours and
+SHC interchange are documented in [contour libraries](contours.md); ALV, AHU,
+ASV and CHA with their native counterparts are documented in
+[standalone adjustment presets](adjustments.md).
 
 Layer-style presets and Photoshop `.asl` interchange are documented separately
 in `docs/formats/styles.md`. Brush `.fbrush`/`.abr`, pattern
@@ -79,3 +99,5 @@ in `docs/formats/styles.md`. Brush `.fbrush`/`.abr`, pattern
 typed catalogues and codec-kit boundaries.
 
 ADR 0117 records the common catalogue and format-ownership decisions.
+
+Standalone [Camera Raw](camera-raw.md), [duotone](duotone.md) and [Color Lookup](adjustments.md) settings are also independently exchangeable as `.fcameraraw`, `.fduotone` and `.fcolorlookup`.

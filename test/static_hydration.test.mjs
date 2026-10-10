@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict'
-import {readFile} from 'node:fs/promises'
-import {webcrypto} from 'node:crypto'
-import {fileURLToPath} from 'node:url'
-import {resolve} from 'node:path'
+import { readFile } from 'node:fs/promises'
+import { webcrypto } from 'node:crypto'
+import { fileURLToPath } from 'node:url'
+import { resolve } from 'node:path'
 import test from 'node:test'
 import vm from 'node:vm'
-import {JSDOM, VirtualConsole} from 'jsdom'
+import { JSDOM, VirtualConsole } from 'jsdom'
 
 const output = resolve(process.env.FOCALE_OUTPUT || fileURLToPath(new URL('../.output/public', import.meta.url)))
 const origin = 'https://focale-editor.app'
@@ -327,3 +327,89 @@ test('automatic redirection retains query parameters and anchors', async () => {
 test('an explicit documentation route hydrates without browser redirection', async () => {
   await hydrate({ path: '/fr/docs/faction/', language: 'de-DE', expectedLocale: 'fr' })
 })
+
+for (const locale of locales) {
+  test(`${locale} renders every new native preset page with a downloadable schema`, async () => {
+    const prefix = locale === 'en' ? '' : `/${locale}`
+    const specifications = [
+      ['flevels', 'levels', 'adjustment-presets.md'],
+      ['fhuesaturation', 'hueSaturation', 'adjustment-presets.md'],
+      ['fselectivecolor', 'selectiveColor', 'adjustment-presets.md'],
+      ['fchannelmixer', 'channelMixer', 'adjustment-presets.md'],
+      ['fcontour', null, 'contour-presets.md'],
+      ['fblackandwhite', 'blackAndWhite', 'adjustment-presets.md'],
+      ['fcolorlookup', 'colorLookup', 'adjustment-presets.md'],
+      ['fduotone', null, 'duotone-presets.md'],
+      ['fcameraraw', null, 'camera-raw-presets.md'],
+    ]
+    for (const [extension, kind, reference] of specifications) {
+      const dom = new JSDOM(await source(`${origin}${prefix}/docs/${extension}/`))
+      try {
+        const document = dom.window.document
+        assert.ok(document.querySelector('h1')?.textContent.includes(`.${extension}`))
+        const example = JSON.parse(document.querySelector('#schema pre code')?.textContent || 'null')
+        assert.equal(example.version, 1)
+        if (kind) {
+          assert.equal(example.format, 'focale-adjustment-preset')
+          assert.equal(example.kind, kind)
+          if (kind === 'colorLookup') {
+            assert.deepEqual(example.settings, {})
+            assert.equal(example.lookupTable.values.length, example.lookupTable.size ** 3 * 3)
+          }
+          else assert.ok(Object.keys(example.settings).length >= 3)
+        }
+        else if (extension === 'fduotone') {
+          assert.equal(example.format, 'focale-duotone-preset')
+          assert.equal(Buffer.from(example.settings.inks[0].curve, 'base64').length, 256)
+        }
+        else if (extension === 'fcameraraw') {
+          assert.equal(example.format, 'focale-camera-raw-preset')
+          assert.equal(example.settings.whiteBalance, 'camera')
+          assert.ok(Object.keys(example.settings).length >= 40)
+        }
+        else {
+          assert.equal(example.format, 'focale-contour-presets')
+          assert.equal(example.presets[0].curve[1][2], 1)
+        }
+        const download = document.querySelector(`a[download][href="/docs/reference/${reference}"]`)
+        assert.ok(download, 'the full technical contract is downloadable')
+        assert.ok((await readFile(resolve(output, `docs/reference/${reference}`), 'utf8')).includes(`.${extension}`))
+      }
+      finally {
+        dom.window.close()
+      }
+    }
+  })
+}
+
+test('native adjustment and contour pages hydrate and navigate in French', async () => {
+  await hydrate({
+    path: '/fr/docs/flevels/', language: 'de-DE', expectedLocale: 'fr',
+    interact: async ({ window, nuxt }) => {
+      await nuxt.runWithContext(() => nuxt.$router.push('/fr/docs/fcontour/'))
+      assert.ok(window.document.querySelector('h1')?.textContent.includes('.fcontour'))
+      for (const extension of ['fblackandwhite', 'fduotone', 'fcameraraw', 'fcolorlookup']) {
+        await nuxt.runWithContext(() => nuxt.$router.push(`/fr/docs/${extension}/`))
+        assert.ok(window.document.querySelector('h1')?.textContent.includes(`.${extension}`))
+      }
+    },
+  })
+})
+
+for (const locale of locales) {
+  test(`${locale} documents ACB, embedded style patterns and the current bounds`, async () => {
+    const prefix = locale === 'en' ? '' : `/${locale}`
+    for (const [page, expected] of [
+      ['fstyle', ['256', 'patterns']],
+      ['fswatch', ['ACB', 'ADO']],
+      ['preset-formats', ['BLW', 'ADO', 'XMP', 'CUBE', '.fcameraraw', '.fcolorlookup', '.fduotone']],
+    ]) {
+      const dom = new JSDOM(await source(`${origin}${prefix}/docs/${page}/`))
+      try {
+        const text = dom.window.document.querySelector('main')?.textContent || ''
+        for (const fragment of expected) assert.ok(text.includes(fragment), `${page} must document ${fragment}`)
+      }
+      finally { dom.window.close() }
+    }
+  })
+}
