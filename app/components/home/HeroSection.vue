@@ -13,63 +13,73 @@ const platforms = [
 
 <template>
   <section class="hero">
-    <div class="hero-lens">
-      <ApertureRings class="hero-rings" />
-      <FocaleLogo
-        :size="132"
-        :plate="false"
-        class="hero-mark"
-      />
-    </div>
-
-    <div class="hero-inner">
-      <p class="hero-status">
-        <span class="hero-status-dot" />
-        {{ latestRelease ? t('downloads.available', { version: latestRelease.version }) : t('hero.badge') }}
-      </p>
-
-      <h1 class="hero-title">
-        {{ t('hero.title') }}
-        <em class="hero-title-accent">{{ t('hero.titleAccent') }}</em>
-      </h1>
-
-      <p class="hero-subtitle">
-        {{ t('hero.subtitle') }}
-      </p>
-
-      <div class="hero-actions">
-        <Button
-          as="a"
-          href="#downloads"
-          size="large"
-          :label="t('downloads.title')"
-        >
-          <template #icon>
-            <Icon
-              name="lucide:download"
-              aria-hidden="true"
-            />
-          </template>
-        </Button>
-      </div>
-
-      <ul
-        class="hero-platforms"
-        role="list"
-        :aria-label="t('hero.platformsLabel')"
+    <div class="hero-scene">
+      <img
+        src="/images/branding/hero_background_dark.svg"
+        class="hero-landscape"
+        alt=""
+        aria-hidden="true"
+        width="2048"
+        height="682"
+        fetchpriority="high"
       >
-        <li
-          v-for="platform in platforms"
-          :key="platform.name"
-          class="hero-platform"
-        >
-          <Icon
-            :name="platform.icon"
-            class="hero-platform-icon"
+
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <FocaleLogo
+            class="hero-logo"
+            :size="128"
+            :plate="false"
           />
-          {{ platform.name }}
-        </li>
-      </ul>
+          <p class="hero-status">
+            <span class="hero-status-dot" />
+            {{ latestRelease ? t('downloads.available', { version: latestRelease.version }) : t('hero.badge') }}
+          </p>
+
+          <h1 class="hero-title">
+            {{ t('hero.title') }}
+            <em class="hero-title-accent">{{ t('hero.titleAccent') }}</em>
+          </h1>
+
+          <p class="hero-subtitle">
+            {{ t('hero.subtitle') }}
+          </p>
+
+          <div class="hero-actions">
+            <Button
+              as="a"
+              href="#downloads"
+              size="large"
+              :label="t('downloads.title')"
+            >
+              <template #icon>
+                <Icon
+                  name="lucide:download"
+                  aria-hidden="true"
+                />
+              </template>
+            </Button>
+          </div>
+
+          <ul
+            class="hero-platforms"
+            role="list"
+            :aria-label="t('hero.platformsLabel')"
+          >
+            <li
+              v-for="platform in platforms"
+              :key="platform.name"
+              class="hero-platform"
+            >
+              <Icon
+                :name="platform.icon"
+                class="hero-platform-icon"
+              />
+              {{ platform.name }}
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <ul
@@ -100,44 +110,53 @@ const platforms = [
 <style scoped lang="scss">
 .hero {
   position: relative;
-  padding-top: clamp(3rem, 6vw, 4.5rem);
   padding-bottom: clamp(2.5rem, 5vw, 4rem);
   overflow: clip;
-  isolation: isolate;
 }
 
-// The lens: the mark sits at the centre of its own focus barrel, which bleeds
-// past the fold instead of being framed like an illustration.
-.hero-lens {
+// The same landscape as the editor, open to the page edges. The short edge
+// fades merge the sky and lake into the site's canvas without a visible frame.
+.hero-scene {
   position: relative;
-  display: grid;
-  place-items: center;
-  width: min(40rem, 120vw);
-  left: 50%;
-  aspect-ratio: 1;
-  margin-block: clamp(-11rem, -19vw, -5rem);
-  transform: translateX(-50%);
+  isolation: isolate;
+  padding-block: clamp(4rem, 7vw, 7rem) clamp(7rem, 11vw, 10rem);
+
+  &::after {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, var(--color-canvas), transparent 4rem, transparent 70%, var(--color-canvas)),
+      linear-gradient(to right, var(--color-canvas) 10%, #{rgba($neutral-950, 0.84)} 35%, #{rgba($neutral-950, 0.12)} 70%, transparent);
+    pointer-events: none;
+    content: '';
+  }
+}
+
+.hero-landscape {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
   pointer-events: none;
 }
 
-.hero-rings {
-  grid-area: 1 / 1;
-  width: 100%;
-  height: 100%;
-}
-
-.hero-mark {
-  grid-area: 1 / 1;
-}
-
 .hero-inner {
-  @include content-container(52rem);
+  @include content-container;
+}
 
-  position: relative;
+.hero-copy {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  max-width: 38rem;
+}
+
+.hero-logo {
+  margin-bottom: 1rem;
 }
 
 .hero-status {
@@ -166,6 +185,7 @@ const platforms = [
   @include fluid-text(2.125rem, 3.5rem, 5.6vw);
 
   margin-top: 1.125rem;
+  max-width: 18ch;
 }
 
 .hero-title-accent {
@@ -189,7 +209,7 @@ const platforms = [
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.75rem;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 1.75rem 0 0;
   padding: 0;
 }
@@ -214,7 +234,7 @@ const platforms = [
 
   display: grid;
   gap: 1rem;
-  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  margin-top: 0;
   padding-left: clamp(1.25rem, 5vw, 2.5rem);
   list-style: none;
 
@@ -267,5 +287,42 @@ const platforms = [
   margin-top: 0.4rem;
   color: var(--color-text-muted);
   font-size: 0.9375rem;
+}
+
+// On a narrow screen the image settles below the copy, leaving the moon and
+// shoreline visible without placing their bright details behind the headline.
+@include until($breakpoint-md) {
+  .hero-scene {
+    padding-top: 3rem;
+    padding-bottom: 15rem;
+
+    &::after {
+      background: linear-gradient(
+        to bottom,
+        var(--color-canvas) 12%,
+        #{rgba($neutral-950, 0.92)} 38%,
+        #{rgba($neutral-950, 0.15)} 68%,
+        transparent 82%,
+        var(--color-canvas) 100%
+      );
+    }
+  }
+
+  .hero-landscape {
+    top: auto;
+    height: 28rem;
+    mask-image: linear-gradient(to bottom, transparent, #000 20%);
+  }
+
+  .hero-copy {
+    align-items: center;
+    max-width: 34rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .hero-platforms {
+    justify-content: center;
+  }
 }
 </style>

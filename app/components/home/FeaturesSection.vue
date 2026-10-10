@@ -41,8 +41,8 @@ const expanded = ref(false)
     >
       <Button
         type="button"
-        severity="secondary"
-        outlined
+        severity="contrast"
+        variant="text"
         class="features-toggle"
         :label="expanded ? t('features.showLess') : t('features.showMore')"
         :aria-expanded="expanded"

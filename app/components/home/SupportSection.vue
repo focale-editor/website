@@ -63,7 +63,7 @@ const contributions = [
   white-space: normal;
 }
 
-// Contributions orbit the application mark, echoing the hero's lens rings.
+// Contributions orbit the application mark and its aperture ring.
 .support-orbit {
   --radius: 7.5rem;
 

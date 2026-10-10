@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2048" height="682" viewBox="0 0 2048 682" fill="none">
+  <title>L'archipel du Nord</title>
+  <desc>A moonlit archipelago with blue northern lights, slate mountains and a sailboat, fading into Focale's navy website canvas.</desc>
+  <defs>
+    
+    <linearGradient id="sky" x1="560" y1="180" x2="2048" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0e1421" />
+      <stop offset="0.36" stop-color="#181F33" />
+      <stop offset="1" stop-color="#202C44" />
+    </linearGradient>
+    <radialGradient id="horizonGlow" cx="0" cy="0" r="1" gradientTransform="translate(1630 385) scale(860 390)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#538BD5" stop-opacity="0.32" />
+      <stop offset="0.6" stop-color="#538BD5" stop-opacity="0.1" />
+      <stop offset="1" stop-color="#538BD5" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="auroraVeil" x1="1370" y1="20" x2="1430" y2="256" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#538BD5" stop-opacity="0" />
+      <stop offset="0.55" stop-color="#538BD5" stop-opacity="0.04" />
+      <stop offset="0.86" stop-color="#538BD5" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#8DB5FF" stop-opacity="0.03" />
+    </linearGradient>
+    <linearGradient id="auroraEdge" x1="860" y1="210" x2="2048" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#538BD5" stop-opacity="0" />
+      <stop offset="0.35" stop-color="#538BD5" stop-opacity="0.2" />
+      <stop offset="0.68" stop-color="#8DB5FF" stop-opacity="0.4" />
+      <stop offset="1" stop-color="#538BD5" stop-opacity="0" />
+    </linearGradient>
+    <radialGradient id="moonHalo" cx="0" cy="0" r="1" gradientTransform="translate(1716 181) scale(184)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8DB5FF" stop-opacity="0.2" />
+      <stop offset="0.45" stop-color="#8DB5FF" stop-opacity="0.09" />
+      <stop offset="1" stop-color="#8DB5FF" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="moon" x1="1662" y1="126" x2="1773" y2="244" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EDF0F4" />
+      <stop offset="1" stop-color="#8DB5FF" />
+    </linearGradient>
+    <linearGradient id="farRidge" x1="1450" y1="282" x2="1450" y2="452" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#526582" />
+      <stop offset="1" stop-color="#354056" />
+    </linearGradient>
+    <linearGradient id="ridgeFace" x1="1470" y1="288" x2="1600" y2="454" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3F4B62" />
+      <stop offset="1" stop-color="#26334B" />
+    </linearGradient>
+    <linearGradient id="nearRidge" x1="1320" y1="342" x2="1520" y2="482" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#354056" />
+      <stop offset="1" stop-color="#181F33" />
+    </linearGradient>
+    <linearGradient id="lake" x1="1530" y1="440" x2="1530" y2="682" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2C405F" />
+      <stop offset="0.54" stop-color="#202D44" />
+      <stop offset="1" stop-color="#181F33" />
+    </linearGradient>
+    <radialGradient id="waterLight" cx="0" cy="0" r="1" gradientTransform="translate(1716 454) scale(320 228)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#538BD5" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#538BD5" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="reflection" x1="1700" y1="443" x2="1745" y2="647" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8DB5FF" stop-opacity="0.55" />
+      <stop offset="0.5" stop-color="#8DB5FF" stop-opacity="0.22" />
+      <stop offset="1" stop-color="#538BD5" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="shore" x1="1840" y1="520" x2="1990" y2="682" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#181F33" />
+      <stop offset="1" stop-color="#151B2B" />
+    </linearGradient>
+    <linearGradient id="leftFade" x1="420" y1="341" x2="1150" y2="341" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0e1421" />
+      <stop offset="0.45" stop-color="#0e1421" stop-opacity="0.9" />
+      <stop offset="1" stop-color="#0e1421" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  
+  <path fill="url(#sky)" d="M0 0H2048V682H0Z" />
+  <path fill="url(#horizonGlow)" d="M650 0H2048V560H650Z" />
+
+  
+  <path d="M772 286C974 106 1098 89 1280 141C1469 194 1541 134 1667 63C1798-11 1921-2 2048 36V111C1897 45 1808 71 1679 144C1528 229 1451 265 1267 213C1085 162 963 207 772 286Z" fill="url(#auroraVeil)" />
+  <path d="M884 255C1060 151 1158 175 1292 211C1458 256 1575 174 1700 110C1834 42 1940 54 2048 90" stroke="url(#auroraEdge)" stroke-width="1.4" />
+  <path d="M1020 0C1160 55 1275 34 1395 3L1458 0C1343 79 1192 133 1052 66C1000 41 951 18 899 0Z" fill="url(#auroraVeil)" opacity="0.48" />
+  <path d="M1014 40C1193 137 1301 68 1439 12" stroke="url(#auroraEdge)" opacity="0.35" />
+
+  
+  <g fill="#EDF0F4">
+    <circle cx="805" cy="99" r="1.4" opacity="0.25" />
+    <circle cx="945" cy="160" r="1.5" opacity="0.35" />
+    <circle cx="1076" cy="79" r="1.7" opacity="0.6" />
+    <circle cx="1158" cy="126" r="1.1" opacity="0.35" />
+    <circle cx="1235" cy="51" r="1.8" opacity="0.6" />
+    <circle cx="1295" cy="284" r="1.4" opacity="0.32" />
+    <circle cx="1367" cy="93" r="1.2" opacity="0.4" />
+    <circle cx="1440" cy="40" r="1.7" opacity="0.55" />
+    <circle cx="1490" cy="225" r="1.6" opacity="0.5" />
+    <circle cx="1556" cy="105" r="1.2" opacity="0.5" />
+    <circle cx="1632" cy="45" r="1.3" opacity="0.55" />
+    <circle cx="1776" cy="62" r="1.6" opacity="0.55" />
+    <circle cx="1867" cy="129" r="1.6" opacity="0.48" />
+    <circle cx="1933" cy="49" r="1.3" opacity="0.45" />
+    <circle cx="1985" cy="207" r="1.5" opacity="0.65" />
+    <circle cx="2013" cy="100" r="1.1" opacity="0.4" />
+    <circle cx="1851" cy="278" r="1.2" opacity="0.45" />
+  </g>
+  <g stroke="#8DB5FF" stroke-linecap="round">
+    <path d="M1409 154H1419M1414 149V159" opacity="0.55" />
+    <path d="M1921 238H1931M1926 233V243" opacity="0.65" />
+  </g>
+
+  
+  <circle cx="1716" cy="181" r="184" fill="url(#moonHalo)" />
+  <circle cx="1716" cy="181" r="94" stroke="#8DB5FF" stroke-opacity="0.14" />
+  <path d="M1763 99.59A94 94 0 0 1 1810 181" stroke="#538BD5" stroke-opacity="0.55" stroke-width="1.5" stroke-linecap="round" />
+  <circle cx="1716" cy="181" r="66" fill="url(#moon)" />
+  <path d="M1673 142A66 66 0 0 1 1770 219A66 66 0 0 0 1673 142Z" fill="#EDF0F4" fill-opacity="0.22" />
+
+  
+  <path d="M674 439L846 372L919 397L1090 299L1180 351L1274 319L1365 380L1481 274L1599 364L1688 336L1814 391L1935 289L2048 365V468H674Z" fill="url(#farRidge)" />
+  <path d="M1090 299L1071 355L1035 365L1048 337Z" fill="#8DB5FF" fill-opacity="0.27" />
+  <path d="M1090 299L1180 351L1274 319L1192 402L1022 434L1071 355Z" fill="#354056" />
+  <path d="M1481 274L1460 332L1418 354L1430 320Z" fill="#8DB5FF" fill-opacity="0.32" />
+  <path d="M1481 274L1599 364L1688 336L1744 413L1573 450L1460 332Z" fill="url(#ridgeFace)" />
+  <path d="M1935 289L1914 341L1876 357L1901 325Z" fill="#8DB5FF" fill-opacity="0.28" />
+  <path d="M1935 289L2048 365V460L1968 401L1914 341Z" fill="#354056" />
+
+  <path d="M682 475L875 404L990 437L1156 355L1241 398L1326 338L1469 431L1556 406L1709 452L1831 363L1922 407L2048 374V491H682Z" fill="url(#nearRidge)" />
+  <path d="M1156 355L1105 414L1010 455L1241 398Z" fill="#3F4B62" fill-opacity="0.55" />
+  <path d="M1326 338L1297 392L1224 441L1429 440Z" fill="#3F4B62" fill-opacity="0.6" />
+  <path d="M1831 363L1772 431L1709 452L1892 461Z" fill="#3F4B62" fill-opacity="0.6" />
+  <path d="M725 479L900 449L1036 477L1196 449L1339 466L1457 441L1588 464L1714 451L1827 471L1978 436L2048 450V496H725Z" fill="#181F33" />
+
+  
+  <path d="M600 480C992 475 1129 482 1410 473C1648 465 1866 478 2048 465V682H600Z" fill="url(#lake)" />
+  <path d="M1270 476H2048V682H1270Z" fill="url(#waterLight)" />
+  <path d="M1235 477L1410 473L1514 474M1648 472L1787 474M1884 473L2048 465" stroke="#538BD5" stroke-opacity="0.25" stroke-width="1.3" />
+  <g fill="url(#reflection)">
+    <path d="M1695 480H1737L1744 482H1689Z" />
+    <path d="M1681 489H1748L1757 491H1679Z" />
+    <path d="M1699 498H1732L1738 500H1692Z" />
+    <path d="M1660 510H1732L1725 512H1654Z" />
+    <path d="M1744 510H1773L1778 512H1741Z" />
+    <path d="M1682 523H1764L1759 526H1670Z" />
+    <path d="M1644 540H1723L1731 543H1650Z" />
+    <path d="M1739 540H1790L1798 543H1748Z" />
+    <path d="M1678 559H1786L1773 562H1670Z" />
+    <path d="M1619 582H1707L1715 585H1611Z" />
+    <path d="M1730 582H1808L1799 585H1724Z" />
+    <path d="M1647 610H1772L1781 613H1657Z" />
+    <path d="M1611 640H1743L1731 643H1601Z" />
+  </g>
+  <g stroke="#538BD5" stroke-linecap="round">
+    <path d="M1065 500H1159M1264 491H1303M1351 516H1412M1511 493H1551M1831 505H1887M1962 492H2014" stroke-opacity="0.2" />
+    <path d="M940 543H1059M1168 558H1256M1292 536H1338M1499 550H1562M1866 546H1960M1788 600H1851M1130 604H1268M1346 640H1430" stroke-opacity="0.15" stroke-width="1.5" />
+  </g>
+
+  
+  <g>
+    <path d="M1518 554H1571L1559 565H1530Z" fill="#151B2B" />
+    <path d="M1542 499V554" stroke="#181F33" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M1546 505L1570 543H1546Z" fill="#EDF0F4" fill-opacity="0.76" />
+    <path d="M1538 517L1522 544H1538Z" fill="#538BD5" fill-opacity="0.7" />
+    <path d="M1517 574H1575M1530 581H1562" stroke="#538BD5" stroke-opacity="0.23" stroke-width="1.5" stroke-linecap="round" />
+  </g>
+
+  
+  <path d="M2048 535C1998 530 1960 547 1915 569C1882 586 1853 590 1816 609C1774 631 1755 657 1714 682H2048Z" fill="url(#shore)" />
+  <path d="M2048 535C1998 530 1960 547 1915 569C1882 586 1853 590 1816 609" stroke="#3F4B62" stroke-opacity="0.42" stroke-width="1.5" />
+  <path d="M655 601C790 575 888 605 984 631C1039 646 1097 650 1160 682H655Z" fill="#181F33" />
+
+  
+  <g fill="#181F33" stroke="#181F33" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1968 570C1960 532 1950 500 1941 463M1994 562C2006 529 2013 494 2017 462" fill="none" stroke-width="3" />
+    <path d="M1952 507C1927 501 1921 485 1924 473C1942 477 1951 489 1952 507Z" />
+    <path d="M1943 474C1928 459 1930 445 1935 433C1948 449 1949 461 1943 474Z" />
+    <path d="M1958 532C1978 519 1981 504 1976 494C1961 503 1956 517 1958 532Z" />
+    <path d="M2010 498C1993 484 1991 470 1996 460C2010 470 2013 484 2010 498Z" />
+    <path d="M2017 470C2030 462 2037 448 2034 436C2020 444 2014 455 2017 470Z" />
+    <path d="M2002 530C2026 523 2035 509 2032 499C2015 503 2005 514 2002 530Z" />
+  </g>
+
+  
+  <path d="M0 0H1150V682H0Z" fill="url(#leftFade)" />
+</svg>

@@ -15,6 +15,7 @@ export interface PageSeoInput {
  * and the `hreflang` alternates, so this only has to add what is page-specific.
  */
 export function usePageSeo(input: MaybeRefOrGetter<PageSeoInput>): void {
+  const { t } = useI18n()
   const localeHead = useLocaleHead({ lang: true, dir: true, seo: true })
   const site = useSiteConfig()
 
@@ -23,6 +24,7 @@ export function usePageSeo(input: MaybeRefOrGetter<PageSeoInput>): void {
     resolved.value.isHome ? `Focale — ${resolved.value.title}` : `${resolved.value.title} — Focale`,
   )
   const socialImage = computed(() => new URL('/images/social/og-image.png', site.url).toString())
+  const socialImageAlt = computed(() => `Focale — ${t('hero.title')} ${t('hero.titleAccent')}`)
 
   useHead(() => ({
     htmlAttrs: { ...localeHead.value.htmlAttrs, class: 'focale-dark' },
@@ -38,9 +40,14 @@ export function usePageSeo(input: MaybeRefOrGetter<PageSeoInput>): void {
     ogType: 'website',
     ogSiteName: 'Focale',
     ogImage: socialImage,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: 'image/png',
+    ogImageAlt: socialImageAlt,
     twitterCard: 'summary_large_image',
     twitterTitle: title,
     twitterDescription: () => resolved.value.description,
     twitterImage: socialImage,
+    twitterImageAlt: socialImageAlt,
   })
 }
