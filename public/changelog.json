@@ -2,6 +2,20 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "version": "0.0.6",
+      "date": "2026-10-08",
+      "changes": [
+        {
+          "kind": "FEAT",
+          "description": "Added an auto-update dialog."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Now concurrently decoding and prefetching project raster tiles."
+        }
+      ]
+    },
+    {
       "version": "0.0.5",
       "date": "2026-10-08",
       "changes": [
