@@ -16,7 +16,6 @@
     "secondary": "Footer",
     "features": "Features",
     "preview": "Preview",
-    "roadmap": "Roadmap",
     "language": "Language",
     "openMenu": "Open the menu",
     "closeMenu": "Close the menu"
@@ -25,7 +24,7 @@
     "badge": "Desktop image editor",
     "title": "Retouch, compose and create",
     "titleAccent": "with precision.",
-    "subtitle": "Layers, masks, non-destructive adjustments, filters and layer effects — and the Photoshop files you already own open straight away.",
+    "subtitle": "An advanced image editor that works entirely on your machine, from photo retouching to layered compositions. Your Photoshop files open straight away.",
     "platformsLabel": "Available for"
   },
   "principles": {
@@ -95,8 +94,7 @@
   "features": {
     "eyebrow": "Features",
     "title": "Everything a serious editing session needs.",
-    "description": "These features are integrated into the development version. Focale is now entering its debugging and stabilization phase.",
-    "note": "The first public alpha is still ahead. Testing continues for stability, format compatibility and operation across all three platforms.",
+    "description": "Everything below is already in the alpha, ready to try. Focale is still young: fixes and stabilization continue from one release to the next.",
     "items": {
       "localFirst": {
         "title": "Local-first by design",
@@ -117,6 +115,10 @@
       "raw": {
         "title": "RAW development",
         "description": "A dedicated workspace with white balance, exposure, curves, noise reduction, lens corrections and local adjustments. Use these controls on your layers through the Camera Raw filter too."
+      },
+      "photoMerge": {
+        "title": "Panoramas and HDR merge",
+        "description": "Stitch several shots into a panorama or merge them to HDR. The result opens as a new document, and each panorama source stays a layer with an editable mask."
       },
       "colorManagement": {
         "title": "Colour and high precision",
@@ -142,6 +144,10 @@
         "title": "Layer effects and styles",
         "description": "Bevel, stroke, shadows, glows, satin and colour, gradient or pattern overlays. Reuse your combinations with Focale styles and Photoshop ASL library import and export."
       },
+      "presets": {
+        "title": "Preset libraries",
+        "description": "Brushes, patterns, shapes, styles, swatches, gradients, curves and contours live in reusable libraries. Bring in your Photoshop ones: ABR, PAT, CSH, ASL, ACO, GRD or ACV."
+      },
       "automation": {
         "title": "Actions and batch processing",
         "description": "Record and replay sequences of operations, then share them as .faction files. Process a folder or your open documents with export and file-naming options."
@@ -149,6 +155,10 @@
       "animation": {
         "title": "Editable animated GIFs",
         "description": "Open a GIF as editable frames, adjust their timing and visibility, then preview looped playback. Keep the animation in your .focale project and export it as a GIF."
+      },
+      "workspaces": {
+        "title": "Workspaces that fit you",
+        "description": "Dock, group or float panels, then save your layout. Find any command through search and give it the keyboard shortcut you prefer."
       },
       "formats": {
         "title": "Open, edit, export",
@@ -161,34 +171,6 @@
     },
     "showLess": "Show fewer features",
     "showMore": "More features"
-  },
-  "roadmap": {
-    "eyebrow": "Where the project stands",
-    "title": "Four steps to the first alpha.",
-    "description": "Stage 3 of 4: the features are in place. Work now focuses on fixes, performance and validation before the public alpha.",
-    "states": {
-      "done": "Done",
-      "inProgress": "In progress",
-      "planned": "Planned"
-    },
-    "items": {
-      "foundations": {
-        "title": "Solid foundations",
-        "description": "The project's groundwork and a simple image editor that opens, edits and saves without falling over."
-      },
-      "features": {
-        "title": "Building the feature set",
-        "description": "Layers, retouching, RAW development, smart objects, animation and automation are integrated into the development version."
-      },
-      "debugging": {
-        "title": "Debugging and stabilization",
-        "description": "Fix defects, refine performance and test files, tools and installation on Linux, Windows and macOS."
-      },
-      "alpha": {
-        "title": "First public alpha",
-        "description": "A downloadable build. Leave your address and you will hear about it the day it ships."
-      }
-    }
   },
   "footer": {
     "tagline": "An advanced, local-first raster image editor for Linux, Windows and macOS.",

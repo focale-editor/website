@@ -16,7 +16,6 @@
     "secondary": "Pie de página",
     "features": "Funciones",
     "preview": "Vista previa",
-    "roadmap": "Hoja de ruta",
     "language": "Idioma",
     "openMenu": "Abrir el menú",
     "closeMenu": "Cerrar el menú"
@@ -25,7 +24,7 @@
     "badge": "Editor de imágenes para ordenador",
     "title": "Retoca, compón y crea",
     "titleAccent": "con precisión.",
-    "subtitle": "Capas, máscaras, ajustes no destructivos, filtros y efectos de capa, y los archivos de Photoshop que ya tienes se abren directamente.",
+    "subtitle": "Un editor de imágenes avanzado que trabaja íntegramente en tu equipo, del retoque fotográfico a la composición por capas. Tus archivos de Photoshop se abren directamente.",
     "platformsLabel": "Disponible para"
   },
   "principles": {
@@ -95,8 +94,7 @@
   "features": {
     "eyebrow": "Funciones",
     "title": "Todo lo que pide una sesión de edición de verdad.",
-    "description": "Estas funciones están integradas en la versión de desarrollo. Focale entra ahora en la fase de depuración y estabilización.",
-    "note": "La primera alfa pública aún está por llegar. Continúan las pruebas de estabilidad, compatibilidad de formatos y funcionamiento en los tres sistemas.",
+    "description": "Todo lo que sigue ya está en la alfa, listo para probar. Focale aún es joven: las correcciones y la estabilización continúan de una versión a otra.",
     "items": {
       "localFirst": {
         "title": "Local por diseño",
@@ -117,6 +115,10 @@
       "raw": {
         "title": "Revelado RAW",
         "description": "Un espacio dedicado con balance de blancos, exposición, curvas, reducción de ruido, correcciones de lente y ajustes locales. Usa también estos controles en tus capas con el filtro Camera Raw."
+      },
+      "photoMerge": {
+        "title": "Panorámicas y fusión HDR",
+        "description": "Une varias tomas en una panorámica o combínalas en HDR. El resultado se abre en un documento nuevo, y cada fuente de la panorámica sigue siendo una capa con su máscara editable."
       },
       "colorManagement": {
         "title": "Color y alta precisión",
@@ -142,6 +144,10 @@
         "title": "Efectos y estilos de capa",
         "description": "Bisel, trazo, sombras, resplandores, satinado y superposiciones de color, degradado o motivo. Reutiliza tus combinaciones con estilos Focale e importación y exportación de bibliotecas Photoshop ASL."
       },
+      "presets": {
+        "title": "Bibliotecas de ajustes preestablecidos",
+        "description": "Pinceles, motivos, formas, estilos, muestras, degradados, curvas y contornos se guardan en bibliotecas reutilizables. Importa las de Photoshop: ABR, PAT, CSH, ASL, ACO, GRD o ACV."
+      },
       "automation": {
         "title": "Acciones y procesamiento por lotes",
         "description": "Graba y reproduce secuencias de operaciones y compártelas como archivos .faction. Procesa una carpeta o tus documentos abiertos con opciones de exportación y nombres de archivo."
@@ -149,6 +155,10 @@
       "animation": {
         "title": "GIF animados editables",
         "description": "Abre un GIF como fotogramas editables, ajusta su duración y visibilidad y previsualiza la reproducción en bucle. Conserva la animación en tu proyecto .focale y expórtala como GIF."
+      },
+      "workspaces": {
+        "title": "Espacios de trabajo a tu medida",
+        "description": "Acopla, agrupa o separa los paneles y guarda tu disposición. Encuentra cualquier comando con la búsqueda y asígnale el atajo de teclado que prefieras."
       },
       "formats": {
         "title": "Abrir, editar, exportar",
@@ -161,34 +171,6 @@
     },
     "showLess": "Mostrar menos funciones",
     "showMore": "Más funciones"
-  },
-  "roadmap": {
-    "eyebrow": "Cómo va el proyecto",
-    "title": "Cuatro pasos hasta la primera alfa.",
-    "description": "Etapa 3 de 4: las funciones ya están integradas. El trabajo se centra ahora en las correcciones, el rendimiento y la validación antes de la alfa pública.",
-    "states": {
-      "done": "Hecho",
-      "inProgress": "En curso",
-      "planned": "Previsto"
-    },
-    "items": {
-      "foundations": {
-        "title": "Bases sólidas",
-        "description": "Los cimientos del proyecto y un editor de imágenes sencillo que abre, edita y guarda sin fallar."
-      },
-      "features": {
-        "title": "Construir las funciones",
-        "description": "Capas, retoque, revelado RAW, objetos inteligentes, animación y automatización están integrados en la versión de desarrollo."
-      },
-      "debugging": {
-        "title": "Depuración y estabilización",
-        "description": "Corregir errores, mejorar el rendimiento y probar archivos, herramientas e instalaciones en Linux, Windows y macOS."
-      },
-      "alpha": {
-        "title": "Primera alfa pública",
-        "description": "Una versión descargable. Deja tu correo y te avisaremos el día que salga."
-      }
-    }
   },
   "footer": {
     "tagline": "Un editor de imágenes de mapa de bits avanzado y local, para Linux, Windows y macOS.",

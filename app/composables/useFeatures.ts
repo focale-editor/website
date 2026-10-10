@@ -6,19 +6,11 @@ export interface FeatureCard {
   icon: string
 }
 
-/** One entry of the development timeline. */
-export interface RoadmapEntry {
-  /** Stable identifier, also the translation sub-key under `roadmap.items`. */
-  id: string
-  /** How far along the entry is. */
-  state: 'done' | 'inProgress' | 'planned'
-}
-
 /**
  * The capabilities advertised on the landing page.
  *
- * They mirror what the Flutter application already implements, so the list is
- * a promise the editor can keep on the day the alpha ships rather than a wish.
+ * They mirror what the published alpha of the Flutter application implements,
+ * so the list describes what a visitor can download rather than a wish.
  */
 export function useFeatures(): FeatureCard[] {
   return [
@@ -27,14 +19,17 @@ export function useFeatures(): FeatureCard[] {
     { id: 'nonDestructive', icon: 'lucide:sliders-horizontal' },
     { id: 'smartObjects', icon: 'lucide:component' },
     { id: 'raw', icon: 'lucide:camera' },
+    { id: 'photoMerge', icon: 'lucide:images' },
     { id: 'colorManagement', icon: 'lucide:palette' },
     { id: 'tools', icon: 'lucide:brush' },
     { id: 'masks', icon: 'lucide:circle-dashed' },
     { id: 'vector', icon: 'lucide:pen-tool' },
     { id: 'filters', icon: 'lucide:wand-sparkles' },
     { id: 'layerEffects', icon: 'lucide:sparkles' },
+    { id: 'presets', icon: 'lucide:swatch-book' },
     { id: 'automation', icon: 'lucide:workflow' },
     { id: 'animation', icon: 'lucide:clapperboard' },
+    { id: 'workspaces', icon: 'lucide:panels-top-left' },
     { id: 'formats', icon: 'lucide:file-image' },
     { id: 'recovery', icon: 'lucide:life-buoy' },
   ]
@@ -46,15 +41,5 @@ export function usePrinciples(): FeatureCard[] {
     { id: 'advanced', icon: 'lucide:layers-2' },
     { id: 'crossPlatform', icon: 'lucide:monitor' },
     { id: 'photoshop', icon: 'lucide:file-symlink' },
-  ]
-}
-
-/** The development timeline shown in the roadmap section. */
-export function useRoadmap(): RoadmapEntry[] {
-  return [
-    { id: 'foundations', state: 'done' },
-    { id: 'features', state: 'done' },
-    { id: 'debugging', state: 'inProgress' },
-    { id: 'alpha', state: 'planned' },
   ]
 }

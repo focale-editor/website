@@ -16,7 +16,6 @@
     "secondary": "Pied de page",
     "features": "Fonctionnalités",
     "preview": "Aperçu",
-    "roadmap": "Feuille de route",
     "language": "Langue",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu"
@@ -25,7 +24,7 @@
     "badge": "Éditeur d’images pour ordinateur",
     "title": "Retouchez, composez et créez",
     "titleAccent": "avec précision.",
-    "subtitle": "Calques, masques, réglages non destructifs, filtres et effets de calque — et les fichiers Photoshop que vous possédez déjà s'ouvrent directement.",
+    "subtitle": "Un éditeur d'images avancé qui travaille entièrement sur votre machine, de la retouche photo à la composition en calques. Vos fichiers Photoshop s'y ouvrent directement.",
     "platformsLabel": "Disponible pour"
   },
   "principles": {
@@ -95,8 +94,7 @@
   "features": {
     "eyebrow": "Fonctionnalités",
     "title": "Tout ce qu'une vraie séance de retouche demande.",
-    "description": "Ces fonctionnalités sont intégrées à la version de développement. Focale entre maintenant dans sa phase de débogage et de stabilisation.",
-    "note": "La première alpha publique est encore à venir. Les tests de stabilité, de compatibilité des formats et de fonctionnement sur les trois systèmes se poursuivent.",
+    "description": "Tout ce qui suit est déjà dans l'alpha, prêt à être essayé. Focale est encore jeune : les corrections et la stabilisation se poursuivent d'une version à l'autre.",
     "items": {
       "localFirst": {
         "title": "Local d'abord, par conception",
@@ -117,6 +115,10 @@
       "raw": {
         "title": "Développement RAW",
         "description": "Un espace dédié avec balance des blancs, exposition, courbes, réduction du bruit, corrections optiques et réglages locaux. Retrouvez aussi ces réglages sur vos calques avec le filtre Camera Raw."
+      },
+      "photoMerge": {
+        "title": "Panoramas et fusion HDR",
+        "description": "Assemblez plusieurs prises de vue en panorama ou fusionnez-les en HDR. Le résultat s'ouvre dans un nouveau document, et chaque source d'un panorama reste un calque avec son masque modifiable."
       },
       "colorManagement": {
         "title": "Couleurs et haute précision",
@@ -142,6 +144,10 @@
         "title": "Effets et styles de calque",
         "description": "Biseautage, contour, ombres, lueurs, satin et incrustations de couleur, de dégradé ou de motif. Réutilisez vos combinaisons avec les styles Focale et l'import/export de bibliothèques Photoshop ASL."
       },
+      "presets": {
+        "title": "Bibliothèques de préréglages",
+        "description": "Pinceaux, motifs, formes, styles, nuances, dégradés, courbes et contours se rangent dans des bibliothèques réutilisables. Importez celles de Photoshop : ABR, PAT, CSH, ASL, ACO, GRD ou ACV."
+      },
       "automation": {
         "title": "Actions et traitement par lot",
         "description": "Enregistrez et rejouez des suites d'opérations, puis échangez-les au format .faction. Traitez un dossier ou vos documents ouverts avec des options d'export et de nommage des fichiers."
@@ -149,6 +155,10 @@
       "animation": {
         "title": "GIF animés éditables",
         "description": "Ouvrez un GIF en images éditables, ajustez leur durée et leur visibilité, puis prévisualisez la lecture en boucle. Conservez l'animation dans votre projet .focale et exportez-la en GIF."
+      },
+      "workspaces": {
+        "title": "Espaces de travail à votre main",
+        "description": "Ancrez, regroupez ou détachez les panneaux, puis enregistrez votre disposition. Retrouvez chaque commande par la recherche et attribuez-lui le raccourci clavier qui vous convient."
       },
       "formats": {
         "title": "Ouvrir, modifier, exporter",
@@ -161,34 +171,6 @@
     },
     "showLess": "Réduire la liste",
     "showMore": "Plus de fonctionnalités"
-  },
-  "roadmap": {
-    "eyebrow": "Où en est le projet",
-    "title": "Quatre étapes jusqu'à la première alpha.",
-    "description": "Étape 3 sur 4 : les fonctionnalités sont en place. Le travail porte maintenant sur les corrections, les performances et la validation avant l'alpha publique.",
-    "states": {
-      "done": "Terminé",
-      "inProgress": "En cours",
-      "planned": "Prévu"
-    },
-    "items": {
-      "foundations": {
-        "title": "Une base saine",
-        "description": "Les fondations du projet et un éditeur d'images simple qui ouvre, modifie et enregistre sans broncher."
-      },
-      "features": {
-        "title": "Ajout des fonctionnalités",
-        "description": "Calques, retouche, développement RAW, objets dynamiques, animation et automatisation sont intégrés à la version de développement."
-      },
-      "debugging": {
-        "title": "Débogage et stabilisation",
-        "description": "Corriger les défauts, affiner les performances et éprouver les fichiers, les outils et les installations sur Linux, Windows et macOS."
-      },
-      "alpha": {
-        "title": "Première alpha publique",
-        "description": "Une version téléchargeable. Laissez votre adresse et vous serez prévenu le jour de sa sortie."
-      }
-    }
   },
   "footer": {
     "tagline": "Un éditeur d'images matricielles avancé et local d'abord, pour Linux, Windows et macOS.",

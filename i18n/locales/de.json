@@ -16,7 +16,6 @@
     "secondary": "Fußzeile",
     "features": "Funktionen",
     "preview": "Vorschau",
-    "roadmap": "Fahrplan",
     "language": "Sprache",
     "openMenu": "Menü öffnen",
     "closeMenu": "Menü schließen"
@@ -25,7 +24,7 @@
     "badge": "Bildeditor für den Desktop",
     "title": "Retuschieren, komponieren und gestalten",
     "titleAccent": "mit Präzision.",
-    "subtitle": "Ebenen, Masken, nicht-destruktive Korrekturen, Filter und Ebeneneffekte — und die Photoshop-Dateien, die Sie bereits haben, öffnen sich sofort.",
+    "subtitle": "Ein fortgeschrittener Bildeditor, der vollständig auf Ihrem Rechner arbeitet, von der Fotoretusche bis zur Komposition mit Ebenen. Ihre Photoshop-Dateien öffnen sich direkt.",
     "platformsLabel": "Verfügbar für"
   },
   "principles": {
@@ -95,8 +94,7 @@
   "features": {
     "eyebrow": "Funktionen",
     "title": "Alles, was eine ernsthafte Bearbeitung verlangt.",
-    "description": "Diese Funktionen sind in die Entwicklungsversion integriert. Focale geht jetzt in die Phase der Fehlersuche und Stabilisierung über.",
-    "note": "Die erste öffentliche Alpha steht noch bevor. Tests zur Stabilität, Formatkompatibilität und zum Betrieb auf allen drei Plattformen laufen weiter.",
+    "description": "Alles hier ist bereits in der Alpha enthalten und kann ausprobiert werden. Focale ist noch jung: Fehlerbehebungen und Stabilisierung gehen von Version zu Version weiter.",
     "items": {
       "localFirst": {
         "title": "Lokal von Grund auf",
@@ -117,6 +115,10 @@
       "raw": {
         "title": "RAW-Entwicklung",
         "description": "Ein eigener Arbeitsbereich mit Weißabgleich, Belichtung, Kurven, Rauschreduzierung, Objektivkorrekturen und lokalen Anpassungen. Über den Camera Raw-Filter stehen diese Regler auch für Ihre Ebenen bereit."
+      },
+      "photoMerge": {
+        "title": "Panoramen und HDR-Zusammenführung",
+        "description": "Fügen Sie mehrere Aufnahmen zu einem Panorama zusammen oder verrechnen Sie sie zu HDR. Das Ergebnis öffnet sich als neues Dokument, und jede Panoramaquelle bleibt eine Ebene mit bearbeitbarer Maske."
       },
       "colorManagement": {
         "title": "Farbe und hohe Präzision",
@@ -142,6 +144,10 @@
         "title": "Ebeneneffekte und Stile",
         "description": "Abgeflachte Kanten, Konturen, Schatten, Schein, Glanz sowie Farb-, Verlaufs- und Musterüberlagerungen. Verwenden Sie Kombinationen mit Focale-Stilen sowie dem Import und Export von Photoshop-ASL-Bibliotheken wieder."
       },
+      "presets": {
+        "title": "Vorgabenbibliotheken",
+        "description": "Pinsel, Muster, Formen, Stile, Farbfelder, Verläufe, Kurven und Konturen liegen in wiederverwendbaren Bibliotheken. Importieren Sie Ihre Photoshop-Bibliotheken: ABR, PAT, CSH, ASL, ACO, GRD oder ACV."
+      },
       "automation": {
         "title": "Aktionen und Stapelverarbeitung",
         "description": "Zeichnen Sie Arbeitsschritte auf, spielen Sie sie erneut ab und teilen Sie sie als .faction-Dateien. Verarbeiten Sie einen Ordner oder geöffnete Dokumente mit Optionen für Export und Dateinamen."
@@ -149,6 +155,10 @@
       "animation": {
         "title": "Bearbeitbare GIF-Animationen",
         "description": "Öffnen Sie ein GIF als bearbeitbare Einzelbilder, passen Sie Dauer und Sichtbarkeit an und prüfen Sie die Wiedergabe in einer Schleife. Speichern Sie die Animation im .focale-Projekt und exportieren Sie sie als GIF."
+      },
+      "workspaces": {
+        "title": "Arbeitsbereiche nach Maß",
+        "description": "Docken Sie Bedienfelder an, gruppieren oder lösen Sie sie und speichern Sie Ihr Layout. Finden Sie jeden Befehl über die Suche und weisen Sie ihm das Tastaturkürzel Ihrer Wahl zu."
       },
       "formats": {
         "title": "Öffnen, bearbeiten, exportieren",
@@ -161,34 +171,6 @@
     },
     "showLess": "Weniger Funktionen anzeigen",
     "showMore": "Weitere Funktionen"
-  },
-  "roadmap": {
-    "eyebrow": "Wo das Projekt steht",
-    "title": "Vier Schritte bis zur ersten Alpha.",
-    "description": "Phase 3 von 4: Die Funktionen sind integriert. Im Mittelpunkt stehen nun Fehlerkorrekturen, Leistung und Prüfungen vor der öffentlichen Alpha.",
-    "states": {
-      "done": "Fertig",
-      "inProgress": "In Arbeit",
-      "planned": "Geplant"
-    },
-    "items": {
-      "foundations": {
-        "title": "Ein tragfähiges Fundament",
-        "description": "Das Grundgerüst des Projekts und ein einfacher Bildeditor, der ohne Wackeln öffnet, bearbeitet und speichert."
-      },
-      "features": {
-        "title": "Die Funktionen aufbauen",
-        "description": "Ebenen, Retusche, RAW-Entwicklung, Smartobjekte, Animation und Automatisierung sind in die Entwicklungsversion integriert."
-      },
-      "debugging": {
-        "title": "Fehlersuche und Stabilisierung",
-        "description": "Fehler beheben, die Leistung verbessern und Dateien, Werkzeuge sowie die Installation unter Linux, Windows und macOS prüfen."
-      },
-      "alpha": {
-        "title": "Erste öffentliche Alpha",
-        "description": "Eine herunterladbare Fassung. Hinterlassen Sie Ihre Adresse, dann erfahren Sie am Tag der Veröffentlichung davon."
-      }
-    }
   },
   "footer": {
     "tagline": "Ein fortgeschrittener, lokal arbeitender Rasterbildeditor für Linux, Windows und macOS.",

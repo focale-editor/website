@@ -16,7 +16,6 @@
     "secondary": "Piè di pagina",
     "features": "Funzionalità",
     "preview": "Anteprima",
-    "roadmap": "Tabella di marcia",
     "language": "Lingua",
     "openMenu": "Apri il menu",
     "closeMenu": "Chiudi il menu"
@@ -25,7 +24,7 @@
     "badge": "Editor di immagini per desktop",
     "title": "Ritocca, componi e crea",
     "titleAccent": "con precisione.",
-    "subtitle": "Livelli, maschere, regolazioni non distruttive, filtri ed effetti di livello, e i file di Photoshop che hai già si aprono subito.",
+    "subtitle": "Un editor di immagini avanzato che lavora interamente sul tuo computer, dal ritocco fotografico alla composizione a livelli. I tuoi file di Photoshop si aprono subito.",
     "platformsLabel": "Disponibile per"
   },
   "principles": {
@@ -95,8 +94,7 @@
   "features": {
     "eyebrow": "Funzionalità",
     "title": "Tutto ciò che serve a una vera sessione di ritocco.",
-    "description": "Queste funzionalità sono integrate nella versione di sviluppo. Focale entra ora nella fase di debug e stabilizzazione.",
-    "note": "La prima alfa pubblica deve ancora arrivare. Proseguono i test di stabilità, compatibilità dei formati e funzionamento sui tre sistemi.",
+    "description": "Tutto ciò che segue è già nell'alfa, pronto da provare. Focale è ancora giovane: correzioni e stabilizzazione proseguono di versione in versione.",
     "items": {
       "localFirst": {
         "title": "Locale per scelta",
@@ -117,6 +115,10 @@
       "raw": {
         "title": "Sviluppo RAW",
         "description": "Uno spazio dedicato con bilanciamento del bianco, esposizione, curve, riduzione del rumore, correzioni obiettivo e regolazioni locali. Usa questi controlli anche sui livelli con il filtro Camera Raw."
+      },
+      "photoMerge": {
+        "title": "Panorami e fusione HDR",
+        "description": "Unisci più scatti in un panorama o fondili in HDR. Il risultato si apre in un nuovo documento e ogni sorgente del panorama resta un livello con la sua maschera modificabile."
       },
       "colorManagement": {
         "title": "Colore e alta precisione",
@@ -142,6 +144,10 @@
         "title": "Effetti e stili di livello",
         "description": "Smusso, traccia, ombre, bagliori, raso e sovrapposizioni di colore, sfumatura o motivo. Riutilizza le combinazioni con gli stili Focale e l'importazione ed esportazione di librerie Photoshop ASL."
       },
+      "presets": {
+        "title": "Librerie di predefiniti",
+        "description": "Pennelli, motivi, forme, stili, campioni, sfumature, curve e contorni vivono in librerie riutilizzabili. Importa quelle di Photoshop: ABR, PAT, CSH, ASL, ACO, GRD o ACV."
+      },
       "automation": {
         "title": "Azioni ed elaborazione in serie",
         "description": "Registra e riproduci sequenze di operazioni, poi condividile come file .faction. Elabora una cartella o i documenti aperti con opzioni di esportazione e denominazione dei file."
@@ -149,6 +155,10 @@
       "animation": {
         "title": "GIF animate modificabili",
         "description": "Apri una GIF come fotogrammi modificabili, regola durata e visibilità e visualizza l'anteprima in ciclo. Conserva l'animazione nel progetto .focale ed esportala in GIF."
+      },
+      "workspaces": {
+        "title": "Aree di lavoro su misura",
+        "description": "Ancora, raggruppa o sgancia i pannelli, poi salva la tua disposizione. Trova qualsiasi comando con la ricerca e assegnagli la scorciatoia da tastiera che preferisci."
       },
       "formats": {
         "title": "Apri, modifica, esporta",
@@ -161,34 +171,6 @@
     },
     "showLess": "Mostra meno funzionalità",
     "showMore": "Altre funzionalità"
-  },
-  "roadmap": {
-    "eyebrow": "A che punto è il progetto",
-    "title": "Quattro passi verso la prima alfa.",
-    "description": "Fase 3 di 4: le funzionalità sono integrate. Il lavoro si concentra ora su correzioni, prestazioni e verifiche prima dell'alfa pubblica.",
-    "states": {
-      "done": "Fatto",
-      "inProgress": "In corso",
-      "planned": "Previsto"
-    },
-    "items": {
-      "foundations": {
-        "title": "Fondamenta solide",
-        "description": "Le basi del progetto e un editor di immagini semplice che apre, modifica e salva senza cedere."
-      },
-      "features": {
-        "title": "Costruire le funzionalità",
-        "description": "Livelli, ritocco, sviluppo RAW, oggetti avanzati, animazione e automazione sono integrati nella versione di sviluppo."
-      },
-      "debugging": {
-        "title": "Debug e stabilizzazione",
-        "description": "Correggere i difetti, migliorare le prestazioni e verificare file, strumenti e installazioni su Linux, Windows e macOS."
-      },
-      "alpha": {
-        "title": "Prima alfa pubblica",
-        "description": "Una versione scaricabile. Lascia la tua email e lo saprai il giorno stesso."
-      }
-    }
   },
   "footer": {
     "tagline": "Un editor di immagini raster avanzato e locale, per Linux, Windows e macOS.",

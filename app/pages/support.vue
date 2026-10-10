@@ -137,19 +137,21 @@ async function copyLink(): Promise<void> {
         <button
           type="button"
           class="support-link"
+          :disabled="shareStatus === 'copied'"
+          aria-live="polite"
           @click="copyLink"
         >
-          {{ t('support.shareAction') }}<Icon
-            name="lucide:copy"
+          {{ t(shareStatus === 'copied' ? 'support.copied' : 'support.shareAction') }}<Icon
+            :name="shareStatus === 'copied' ? 'lucide:check' : 'lucide:copy'"
             aria-hidden="true"
           />
         </button>
         <p
-          v-if="shareStatus !== 'idle'"
+          v-if="shareStatus === 'error'"
           role="status"
           class="support-feedback"
         >
-          {{ t(shareStatus === 'copied' ? 'support.copied' : 'support.copyError') }}
+          {{ t('support.copyError') }}
         </p>
       </section>
     </div>
@@ -246,7 +248,8 @@ async function copyLink(): Promise<void> {
   border: 0;
   cursor: pointer;
 
-  &:hover { color: var(--color-accent-bright); }
+  &:not(:disabled):hover { color: var(--color-accent-bright); }
+  &:disabled { cursor: default; }
   &:focus-visible { outline: 2px solid var(--color-accent-bright); outline-offset: 4px; border-radius: 2px; }
   .iconify { flex-shrink: 0; }
 }

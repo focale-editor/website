@@ -57,11 +57,6 @@ const expanded = ref(false)
         </template>
       </Button>
     </div>
-
-    <p class="features-note">
-      <Icon name="lucide:info" />
-      {{ t('features.note') }}
-    </p>
   </PageSection>
 </template>
 
@@ -130,19 +125,5 @@ const expanded = ref(false)
 .features-toggle {
   min-height: 2.75rem;
   text-align: center;
-}
-
-.features-note {
-  display: flex;
-  gap: 0.5rem;
-  align-items: flex-start;
-  margin-top: 1.5rem;
-  color: var(--color-text-subtle);
-  font-size: 0.875rem;
-
-  svg {
-    flex: none;
-    margin-top: 0.15rem;
-  }
 }
 </style>

@@ -41,7 +41,6 @@ export function useSiteNavigation() {
       links: [
         { label: 'nav.features', to: home('#features') },
         { label: 'nav.preview', to: home('#preview') },
-        { label: 'nav.roadmap', to: home('#roadmap') },
         { label: 'docs.title', to: localePath('/docs') },
         { label: 'changelog.title', to: localePath('/changelog') },
         { label: 'support.title', to: localePath('/support') },
