@@ -2,6 +2,68 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "version": "0.0.9",
+      "date": "2026-10-11",
+      "changes": [
+        {
+          "kind": "FEAT",
+          "description": "Added a startup splash screen displaying initialization progress."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added merge actions to the layer context menu."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Now stacking dithered gradient layers."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed a blink bug that was occurring when zooming / moving the canvas."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed gradient banding on the home screen."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Built-in brushes are now saved as `fbrush` presets."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Built-in coutours, swatches, gradients, curves and styles are now saved as `fcontour`, `fswatch`, `fgradient`, `fcurve` and `fstyle` presets."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Built-in patterns are now saved as `fpattern` presets."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Built-in shapes are now saved as `fshape` presets."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Improved the home screen UI."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Now preventing the update dialog from closing while working."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Updated the hero background."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Updated the website branding."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Various UI improvements."
+        }
+      ]
+    },
+    {
       "version": "0.0.8",
       "date": "2026-10-10",
       "changes": [

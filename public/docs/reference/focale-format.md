@@ -1266,9 +1266,10 @@ Curves contain at most 256 points after normalization, including added endpoints
 imports that cannot satisfy this bound are rejected before saving. Antialiasing
 smooths curve transitions over the device-pixel coverage footprint without
 changing the stored points.
-Legacy `profile` names remain readable when no valid curve is supplied. The
-[contour library specification](contours.md) describes the curve representation
-and native `.fcontour` interchange; applied styles embed the curve itself.
+Without a valid `curve`, the contour defaults to linear; legacy `profile`
+names are ignored. The [contour library specification](contours.md) describes
+the curve representation and native `.fcontour` interchange; applied styles
+embed the curve itself.
 
 `fillOpacity` is written only when it is below 1, `blendIf` only when at least
 one range is active, and `effects` only when at least one is configured, so a
