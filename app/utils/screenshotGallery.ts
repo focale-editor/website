@@ -11,12 +11,18 @@ export interface EditorScreenshot {
   height: number
 }
 
-/** The supplied collection has French and English captures. */
-export function screenshotLanguage(locale: string): 'fr' | 'en' {
-  return locale.split('-')[0]?.toLowerCase() === 'fr' ? 'fr' : 'en'
+/** Selects localized captures, falling back to English for unsupported locales. */
+export function screenshotLanguage(locale: string): 'en' | 'fr' | 'es' | 'it' | 'pt' | 'de' {
+  const language = locale.split('-')[0]?.toLowerCase()
+  switch (language) {
+    case 'fr': case 'es': case 'it': case 'pt': case 'de':
+      return language
+    default:
+      return 'en'
+  }
 }
 
-/** Keeps the same four views available across both languages and themes. */
+/** Keeps the same four views available across all six languages and both themes. */
 export function editorScreenshots(locale: string, theme: ScreenshotTheme): EditorScreenshot[] {
   const language = screenshotLanguage(locale)
   const views = ['editor', 'curves', 'home', 'typography'] as const

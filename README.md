@@ -162,9 +162,9 @@ only when regenerating the gallery. Release publication updates other resources
 automatically from its source tag. The workflow and its `FOCALE_WEBSITE_TOKEN`
 are configured in Focale, not here; no local directory conventions are required.
 
-The gallery uses four scenes, both themes and French/English captures, encoded
-as 1600/3200-pixel WebP images plus 320-pixel thumbnails. French routes use French
-captures; other locales use English. Changes to scene IDs or image dimensions
+The gallery uses four scenes, both themes and captures in all six site languages,
+encoded as 1600/3200-pixel WebP images plus 320-pixel thumbnails. Each locale uses
+its translated interface captures. Changes to scene IDs or image dimensions
 require coordinating this public contract with the editor.
 Palette tokens and the OpenVue preset are maintained in `app/assets/styles` and
 `app/theme/openvue-preset.ts`.

@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict'
-import { readFile } from 'node:fs/promises'
-import { webcrypto } from 'node:crypto'
-import { fileURLToPath } from 'node:url'
-import { resolve } from 'node:path'
+import {readFile} from 'node:fs/promises'
+import {webcrypto} from 'node:crypto'
+import {fileURLToPath} from 'node:url'
+import {resolve} from 'node:path'
 import test from 'node:test'
 import vm from 'node:vm'
-import { JSDOM, VirtualConsole } from 'jsdom'
+import {JSDOM, VirtualConsole} from 'jsdom'
 
 const output = resolve(process.env.FOCALE_OUTPUT || fileURLToPath(new URL('../.output/public', import.meta.url)))
 const origin = 'https://focale-editor.app'
@@ -246,6 +246,11 @@ for (const locale of locales) {
         const document = window.document
         await waitFor(() => document.querySelector('.download-fallback-link'))
         assertDownloadActions(document, locale === 'en' ? '/' : `/${locale}`)
+        const screenshots = [...document.querySelectorAll('.preview-image')]
+        assert.equal(screenshots.length, 4)
+        for (const screenshot of screenshots) {
+          assert.ok(screenshot.getAttribute('src').startsWith(`/images/screenshots/${locale}/`), 'the gallery uses the translated interface')
+        }
         assert.equal(document.querySelector('.download-notice p')?.textContent, translations.downloads.unavailable)
         assert.equal(document.querySelector('.download-notice')?.getAttribute('aria-live'), 'polite')
         assert.equal(document.querySelector('.download-fallback-link').textContent.trim(), translations.downloads.browseReleases)
