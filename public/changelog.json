@@ -2,6 +2,28 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "version": "0.0.10",
+      "date": "2026-10-11",
+      "changes": [
+        {
+          "kind": "PERF",
+          "description": "Improved the Fill tool performances."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed a bug with text alignments."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Added more keyboard shortcuts when editing a text."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Localized the app in more languages (es, pt, de, it)."
+        }
+      ]
+    },
+    {
       "version": "0.0.9",
       "date": "2026-10-11",
       "changes": [
