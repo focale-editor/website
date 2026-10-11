@@ -64,18 +64,15 @@ const expanded = ref(false)
 // One panel divided by hairlines, the way the editor lays out its own docks —
 // rather than a scatter of floating cards.
 .features {
-  display: grid;
+  display: block;
   margin: 0;
   background: var(--color-panel);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-lg);
   overflow: hidden;
 
-  @include from($breakpoint-sm) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   @include from($breakpoint-lg) {
+    display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
