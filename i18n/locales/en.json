@@ -2080,5 +2080,86 @@
     "emptyDescription": "Release notes are not available here yet. See the downloads section for published versions.",
     "originalLanguage": "Release notes are shown in their original language.",
     "noChanges": "No additional changes listed for this version."
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "description": "What Focale and this website do with your data, and what they leave alone.",
+    "eyebrow": "Privacy",
+    "updated": "Last updated: 13 October 2026",
+    "contact": "Contact the publisher",
+    "sections": {
+      "summary": {
+        "title": "In short",
+        "paragraphs": [
+          "Focale edits your images on your computer. It has no account, no advertising and no usage analytics, and it never uploads your documents.",
+          "Data leaves your device in three cases only: automatic error reports, which you can turn off; update checks; and founder registration, if you choose to give your email address."
+        ]
+      },
+      "controller": {
+        "title": "Who is responsible",
+        "paragraphs": [
+          "Focale and this website are published by Hugo Delaunay, who decides how the data described here is used. For any question or request about your data, write to {email}."
+        ]
+      },
+      "documents": {
+        "title": "Your images and projects",
+        "paragraphs": [
+          "The images you open, your .focale projects, presets, settings, list of recent files and recovery snapshots are stored on your device. Focale does not send them anywhere, and the publisher cannot access them."
+        ]
+      },
+      "errors": {
+        "title": "Error reports",
+        "paragraphs": [
+          "When Focale meets an unexpected error or crashes, it sends a technical report so that the bug can be fixed. This is enabled by default. You can turn it off at any time in Settings → Diagnostics → Automatically send error reports.",
+          "A report contains:"
+        ],
+        "items": [
+          "the type of error, its message and the place in Focale’s code where it happened;",
+          "the version of Focale, your operating system and its version, and general characteristics of your device, such as its model, processor architecture, memory and screen size;",
+          "the times at which the application was opened, paused or resumed before the error."
+        ],
+        "notes": [
+          "Focale removes user identifiers, the name of your computer, and the file paths and email addresses that appear in error messages. Reports never include screenshots or the content of your documents. One exception deserves mention: when the application crashes outright, the report includes a snapshot of part of its memory, which may contain fragments of what was open at that moment.",
+          "Reports are received by Sentry, an error-monitoring service operated by Functional Software, Inc., which acts on the publisher’s behalf. As with any internet connection, Sentry sees the IP address the report comes from. Reports are kept for 90 days at most, then deleted. They are used only to diagnose and fix bugs, on the basis of the publisher’s legitimate interest in keeping Focale reliable."
+        ]
+      },
+      "updates": {
+        "title": "Updates",
+        "paragraphs": [
+          "Versions downloaded from this website look for a new version at startup by reading a signed release feed on get.focale-editor.app. The request carries no identifier and no information about you beyond what any download reveals: your IP address and the version of the software making the request. You can turn the check off in Settings → Updates → Check for updates at startup. Nothing is installed without your confirmation.",
+          "Versions installed from the Microsoft Store, the Mac App Store, the Snap Store or as a Flatpak are delivered and updated by that store, under its own privacy policy."
+        ]
+      },
+      "founders": {
+        "title": "Founder registration",
+        "paragraphs": [
+          "Focale may invite you to join its founders. This is optional. If you accept, the email address you type, the language of the application and the fact that you registered from the application are sent to Loops, the emailing service used by the publisher.",
+          "Your address is used to register you, to send you news about Focale and, if its business model changes, your license key. The basis is your consent: every email contains an unsubscribe link, and you can ask for your address to be deleted by writing to {email}. It is kept until you do so.",
+          "Loops is operated by Loops, Inc., a company established in the United States."
+        ]
+      },
+      "website": {
+        "title": "This website",
+        "paragraphs": [
+          "The website is made of static pages hosted on GitHub Pages. It uses no analytics, no advertising and no third-party trackers, and its fonts are served from the site itself. Like any host, GitHub records the IP addresses of visitors in its technical logs, for security purposes; the publisher has no access to them.",
+          "A single cookie, focale_locale, is stored for one year when you choose a language with the language selector, so that the site opens in that language next time. It is not set otherwise and is not used to follow you.",
+          "The list of downloads is loaded from get.focale-editor.app, which is also hosted on GitHub Pages. Links to GitHub, to the stores and to the donation platforms lead to services with their own privacy policies."
+        ]
+      },
+      "rights": {
+        "title": "Your rights",
+        "paragraphs": [
+          "Under the General Data Protection Regulation, you can ask to access, correct or delete your personal data, to restrict or object to its use, to receive it in a portable format, and to withdraw a consent you gave. Write to {email}; you will receive an answer within one month.",
+          "Error reports carry no name, account or email address, so it is generally impossible to find the ones that came from your device. Turning reporting off stops any further report.",
+          "If you believe your data is handled improperly, you may lodge a complaint with the data protection authority of your country."
+        ]
+      },
+      "changes": {
+        "title": "Changes to this policy",
+        "paragraphs": [
+          "This page is updated when Focale or the website changes what they do with data. The date at the top shows the last revision."
+        ]
+      }
+    }
   }
 }

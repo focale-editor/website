@@ -2080,5 +2080,86 @@
     "emptyDescription": "As notas de versão ainda não estão disponíveis aqui. Consulte as versões publicadas na secção de transferências.",
     "originalLanguage": "As notas de versão são apresentadas no idioma original.",
     "noChanges": "Não há alterações adicionais indicadas para esta versão."
+  },
+  "privacy": {
+    "title": "Política de privacidade",
+    "description": "O que o Focale e este site fazem com os seus dados, e aquilo em que não tocam.",
+    "eyebrow": "Privacidade",
+    "updated": "Última atualização: 13 de outubro de 2026",
+    "contact": "Contactar o editor",
+    "sections": {
+      "summary": {
+        "title": "Em resumo",
+        "paragraphs": [
+          "O Focale edita as suas imagens no seu computador. Não tem conta, publicidade nem análise de utilização, e nunca envia os seus documentos para a Internet.",
+          "Os dados saem do seu dispositivo apenas em três casos: os relatórios de erro automáticos, que pode desativar; a verificação de atualizações; e o registo como fundador, se decidir indicar o seu endereço de email."
+        ]
+      },
+      "controller": {
+        "title": "Quem é o responsável",
+        "paragraphs": [
+          "O Focale e este site são publicados por Hugo Delaunay, que decide como são utilizados os dados aqui descritos. Para qualquer questão ou pedido sobre os seus dados, escreva para {email}."
+        ]
+      },
+      "documents": {
+        "title": "As suas imagens e projetos",
+        "paragraphs": [
+          "As imagens que abre, os seus projetos .focale, as predefinições, as preferências, a lista de ficheiros recentes e as cópias de recuperação ficam guardados no seu dispositivo. O Focale não os envia para lado nenhum, e o editor não tem acesso a eles."
+        ]
+      },
+      "errors": {
+        "title": "Relatórios de erro",
+        "paragraphs": [
+          "Quando o Focale encontra um erro inesperado ou falha, envia um relatório técnico para que o problema possa ser corrigido. Este envio está ativado por predefinição. Pode desativá-lo em qualquer momento em Preferências → Diagnóstico → Enviar relatórios de erro automaticamente.",
+          "Um relatório contém:"
+        ],
+        "items": [
+          "o tipo de erro, a sua mensagem e o local do código do Focale onde ocorreu;",
+          "a versão do Focale, o seu sistema operativo e a respetiva versão, e características gerais do seu dispositivo, como o modelo, a arquitetura do processador, a memória e o tamanho do ecrã;",
+          "os momentos em que a aplicação foi aberta, colocada em pausa ou retomada antes do erro."
+        ],
+        "notes": [
+          "O Focale remove os identificadores de utilizador, o nome do seu computador e os caminhos de ficheiros e endereços de email que surgem nas mensagens de erro. Os relatórios nunca incluem capturas de ecrã nem o conteúdo dos seus documentos. Há uma exceção a assinalar: quando a aplicação falha abruptamente, o relatório inclui uma cópia de parte da sua memória, que pode conter fragmentos do que estava aberto nesse momento.",
+          "Os relatórios são recebidos pela Sentry, um serviço de monitorização de erros operado pela Functional Software, Inc., que atua por conta do editor. Como em qualquer ligação à Internet, a Sentry vê o endereço IP de onde provém o relatório. Os relatórios são conservados durante 90 dias no máximo e depois eliminados. Servem apenas para diagnosticar e corrigir erros, com base no interesse legítimo do editor em manter o Focale fiável."
+        ]
+      },
+      "updates": {
+        "title": "Atualizações",
+        "paragraphs": [
+          "As versões transferidas a partir deste site procuram uma nova versão ao iniciar, lendo um feed de publicação assinado em get.focale-editor.app. O pedido não contém qualquer identificador e não revela sobre si mais do que qualquer transferência revela: o seu endereço IP e a versão do software que faz o pedido. Pode desativar a verificação em Preferências → Atualizações → Verificar atualizações ao iniciar. Nada é instalado sem a sua confirmação.",
+          "As versões instaladas a partir da Microsoft Store, da Mac App Store, da Snap Store ou como Flatpak são distribuídas e atualizadas por essa loja, segundo a sua própria política de privacidade."
+        ]
+      },
+      "founders": {
+        "title": "Registo como fundador",
+        "paragraphs": [
+          "O Focale pode convidá-lo a juntar-se aos seus fundadores. É opcional. Se aceitar, o endereço de email que escreve, o idioma da aplicação e o facto de se ter registado a partir da aplicação são enviados para a Loops, o serviço de email utilizado pelo editor.",
+          "O seu endereço serve para o registar, para lhe enviar novidades sobre o Focale e, se o modelo de negócio mudar, a sua chave de licença. A base é o seu consentimento: cada email contém uma ligação para cancelar a subscrição, e pode pedir a eliminação do seu endereço escrevendo para {email}. É conservado até lá.",
+          "A Loops é operada pela Loops, Inc., uma empresa estabelecida nos Estados Unidos."
+        ]
+      },
+      "website": {
+        "title": "Este site",
+        "paragraphs": [
+          "O site é composto por páginas estáticas alojadas no GitHub Pages. Não utiliza análise de audiência, publicidade nem rastreadores de terceiros, e os seus tipos de letra são servidos pelo próprio site. Como qualquer serviço de alojamento, o GitHub regista os endereços IP dos visitantes nos seus registos técnicos, por motivos de segurança; o editor não tem acesso a eles.",
+          "Um único cookie, focale_locale, é guardado durante um ano quando escolhe um idioma com o seletor de idioma, para que o site abra nesse idioma da próxima vez. Não é guardado noutros casos e não serve para o seguir.",
+          "A lista de transferências é carregada a partir de get.focale-editor.app, também alojado no GitHub Pages. As ligações para o GitHub, para as lojas e para as plataformas de donativos conduzem a serviços com as suas próprias políticas de privacidade."
+        ]
+      },
+      "rights": {
+        "title": "Os seus direitos",
+        "paragraphs": [
+          "O Regulamento Geral sobre a Proteção de Dados permite-lhe pedir o acesso aos seus dados pessoais, a sua retificação ou eliminação, limitar ou opor-se à sua utilização, recebê-los num formato portável e retirar um consentimento que tenha dado. Escreva para {email}; receberá uma resposta no prazo de um mês.",
+          "Os relatórios de erro não contêm nome, conta nem endereço de email, pelo que em geral é impossível localizar os que provêm do seu dispositivo. Desativar o envio impede qualquer novo relatório.",
+          "Se considerar que os seus dados não são tratados corretamente, pode apresentar uma reclamação junto da autoridade de proteção de dados do seu país."
+        ]
+      },
+      "changes": {
+        "title": "Alterações a esta política",
+        "paragraphs": [
+          "Esta página é atualizada quando o Focale ou o site alteram o que fazem com os dados. A data no topo indica a última revisão."
+        ]
+      }
+    }
   }
 }

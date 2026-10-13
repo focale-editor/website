@@ -2080,5 +2080,86 @@
     "emptyDescription": "Le note di rilascio non sono ancora disponibili qui. Consulta le versioni pubblicate nella sezione download.",
     "originalLanguage": "Le note di rilascio sono riportate nella lingua originale.",
     "noChanges": "Nessuna modifica aggiuntiva indicata per questa versione."
+  },
+  "privacy": {
+    "title": "Informativa sulla privacy",
+    "description": "Che cosa fanno Focale e questo sito con i tuoi dati, e che cosa non toccano.",
+    "eyebrow": "Privacy",
+    "updated": "Ultimo aggiornamento: 13 ottobre 2026",
+    "contact": "Contatta l’editore",
+    "sections": {
+      "summary": {
+        "title": "In breve",
+        "paragraphs": [
+          "Focale modifica le tue immagini sul tuo computer. Non ha account, pubblicità né analisi d’uso, e non carica mai i tuoi documenti su Internet.",
+          "I dati lasciano il tuo dispositivo solo in tre casi: le segnalazioni di errore automatiche, che puoi disattivare; la verifica degli aggiornamenti; e la registrazione come fondatore, se scegli di fornire il tuo indirizzo email."
+        ]
+      },
+      "controller": {
+        "title": "Chi è il responsabile",
+        "paragraphs": [
+          "Focale e questo sito sono pubblicati da Hugo Delaunay, che decide come vengono usati i dati qui descritti. Per qualsiasi domanda o richiesta sui tuoi dati, scrivi a {email}."
+        ]
+      },
+      "documents": {
+        "title": "Le tue immagini e i tuoi progetti",
+        "paragraphs": [
+          "Le immagini che apri, i tuoi progetti .focale, i predefiniti, le impostazioni, l’elenco dei file recenti e le copie di recupero sono salvati sul tuo dispositivo. Focale non li invia da nessuna parte e l’editore non può accedervi."
+        ]
+      },
+      "errors": {
+        "title": "Segnalazioni di errore",
+        "paragraphs": [
+          "Quando Focale incontra un errore imprevisto o si arresta in modo anomalo, invia un rapporto tecnico affinché il problema possa essere corretto. L’invio è attivo per impostazione predefinita. Puoi disattivarlo in qualsiasi momento in Impostazioni → Diagnostica → Invia automaticamente le segnalazioni di errore.",
+          "Una segnalazione contiene:"
+        ],
+        "items": [
+          "il tipo di errore, il suo messaggio e il punto del codice di Focale in cui si è verificato;",
+          "la versione di Focale, il tuo sistema operativo e la sua versione, e caratteristiche generali del dispositivo, come il modello, l’architettura del processore, la memoria e le dimensioni dello schermo;",
+          "i momenti in cui l’applicazione è stata aperta, messa in pausa o ripresa prima dell’errore."
+        ],
+        "notes": [
+          "Focale rimuove gli identificativi dell’utente, il nome del computer e i percorsi dei file e gli indirizzi email presenti nei messaggi di errore. Le segnalazioni non includono mai schermate né il contenuto dei tuoi documenti. Va segnalata un’eccezione: quando l’applicazione si arresta bruscamente, la segnalazione include una copia di parte della sua memoria, che può contenere frammenti di ciò che era aperto in quel momento.",
+          "Le segnalazioni sono ricevute da Sentry, un servizio di monitoraggio degli errori gestito da Functional Software, Inc., che agisce per conto dell’editore. Come per qualsiasi connessione a Internet, Sentry vede l’indirizzo IP da cui proviene la segnalazione. Le segnalazioni sono conservate per 90 giorni al massimo, poi eliminate. Servono soltanto a diagnosticare e correggere i problemi, sulla base del legittimo interesse dell’editore a mantenere Focale affidabile."
+        ]
+      },
+      "updates": {
+        "title": "Aggiornamenti",
+        "paragraphs": [
+          "Le versioni scaricate da questo sito cercano una nuova versione all’avvio leggendo un feed di pubblicazione firmato su get.focale-editor.app. La richiesta non contiene alcun identificativo e non rivela su di te nulla più di quanto riveli qualsiasi download: il tuo indirizzo IP e la versione del software che effettua la richiesta. Puoi disattivare la verifica in Impostazioni → Aggiornamenti → Verifica aggiornamenti all’avvio. Nulla viene installato senza la tua conferma.",
+          "Le versioni installate da Microsoft Store, Mac App Store, Snap Store o come Flatpak sono distribuite e aggiornate da quello store, secondo la sua informativa sulla privacy."
+        ]
+      },
+      "founders": {
+        "title": "Registrazione come fondatore",
+        "paragraphs": [
+          "Focale può invitarti a unirti ai suoi fondatori. È facoltativo. Se accetti, l’indirizzo email che inserisci, la lingua dell’applicazione e il fatto che ti sei registrato dall’applicazione vengono inviati a Loops, il servizio di posta usato dall’editore.",
+          "Il tuo indirizzo serve a registrarti, a inviarti novità su Focale e, se il modello di business cambia, la tua chiave di licenza. La base è il tuo consenso: ogni email contiene un link per annullare l’iscrizione, e puoi chiedere la cancellazione del tuo indirizzo scrivendo a {email}. Fino ad allora viene conservato.",
+          "Loops è gestito da Loops, Inc., una società con sede negli Stati Uniti."
+        ]
+      },
+      "website": {
+        "title": "Questo sito",
+        "paragraphs": [
+          "Il sito è composto da pagine statiche ospitate su GitHub Pages. Non usa strumenti di analisi, pubblicità né tracciatori di terze parti, e i suoi caratteri sono serviti dal sito stesso. Come ogni servizio di hosting, GitHub registra gli indirizzi IP dei visitatori nei propri registri tecnici, per motivi di sicurezza; l’editore non vi ha accesso.",
+          "Un solo cookie, focale_locale, viene salvato per un anno quando scegli una lingua con il selettore della lingua, così che il sito si apra in quella lingua la volta successiva. Non viene salvato in altri casi e non serve a seguirti.",
+          "L’elenco dei download viene caricato da get.focale-editor.app, anch’esso ospitato su GitHub Pages. I link a GitHub, agli store e alle piattaforme di donazione portano a servizi con le proprie informative sulla privacy."
+        ]
+      },
+      "rights": {
+        "title": "I tuoi diritti",
+        "paragraphs": [
+          "Il Regolamento generale sulla protezione dei dati ti consente di chiedere l’accesso ai tuoi dati personali, la loro rettifica o cancellazione, di limitarne l’uso o di opporti, di riceverli in un formato portabile e di revocare un consenso dato. Scrivi a {email}; riceverai una risposta entro un mese.",
+          "Le segnalazioni di errore non contengono nome, account né indirizzo email: in genere è quindi impossibile ritrovare quelle provenienti dal tuo dispositivo. Disattivare l’invio impedisce ogni ulteriore segnalazione.",
+          "Se ritieni che i tuoi dati non siano trattati correttamente, puoi presentare un reclamo all’autorità per la protezione dei dati del tuo Paese."
+        ]
+      },
+      "changes": {
+        "title": "Modifiche a questa informativa",
+        "paragraphs": [
+          "Questa pagina viene aggiornata quando Focale o il sito cambiano ciò che fanno con i dati. La data in alto indica l’ultima revisione."
+        ]
+      }
+    }
   }
 }

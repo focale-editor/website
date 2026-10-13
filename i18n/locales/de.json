@@ -2080,5 +2080,86 @@
     "emptyDescription": "Hier sind noch keine Versionshinweise verfügbar. Veröffentlichte Versionen sind im Download-Bereich zu finden.",
     "originalLanguage": "Die Versionshinweise werden in ihrer Originalsprache angezeigt.",
     "noChanges": "Für diese Version sind keine weiteren Änderungen aufgeführt."
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung",
+    "description": "Was Focale und diese Website mit Ihren Daten tun und was sie unangetastet lassen.",
+    "eyebrow": "Datenschutz",
+    "updated": "Zuletzt aktualisiert: 13. Oktober 2026",
+    "contact": "Herausgeber kontaktieren",
+    "sections": {
+      "summary": {
+        "title": "Kurz gesagt",
+        "paragraphs": [
+          "Focale bearbeitet Ihre Bilder auf Ihrem Computer. Die Anwendung hat kein Konto, keine Werbung und keine Nutzungsanalyse und lädt Ihre Dokumente niemals hoch.",
+          "Daten verlassen Ihr Gerät nur in drei Fällen: bei automatischen Fehlerberichten, die Sie abschalten können, bei der Suche nach Updates und bei der Anmeldung als Gründungsmitglied, falls Sie Ihre E-Mail-Adresse angeben."
+        ]
+      },
+      "controller": {
+        "title": "Wer verantwortlich ist",
+        "paragraphs": [
+          "Focale und diese Website werden von Hugo Delaunay herausgegeben, der über die Verwendung der hier beschriebenen Daten entscheidet. Bei Fragen oder Anliegen zu Ihren Daten schreiben Sie an {email}."
+        ]
+      },
+      "documents": {
+        "title": "Ihre Bilder und Projekte",
+        "paragraphs": [
+          "Die Bilder, die Sie öffnen, Ihre .focale-Projekte, Vorgaben, Einstellungen, die Liste der zuletzt verwendeten Dateien und die Wiederherstellungskopien werden auf Ihrem Gerät gespeichert. Focale sendet sie nirgendwohin, und der Herausgeber hat keinen Zugriff darauf."
+        ]
+      },
+      "errors": {
+        "title": "Fehlerberichte",
+        "paragraphs": [
+          "Wenn in Focale ein unerwarteter Fehler auftritt oder die Anwendung abstürzt, sendet sie einen technischen Bericht, damit der Fehler behoben werden kann. Dies ist standardmäßig aktiviert. Sie können es jederzeit unter Einstellungen → Diagnose → Fehlerberichte automatisch senden abschalten.",
+          "Ein Bericht enthält:"
+        ],
+        "items": [
+          "die Art des Fehlers, seine Meldung und die Stelle im Code von Focale, an der er aufgetreten ist;",
+          "die Version von Focale, Ihr Betriebssystem und dessen Version sowie allgemeine Merkmale Ihres Geräts, etwa Modell, Prozessorarchitektur, Arbeitsspeicher und Bildschirmgröße;",
+          "die Zeitpunkte, zu denen die Anwendung vor dem Fehler geöffnet, pausiert oder fortgesetzt wurde."
+        ],
+        "notes": [
+          "Focale entfernt Benutzerkennungen, den Namen Ihres Computers sowie Dateipfade und E-Mail-Adressen, die in Fehlermeldungen vorkommen. Berichte enthalten niemals Bildschirmfotos oder den Inhalt Ihrer Dokumente. Eine Ausnahme ist zu erwähnen: Stürzt die Anwendung vollständig ab, enthält der Bericht ein Abbild eines Teils ihres Arbeitsspeichers, das Fragmente dessen enthalten kann, was in diesem Moment geöffnet war.",
+          "Die Berichte gehen an Sentry, einen Dienst zur Fehlerüberwachung, der von Functional Software, Inc. betrieben wird und im Auftrag des Herausgebers handelt. Wie bei jeder Internetverbindung sieht Sentry die IP-Adresse, von der der Bericht stammt. Berichte werden höchstens 90 Tage aufbewahrt und dann gelöscht. Sie dienen ausschließlich der Diagnose und Behebung von Fehlern, auf Grundlage des berechtigten Interesses des Herausgebers an einem zuverlässigen Focale."
+        ]
+      },
+      "updates": {
+        "title": "Updates",
+        "paragraphs": [
+          "Von dieser Website heruntergeladene Versionen suchen beim Start nach einer neuen Version, indem sie einen signierten Veröffentlichungs-Feed auf get.focale-editor.app lesen. Die Anfrage enthält keine Kennung und verrät über Sie nicht mehr als jeder Download: Ihre IP-Adresse und die Version der anfragenden Software. Sie können die Suche unter Einstellungen → Updates → Beim Start nach Updates suchen abschalten. Ohne Ihre Bestätigung wird nichts installiert.",
+          "Versionen aus dem Microsoft Store, dem Mac App Store, dem Snap Store oder als Flatpak werden von dem jeweiligen Store bereitgestellt und aktualisiert, gemäß dessen eigener Datenschutzerklärung."
+        ]
+      },
+      "founders": {
+        "title": "Anmeldung als Gründungsmitglied",
+        "paragraphs": [
+          "Focale kann Sie einladen, Gründungsmitglied zu werden. Das ist freiwillig. Wenn Sie zustimmen, werden die eingegebene E-Mail-Adresse, die Sprache der Anwendung und die Tatsache, dass Sie sich aus der Anwendung heraus angemeldet haben, an Loops gesendet, den vom Herausgeber genutzten E-Mail-Dienst.",
+          "Ihre Adresse wird verwendet, um Sie zu registrieren, Ihnen Neuigkeiten zu Focale zu senden und, falls sich das Geschäftsmodell ändert, Ihren Lizenzschlüssel. Grundlage ist Ihre Einwilligung: Jede E-Mail enthält einen Abmeldelink, und Sie können die Löschung Ihrer Adresse verlangen, indem Sie an {email} schreiben. Bis dahin wird sie aufbewahrt.",
+          "Loops wird von Loops, Inc. betrieben, einem Unternehmen mit Sitz in den Vereinigten Staaten."
+        ]
+      },
+      "website": {
+        "title": "Diese Website",
+        "paragraphs": [
+          "Die Website besteht aus statischen Seiten, die auf GitHub Pages gehostet werden. Sie verwendet keine Analyse, keine Werbung und keine Tracker von Dritten, und ihre Schriftarten werden von der Website selbst ausgeliefert. Wie jeder Hoster speichert GitHub die IP-Adressen der Besucher aus Sicherheitsgründen in seinen technischen Protokollen; der Herausgeber hat darauf keinen Zugriff.",
+          "Ein einziges Cookie, focale_locale, wird für ein Jahr gesetzt, wenn Sie über die Sprachauswahl eine Sprache wählen, damit sich die Website beim nächsten Mal in dieser Sprache öffnet. Andernfalls wird es nicht gesetzt, und es dient nicht dazu, Sie zu verfolgen.",
+          "Die Liste der Downloads wird von get.focale-editor.app geladen, das ebenfalls auf GitHub Pages gehostet wird. Links zu GitHub, zu den Stores und zu den Spendenplattformen führen zu Diensten mit eigenen Datenschutzerklärungen."
+        ]
+      },
+      "rights": {
+        "title": "Ihre Rechte",
+        "paragraphs": [
+          "Nach der Datenschutz-Grundverordnung können Sie Auskunft über Ihre personenbezogenen Daten, deren Berichtigung oder Löschung verlangen, ihre Verwendung einschränken oder ihr widersprechen, sie in einem übertragbaren Format erhalten und eine erteilte Einwilligung widerrufen. Schreiben Sie an {email}; Sie erhalten innerhalb eines Monats eine Antwort.",
+          "Fehlerberichte enthalten weder Namen noch Konto noch E-Mail-Adresse, daher lassen sich die Berichte Ihres Geräts in der Regel nicht auffinden. Wenn Sie das Senden abschalten, werden keine weiteren Berichte übermittelt.",
+          "Wenn Sie der Ansicht sind, dass Ihre Daten nicht ordnungsgemäß verarbeitet werden, können Sie bei der Datenschutzbehörde Ihres Landes Beschwerde einlegen."
+        ]
+      },
+      "changes": {
+        "title": "Änderungen dieser Erklärung",
+        "paragraphs": [
+          "Diese Seite wird aktualisiert, wenn Focale oder die Website ihren Umgang mit Daten ändern. Das Datum oben zeigt die letzte Überarbeitung."
+        ]
+      }
+    }
   }
 }

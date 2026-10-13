@@ -21,7 +21,7 @@ export interface NavigationSection {
 /**
  * Single source of truth for the site's navigation.
  *
- * Pages that do not exist yet — FAQ, terms, privacy, contact —
+ * Pages that do not exist yet — FAQ, terms, contact —
  * are added here once, and both the header and the footer pick them up.
  */
 export function useSiteNavigation() {
@@ -44,6 +44,7 @@ export function useSiteNavigation() {
         { label: 'docs.title', to: localePath('/docs') },
         { label: 'changelog.title', to: localePath('/changelog') },
         { label: 'support.title', to: localePath('/support') },
+        { label: 'privacy.title', to: localePath('/privacy') },
       ],
     },
     {
