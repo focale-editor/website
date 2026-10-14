@@ -2,6 +2,32 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "version": "0.0.11",
+      "date": "2026-10-14",
+      "changes": [
+        {
+          "kind": "FIX",
+          "description": "Fixed a bug with asynchronous loading of translations."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed various bugs with the Eraser tool."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Added `snap` as a distribution target."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Improved the new document dialog UI."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Various QoL improvements."
+        }
+      ]
+    },
+    {
       "version": "0.0.10",
       "date": "2026-10-11",
       "changes": [
