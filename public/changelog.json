@@ -2,6 +2,16 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "version": "0.0.12",
+      "date": "2026-10-14",
+      "changes": [
+        {
+          "kind": "FIX",
+          "description": "Fixed a gradient rendering problem."
+        }
+      ]
+    },
+    {
       "version": "0.0.11",
       "date": "2026-10-14",
       "changes": [
