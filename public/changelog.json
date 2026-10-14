@@ -2,6 +2,20 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "version": "0.0.13",
+      "date": "2026-10-14",
+      "changes": [
+        {
+          "kind": "FIX",
+          "description": "Fixed a compilation problem."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Improved build scripts."
+        }
+      ]
+    },
+    {
       "version": "0.0.12",
       "date": "2026-10-14",
       "changes": [
