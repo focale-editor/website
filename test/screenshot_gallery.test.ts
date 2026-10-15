@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { access } from 'node:fs/promises'
 import test from 'node:test'
 import { editorScreenshots, screenshotLanguage } from '../app/utils/screenshotGallery.ts'
 
@@ -24,5 +25,25 @@ test('regional locale tags select their translated interface captures', () => {
 test('unsupported or empty locales retain the English fallback', () => {
   for (const locale of ['', 'ja-JP', 'nl', 'french']) {
     assert.equal(screenshotLanguage(locale), 'en')
+  }
+})
+
+test('every gallery image, thumbnail and responsive variant exists for all locales and themes', async () => {
+  for (const locale of ['en', 'fr', 'es', 'it', 'pt', 'de']) {
+    for (const theme of ['dark', 'light'] as const) {
+      for (const screenshot of editorScreenshots(locale, theme)) {
+        const paths = new Set([
+          screenshot.src,
+          screenshot.thumbnail,
+          ...screenshot.srcset.split(', ').map(source => source.split(' ')[0]),
+        ])
+        for (const path of paths) {
+          await assert.doesNotReject(
+            () => access(new URL(`../public${path}`, import.meta.url)),
+            `Missing screenshot asset: ${path}`,
+          )
+        }
+      }
+    }
   }
 })

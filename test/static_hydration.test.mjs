@@ -247,7 +247,7 @@ for (const locale of locales) {
         await waitFor(() => document.querySelector('.download-fallback-link'))
         assertDownloadActions(document, locale === 'en' ? '/' : `/${locale}`)
         const screenshots = [...document.querySelectorAll('.preview-image')]
-        assert.equal(screenshots.length, 4)
+        assert.equal(screenshots.length, 6)
         for (const screenshot of screenshots) {
           assert.ok(screenshot.getAttribute('src').startsWith(`/images/screenshots/${locale}/`), 'the gallery uses the translated interface')
         }
