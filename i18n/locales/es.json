@@ -75,19 +75,27 @@
     "slides": {
       "editor": {
         "title": "Editor",
-        "alt": "Focale con una escena de aurora boreal, la barra de herramientas y el panel de capas."
+        "alt": "Focale con una escena de aurora boreal, una máscara de capa y sus ajustes, y el panel de capas."
+      },
+      "photo": {
+        "title": "Foto",
+        "alt": "Foto del puerto de Riomaggiore en Focale con capas de ajuste, ajustes de intensidad y el pincel corrector puntual."
       },
       "curves": {
         "title": "Curvas",
         "alt": "Ajuste de curvas en Focale con vista previa de la imagen y puntos de control."
       },
-      "home": {
-        "title": "Inicio",
-        "alt": "Pantalla de inicio de Focale con creación de documentos, apertura de archivos y documentos recientes."
-      },
       "typography": {
         "title": "Tipografía",
         "alt": "Cartel Eclipse en Focale con capas de texto, formas y controles tipográficos."
+      },
+      "brushes": {
+        "title": "Pinceles",
+        "alt": "Pintura Jardín de verano en Focale con la herramienta Pincel, sus ajustes y el panel de pinceles."
+      },
+      "home": {
+        "title": "Inicio",
+        "alt": "Pantalla de inicio de Focale con creación de documentos, apertura de archivos y documentos recientes."
       }
     }
   },

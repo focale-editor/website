@@ -75,19 +75,27 @@
     "slides": {
       "editor": {
         "title": "Editor",
-        "alt": "Focale showing an aurora scene, the tool rail and the layers panel."
+        "alt": "Focale showing an aurora scene, a layer mask and its settings, and the layers panel."
+      },
+      "photo": {
+        "title": "Photo",
+        "alt": "Riomaggiore harbor photo in Focale with adjustment layers, vibrance settings and the spot healing brush."
       },
       "curves": {
         "title": "Curves",
         "alt": "Curves adjustment in Focale with an image preview and control points."
       },
-      "home": {
-        "title": "Home",
-        "alt": "Focale home screen with document creation, file opening and recent documents."
-      },
       "typography": {
         "title": "Typography",
         "alt": "Eclipse poster in Focale with text layers, shapes and typography controls."
+      },
+      "brushes": {
+        "title": "Brushes",
+        "alt": "Summer garden painting in Focale with the brush tool, its settings and the Brushes panel."
+      },
+      "home": {
+        "title": "Home",
+        "alt": "Focale home screen with document creation, file opening and recent documents."
       }
     }
   },

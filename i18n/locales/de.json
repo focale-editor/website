@@ -75,19 +75,27 @@
     "slides": {
       "editor": {
         "title": "Editor",
-        "alt": "Focale mit einer Nordlichtszene, der Werkzeugleiste und dem Ebenenbedienfeld."
+        "alt": "Focale mit einer Nordlichtszene, einer Ebenenmaske und ihren Einstellungen sowie dem Ebenenbedienfeld."
+      },
+      "photo": {
+        "title": "Foto",
+        "alt": "Foto des Hafens von Riomaggiore in Focale mit Einstellungsebenen, Dynamik-Einstellungen und dem Bereichsreparatur-Pinsel."
       },
       "curves": {
         "title": "Gradationskurven",
         "alt": "Gradationskurven in Focale mit Bildvorschau und Kontrollpunkten."
       },
-      "home": {
-        "title": "Start",
-        "alt": "Startseite von Focale mit Dokumenterstellung, Dateiöffnung und zuletzt verwendeten Dokumenten."
-      },
       "typography": {
         "title": "Typografie",
         "alt": "Eclipse-Plakat in Focale mit Textebenen, Formen und Typografieeinstellungen."
+      },
+      "brushes": {
+        "title": "Pinsel",
+        "alt": "Gemälde Sommergarten in Focale mit dem Pinselwerkzeug, seinen Einstellungen und dem Pinselbedienfeld."
+      },
+      "home": {
+        "title": "Start",
+        "alt": "Startseite von Focale mit Dokumenterstellung, Dateiöffnung und zuletzt verwendeten Dokumenten."
       }
     }
   },

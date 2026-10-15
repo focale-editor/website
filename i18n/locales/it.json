@@ -75,19 +75,27 @@
     "slides": {
       "editor": {
         "title": "Editor",
-        "alt": "Focale con una scena di aurora boreale, la barra degli strumenti e il pannello dei livelli."
+        "alt": "Focale con una scena di aurora boreale, una maschera di livello e le sue impostazioni, e il pannello dei livelli."
+      },
+      "photo": {
+        "title": "Foto",
+        "alt": "Foto del porto di Riomaggiore in Focale con livelli di regolazione, impostazioni di vividezza e pennello correttivo al volo."
       },
       "curves": {
         "title": "Curve",
         "alt": "Regolazione delle curve in Focale con anteprima dell'immagine e punti di controllo."
       },
-      "home": {
-        "title": "Home",
-        "alt": "Schermata iniziale di Focale con creazione di documenti, apertura di file e documenti recenti."
-      },
       "typography": {
         "title": "Tipografia",
         "alt": "Poster Eclipse in Focale con livelli di testo, forme e controlli tipografici."
+      },
+      "brushes": {
+        "title": "Pennelli",
+        "alt": "Dipinto Giardino d'estate in Focale con lo strumento Pennello, le sue impostazioni e il pannello dei pennelli."
+      },
+      "home": {
+        "title": "Home",
+        "alt": "Schermata iniziale di Focale con creazione di documenti, apertura di file e documenti recenti."
       }
     }
   },

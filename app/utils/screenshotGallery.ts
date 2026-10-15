@@ -3,7 +3,7 @@ export type ScreenshotTheme = 'dark' | 'light'
 
 /** A view shown by the editor preview, with responsive and thumbnail assets. */
 export interface EditorScreenshot {
-  id: 'editor' | 'curves' | 'home' | 'typography'
+  id: 'editor' | 'photo' | 'curves' | 'typography' | 'brushes' | 'home'
   src: string
   srcset: string
   thumbnail: string
@@ -22,10 +22,10 @@ export function screenshotLanguage(locale: string): 'en' | 'fr' | 'es' | 'it' | 
   }
 }
 
-/** Keeps the same four views available across all six languages and both themes. */
+/** Keeps the same six views available across all six languages and both themes. */
 export function editorScreenshots(locale: string, theme: ScreenshotTheme): EditorScreenshot[] {
   const language = screenshotLanguage(locale)
-  const views = ['editor', 'curves', 'home', 'typography'] as const
+  const views = ['editor', 'photo', 'curves', 'typography', 'brushes', 'home'] as const
 
   return views.map((id, index) => {
     const path = `/images/screenshots/${language}/${theme}/${String(index + 1).padStart(2, '0')}-${id}`

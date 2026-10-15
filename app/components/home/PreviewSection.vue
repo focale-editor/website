@@ -337,7 +337,11 @@ watch([page, theme, locale], () => {
   margin-top: 1.5rem;
 
   @include from($breakpoint-sm) {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @include from($breakpoint-lg) {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
 

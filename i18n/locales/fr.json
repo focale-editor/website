@@ -75,19 +75,27 @@
     "slides": {
       "editor": {
         "title": "L'éditeur",
-        "alt": "Focale avec une scène d'aurore boréale, la barre d'outils et le panneau des calques."
+        "alt": "Focale avec une scène d'aurore boréale, un masque de calque et ses réglages, et le panneau des calques."
+      },
+      "photo": {
+        "title": "Photo",
+        "alt": "Photo du port de Riomaggiore dans Focale avec calques de réglage, réglages de vibrance et correcteur localisé."
       },
       "curves": {
         "title": "Courbes",
         "alt": "Réglage des courbes dans Focale avec aperçu de l'image et points de contrôle."
       },
-      "home": {
-        "title": "Accueil",
-        "alt": "Accueil de Focale avec création de documents, ouverture de fichiers et documents récents."
-      },
       "typography": {
         "title": "Typographie",
         "alt": "Affiche Éclipse dans Focale avec calques de texte, formes et panneau de typographie."
+      },
+      "brushes": {
+        "title": "Pinceaux",
+        "alt": "Peinture Jardin d'été dans Focale avec l'outil Pinceau, ses réglages et le panneau des pinceaux."
+      },
+      "home": {
+        "title": "Accueil",
+        "alt": "Accueil de Focale avec création de documents, ouverture de fichiers et documents récents."
       }
     }
   },
