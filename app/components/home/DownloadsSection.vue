@@ -1,20 +1,18 @@
 <script setup lang="ts">
 import type { DownloadTarget } from '~/utils/downloadCatalog'
 import Message from 'openvue/message'
+import DownloadInstructionsDialog from './DownloadInstructionsDialog.vue'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
 const { latestRelease, status } = useDownloads()
 const isLoading = computed(() => status.value === 'idle' || status.value === 'loading')
 
-/** Hosted by get-focale next to the catalog; it installs the latest Linux ZIP. */
-const installCommand = 'curl -fsSL https://get.focale-editor.app/install.sh | bash'
-
 type DownloadOption
-  = | { kind: 'file', target: DownloadTarget, label: string, detail: string, note?: string }
-    | { kind: 'link', href: string, label: string, detail: string, note: string }
+  = | { kind: 'file', target: DownloadTarget, label: string, detail: string }
+    | { kind: 'link', href: string, label: string, detail?: string, note: string, icon?: string }
     | { kind: 'store', label: string }
-    | { kind: 'command' }
+    | { kind: 'instructions', mode: 'archive' | 'command', label: string, detail?: string, note: string }
 
 interface Platform {
   id: string
@@ -32,8 +30,8 @@ const platforms = computed<Platform[]>(() => [
     summary: 'x64',
     icon: 'simple-icons:windows',
     options: [
+      { kind: 'link', href: 'https://www.microsoft.com/store/apps/9NTBHV06W242', label: 'Microsoft Store', note: t('downloads.storeHint'), icon: 'lucide:store' },
       { kind: 'file', target: 'windows-x64', label: t('downloads.installer', { format: 'EXE' }), detail: 'x64' },
-      { kind: 'store', label: 'Microsoft Store' },
     ],
   },
   {
@@ -42,9 +40,9 @@ const platforms = computed<Platform[]>(() => [
     summary: 'Apple Silicon · Intel',
     icon: 'simple-icons:apple',
     options: [
+      { kind: 'store', label: 'Mac App Store' },
       { kind: 'file', target: 'macos-arm64', label: t('downloads.installer', { format: 'DMG' }), detail: 'Apple Silicon' },
       { kind: 'file', target: 'macos-x64', label: t('downloads.installer', { format: 'DMG' }), detail: 'Intel' },
-      { kind: 'store', label: 'Mac App Store' },
     ],
   },
   {
@@ -54,30 +52,25 @@ const platforms = computed<Platform[]>(() => [
     icon: 'simple-icons:linux',
     options: [
       { kind: 'link', href: 'https://flatpak.focale-editor.app/Focale.flatpakref', label: 'Flatpak', detail: '.flatpakref', note: t('downloads.flatpakHint') },
-      { kind: 'command' },
-      { kind: 'file', target: 'linux-x64', label: t('downloads.archive', { format: 'ZIP' }), detail: 'x64', note: t('downloads.linuxHint') },
+      { kind: 'link', href: 'https://snapcraft.io/focale', label: 'Snap', note: t('downloads.snapHint') },
+      { kind: 'instructions', mode: 'command', label: t('downloads.oneCommand'), note: t('downloads.oneCommandHint') },
+      { kind: 'instructions', mode: 'archive', label: t('downloads.archive', { format: 'ZIP' }), detail: 'x64', note: t('downloads.archiveHint') },
     ],
   },
 ])
 
 const expanded = ref<Record<string, boolean>>({})
-const commandStatus = ref<'idle' | 'copied'>('idle')
+const instructionsVisible = ref(false)
+const instructionsMode = ref<'archive' | 'command'>('archive')
 
 /** Signing status is published per file, so the warning follows each one. */
 function noteFor(option: Extract<DownloadOption, { kind: 'file' }>) {
-  if (option.note) return option.note
-  return latestRelease.value?.downloads[option.target].platformSigned ? undefined : t('downloads.unsignedPreview')
+  return t(latestRelease.value?.downloads[option.target].platformSigned ? 'downloads.installerHint' : 'downloads.unsignedPreview')
 }
 
-async function copyCommand(): Promise<void> {
-  try {
-    await navigator.clipboard.writeText(installCommand)
-    commandStatus.value = 'copied'
-    setTimeout(() => (commandStatus.value = 'idle'), 2000)
-  }
-  catch {
-    // The command stays visible and selectable when the clipboard is blocked.
-  }
+function openInstructions(mode: 'archive' | 'command'): void {
+  instructionsMode.value = mode
+  instructionsVisible.value = true
 }
 </script>
 
@@ -170,10 +163,7 @@ async function copyCommand(): Promise<void> {
                     <span class="option-label">{{ option.label }}</span>
                     <span class="option-tag">{{ option.detail }}</span>
                   </span>
-                  <span
-                    v-if="noteFor(option)"
-                    class="option-note"
-                  >{{ noteFor(option) }}</span>
+                  <span class="option-note">{{ noteFor(option) }}</span>
                 </span>
               </a>
 
@@ -185,12 +175,15 @@ async function copyCommand(): Promise<void> {
                 <span class="option-copy">
                   <span class="option-title">
                     <Icon
-                      name="lucide:package"
+                      :name="option.icon ?? 'lucide:package'"
                       class="option-icon"
                       aria-hidden="true"
                     />
                     <span class="option-label">{{ option.label }}</span>
-                    <span class="option-tag">{{ option.detail }}</span>
+                    <span
+                      v-if="option.detail"
+                      class="option-tag"
+                    >{{ option.detail }}</span>
                   </span>
                   <span class="option-note">{{ option.note }}</span>
                 </span>
@@ -215,43 +208,29 @@ async function copyCommand(): Promise<void> {
                 </span>
               </div>
 
-              <div
+              <button
                 v-else
-                class="download-command"
+                type="button"
+                class="download-option"
+                aria-haspopup="dialog"
+                @click="openInstructions(option.mode)"
               >
-                <p class="option-label">
-                  <Icon
-                    name="lucide:terminal"
-                    class="option-icon"
-                    aria-hidden="true"
-                  />
-                  {{ t('downloads.oneCommand') }}
-                </p>
-                <div class="command-row">
-                  <code class="command-code">{{ installCommand }}</code>
-                  <button
-                    type="button"
-                    class="command-copy"
-                    :aria-label="t(commandStatus === 'copied' ? 'downloads.commandCopied' : 'downloads.copyCommand')"
-                    :title="t(commandStatus === 'copied' ? 'downloads.commandCopied' : 'downloads.copyCommand')"
-                    @click="copyCommand"
-                  >
+                <span class="option-copy">
+                  <span class="option-title">
                     <Icon
-                      :name="commandStatus === 'copied' ? 'lucide:check' : 'lucide:copy'"
+                      :name="option.mode === 'archive' ? 'lucide:download' : 'lucide:terminal'"
+                      class="option-icon"
                       aria-hidden="true"
                     />
-                  </button>
-                </div>
-                <p class="option-note">
-                  {{ t('downloads.oneCommandHint') }}
-                </p>
-                <p
-                  class="visually-hidden"
-                  aria-live="polite"
-                >
-                  {{ commandStatus === 'copied' ? t('downloads.commandCopied') : '' }}
-                </p>
-              </div>
+                    <span class="option-label">{{ option.label }}</span>
+                    <span
+                      v-if="option.detail"
+                      class="option-tag"
+                    >{{ option.detail }}</span>
+                  </span>
+                  <span class="option-note">{{ option.note }}</span>
+                </span>
+              </button>
             </li>
           </ul>
         </li>
@@ -272,6 +251,12 @@ async function copyCommand(): Promise<void> {
           </p>
         </div>
       </div>
+
+      <DownloadInstructionsDialog
+        v-model:visible="instructionsVisible"
+        :mode="instructionsMode"
+        :download-url="latestRelease.downloads['linux-x64'].url"
+      />
     </template>
     <Message
       v-else
@@ -431,7 +416,8 @@ async function copyCommand(): Promise<void> {
   }
 }
 
-a.download-option {
+a.download-option,
+button.download-option {
   &:hover {
     background: var(--color-panel-hover);
   }
@@ -439,6 +425,14 @@ a.download-option {
   &:focus-visible {
     @include focus-ring(-2px);
   }
+}
+
+button.download-option {
+  width: 100%;
+  text-align: start;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
 }
 
 .download-option-disabled {
@@ -483,55 +477,6 @@ a.download-option {
   white-space: nowrap;
   background: var(--color-accent-soft);
   border-radius: var(--radius-sm);
-}
-
-.download-command {
-  display: grid;
-  gap: 0.5rem;
-  padding: 0.875rem 1rem;
-
-  .option-label {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-  }
-}
-
-.command-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  overflow: hidden;
-  background: var(--color-canvas);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-sm);
-}
-
-.command-code {
-  padding: 0.5rem 0.75rem;
-  font-size: 0.8125rem;
-  font-family: var(--font-mono);
-  overflow-wrap: anywhere;
-}
-
-.command-copy {
-  display: grid;
-  place-items: center;
-  width: 2.5rem;
-  color: var(--color-text-muted);
-  font-size: 0.9375rem;
-  background: var(--color-panel);
-  border: 0;
-  border-left: 1px solid var(--color-line);
-  cursor: pointer;
-
-  &:hover {
-    color: var(--color-text);
-    background: var(--color-panel-hover);
-  }
-
-  &:focus-visible {
-    @include focus-ring(-2px);
-  }
 }
 
 .update-panel {

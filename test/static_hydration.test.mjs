@@ -198,9 +198,68 @@ test('loading shows an informational status, then a complete release replaces it
         assert.equal(document.querySelector('.download-notice'), null)
         assert.equal(document.querySelector('.hero-status')?.textContent.trim(), translations.downloads.available.replace('{version}', version))
         assert.equal(document.querySelectorAll('.download-card').length, 3)
-        for (const asset of Object.values(downloads)) {
+        for (const [target, asset] of Object.entries(downloads)) {
+          if (target === 'linux-x64') continue // This download is offered inside its instructions dialog.
           assert.ok([...document.querySelectorAll('.download-option[href]')].some(link => link.href === asset.url))
         }
+        assert.equal(document.querySelector('#downloads-windows a[href="https://www.microsoft.com/store/apps/9NTBHV06W242"] .option-label')?.textContent.trim(), 'Microsoft Store')
+        assert.equal(document.querySelector('#downloads-linux a[href="https://snapcraft.io/focale"] .option-label')?.textContent.trim(), 'Snap')
+        assert.equal(document.querySelectorAll('.download-option-disabled').length, 1, 'only the Mac App Store is still upcoming')
+
+        document.querySelector('button[aria-controls="downloads-linux"]').click()
+        await waitFor(() => document.querySelector('#downloads-linux').style.display !== 'none')
+        assert.equal(document.querySelector('#downloads-linux code'), null, 'installation instructions stay out of the compact menu')
+        const triggers = [...document.querySelectorAll('#downloads-linux button[aria-haspopup="dialog"]')]
+        const archiveTrigger = triggers.find(button => button.querySelector('.option-label')?.textContent.trim() === translations.downloads.archive.replace('{format}', 'ZIP'))
+        const commandTrigger = triggers.find(button => button.querySelector('.option-label')?.textContent.trim() === translations.downloads.oneCommand)
+        assert.ok(archiveTrigger)
+        assert.ok(commandTrigger)
+
+        archiveTrigger.focus()
+        archiveTrigger.click()
+        await waitFor(() => document.querySelector('[role="dialog"]'))
+        let dialog = document.querySelector('[role="dialog"]')
+        assert.equal(dialog.getAttribute('aria-modal'), 'true')
+        assert.equal(document.getElementById(dialog.getAttribute('aria-labelledby'))?.textContent, translations.downloads.archiveInstructionsTitle)
+        assert.equal(dialog.querySelectorAll('ol li').length, 2)
+        assert.equal(dialog.querySelector('code')?.textContent, './install.sh')
+        assert.equal(dialog.querySelector('a')?.href, downloads['linux-x64'].url)
+        document.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape', code: 'Escape', bubbles: true }))
+        await waitFor(() => !document.querySelector('[role="dialog"]'))
+        assert.equal(document.activeElement, archiveTrigger, 'closing restores keyboard focus to the ZIP option')
+
+        let copiedCommand = ''
+        Object.defineProperty(window.navigator, 'clipboard', {
+          configurable: true,
+          value: { writeText: async value => (copiedCommand = value) },
+        })
+        commandTrigger.focus()
+        commandTrigger.click()
+        await waitFor(() => document.querySelector('[role="dialog"]'))
+        dialog = document.querySelector('[role="dialog"]')
+        const command = 'curl -fsSL https://get.focale-editor.app/install.sh | bash'
+        assert.equal(document.getElementById(dialog.getAttribute('aria-labelledby'))?.textContent, translations.downloads.oneCommand)
+        assert.equal(dialog.querySelector('code')?.textContent, command)
+        dialog.querySelector('.copy-command').click()
+        await waitFor(() => dialog.querySelector('[role="status"]')?.textContent.trim() === translations.downloads.commandCopied)
+        assert.equal(copiedCommand, command, 'the copy action writes the displayed installer command')
+
+        window.navigator.clipboard.writeText = async () => {
+          throw new Error('Clipboard blocked')
+        }
+        dialog.querySelector('.copy-command').click()
+        await waitFor(() => dialog.querySelector('[role="status"]')?.textContent.trim() === translations.downloads.commandCopyError)
+        assert.equal(dialog.querySelector('code')?.textContent, command, 'the command remains selectable after a copy error')
+        dialog.querySelector(`button[aria-label="${translations.downloads.close}"]`).click()
+        await waitFor(() => !document.querySelector('[role="dialog"]'))
+        assert.equal(document.activeElement, commandTrigger)
+
+        commandTrigger.click()
+        await waitFor(() => document.querySelector('[role="dialog"]'))
+        dialog = document.querySelector('[role="dialog"]')
+        assert.equal(dialog.querySelector('[role="status"]')?.textContent.trim(), '', 'reopening clears stale clipboard feedback')
+        dialog.querySelector(`button[aria-label="${translations.downloads.close}"]`).click()
+        await waitFor(() => !document.querySelector('[role="dialog"]'))
       },
     })
   }

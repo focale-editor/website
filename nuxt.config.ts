@@ -125,7 +125,7 @@ export default defineNuxtConfig({
     // uses cuts the generated HTML by roughly two thirds.
     autoImport: false,
     components: {
-      include: ['Button', 'Carousel', 'Drawer', 'Select'],
+      include: ['Button', 'Carousel', 'Dialog', 'Drawer', 'Select'],
     },
     directives: {
       include: [],
