@@ -114,8 +114,11 @@ Sixteen-bit integers and 32-bit IEEE-754 floats use little-endian byte order.
 Eight- and 16-bit values are unsigned normalized samples. Bitmap retains one
 byte containing `0` or `1` per component in this random-access container even
 though PSD packs eight samples per byte. Float alpha and bounded ink remain
-between 0 and 1; float RGB process values may exceed 1 to retain HDR content,
-but every sample must be finite and non-negative. A fully transparent pixel has
+between 0 and 1; float RGB and grayscale process values may be negative or
+exceed 1 to retain scene-linear and wide-gamut content. Every sample must be
+finite; other colour modes retain their non-negative process bounds. This
+extends the accepted sample range without changing the container layout
+(ADR 0313); older readers may reject files containing negative samples. A fully transparent pixel has
 zero process samples in every representation; there is no hidden unassociated
 colour behind zero alpha. Bitmap, Duotone and Multichannel pixels are opaque.
 Indexed alpha is binary and exists only when the palette designates one
@@ -256,13 +259,25 @@ remain readable. The process fields' absence in an older project reads as RGB,
 8 Bits/Channel and sRGB.
 
 Every `RasterLayer` asset must exactly match the document mode, depth and
-profile; masks, custom channels and other coverage assets retain their
-independent sRGB8 contract. Indexed, Bitmap, Duotone and Multichannel documents
+profile; masks and custom channels use an independent RGB coverage format
+with the sRGB interpretation, at 8, 16 or 32 bits. Equal colour components
+encode coverage directly and alpha is opaque. Existing eight-bit assets remain
+valid. Transient sparse selections retain unrounded floating coverage, with
+compact storage for byte-exact tiles; they are not serialized in the archive. See
+[ADR 0308](../adr/0308-native-raster-coverage.md) and
+[ADR 0311](../adr/0311-floating-selection-coverage.md). Indexed, Bitmap, Duotone and Multichannel documents
 are flattened: the root owns exactly one plain raster layer. Multichannel may
 add only spot channels, which represent its remaining ordered plates.
 Independent placed-source and display-preview rasters are not document working
 formats: they may retain exact 32-bit CMYK samples in `.fcraster`, even though
 CMYK documents themselves are restricted to 8 or 16 Bits/Channel.
+
+Native document composition, described in
+[ADR 0296](../adr/0296-native-document-composition.md), consumes these canonical
+samples for merge/flatten, retained canvas rendering and exports. It quantizes
+only at the destination boundary and does not change this archive layout,
+version, profile identity or coverage-asset storage contract. A display preview
+remains a presentation resource, not a replacement for the canonical rasters.
 
 `document.measurementScale` calibrates document-space measurements without
 resampling pixels. `pixelLength` and `logicalLength` are finite positive
@@ -409,7 +424,8 @@ placement. The mask raster is not resampled by that operation.
   its `visible` field controls whether it contributes. Match Color additionally
   stores its frozen source and target statistics in the payload.
 * `fill` — `fill`: procedural content with a `fillKind` of `color`, `gradient`
-  or `pattern`. A colour stores packed ARGB `color`; a gradient stores the
+  or `pattern`. A colour stores packed ARGB `color` and, optionally, an
+  [`exactColor`](#exact-colours); a gradient stores the
   structured `gradient`, `shape`, angle in degrees, scale and reverse flag; a
   pattern stores a stable built-in name or imported content identifier and its
   scale. Fill layers own no raster archive entry; imported tile pixels live in
@@ -817,7 +833,12 @@ curve per channel:
 A curve is `[x0, x1, …, y0, y1, …]` in normalized coordinates. The master is
 applied first, followed by the matching red, green or blue curve. Missing or
 malformed channel fields mean an identity curve. Identity channel curves are
-not written.
+not written. Optional `cmykCurve`, `cyanCurve`, `magentaCurve`, `yellowCurve`
+and `blackCurve` use the same point representation. The CMYK master runs before
+each ink curve, directly on straight ink coverage. These fields do not reinterpret
+the historical RGB fields: when both sets exist, RGB processing precedes ink
+processing. Unaffected inks and alpha are retained exactly. Curve presets also
+support optional `cmyk`, `cyan`, `magenta`, `yellow` and `black` entries.
 
 Gradient Map stores its arbitrary stop list as one structured field:
 
@@ -846,11 +867,34 @@ contribute equally. It is clamped to `0.05` through `0.95`, defaults to `0.5`
 when omitted and is ignored on the final stop. `interpolation` is one of
 `perceptual`, `linear`, `encoded`, `classic`, `smooth` or `stripes`; unknown values fall
 back to `perceptual`. `encoded` interpolates encoded RGB without easing,
-whereas `linear` interpolates linear-light RGB.
+whereas `linear` interpolates linear-light RGB. An optional `smoothness`, from
+0 through 1, is Photoshop's Smoothness for `classic`, `perceptual`, `linear`
+and `smooth` (opacity only); when omitted, `classic` and `smooth` use 1 and the
+others 0. Perceptual and linear opacity renders through Photoshop's opacity
+response, while stops store the authored value. A stop may also store an
+`exactColor` (see [Exact colours](#exact-colours)).
 
 The obsolete `startColor`, `midColor`, `endColor`, `useMidpoint` and `midpoint`
 fields are still accepted on read and converted to a `classic` gradient. New
 files only write `gradient`.
+
+Colour parameters (Photo Filter `color`, Black & White `tintColor`, Replace
+Color `targetColor`) may have an exact colour in `exactColors`, keyed by
+parameter name:
+
+```json
+"exactColors": {"color": {"color": {"profileId": "adobeRgb1998", "colorMode": "rgb", "components": [0.1, 0.9, 0.1], "alpha": 1, "argb": 4278248192}, "workingRgb": [-0.59, 0.91, -0.18]}}
+```
+
+`color` is a profiled colour as in [Exact colours](#exact-colours), and
+`workingRgb` its extended working sRGB, which these adjustments run in, so the
+colour applies in any profile. An entry is ignored unless its `argb` equals the
+parameter's value, and `exactColors` is omitted when empty. The portable
+record's outer `workingRgb` is authoritative when decoding legacy records; an
+optional nested `color.workingRgb` is normalized to it. Both serialized fields
+remain readable and are written from the same internal appearance. Adjustments
+retain this layout even though their runtime parameters now own the companions,
+just as filter parameters do.
 
 Color Lookup embeds its resolved RGB cube instead of retaining an external
 file path:
@@ -1032,17 +1076,23 @@ custom channels in RGB and 51 in CMYK after process planes and merged
 transparency; export rejects a CMYK document above that narrower limit. `kind`
 is `alpha` or `spot`. `color` is a packed ARGB overlay or spot colour. `opacity` is
 normalized to 0–1 and means overlay opacity for alpha channels or solidity for
-spot channels. `overlayMode` is `maskedAreas` or `selectedAreas` and applies
+spot channels. Optional `exactColor` retains a floating ink definition using
+the [exact-colour schema](#exact-colours); its `argb` must match `color`. It
+survives channel duplication and geometry changes. Replacing the packed colour
+alone drops it. Older readers continue to use `color`.
+`overlayMode` is `maskedAreas` or `selectedAreas` and applies
 only to the alpha overlay. Missing optional fields use the defaults shown by
 the model; present fields with an unknown enum, invalid type or out-of-range
 value corrupt the project instead of being silently normalized.
 
 Pixels are stored losslessly in
-`channels/<encoded-rasterAssetId>.png` as opaque grayscale. Alpha channels use
+`channels/<encoded-rasterAssetId>.png` for eight-bit opaque grayscale, or in
+the existing `.fcraster` / `.fctiles` representation at higher depths. Raster
+masks use the same depth-dependent storage under `masks/`. Alpha channels use
 black for no selection and white for full selection. Spot channels retain the
 native plate polarity used by PSD: black means 100% spot ink and white means no
 ink. Changing a channel between alpha and spot changes its metadata without
-silently inverting authored pixels. Channel rasters share the archive's PNG
+silently inverting authored pixels. Channel rasters share the archive's raster
 dimension, aggregate decoded-memory, entry-count, collision-remapping and
 incremental-save limits. Missing required channel pixels corrupt the project.
 Decoded channel pixels that are coloured or not fully opaque likewise corrupt
@@ -1316,8 +1366,10 @@ must reproduce its saved appearance.
 Every imported pattern referenced by a fill layer, shape fill or stroke,
 Pattern Overlay, or Bevel Texture is stored once as
 `patterns/<content-id>.fptile`. The internal entry contains a bounded zlib
-payload with its identity, dimensions and straight-alpha RGBA bytes; the ZIP
-stores it without a redundant second compression pass. Built-in patterns and
+payload with its identity, dimensions and straight-alpha RGBA display bytes.
+Version 2 optionally adds native process samples and their profile, described
+in [Pattern preset libraries](patterns.md). The ZIP stores it without a
+redundant second compression pass. Built-in patterns and
 unused global catalogue entries create no archive entry.
 
 The content identity and decoded byte count are revalidated before a GPU image
@@ -1367,13 +1419,68 @@ Individual field problems degrade instead of failing: an unknown blend mode
 becomes `normal`, an out-of-range opacity is clamped, a malformed transform
 becomes the identity.
 
+### Exact colours
+
+Gradient stop opacity uses the exact companion's floating `alpha` when present.
+Opacity edits retain this value without rounding it to `color`'s preview byte;
+for example, 50 percent is stored as `0.5`, while the preview alpha is 128.
+This alpha remains valid independently of the companion's colour profile.
+Stops without a companion continue to read opacity from their packed colour.
+
+A gradient may additionally store `opacityStops`, an ordered list of objects
+with normalized `position`, floating `opacity` and relative `midpoint` fields.
+This independent midpoint-balanced ramp overrides colour-stop opacity when
+present; its segments use the gradient interpolation's curve and smoothness,
+as coupled stop opacity does. Colour and opacity knots therefore need not coincide,
+and PSD/GRD imports do not insert an approximate 64-sample colour ramp. The field
+is omitted for gradients using the original coupled-stop representation.
+Readers predating independent opacity use the sampled alpha of each colour stop;
+current readers retain both original ramps.
+
+RGB-defined stops interpolate in floating working RGB, including when inserted
+into a CMYK or gray document. An authored non-RGB exact stop selects process
+interpolation in a target of that mode. Floating opacity alone does not change
+the colour interpolation space. No additional persisted flag is needed.
+
+Colour fills (fill layers, shape fills and shape strokes), gradient stops,
+character styles, layer effects and custom channels may store `exactColor` beside their packed
+`color`. Bevel & Emboss stores `exactHighlightColor` and `exactShadowColor` beside
+`highlightColor` and `shadowColor`:
+
+```json
+"exactColor": {"profileId": "adobeRgb1998", "colorMode": "rgb", "components": [0.1, 0.9, 0.1], "alpha": 1, "argb": 4278248192}
+```
+
+`components` are straight, normalized process components of the profile
+identified by `profileId` (a built-in identifier or `icc-<sha256>`) and
+`colorMode`; floating-point RGB may exceed one. `argb` is the packed colour the
+exact colour stands for: readers ignore `exactColor` unless it equals the owner's
+`color`, so editing `color` alone drops it. Native rendering paints the
+components directly in a document whose profile has that identity and mode.
+An optional `workingRgb` array of three finite doubles retains the extended
+working appearance when applying the colour to another document; conversion
+then uses those floating values instead of `color`. Old colours without this
+field can still resolve built-in source profiles by identity. An older custom
+ICC colour cannot be reconstructed in another profile without its source or
+this appearance. Readers that do not support the field continue to use the
+packed preview. Converting a document converts stored exact colours and their
+packed colours; assigning a profile re-tags their current document components
+and updates the retained appearance. The key is
+omitted when absent, and files without it read unchanged.
+
+PSD files store colour descriptors and text colours in the document's own space
+(RGB from 0 to 255 in the document profile, CMYK and grey in percent, CIE Lab).
+Import reads them as exact colours of the document's profile when their space
+matches it, and export writes them back in that space.
+
 ### Rich text ranges
 
 A text layer's `content` keeps `fontFamily`, `fontSize`, `fontWeight`, `italic`,
 `fauxBold`, `fauxItalic`, `underline`, `strikethrough`, `color`, `tracking`, `tsume`,
 `allCaps`, `smallCaps`, `noBreak`, `standardVerticalRomanAlignment`,
 `tateChuYoko`, `mojisoroe`, `openTypeFeatures`, `stylisticSets`, `baselineShift`, `horizontalScale`,
-`verticalScale`, `kerningMode` and `language` as its base character style.
+`verticalScale`, `kerningMode` and `language` as its base character style. Any
+character style may also store an [`exactColor`](#exact-colours) beside `color`.
 `fontWeight` and `italic` request real font variants; the two `faux` flags
 preserve synthetic font effects independently. Lengths are document-space
 pixels; `tracking` and the range-only `manualKerning` use 1/1000 em, while
@@ -2090,3 +2197,24 @@ both native and JavaScript runtimes, preserving references across platforms.
 ## Independent settings exchange
 
 The applied document representations above are also exchangeable independently through [adjustment presets](adjustments.md), including `.fblackandwhite` and `.fcolorlookup`, [`.fduotone`](duotone.md) ink specifications and [`.fcameraraw`](camera-raw.md) development recipes. These files do not change the project container version.
+
+### Exact authored colour additions
+
+Artboard records may include `exactBackgroundColor`, a `ProfiledColor` companion
+to the packed `backgroundColor`. It is used only when its recorded preview
+matches that packed value. Frame strokes, shape fills, gradient stops and text
+conversion retain their existing exact-colour companions. New-document presets
+carry an optional portable `exactColor` (the request's `exactCustomColor`); changing document profiles
+converts that colour explicitly instead of using the packed preview as input.
+
+Catalogue smart filters and gallery entries may carry `exactColors` inside
+`settings`. Entries use the same `PortableColor` structure as exact adjustment
+parameters, keyed by numeric colour parameter name. Unknown, malformed or stale
+companions are ignored. An ordinary edit of a numeric parameter removes its
+companion, even if the packed value is unchanged. Recorded filter actions use
+this same settings representation. Earlier numeric-only settings remain valid.
+
+Recorded Mixer Brush process colours may also carry three finite extended
+`workingRgb` components alongside their native profile components, as described
+in [the action format](actions.md#native-mixer-brush-pickup). This preserves loaded
+paint across profile changes and does not change raster or container versions.

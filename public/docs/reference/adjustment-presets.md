@@ -87,6 +87,14 @@ colour's contribution from −2 to 3 (Photoshop's −200% to 300%), initially 0.
 0.6, 0.4, 0.6, 0.2 and 0.8. Also include `tint`, exactly 0 or 1, and
 `tintColor`, a whole ARGB value from 0 to 4294967295.
 
+Black & White may also carry an optional root `exactColors` object keyed by
+`tintColor`. Each entry uses the portable colour structure from
+[the project format](focale.md): `color` (profile identity, mode, components,
+alpha and packed `argb`) plus extended `workingRgb`. Its `argb` must equal the
+corresponding value in `settings`. Invalid companions or keys that are not
+colour parameters are rejected. Files without this field retain their existing
+8-bit colour semantics. The envelope version remains 1.
+
 ### Color Lookup
 
 `.fcolorlookup` uses `kind: "colorLookup"`, an empty `settings: {}` (there are
