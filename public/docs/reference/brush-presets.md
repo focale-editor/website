@@ -138,7 +138,12 @@ pattern used by Texture:
 ```
 
 `coverage` is a row-major Base64 encoding with one unsigned coverage byte per
-pixel. `rgba` is row-major straight RGBA with four bytes per pattern pixel.
+pixel. An optional `nativeCoverage` contains one little-endian IEEE float32 per
+pixel, normalized to `[0, 1]`, with the same dimensions. Values must be finite;
+rounding them to bytes must reproduce `coverage`. Native painting and effects
+sample this payload directly. Without it, the byte mask remains canonical.
+This additive field keeps the public `.fbrush` envelope at version 1. Older
+readers only understand the preview and cannot retain the new precision. `rgba` is row-major straight RGBA with four bytes per pattern pixel.
 Each asset identity, dimension, anchor, decoded length and total decoded memory
 is validated before a GPU image is created. A referenced asset that is missing
 or conflicts with another asset invalidates the import rather than silently
@@ -167,8 +172,17 @@ first frame so a stroke performs neither file access, decompression nor texture
 upload while the pointer moves. The format is an implementation detail;
 `.fbrush` is the format to use for interchange and backup.
 
-The raster mask is canonical. Normal painting uses its predecoded white-alpha
-texture, while CPU effect brushes sample the same bytes. Cursor contours are
+Internal `.ftip` version 1 remains readable and writable for byte-only tips.
+Version 2 retains the same header and compressed payload framing but changes the
+last magic byte from `1` to `2`. Its inflated payload is `width * height` preview
+bytes followed by `width * height * 4` native float32 bytes, in little-endian
+order. Dimensions, total decoded memory, normalized samples and preview agreement
+are checked before adoption. New high-depth definitions use version 2; existing
+assets are read without rewriting them. Old readers reject version 2.
+
+The native mask is canonical when present. Normal previews use the predecoded
+white-alpha texture; native colour strokes and effect brushes sample the exact
+coverage. Source bytes, cached sample views and textures are evicted together. Cursor contours are
 traced once at import time and reduced to a bounded resolution. This keeps
 preview, commit and effect footprints consistent.
 
@@ -288,3 +302,12 @@ details do not enter application state or the raster engine. ADRs 0047, 0048,
 0052, 0053 and 0181 record these boundaries. Adobe's current user-facing import
 workflow is documented at
 <https://helpx.adobe.com/photoshop/desktop/apply-painting-techniques/brushes-presets/import-brushes-brush-packs.html>.
+
+## Native Photoshop preset pixels
+
+ABR sixteen-bit sampled masks retain `alpha16` through import; native tips export
+at sixteen bits, with a single quantization from float32. ABR cannot carry the
+full precision of a thirty-two-bit Focale tip. ASL and ABR embedded patterns use
+the shared native Photoshop pattern-plane adapter. Their floating planes retain
+samples beyond the byte preview; format-defined default profiles interpret
+standalone Photoshop patterns because those records carry no per-pattern ICC.

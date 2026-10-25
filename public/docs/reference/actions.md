@@ -254,3 +254,33 @@ sources remain eligible.
 Colour-profile prompts and action-level Open/Save override switches remain
 future refinements. Adobe documents those choices in
 [Batch-process files](https://helpx.adobe.com/photoshop/desktop/automate-tasks/process-a-batch-of-files/batch-process-files.html).
+
+### Native Mixer Brush pickup
+
+`paint.stroke`'s optional `mixerPaint.floatingPickup` contains four finite
+floating values `[red, green, blue, alpha]` in straight working sRGB. RGB may
+extend beyond `[0, 1]`; alpha must remain within that interval. The packed
+`pickupColor` remains a display swatch and compatibility value. Native retouch
+uses `floatingPickup` when present, including after loading the reservoir or
+replaying a saved action. Absence retains the original packed-colour contract.
+This extends action parameters; it does not change the `.focale` raster format.
+
+`mixerPaint.processReservoir` and `processPickup` retain `profileId`, straight
+`components` and `alpha`. They may also contain `workingRgb`, three finite
+extended sRGB doubles. The original components apply in the same profile;
+floating working RGB keeps the paint's appearance after a profile change.
+Older records without this field can reconstruct built-in profile colours;
+unknown legacy profiles retain their packed fallback. This additive field does
+not change the action schema version.
+
+
+### Exact recorded paint colours
+
+`paint.stroke` may store `exactColor`, `exactForeground` and `exactBackground`
+as portable colours: `{"color": <ProfiledColor>, "workingRgb": [r, g, b]}`.
+Their packed `argb` values must match `settings.color`, `foregroundColor` and
+`backgroundColor`, respectively. Present malformed or mismatching companions
+reject the recipe instead of silently falling back to eight bits. Missing
+companions retain legacy behaviour. Replay resolves the colour in the target
+profile, preserving the original components in the same profile and CMYK inks
+across CMYK profiles, following the existing portable-swatch policy.

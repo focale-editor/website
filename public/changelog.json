@@ -2,6 +2,114 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "version": "0.0.15",
+      "date": "2026-10-25",
+      "changes": [
+        {
+          "kind": "FIX",
+          "description": "Now unblocking native notice review and automating proposal PRs."
+        }
+      ]
+    },
+    {
+      "version": "0.0.14",
+      "date": "2026-10-25",
+      "changes": [
+        {
+          "kind": "PERF",
+          "description": "Faster canvas compositing for opacity, clipping, adjustments and custom blends."
+        },
+        {
+          "kind": "PERF",
+          "description": "Improved startup time."
+        },
+        {
+          "kind": "PERF",
+          "description": "Reduced editor rebuilds and redundant rendering."
+        },
+        {
+          "kind": "PERF",
+          "description": "Removed menu action delays and redundant thumbnail captures."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Implemented native brush composition and extended color processing."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Now preserving exact document colors across editing, pickers and PSD."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Now showing the release notes corresponding to the difference between the current version and the latest version."
+        },
+        {
+          "kind": "FIX",
+          "description": "Adjustments, Camera Raw, Apply Image and exports keep HDR and wide-gamut colors."
+        },
+        {
+          "kind": "FIX",
+          "description": "Copies, cuts and background renders keep high-depth precision."
+        },
+        {
+          "kind": "FIX",
+          "description": "Distinguish file access failures from image format errors"
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed \"File > Save\" and/or CTRL+S opening a save dialog for 1-layer PNG files."
+        },
+        {
+          "kind": "FIX",
+          "description": "Hide external support links in Mac App Store builds."
+        },
+        {
+          "kind": "FIX",
+          "description": "Now reporting file access failures with actionable recovery."
+        },
+        {
+          "kind": "FIX",
+          "description": "Preserved precision across native editing and interchange."
+        },
+        {
+          "kind": "FIX",
+          "description": "Removed the 16 px space between dialogs border and vertical scrollbar."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Added a `CompositePlan` to compute the structural paint decisions of a document once before painting."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Updated DBUS slot name."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Updated the design of tool parameters (better coherence and harmony)."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Various simplifications and bugs fixes in the app codebase."
+        },
+        {
+          "kind": "REFACTOR",
+          "description": "Now using `pickpick` to pick on-screen colors."
+        },
+        {
+          "kind": "REFACTOR",
+          "description": "Replaced kernel templates with analyzable Dart sources."
+        },
+        {
+          "kind": "REFACTOR",
+          "description": "Share duplicated editing, shader, RAW and blur code."
+        },
+        {
+          "kind": "REFACTOR",
+          "description": "Unified high-precision compositing across canvas, merges, and exports."
+        }
+      ]
+    },
+    {
       "version": "0.0.13",
       "date": "2026-10-14",
       "changes": [

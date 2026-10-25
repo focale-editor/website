@@ -39,8 +39,10 @@ for ellipses, lassos, disjoint selections or any selection with feathering. If
 nothing is selected, Focale uses the complete document, matching the whole-image
 Pattern Preview workflow. The document and selection remain unchanged.
 
-The captured tile preserves straight-alpha RGBA pixels; no colour-to-greyscale
-conversion is performed. Its identifier is derived from dimensions and bytes,
+Native RGB, grayscale, Lab and CMYK tiles retain canonical samples and their
+profile, alongside a straight-alpha RGBA display derivative; no colour-to-
+greyscale conversion is performed. Indexed and duotone tiles retain their
+existing display-derived representation. Its identifier is derived from dimensions and bytes,
 so defining identical pixels under several names reuses one stored file and one
 predecoded GPU image. Locally defined tiles use the same dimension, pixel and
 catalogue-memory limits as PAT and `.fpattern` imports. Adobe documents the
@@ -54,7 +56,7 @@ and the whole-document Pattern Preview workflow here:
 Pattern presets are flattened tiles, as they are in Photoshop; neither PAT nor
 `.fpattern` retains the layers from the document that originally created one.
 The pencil action beside any catalogue entry opens an independent raster copy
-at the tile's native dimensions and enables **View ▸ Pattern Preview** for that
+at the tile's native dimensions, depth and profile and enables **View ▸ Pattern Preview** for that
 new document. Built-in patterns open at the native size of their tile too.
 
 Edits affect only the new document. **Edit ▸ Define Pattern…** stores the
@@ -65,8 +67,9 @@ recoverable layered source.
 
 ## Native `.fpattern` format
 
-`.fpattern` is a portable UTF-8 JSON bundle. Version 1 stores preset metadata
-separately from deduplicated straight-alpha RGBA tiles:
+`.fpattern` is a portable UTF-8 JSON bundle. Readers accept versions 1 and 2;
+writers emit version 2. Version 1 stores preset metadata separately from
+deduplicated straight-alpha RGBA tiles:
 
 ```json
 {
@@ -97,7 +100,15 @@ decoder recomputes that identity, validates the exact byte count and rejects a
 missing or conflicting asset instead of substituting a built-in pattern.
 Several presets may point to one asset without duplicating its pixels.
 
-A bundle is limited to 256 MiB encoded, 128 MiB decoded RGBA, 4,096 presets,
+Version 2 retains the same shape and allows an optional `native` object per
+asset: `mode`, integer `depth`, `profile` identifier, optional base64 `icc`, and
+base64 `pixels`. Samples are interleaved, premultiplied, little-endian process
+components followed by alpha, using the canonical raster layout. The profile
+must match the mode. Native identities use dimensions plus both rolling hashes
+of the UTF-8 metadata JSON followed by native pixel bytes, with `.native.`
+before the hashes. Display RGBA remains a derivative, not painting input.
+
+A bundle is limited to 256 MiB encoded, 128 MiB decoded display and native samples, 4,096 presets,
 4,096 assets, 4,096 pixels on either tile edge and 16 million pixels per tile.
 Names and group entries are bounded too. These checks happen before Flutter
 uploads a GPU image. JSON, Base64, identity calculation and pixel conversion
@@ -111,13 +122,17 @@ contains only imported presets and the tiles they use.
 
 The same import dialog accepts standalone Photoshop `.pat` libraries. PatKit
 owns their bounded binary parsing and converts supported grayscale, indexed,
-RGB, CMYK, Lab and multichannel sources to eight-bit RGBA, including raw,
-PackBits and ZIP-compressed channel data at supported bit depths. Focale keeps
+RGB, CMYK, Lab and multichannel sources. Focale additionally retains supported
+high-depth RGB/grayscale planes and CMYK inks without the RGBA8 intermediate.
+Raw, PackBits and ZIP-compressed channel data use the codec's supported depths. Focale keeps
 recognized Photoshop group paths and logs recoverable compatibility warnings.
 
-PAT export writes a canonical version-1 library with eight-bit RGB and alpha
-planes compressed with PackBits. It preserves each stored tile's straight-alpha
-RGBA pixels, display name, order and group path. The catalogue itself still
+PAT export writes a canonical version-1 library. Ordinary RGBA tiles keep
+eight-bit RGB/alpha PackBits planes; native tiles use 32-bit process/alpha
+planes. PAT has no ICC payload in this contract: native tiles are converted
+to the built-in profile for their exported model. PSD-embedded patterns use
+the containing document's profile instead. Both retain display name, order and
+group path. The catalogue itself still
 contains only ordinary `PatternPreset` values and content-addressed
 `PatternAsset` tiles; Photoshop records and colour planes do not enter
 application state. `.fpattern` remains the lossless native backup format.
@@ -149,3 +164,14 @@ so moving a project to another installation never depends on a separately
 installed pattern library.
 
 ADR 0048 records the ownership, format-adapter and portability decisions.
+
+## Internal `.fptile` storage
+
+Version 1 starts with `FOCPAT` and byte 1, followed by big-endian uint16 UTF-8
+identifier length, uint32 width, height and compressed byte count, then the
+identifier and zlib-compressed RGBA. Version 2 changes the version byte to 2;
+after the identifier it adds a uint32 metadata length and UTF-8 native metadata
+JSON (the `native` object without `pixels`). Its zlib payload concatenates
+straight display RGBA and the native canonical bytes. Dimensions, profile,
+identity, bounded decompression and both payload lengths are validated before
+adoption. Old RGBA identities and version-1 files remain readable.

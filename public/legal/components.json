@@ -5,7 +5,7 @@
       "name": "brotli",
       "version": "028fb5a",
       "license": "MIT",
-      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.6",
       "notice": "brotli.txt",
       "sha256": "2b9827e56f73ee904560d8fd4102b02016bc7cc7bffc1045d1271e66366e520c"
     },
@@ -13,7 +13,7 @@
       "name": "highway",
       "version": "457c891",
       "license": "Apache-2.0 OR BSD-3-Clause",
-      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.6",
       "notice": "highway.txt",
       "sha256": "dcf96fb0bd59b9b73df4ad789271d9cf086179518b2b1b0b448541aa6ef45915"
     },
@@ -21,7 +21,7 @@
       "name": "imath",
       "version": "3.2.3",
       "license": "BSD-style permissive license",
-      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.6",
       "notice": "imath.txt",
       "sha256": "373c48443507e364d7f81fb768cfbe939963876f02928a732be31b4e250942d1"
     },
@@ -29,7 +29,7 @@
       "name": "kvazaar",
       "version": "2.3.2",
       "license": "BSD-3-Clause / ISC",
-      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.6",
       "notice": "kvazaar.txt",
       "sha256": "c405a00f5c8fe251bdfae6089a27c4c37012b13555a94ff7b50ed1a6d5dea2a1"
     },
@@ -37,7 +37,7 @@
       "name": "libaom",
       "version": "3.14.1",
       "license": "BSD-2-Clause and patent grant",
-      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.6",
       "notice": "libaom.txt",
       "sha256": "690e423551fa1bbda0badd9e603e37fac17adb8bf8f32bc7cc36368f498afb88"
     },
@@ -45,7 +45,7 @@
       "name": "libde265",
       "version": "1.1.2",
       "license": "LGPL-3.0-or-later",
-      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.6",
       "notice": "libde265.txt",
       "sha256": "4f76e634c13af8d966d5fcc8568600ac7d93217bb7a621d8c0000ae69c9c4daa"
     },
@@ -53,7 +53,7 @@
       "name": "libdeflate",
       "version": "1.26",
       "license": "MIT",
-      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.6",
       "notice": "libdeflate.txt",
       "sha256": "ec7886cb03a050e50b195f049cad067a523650df1fb65f2bce23bd6bd386c28f"
     },
@@ -61,7 +61,7 @@
       "name": "libheif",
       "version": "1.21.2",
       "license": "LGPL-3.0-or-later",
-      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.6",
       "notice": "libheif.txt",
       "sha256": "d46bbc465725b32de70ac5003b54d48f5fa295fef35059fec20aa7f831b54b9c"
     },
@@ -69,7 +69,7 @@
       "name": "libjpeg",
       "version": "3.2.0",
       "license": "IJG / BSD-3-Clause / Zlib",
-      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.6",
       "notice": "libjpeg.txt",
       "sha256": "e5c35c09c619a2a01d71189ab5b63101fcaf9190148bfa2535f5bb2ff7a03a9b"
     },
@@ -77,7 +77,7 @@
       "name": "libjxl",
       "version": "0.12.0",
       "license": "BSD-3-Clause and patent grant",
-      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.6",
       "notice": "libjxl.txt",
       "sha256": "9bac342acfae4f032f7fab7588daa523835349e2055257f7e9ae48b7b42ed80c"
     },
@@ -85,7 +85,7 @@
       "name": "libpng",
       "version": "1.6.58",
       "license": "libpng-2.0",
-      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.6",
       "notice": "libpng.txt",
       "sha256": "877d812013bd255fe8ee537cd6b7e3f216e1791e8cbdf98ea72332158d757b2c"
     },
@@ -93,7 +93,7 @@
       "name": "libtiff",
       "version": "4.7.2",
       "license": "BSD-style permissive license",
-      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.6",
       "notice": "libtiff.txt",
       "sha256": "31c26e382faaab2b548479ac477d903dd80efe9dd36060d67d3f3de4685df6d5"
     },
@@ -101,7 +101,7 @@
       "name": "libwebp",
       "version": "1.6.0",
       "license": "BSD-3-Clause and patent grant",
-      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.6",
       "notice": "libwebp.txt",
       "sha256": "1790bfb4b59d535c435a1349848ca057e21e20f68ba303fcf1960ccfab619247"
     },
@@ -109,7 +109,7 @@
       "name": "openexr",
       "version": "3.4.14",
       "license": "BSD-3-Clause / OpenJPH BSD-2-Clause",
-      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.6",
       "notice": "openexr.txt",
       "sha256": "a1590d5cb4ce2bac0b2a5bcdf287e8c5a0bb0f368979786fdc5d0b18ca742503"
     },
@@ -117,7 +117,7 @@
       "name": "qoi",
       "version": "97bacc8",
       "license": "MIT",
-      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.6",
       "notice": "qoi.txt",
       "sha256": "5cc7d687d6f99a6cd4e92d8d03559cf0d90b6823a274253bb76fac0b0bec2f36"
     },
@@ -125,7 +125,7 @@
       "name": "skcms",
       "version": "96d9171",
       "license": "BSD-style permissive license",
-      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.6",
       "notice": "skcms.txt",
       "sha256": "f10316565dc8e166adc753b44e177b2d6c6f2082641e9d6fb3daf2af6743010f"
     },
@@ -133,7 +133,7 @@
       "name": "zlib",
       "version": "1.3.2",
       "license": "Zlib",
-      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.5",
+      "sourceUrl": "https://github.com/focale-editor/imcodec-native/tree/0.2.6",
       "notice": "zlib.txt",
       "sha256": "0423bccb0bd4efc13c31bf2d6014d26ea251c1fe2a38b05ba7ebbf4492d9bfae"
     },
@@ -187,9 +187,9 @@
     },
     {
       "name": "Sentry Native and Crashpad",
-      "version": "Sentry Native 0.16.6",
+      "version": "Sentry Native 0.17.4",
       "license": "MIT / Apache-2.0 and component notices",
-      "sourceUrl": "https://github.com/getsentry/sentry-native/tree/0.16.6",
+      "sourceUrl": "https://github.com/getsentry/sentry-native/tree/0.17.4",
       "notice": "sentry-native-and-crashpad.txt",
       "sha256": "819a40e0d35efcd61748736871bfe85d8fe10517bfdfb8ed71325f97f826e1bd"
     },
@@ -203,9 +203,9 @@
     },
     {
       "name": "Sentry Cocoa",
-      "version": "9.27.0",
+      "version": "9.31.0",
       "license": "MIT / BSD-3-Clause / APSL-2.0",
-      "sourceUrl": "https://github.com/getsentry/sentry-cocoa/tree/9.27.0",
+      "sourceUrl": "https://github.com/getsentry/sentry-cocoa/tree/9.31.0",
       "notice": "sentry-cocoa.txt",
       "sha256": "663f6d792afb6b22998224c3431fdeb60ab1601c74b2dcd279d6bf80894fa84d"
     },
