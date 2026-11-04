@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'node:url'
 import { focalePreset } from './app/theme/openvue-preset'
 import { documentationArticles } from './app/utils/documentation'
+import { socialLinks } from './app/utils/socialLinks'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -114,7 +115,7 @@ export default defineNuxtConfig({
       scan: true,
       sizeLimitKb: 512,
       // Navigation icons come from data, so include them for static client routing.
-      icons: ['lucide:book-open', 'lucide:scale', 'lucide:code-xml', ...Object.values(documentationArticles).map(page => page.icon)],
+      icons: ['lucide:book-open', 'lucide:scale', 'lucide:code-xml', ...Object.values(documentationArticles).map(page => page.icon), ...socialLinks.map(link => link.icon)],
     },
   },
 

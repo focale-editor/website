@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict'
-import {readFile} from 'node:fs/promises'
-import {webcrypto} from 'node:crypto'
-import {fileURLToPath} from 'node:url'
-import {resolve} from 'node:path'
+import { readFile } from 'node:fs/promises'
+import { webcrypto } from 'node:crypto'
+import { fileURLToPath } from 'node:url'
+import { resolve } from 'node:path'
 import test from 'node:test'
 import vm from 'node:vm'
-import {JSDOM, VirtualConsole} from 'jsdom'
+import { JSDOM, VirtualConsole } from 'jsdom'
 
 const output = resolve(process.env.FOCALE_OUTPUT || fileURLToPath(new URL('../.output/public', import.meta.url)))
 const origin = 'https://focale-editor.app'
@@ -467,11 +467,38 @@ for (const locale of locales) {
       ['fstyle', ['256', 'patterns']],
       ['fswatch', ['ACB', 'ADO']],
       ['preset-formats', ['BLW', 'ADO', 'XMP', 'CUBE', '.fcameraraw', '.fcolorlookup', '.fduotone']],
+      ['formats', ['.fvector', 'SVGZ', 'XCF', '.xcf.gz']],
+      ['vector-guide', ['.fvector', 'SVGZ', 'PDF/X-4']],
+      ['project-format', ['.fvector']],
     ]) {
       const dom = new JSDOM(await source(`${origin}${prefix}/docs/${page}/`))
       try {
         const text = dom.window.document.querySelector('main')?.textContent || ''
         for (const fragment of expected) assert.ok(text.includes(fragment), `${page} must document ${fragment}`)
+      }
+      finally { dom.window.close() }
+    }
+  })
+}
+
+for (const locale of locales) {
+  test(`${locale} footer links to every social profile`, async () => {
+    const prefix = locale === 'en' ? '' : `/${locale}`
+    for (const page of ['', '/support']) {
+      const dom = new JSDOM(await source(`${origin}${prefix}${page}/`))
+      try {
+        for (const href of [
+          'https://www.instagram.com/pixels__in__progress/',
+          'https://www.tiktok.com/@pixelsinprogress',
+          'https://www.youtube.com/@pixelsinprogress',
+        ]) {
+          const links = [...dom.window.document.querySelectorAll(`a[href="${href}"]`)]
+          assert.ok(links.length >= (page ? 2 : 1), `${prefix}${page}/ must link to ${href}`)
+          for (const link of links) {
+            assert.equal(link.getAttribute('rel'), 'noopener noreferrer')
+            assert.ok(link.getAttribute('aria-label') || link.textContent.trim(), `${href} needs an accessible name`)
+          }
+        }
       }
       finally { dom.window.close() }
     }

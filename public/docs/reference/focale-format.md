@@ -6,7 +6,7 @@ The `.focale` archive stores an editable document, its raster data and reusable
 resources. This reference defines its entries, metadata, validation rules and
 compatibility policy, including the distinct managed recovery representation.
 
-**Current version:** 1 (first public release)
+**Current supported version:** 2 (direct linked text frames); writers use version 1 for documents without direct frame stories.
 
 A `.focale` file is an ordinary ZIP archive. Nothing in it is encrypted or
 obfuscated: a project can be inspected, repaired or salvaged with standard
@@ -633,7 +633,14 @@ grayscale sRGB8 raster shared by the complete stack: white reveals the filtered
 cache and black reveals the unfiltered cache. `smartFilterMaskOffset` locates
 its top-left pixel in layer-local coordinates and defaults to the origin;
 `smartFilterMaskEnabled` defaults to true. The mask is independently paintable
-and follows projective geometry edits. Version-1 files without these optional fields continue to display their authoritative filtered preview.
+and follows projective geometry edits. Optional `smartFilterMaskSettings` stores
+`density` (0–1, default 1) and `feather` (document pixels, default 0), using the
+same non-destructive coverage rules as a layer mask. Display, native sampling,
+high-precision composition and raster export apply these settings to the mask,
+not to its authored pixels. Version-1 files without these optional fields
+continue to display their authoritative filtered preview. PSD/PSB export uses
+the rendered-layer fallback when non-neutral filter-mask settings cannot be
+represented by its retained filter-cache adapter; the project stays editable.
 
 Version 1 retains the independent colour interpretation of every referenced
 source, unfiltered, and display preview in the top-level
@@ -860,11 +867,17 @@ Gradient Map stores its arbitrary stop list as one structured field:
 ```
 
 Stop positions are normalized, sorted and made to cover zero through one when
-read. Colours are packed ARGB integers; Gradient Map uses their RGB channels and
+read. Coincident positions retain their array order: the first stop ends the
+incoming interval and the last stop starts the outgoing interval, including at
+the exact position. Positive-width intervals are not merged by proximity. This
+also applies to independent `opacityStops`; both arrays keep their original JSON
+shape. Colours are packed ARGB integers; Gradient Map uses their RGB channels and
 preserves the source pixel's alpha. Each stop may store `midpoint`, the relative
 position in the segment leading to the following stop where both colours
-contribute equally. It is clamped to `0.05` through `0.95`, defaults to `0.5`
-when omitted and is ignored on the final stop. `interpolation` is one of
+contribute equally. Valid stored values strictly between zero and one are retained,
+including values outside the editor's usual `0.05` through `0.95` drag range.
+Invalid values are clamped to that drag range; an omitted/nonfinite value defaults
+to `0.5`. The final colour stop's midpoint is ignored. `interpolation` is one of
 `perceptual`, `linear`, `encoded`, `classic`, `smooth` or `stripes`; unknown values fall
 back to `perceptual`. `encoded` interpolates encoded RGB without easing,
 whereas `linear` interpolates linear-light RGB. An optional `smoothness`, from
@@ -1452,7 +1465,8 @@ character styles, layer effects and custom channels may store `exactColor` besid
 ```
 
 `components` are straight, normalized process components of the profile
-identified by `profileId` (a built-in identifier or `icc-<sha256>`) and
+identified by `profileId` (a built-in identifier, `pdfDeviceCmyk` for imported
+PDF DeviceCMYK, or `icc-<sha256>`) and
 `colorMode`; floating-point RGB may exceed one. `argb` is the packed colour the
 exact colour stands for: readers ignore `exactColor` unless it equals the owner's
 `color`, so editing `color` alone drops it. Native rendering paints the
@@ -2015,8 +2029,10 @@ before creating the archive.
 
 Version 1 is the first public persistence baseline and includes the complete
 layout described in this document, including exact rasters, placed content,
-colour profiles, animation and document metadata. Readers reject versions above
-1. Future incompatible layout changes must increment the format version and
+colour profiles, animation and document metadata. Version 2 adds direct linked
+text frames; version-1 documents are read unchanged and still written when no
+frame story requires the new structure. Readers reject versions above 2.
+Future incompatible layout changes must increment the format version and
 have an explicit migration policy; optional additions retain documented defaults.
 
 Unreleased development numbers 1–10 are not public compatibility versions.
@@ -2026,7 +2042,7 @@ without changing their authored metadata or binary image payloads. Dependent
 `editableDocumentByteLength` values follow the converted nested archive lengths.
 Older development
 layouts must first be saved by a compatible development build. See
-[Persistence baseline](persistence-policy.md) and [ADR 0265](../adr/0265-first-release-persistence-baseline.md).
+[ADR 0265](../adr/0265-first-release-persistence-baseline.md).
 
 In particular, shared tile objects from [ADR 0157](../adr/0157-shared-archive-tile-objects.md)
 replace the earlier per-occurrence tile layout. Tiled descriptors without the
@@ -2036,6 +2052,9 @@ self-contained; the managed checkpoint format is internal recovery storage.
 ### Public version history
 
 * **1** — complete first-release layout, formerly development version 10.
+* **2** — self-contained linked text frames in photographic text layers. No
+  payload migration is needed for version 1; absent frame collections retain the
+  existing point/paragraph/path/shape behavior.
 
 ### Unreleased development history
 
@@ -2218,3 +2237,300 @@ Recorded Mixer Brush process colours may also carry three finite extended
 `workingRgb` components alongside their native profile components, as described
 in [the action format](actions.md#native-mixer-brush-pickup). This preserves loaded
 paint across profile changes and does not change raster or container versions.
+
+### Imported layered-document data
+
+Optional `document.interchangeMetadata` maps format names to opaque JSON strings.
+The total is limited to 4,194,304 UTF-16 code units; the complete UTF-8 manifest
+still obeys its 16 MiB archive limit. `document.importWarnings` retains the import
+conversions/limitations announced when opening a view (at most 10,000 strings
+are restored). These fields are absent on ordinary new documents.
+
+Layer `compositing` optionally stores `blendSpace` and `compositeSpace`
+(`document` or `linear`), `clipToBackdrop` and `legacyAlpha`. Missing values use
+ordinary document-space source-over composition. The canonical compositor
+implements nonstandard rules even in an RGB8 sRGB document.
+
+Text layers optionally store `importedRasterAssetId`, `importedRasterSize`
+(`[width, height]`) and `importedRasterContent` (the baseline TextContent JSON).
+The raster uses the document's canonical pixel format and profile. Its size
+must be finite, positive integral dimensions. It remains an owned raster asset,
+including after editing, so undo can restore the original appearance. It is
+used for rendering only while `content` equals `importedRasterContent`. An edit
+uses Focale's text layout; cloning and archive restoration remap its asset ID
+like other raster resources. These optional additions require no version bump;
+older files use their previous defaults.
+
+### Embedded vector sources
+
+A placed source may use the four-character `fvec` format hint and retain a UTF-8
+[`.fvector` version 1](vectors.md) payload in its existing source bytes. Its preview
+assets use the ordinary placed-layer representation. This adds no archive version
+or parallel layer type. The nested version-1 JSON may carry the shared binary
+resource table described in the vector format; it remains a self-contained opaque
+source under the existing archive admission rules. Native vector editing updates that source and all its
+placements in one undoable photo transaction. Exporting to external photo formats
+retains the existing placed-source compatibility limits of their adapters.
+
+### Embedded PDF glyph placement
+
+Editable vector sources embedded in `.focale` retain the optional positioned
+glyph arrays and CFF/OpenType font resources described in
+[the vector format](vectors.md#positioned-glyph-clusters-unreleased-version-1).
+Their Unicode text, display glyphs and original PDF character codes have distinct
+roles. These additions do not change the outer `.focale` schema or require
+flattening the editable source.
+
+### Shared adjustment filter operation
+
+An editable smart-filter entry may use an operation with `type: "adjustment"`
+and an `adjustment` object containing the existing `LayerAdjustment.toJson()`
+representation (identity, kind, enabled state and flattened settings). Curves,
+gradient maps, lookup tables and precise colour parameters retain their native
+representation. This operation runs on the owning stack input; it does not
+adjust layers below the owner. Existing filter blend, opacity and mask rules
+apply unchanged. See [ADR 0343](../adr/0343-common-editor-workflows.md).
+
+### PDF artwork identity and output controls
+
+Embedded editable artwork retains `glyphProgram` Type 3 byte codes/names/advances,
+`knockout`, `fillOverprint`, `strokeOverprint` and `overprintMode` through the
+shared object serialization. These fields keep non-Unicode glyphs editable and
+preserve PDF output controls after native transfer. See the
+[shared artwork contract](vectors.md#legacy-pdf-graphics-and-baseline-sharing-unreleased-version-1)
+for defaults, validation, preview limits and retained-baseline references.
+
+### Retained deformation filters and shared source preparation
+
+`SmartFilterOperation.type = "deformation"` stores the same `recipe` as authored
+vector objects: a normalized backward mesh, optional puppet pins/settings, or
+validated source/target perspective planes. The original layer content is retained
+inside the placed object's editable archive when conversion is needed. Conversion
+and the initial modifier form one history command. Filter opacity, blend, enabled
+state, pixel-selection coverage and existing mask controls remain common; reopening
+the filter restores its parameters. See [the artwork contract](vectors.md#common-editable-artwork-unreleased-version-1)
+and [ADR 0347](../adr/0347-common-editable-artwork.md).
+
+Placement uses ordinary raster/vector/layered import adapters. Embedded native
+sources retain an editable archive; embedded authored sources retain a canonical
+`.fvector` payload. Linked native records continue to omit editable archive bytes
+and use their external source, while the shared source editor saves with that
+file's encoder. A display PNG never replaces the native-channel archive as the
+source of a high-precision render. Optional vector coverage fields and advanced
+paints follow the shared object codec in embedded authored documents.
+
+## Procedural text paint
+
+A text layer can store an optional `fill` beside its `content`. It uses the same
+`FillContent` encoding as fill and shape layers. Character ranges remain editable;
+the procedural paint is applied to their glyph coverage. An absent fill restores
+character colours. Both display and canonical floating composition use this paint.
+PSD/PSB and XCF bake unsupported procedural text paint into the layer preview,
+without emitting editable text metadata that would discard it on reopening.
+
+## Retained widths in vector artwork
+
+The optional retained `widthProfile` belongs to the unreleased `.fvector` scene
+schema, described in [vector projects](vectors.md#retained-variable-width-strokes-unreleased-version-1).
+It preserves the original spine and asymmetric arc-length nodes, including those
+created by vector pressure drawing. It does not add a
+width field to raster `.focale` shape layers or change the raster archive version.
+Conversions to raster/layered documents use the common appearance projection; the
+original vector project remains editable.
+
+## Retained Live Paint in vector artwork
+
+Optional `livePaint` on a vector group retains source-local fill/edge seeds and
+editable child paths in the unreleased `.fvector` scene schema. The payload and
+validation rules are documented in [vector projects](vectors.md#retained-live-paint-unreleased-version-1).
+Rendering and conversion consume its derived appearance. This adds no field to
+raster `.focale` shape layers and does not change the raster archive version.
+
+## Retained vector brush payloads
+
+Editable vector documents retain brush definitions in the `.fvector` object
+model, as documented in [vector formats](vectors.md#retained-vector-brushes-unreleased-versions-1-and-2).
+This adds no raster `.focale` archive field; derived vector brush outlines are
+resolved by the existing vector appearance/export projection.
+
+## Placed vector objects with ordered paints
+
+The `.focale` ZIP and manifest remain version 1. A placed editable `.fvector`
+source containing ordered object paints uses the version-1 vector envelope
+specified in [the vector format](vectors.md#ordered-object-paints-unpublished-version-1).
+Its paint entries retain one editable source geometry. The nested `.fvector`
+format is unpublished and retains version 1 for every current feature.
+Native layer projection retains the complete editable source and its preview;
+export-only projections may resolve its paint passes into ordinary layers.
+
+## Placed vector symbol instances
+
+The `.focale` outer archive is unchanged. Editable placed vector content with
+symbol definitions embeds a version-1 vector project, as described in
+[document symbols](vectors.md#document-symbols-unpublished-version-1). The nested project owns
+the used definitions and instance references; export-only projections resolve
+ordinary artwork through the common compositor. A photo layer does not acquire a
+separate native symbol library.
+
+## Placed vectors with named colours
+
+The raster archive and manifest versions remain unchanged. Vector artwork with
+linked document colours uses an editable placed source containing the
+[version-1 vector envelope](vectors.md#named-document-colours-unpublished-version-1). Its
+palette, paint references and local tints remain owned by that nested project;
+ordinary projected raster/layer content receives resolved process/display values.
+This does not create a shared top-level colour library across separate photo
+layers or independently placed vector sources.
+
+## Placed vectors with linked graphic styles
+
+The outer archive/manifest versions remain unchanged. A source with linked
+styles embeds the [version-1 vector project](vectors.md#linked-document-graphic-styles-unpublished-version-1),
+including used style recipes and their named-colour dependencies. Linked object
+opacity and effects stay inside the editable source; the host does not apply them
+a second time. The host retains the placement's blending against the photo
+backdrop; subsequent edits inside the source use its isolated composition.
+Separate placed sources do not share a top-level graphic-style
+library. Native vector editing remains the authoritative authoring representation.
+Export-only projections resolve named colours and graphic styles and disclose
+the lost libraries under the [vector interchange contract](../features/document-colors.md#interchange-contract).
+Saving the native photo archive keeps the nested editable source and its references.
+
+## Placed vectors with retained blends
+
+The `.focale` ZIP and manifest remain version 1. An editable placed `.fvector`
+source containing a retained object blend embeds a version-1 vector project,
+including its two authored sources, optional spine and interpolation settings.
+The [vector format](vectors.md#retained-object-blends-unpublished-version-1) defines this
+nested payload. Generated intermediates and working-profile bindings are derived;
+they add no raster archive fields. Native layer projection preserves the complete
+editable source, while interchange resolves its evaluated ordinary artwork.
+
+## Placed vectors with retained repeats
+
+The outer `.focale` ZIP and manifest remain version 1. A placed vector containing
+an authored grid, radial or mirror repeat embeds the
+[version-1 vector project](vectors.md#retained-object-repeats-unpublished-version-1), with one
+canonical source and the repeat recipe. Generated instances remain derived and
+introduce no raster archive fields. Native projection retains the editable source;
+export projections resolve the repeated ordinary artwork and report conversion.
+Viewport Pattern Preview remains session state and is never stored as a repeat.
+
+## Placed vectors with retained geometry effects
+
+The photo container introduces no new field or version. An editable placed vector
+with live geometry effects embeds a [version-1 vector project](vectors.md#retained-geometry-effects-unpublished-version-1).
+These retain offset distances, corner-rounding radii or an owned bending spine and
+height scale alongside the original editable path; generated geometry is rebuilt.
+The spine contains relative Bézier handles and no external object reference.
+It retains original path anchors and ordered parameters; generated contours are
+recomputed rather than stored. Canonical rendering resolves the vector effect
+before later paint, clipping and raster-filter stages. Editable source reopening
+retains the live recipe, while interchange resolves it into ordinary geometry.
+
+## Placed vectors with authored gradient meshes
+
+The outer `.focale` container and manifest remain unchanged. An editable placed
+vector with authored gradient mesh grids embeds a
+[version-1 vector project](vectors.md#authored-gradient-mesh-grids-unpublished-version-1).
+That payload retains row/column topology, local source nodes and packed ARGB
+colours. Internal grid version 2 also retains relative cubic edge handles, shared
+by adjacent Coons patches; straight version-1 grids remain readable. Internal
+version 3 additionally retains explicit Coons/smooth-tensor interpolation, a
+built-in process interpolation profile and optional full-precision `ProfiledColor`
+node values. The `pdfDeviceGray` value identity denotes encoded neutral process
+gray, distinct from the gamma-2.2 editing profile. Geometry edits preserve those
+original components and floating opacity. The [vector schema](vectors.md#authored-gradient-mesh-grids-unpublished-version-1)
+defines their color-edit and topology-insertion semantics. Derived display
+triangles are rebuilt, not stored as a second source.
+Imported arbitrary triangle meshes retain their existing native representation.
+
+Mesh interchange does not change this embedded native source: SVG projects
+controls to bounded embedded PNGs, while PDF projects them to triangle shading.
+These conversions are disclosed before export and do not restore the editable
+grid on import. See the [mesh interchange contract](../features/gradient-meshes.md#persistence-and-interchange).
+
+## Linked text frames
+
+A direct `TextLayer.content.frames` collection requires manifest version 2. It
+stores `{version: 1, frames: [...]}`; each frame contains a local unique `id`,
+positive finite `width` and `height`, and an invertible six-number affine
+`transform`. A story admits 1–64 frames. Dimensions are at most 1,000,000 local
+pixels; transform components and resulting frame bounds stay within ±1e9.
+Malformed, duplicate or unknown-version collections are rejected.
+
+The containing `TextContent` stores the complete Unicode string and its character
+and paragraph ranges once. Derived frame ranges, visible lines, caret positions
+and overset state are recomputed, never serialized. Frame order defines flow;
+transforms affect individual placement. Path/shape flow and raster text warp are
+not combined with a frame chain. Text outside the available frames remains part
+of the source.
+
+The same collection belongs to unpublished `.fvector` version 1 and editable
+clipboard version 10. Placed editable vectors retain their complete nested
+source; this alone does not require photographic manifest version 2. SVG/PDF
+preparation discloses a raster projection, retaining frame layout without claiming
+editable source or flow connections. See [linked text frames](../features/text-frames.md).
+
+## Placed vectors with named typography styles
+
+A placed editable vector retains its named character/paragraph definitions and
+local override bindings in the nested unpublished version-1 `.fvector` source.
+This does not change the photographic archive version or introduce a top-level
+photo typography library. Projection to ordinary photographic text layers uses
+resolved independent formatting; native placement retains the editable vector
+source when named relationships are present. The [vector style contract](vectors.md#named-text-styles-unpublished-version-1)
+defines library ownership, validation and clipboard envelope 11.
+
+### Embedded editable text path relationships
+
+Vector text may retain a source-path relationship inside an embedded `.fvector`
+placed source. The nested vector envelope stays version 1; this introduces no
+photographic manifest revision. Projecting a complete linked selection preserves
+one complete vector ownership tree and embedded font resources. Ordinary photo
+text uses a detached local flow snapshot, so it never depends on vector object
+identities outside its placed source. See the
+[vector source-binding schema](vectors.md#editable-text-path-sources-unpublished-version-1).
+
+## Placed vectors with printing inks
+
+Named ink spaces, tint functions and component values remain in the nested
+unpublished version-1 `.fvector` source. A detached spot paint still requires an
+editable placed vector: ordinary photo shape layers cannot represent printing
+plate identity. The projection retains the complete source and uses its alternate
+appearance for the preview. This introduces no outer manifest version change or
+shared photo-document ink table. See the [printing-ink payload](vectors.md#named-printing-inks-unpublished-version-1).
+
+Vector source previews retain the additive `previewOnly` flag documented in
+[vectors](vectors.md#retained-illustrator-source). It distinguishes an imported
+linked-image preview from the complete external source across nested vector
+projects, source duplication and recovery. A preview does not establish the
+external file's expected byte length and cannot be silently embedded as full data.
+
+### Vector opacity mask coverage
+
+The unpublished `.fvector` payload embedded in `.focale` may retain optional
+`maskInverted`, `maskClips` and `maskLinked` fields on its objects. They default
+to false, true and true respectively, preserving older coverage and movement. See [vector mask semantics](vectors.md)
+and [ADR 0446](../adr/0446-explicit-opacity-mask-coverage.md). The `.focale`
+container and raster layer schema remain unchanged. Projection to ordinary pixel
+masks consumes these parameters into grayscale coverage before retaining the
+existing density and feather controls.
+
+### Retained SVG filter graphs
+
+A smart-filter operation with `type: "svgGraph"` owns a `graph` object. Its `region`
+contains x, y, width and height; `objectBoundingBox` and `primitiveBoundingBox`
+select fractional versus user-space coordinates. `userOffset` retains the user
+origin after native shape normalization. `primitives` is a topologically ordered
+list of at most 64 nodes. Each node stores `kind`, `inputs`, `values`, `mode`, four
+optional `region` coordinates, a `linear` interpolation flag and channel
+`functions`. Input indices -1 and -2 mean SourceGraphic and SourceAlpha;
+nonnegative indices refer only to preceding nodes. Channel functions retain a
+`type` and bounded numeric `values`.
+
+The graph, not preserved SVG XML or a derived preview, is authoritative after
+edits. Original source objects remain editable and ordinary smart-filter history
+and serialization retain the graph. Unknown primitives and invalid references
+are rejected. See [the supported dialect and limits](svg-filters.md) and
+[ADR 0451](../adr/0451-retained-svg-filter-graphs.md).

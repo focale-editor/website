@@ -21,6 +21,12 @@ const year = new Date().getFullYear()
           <p class="footer-tagline">
             {{ t('footer.tagline') }}
           </p>
+          <div class="footer-social">
+            <h2 class="footer-heading">
+              {{ t('social.footer') }}
+            </h2>
+            <SocialLinks />
+          </div>
         </div>
 
         <nav
@@ -105,6 +111,10 @@ const year = new Date().getFullYear()
   margin-top: 0.875rem;
   color: var(--color-text-subtle);
   font-size: 0.9375rem;
+}
+
+.footer-social {
+  margin-top: 1.75rem;
 }
 
 .footer-columns {

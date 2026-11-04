@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Ein fortgeschrittener, lokaler Bildeditor",
-      "description": "Focale ist ein moderner Rasterbildeditor für Linux, Windows und macOS: Ebenen, Masken, nicht-destruktive Korrekturen, Filter und Ebeneneffekte, mit Unterstützung für Photoshop-Dateien."
+      "description": "Focale ist ein moderner Foto- und Vektoreditor für Linux, Windows und macOS: Ebenen, Masken, nicht-destruktive Korrekturen, editierbare Vektorgrafik, Filter und Ebeneneffekte, mit Unterstützung für Photoshop-, SVG- und PDF-Dateien."
     }
   },
   "common": {
@@ -181,13 +181,19 @@
     "showMore": "Weitere Funktionen"
   },
   "footer": {
-    "tagline": "Ein fortgeschrittener, lokal arbeitender Rasterbildeditor für Linux, Windows und macOS.",
+    "tagline": "Ein fortgeschrittener, lokal arbeitender Foto- und Vektoreditor für Linux, Windows und macOS.",
     "copyright": "Copyright © {year} Hugo Delaunay, alle Rechte vorbehalten.",
     "madeIn": "Made in Europe",
     "sections": {
       "product": "Produkt",
       "openSource": "Open Source"
     }
+  },
+  "social": {
+    "title": "Dem Projekt folgen",
+    "description": "Zwischenstände, Tipps und Blicke hinter die Kulissen der Entwicklung von Focale, auf Pixels in Progress.",
+    "footer": "Folgen",
+    "label": "Pixels in Progress auf {network}"
   },
   "error": {
     "notFound": {
@@ -280,7 +286,7 @@
     },
     "browse": "Dokumentation durchsuchen",
     "startHere": "Beginne mit Erste Schritte und nutze dann die Bearbeitungsanleitung. Die Referenz beschreibt Plattformen, Kompatibilität und native Formate.",
-    "developmentNote": "Am 5. Oktober 2026 mit dem Anwendungscode abgeglichen. Focale wird aktiv entwickelt; Befehle und Pakete können je Build abweichen.",
+    "developmentNote": "Am 4. November 2026 mit dem Anwendungscode abgeglichen. Focale wird aktiv entwickelt; Befehle und Pakete können je Build abweichen.",
     "onThisPage": "Auf dieser Seite",
     "screenshotNote": "Abbildung aus den Editor-Screenshots. Die Oberfläche kann in deiner Version abweichen.",
     "completeReference": "Vollständige Formatreferenzen",
@@ -296,8 +302,8 @@
             "title": "Das erste Dokument",
             "steps": [
               "Lade im Download-Bereich das Paket für dein System und deinen Prozessor herunter.",
-              "Öffne auf der Startseite ein Bild oder erstelle ein Dokument. Wähle Größe, Auflösung, Farbmodus, Farbtiefe und Hintergrund.",
-              "Speichere eine Arbeitskopie mit Datei → Speichern unter. .focale erhält Ebenen und editierbare Inhalte.",
+              "Öffne auf der Startseite ein Bild oder erstelle ein Dokument. Wähle unter Neues Dokument den Dokumenttyp, Bild oder Vektorgrafik, dann Größe, Auflösung, Farbmodus, Farbtiefe und Hintergrund.",
+              "Speichere eine Arbeitskopie mit Datei → Speichern unter. .focale (Bilder) und .fvector (Vektorgrafiken) erhalten Ebenen und editierbare Inhalte.",
               "Wähle eine Ebene und ein Werkzeug. Rückgängig und Wiederholen erlauben andere Versuche.",
               "Nutze Datei → Exportieren zum Teilen eines Bildes. Behalte .focale für spätere Änderungen."
             ]
@@ -376,6 +382,65 @@
             "paragraphs": [
               "Datei → Exportieren bietet Format, Maße und Codec-Optionen. Schnellexport nutzt die letzte Rastervorgabe einschließlich Skalierungen und Suffixen.",
               "Das Ebenenmenü exportiert auch ausgewählte Ebenen, Gruppen und Zeichenflächen. Ebenen nutzen sichtbare Grenzen, Zeichenflächen ihr Leinwandrechteck."
+            ]
+          }
+        }
+      },
+      "vectorGuide": {
+        "title": "Vektorillustration",
+        "description": "Zeichne editierbare Pfade, gestalte und verwende Elemente wieder und exportiere SVG-, PDF- oder AI-Dateien.",
+        "sections": {
+          "start": {
+            "title": "Ein Vektordokument beginnen",
+            "paragraphs": [
+              "Wähle unter Neues Dokument den Dokumenttyp Vektorgrafik. Du kannst auch ein .fvector-Projekt oder eine SVG-, SVGZ-, PDF- oder PDF-kompatible AI-Datei öffnen: Focale wandelt die Zeichnung in editierbare Objekte um.",
+              "Foto- und Vektordokumente bleiben nebeneinander geöffnet, jedes in seinem eigenen Tab. Das aktive Dokument bestimmt die verfügbaren Werkzeuge, Bedienfelder und Befehle; einen Modus zum Umschalten gibt es nicht."
+            ]
+          },
+          "draw": {
+            "title": "Pfade und Formen zeichnen",
+            "paragraphs": [
+              "Zeichenstift und Rundungszeichenstift erstellen Bézierpfade. Formwerkzeuge erstellen Rechtecke, Ellipsen, Polygone, Sterne und Linien, die parametrisch bleiben, bis du sie in Pfade umwandelst. Die Direktauswahl bearbeitet einzelne Ankerpunkte, Griffe und Segmente.",
+              "Formerstellung vereinigt oder subtrahiert die Bereiche überlappender Formen. Die Schere teilt einen Pfad, das Messer schneidet entlang einer geraden Geste und der Vektorradierer entfernt gemalte Fläche. Konstruktionswerkzeuge zeichnen außerdem Bögen, Spiralen sowie rechteckige und polare Raster."
+            ]
+          },
+          "paint": {
+            "title": "Füllung, Kontur und Farbe",
+            "paragraphs": [
+              "Ein Objekt kann mehrere Füllungen und Konturen tragen. Farbaufbau listet sie von vorn nach hinten: Füge sie hinzu, ordne und bearbeite sie und übernimm das Ergebnis als einen einzigen Rückgängig-Schritt.",
+              "Verlaufsgitter malt weiche Farbübergänge über ein Raster aus Knoten. Interaktiv malen füllt die Bereiche überlappender Pfade, auch über kleine Lücken hinweg, und die Farbe folgt den Pfaden, wenn du sie verschiebst.",
+              "Das Werkzeug Breite verändert die Konturstärke entlang des Pfads; Stiftdruck kann dasselbe Profil erzeugen. Vektorpinsel legt kalligrafische, Bild- oder Musterpinsel entlang eines editierbaren Pfads an."
+            ]
+          },
+          "reuse": {
+            "title": "Farben und Elemente wiederverwenden",
+            "items": [
+              "Dokumentfarben speichert benannte Farben und Volltonfarben. Wenn du eine benannte Farbe änderst, werden alle Objekte aktualisiert, die sie verwenden.",
+              "Symbole machen ein Element zur Vorlage: Jede Instanz folgt den Änderungen der Vorlage und behält ihre eigene Platzierung.",
+              "Objekte interpolieren erstellt einen editierbaren Übergang zwischen zwei Formen. Rasterwiederholung, Radiale Wiederholung und Spiegelwiederholung bauen eine Anordnung aus einer einzigen editierbaren Quelle auf.",
+              "Geometrieeffekte fügen Versatz, abgerundete Ecken oder Biegungen hinzu, ohne den ursprünglichen Pfad zu verändern."
+            ]
+          },
+          "text": {
+            "title": "Text setzen",
+            "paragraphs": [
+              "Textrahmen lassen sich verketten, sodass ein Text von einem Rahmen in den nächsten fließt; eine Anzeige markiert Text, der nicht hineinpasst. Text auf einem Pfad oder in einer Form bleibt mit ihr verknüpft: Wenn du den Pfad bearbeitest, wird der Text neu gesetzt.",
+              "Dokumenttextstile legen benannte Zeichen- und Absatzformate fest. Text in Pfade umwandeln macht aus Text editierbare Glyphenpfade, etwa bevor du eine Datei an jemanden ohne die Schriften schickst. Behalte eine editierbare Kopie: Umgewandelter Text lässt sich nicht mehr als Text bearbeiten."
+            ]
+          },
+          "inspect": {
+            "title": "Nachzeichnen und prüfen",
+            "paragraphs": [
+              "Bild nachzeichnen wandelt ein platziertes Rasterbild in editierbare Farbpfade um. Die Vorschau vergleicht Quelle und Ergebnis, bevor du es anwendest.",
+              "Die Drahtgitteransicht zeigt die Geometrie ohne Farbe. Pfade prüfen meldet offene Konturen, einzelne Ankerpunkte, Selbstüberschneidungen und Überlappungen, auch bei ausgeblendeten oder gesperrten Objekten, und kann die betroffenen Objekte auswählen."
+            ]
+          },
+          "export": {
+            "title": "Speichern, exportieren und drucken",
+            "paragraphs": [
+              "Speichere als .fvector, damit alle Objekte, Effekte und gemeinsamen Ressourcen editierbar bleiben. Ein .focale-Fotoprojekt kann ein Vektordokument auch als editierbares Smartobjekt platzieren.",
+              "Bevor Focale SVG, SVGZ oder PDF schreibt, listet es die Funktionen auf, die das Format nicht editierbar halten kann, und lässt dich jede einzeln erhalten, umwandeln oder rastern. Geschrieben wird erst nach deiner Bestätigung.",
+              "Druckproof und Preflight zeigt CMYK- und Volltonfarbauszüge und meldet fehlende Schriften, eingeschränkte Einbettung und Bilder mit geringer Auflösung. Mit einem CMYK-Ausgabeprofil exportierst du ein Druck-PDF, auch als PDF/X-4."
             ]
           }
         }
@@ -581,7 +646,7 @@
           "choose": {
             "title": "Datei wählen",
             "paragraphs": [
-              "Behalte .focale als Arbeitsprojekt. Exportiere Rasterbilder zum Teilen oder PSD/PSB zum Ebenenaustausch.",
+              "Behalte .focale als Fotoprojekt und .fvector als Vektorprojekt. Exportiere Rasterbilder zum Teilen oder PSD/PSB oder XCF zum Ebenenaustausch mit einem anderen Editor.",
               "Eine andere Endung konvertiert nicht. Nutze Speichern oder Exportieren und prüfe das Ergebnis in der anderen Anwendung."
             ]
           },
@@ -651,11 +716,47 @@
             }
           },
           "layered": {
-            "title": "PSD und PSB",
+            "title": "PSD, PSB und XCF",
             "paragraphs": [
               "Text, Formen, Masken, Korrekturen und Effekte bleiben editierbar, soweit sie dem Focale-Modell entsprechen.",
-              "Nicht unterstützte Eigenschaften können gespeicherte Raster- oder Gesamtvorschauen verwenden. Vollständige Photoshop-Kompatibilität ist nicht garantiert. Behalte Originale und vergleiche."
+              "Nicht unterstützte Eigenschaften können gespeicherte Raster- oder Gesamtvorschauen verwenden. Vollständige Photoshop-Kompatibilität ist nicht garantiert. Behalte Originale und vergleiche.",
+              "XCF-Dateien aus GIMP, auch .xcf.gz, .xcf.bz2 und .xcf.xz, öffnen sich als Ebenendokumente und lassen sich wieder als XCF exportieren. GIMP muss dafür nicht installiert sein."
             ]
+          },
+          "vector": {
+            "title": "Vektorformate",
+            "paragraphs": [
+              "Diese Dateien öffnen sich als editierbare Vektordokumente. Focale wandelt die Zeichnung in native Objekte um und lehnt Inhalte außerhalb des unterstützten Umfangs mit einer Erklärung ab, statt sie anzunähern."
+            ],
+            "table": {
+              "headers": [
+                "Format",
+                "Verwendung",
+                "Hinweis"
+              ],
+              "rows": [
+                [
+                  ".fvector",
+                  "Öffnen / Speichern",
+                  "Natives Vektorprojekt: Objekte, Text, Effekte und gemeinsame Ressourcen bleiben editierbar."
+                ],
+                [
+                  "SVG / SVGZ",
+                  "Öffnen / Speichern",
+                  "Statische Zeichnungen mit Pfaden, Verläufen, Beschneidungen, Masken, Text, Bildern und gängigen Filtern. Skripte und Animationen werden nicht importiert."
+                ],
+                [
+                  "PDF",
+                  "Öffnen / Speichern",
+                  "Jede Seite wird zu einer Zeichenfläche, eingebettete Schriften bleiben erhalten. Unveränderte Seiten können erhalten bleiben; bearbeitete Inhalte werden neu erzeugt."
+                ],
+                [
+                  "AI (PDF-kompatibel)",
+                  "Öffnen / Speichern",
+                  "Gelesen über die PDF-Darstellung und unterstützte Illustrator-Daten. Ältere PostScript-AI-Dateien werden abgelehnt."
+                ]
+              ]
+            }
           },
           "raw": {
             "title": "Kamera-RAW",
@@ -803,6 +904,13 @@
             "paragraphs": [
               "Vollständiger Rückgängig-Verlauf, Layout, Kürzel und lokale Kataloge sind Anwendungszustand, keine portable Sitzung.",
               "Wiederherstellung kann einen benachbarten gemeinsamen Objektspeicher nutzen. Das unterscheidet sich von einem eigenständigen .focale-Nutzerprojekt."
+            ]
+          },
+          "vector": {
+            "title": "Vektorprojekte",
+            "paragraphs": [
+              "Vektorgrafiken werden in einem eigenen .fvector-Projekt gespeichert: einem UTF-8-JSON-Dokument mit eigenem Umschlag in Version 1. Die Spezifikation ist noch nicht veröffentlicht und kann sich ändern; nutze SVG oder PDF für den langfristigen Austausch.",
+              "Ein .focale-Projekt kann ein editierbares Vektordokument als Smartobjekt einbetten. Beim Öffnen bearbeitest du die Vektorquelle in einem eigenen Tab; beim Speichern wird jede Platzierung im Fotodokument aktualisiert."
             ]
           }
         }
@@ -1078,6 +1186,13 @@
             "paragraphs": [
               "Ein neueres Format braucht eine passende Version. Behalte beschädigte Originale und prüfe Kopien. ZIP mit manifest.json allein ist kein gültiges Projekt.",
               "Prüfe Schreibrechte und Platz. Größe, Tiefe und Ebenen können Grenzen überschreiten. Browserquota ist vom freien Festplattenplatz getrennt."
+            ]
+          },
+          "vectorFiles": {
+            "title": "Eine Vektordatei wird abgelehnt oder sieht anders aus",
+            "paragraphs": [
+              "Focale lehnt SVG-, PDF- oder AI-Inhalte ab, die es nicht originalgetreu wiedergeben kann: Skripte, Animationen, nicht unterstützte Filterprimitive oder ältere PostScript-AI-Dateien. Die Meldung nennt die betroffene Funktion. Speichere bei einer älteren AI-Datei eine PDF-kompatible Kopie aus der ursprünglichen Anwendung.",
+              "Text hängt von den auf deinem Rechner installierten Schriften ab oder von den in einer PDF eingebetteten. Prüfe vor dem Speichern als SVG oder PDF die Funktionen, die nicht editierbar bleiben können, und wähle, ob du sie erhältst, umwandelst oder rasterst."
             ]
           },
           "appearance": {

@@ -149,7 +149,7 @@ is validated before a GPU image is created. A referenced asset that is missing
 or conflicts with another asset invalidates the import rather than silently
 changing the preset. Sampled tips and patterns are part of public version 1;
 missing optional catalogues default to empty lists. Development versions 2–3
-are not public compatibility versions; see the [development-file policy](persistence-policy.md).
+are not public compatibility versions; see [ADR 0265](../adr/0265-first-release-persistence-baseline.md).
 
 The settings object uses the complete `BrushSettings` serialization for
 forward-compatible decoding. Capture, decoding and export normalize current

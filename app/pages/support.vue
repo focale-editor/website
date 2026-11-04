@@ -156,6 +156,19 @@ async function copyLink(): Promise<void> {
       </section>
     </div>
 
+    <section
+      class="support-social"
+      aria-labelledby="social-title"
+    >
+      <div class="support-social-heading">
+        <h2 id="social-title">
+          {{ t('social.title') }}
+        </h2>
+        <p>{{ t('social.description') }}</p>
+      </div>
+      <SocialLinks variant="tiles" />
+    </section>
+
     <aside
       class="support-founders"
       aria-labelledby="founders-title"
@@ -289,6 +302,30 @@ async function copyLink(): Promise<void> {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
   }
+}
+
+.support-social {
+  margin-top: 1.5rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+
+  h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    line-height: 1.35;
+  }
+
+  p {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+}
+
+.support-social-heading {
+  max-width: 40rem;
+  margin-bottom: 1.25rem;
 }
 
 .support-founders {

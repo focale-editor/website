@@ -5,6 +5,7 @@ import { nativeFormatExamples } from './documentationExamples'
 export const documentationArticles = {
   gettingStarted: { slug: 'getting-started', icon: 'lucide:rocket', group: 'guides' },
   userGuide: { slug: 'user-guide', icon: 'lucide:panels-top-left', group: 'guides' },
+  vectorGuide: { slug: 'vector-guide', icon: 'lucide:pen-tool', group: 'guides' },
   shortcuts: { slug: 'shortcuts', icon: 'lucide:keyboard', group: 'guides' },
   troubleshooting: { slug: 'troubleshooting', icon: 'lucide:life-buoy', group: 'guides' },
   platforms: { slug: 'platforms', icon: 'lucide:monitor', group: 'reference' },

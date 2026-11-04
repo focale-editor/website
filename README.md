@@ -1,7 +1,7 @@
 # Focale Website
 
-The landing page for Focale, an advanced, local-first raster image editor for
-Linux, Windows and macOS.
+The landing page for Focale, an advanced, local-first photo and vector editor
+for Linux, Windows and macOS.
 
 The site is a statically generated Nuxt application, published to GitHub Pages at
 <https://focale-editor.app>. It presents the editor and its downloads,
@@ -114,6 +114,9 @@ from Nuxt's component auto-imports and imported explicitly by `app/pages/index.v
 Shared layout, documentation and UI components retain flat auto-imported names.
 
 The header has three page links: Home, Documentation and Contribute (`/support`).
+Social profiles live in `app/utils/socialLinks.ts`; `SocialLinks` renders them as
+icon buttons in the footer and as labelled tiles on the support page. Handles stay
+out of the locale files because vue-i18n reserves `@`.
 Homepage section anchors remain in the footer. `SupportSection` introduces ways
 to help the project after the downloads and links to the localized support page;
 its copy lives in `support.home` in each locale file. The hero and header link
@@ -203,8 +206,8 @@ Validation: `pnpm lint`, `pnpm typecheck`, `pnpm generate` (inspect `.output/pub
 
 ## Documentation and third-party notices
 
-`app/pages/docs/` provides getting started, editing, shortcuts, troubleshooting,
-platforms, import/export formats, native projects and native preset libraries,
+`app/pages/docs/` provides getting started, editing, vector illustration, shortcuts,
+troubleshooting, platforms, import/export formats, native projects and native preset libraries,
 alongside the existing licenses and corresponding-source pages. Each portable
 library has its own page: `.fbrush`, `.fpattern`, `.fshape`, `.fstyle`, `.fswatch`,
 `.fgradient`, `.fcurve`, `.fcontour`, `.faction`, `.flevels`,

@@ -126,6 +126,22 @@ layer is likewise recorded only when the sampling mode reads the complete
 composite; current-layer and current-and-below modes depend on a layer identity
 that cannot be transferred safely to another document.
 
+### Common object edits
+
+`object.edit` carries an ordered `patches` array. Without `documentSpace`, patches
+address selected objects in document-tree order, and each affine `delta` uses
+that object's parent coordinates. Playback requires the same number of compatible
+selected targets before publishing any changes.
+
+A transform recorded by the common inspector can instead set `documentSpace` to
+`true`, with exactly one patch containing only an affine `delta`. Playback
+resolves linked, unlocked selection roots in the destination document and maps
+the document-space delta through each root's parent transform. Descendants of a
+selected root move with their ancestor once. This representation deliberately
+does not store source identifiers or the source link-group size. Consecutive
+samples compose their matrices in playback order. Alignment and distribution
+continue to place explicitly selected roots independently of links.
+
 ## Native `.faction` format
 
 `.faction` is a portable UTF-8 JSON file containing exactly one action set.
@@ -171,7 +187,7 @@ is imported, so importing the same library twice cannot collide with the local
 catalogue. Unknown operation identifiers and their parameters are preserved for
 forward compatibility, displayed as unsupported, and never executed by an
 older build. Development version 2 is not a public compatibility version; see
-the [development-file policy](persistence-policy.md).
+[ADR 0265](../adr/0265-first-release-persistence-baseline.md).
 
 Version 1 makes paint actions self-contained. Every active referenced imported
 primary or dual brush tip and every active imported brush/effect pattern is
@@ -272,7 +288,6 @@ floating working RGB keeps the paint's appearance after a profile change.
 Older records without this field can reconstruct built-in profile colours;
 unknown legacy profiles retain their packed fallback. This additive field does
 not change the action schema version.
-
 
 ### Exact recorded paint colours
 

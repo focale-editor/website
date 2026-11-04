@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "An advanced local image editor",
-      "description": "Focale is a modern raster image editor for Linux, Windows and macOS: layers, masks, non-destructive adjustments, filters and layer effects, with support for Photoshop files."
+      "description": "Focale is a modern photo and vector editor for Linux, Windows and macOS: layers, masks, non-destructive adjustments, editable vector artwork, filters and layer effects, with support for Photoshop, SVG and PDF files."
     }
   },
   "common": {
@@ -181,13 +181,19 @@
     "showMore": "More features"
   },
   "footer": {
-    "tagline": "An advanced, local-first raster image editor for Linux, Windows and macOS.",
+    "tagline": "An advanced, local-first photo and vector editor for Linux, Windows and macOS.",
     "copyright": "Copyright © {year} Hugo Delaunay, all rights reserved.",
     "madeIn": "Made in Europe",
     "sections": {
       "product": "Product",
       "openSource": "Open source"
     }
+  },
+  "social": {
+    "title": "Follow the project",
+    "description": "Work in progress, tips and a look behind the scenes of Focale, on Pixels in Progress.",
+    "footer": "Follow",
+    "label": "Pixels in Progress on {network}"
   },
   "error": {
     "notFound": {
@@ -280,7 +286,7 @@
     },
     "browse": "Browse documentation",
     "startHere": "Start with Getting started, then use the editing guide for everyday work. The technical reference covers platforms, file compatibility and the native formats.",
-    "developmentNote": "Reviewed against the application source on 5 October 2026. Focale is in active development; available commands and published packages may differ by build.",
+    "developmentNote": "Reviewed against the application source on 4 November 2026. Focale is in active development; available commands and published packages may differ by build.",
     "onThisPage": "On this page",
     "screenshotNote": "Illustration from the editor screenshot collection. The interface may differ in your build.",
     "completeReference": "Complete format references",
@@ -296,8 +302,8 @@
             "title": "Your first document",
             "steps": [
               "Install the package for your operating system and processor from the website’s download section.",
-              "On the Home screen, open an image or create a document. New Document lets you choose dimensions, resolution, colour mode, bit depth and background.",
-              "Save a working copy with File → Save As. Use .focale to retain layers and editable content.",
+              "On the Home screen, open an image or create a document. New Document lets you choose the document type, image or vector artwork, then its dimensions, resolution, colour mode, bit depth and background.",
+              "Save a working copy with File → Save As. Use .focale for images and .fvector for vector artwork to retain layers and editable content.",
               "Select a layer, choose a tool and make an edit. Undo and Redo let you try another result.",
               "Use File → Export when you need an image to share. Keep the .focale project for further editing."
             ]
@@ -376,6 +382,65 @@
             "paragraphs": [
               "File → Export controls format, dimensions and the options supported by that codec. Quick Export reuses the last raster preset, including output scales and suffixes.",
               "The Layers context menu also exports selected layers, groups and artboards. Regular layers use their visible bounds; artboards retain their own canvas rectangle."
+            ]
+          }
+        }
+      },
+      "vectorGuide": {
+        "title": "Vector illustration",
+        "description": "Draw editable paths, paint and reuse artwork, then export SVG, PDF or AI files.",
+        "sections": {
+          "start": {
+            "title": "Start a vector document",
+            "paragraphs": [
+              "In New Document, set Document type to Vector artwork. You can also open a .fvector project or an SVG, SVGZ, PDF or PDF-compatible AI file: Focale converts its drawing into editable objects.",
+              "Photo and vector documents stay open side by side in their own tabs. The active document decides which tools, panels and commands are available; there is no separate mode to switch."
+            ]
+          },
+          "draw": {
+            "title": "Draw paths and shapes",
+            "paragraphs": [
+              "Pen and Curvature pen create Bézier paths. Shape tools create rectangles, ellipses, polygons, stars and lines that stay parametric until you convert them to paths. Direct selection edits individual anchors, handles and segments.",
+              "Shape builder merges or subtracts the regions formed by overlapping shapes. Scissors split a path, Knife cuts along a straight gesture and Vector eraser removes painted area. Construction tools also draw arcs, spirals and rectangular or polar grids."
+            ]
+          },
+          "paint": {
+            "title": "Fill, stroke and colour",
+            "paragraphs": [
+              "An object can carry several fills and strokes. Paint stack lists them from front to back: add, reorder and edit them, then apply the result as one undo step.",
+              "Gradient mesh paints smooth colour transitions across a grid of nodes. Live Paint fills the regions formed by overlapping paths, even across small gaps, and keeps the paint attached when you move the paths.",
+              "The Width tool varies a stroke’s thickness along its path; pen pressure can create the same profile. Vector brush applies calligraphic, art or pattern brushes along an editable path."
+            ]
+          },
+          "reuse": {
+            "title": "Reuse colours and artwork",
+            "items": [
+              "Document colours stores named colours and spot inks. Updating a named colour updates every object that uses it.",
+              "Symbols turn artwork into a master: every instance follows edits to the master and keeps its own placement.",
+              "Interpolate objects creates an editable blend between two shapes. Grid repeat, Radial repeat and Mirror repeat build a construction from one editable source.",
+              "Geometry effects add offsets, rounded corners or bending without changing the original path."
+            ]
+          },
+          "text": {
+            "title": "Lay out text",
+            "paragraphs": [
+              "Text frames can be linked so a story flows from one frame to the next; an indicator shows text that does not fit. Text placed on a path or inside a shape stays linked to it: editing the path reflows the text.",
+              "Document text styles define named character and paragraph formats. Create text outlines converts text into editable glyph paths, for example before sending a file to someone who does not have the fonts. Keep an editable copy: outlined text can no longer be edited as text."
+            ]
+          },
+          "inspect": {
+            "title": "Trace and inspect artwork",
+            "paragraphs": [
+              "Trace image converts a placed raster image into editable colour paths. Its preview compares the source and the result before you apply it.",
+              "Wireframe view shows geometry without paint. Inspect paths reports open contours, isolated anchors, self-crossings and overlaps, including on hidden and locked objects, and can select the objects concerned."
+            ]
+          },
+          "export": {
+            "title": "Save, export and print",
+            "paragraphs": [
+              "Save .fvector to keep every object, effect and shared resource editable. A .focale photo project can also place a vector document as an editable smart object.",
+              "Before writing SVG, SVGZ or PDF, Focale lists the features the format cannot keep editable and lets you preserve, expand or rasterize each one. Nothing is written until you confirm.",
+              "Print proof and preflight shows CMYK and spot plates and reports missing fonts, restricted embedding and low-resolution images. With a CMYK output profile, export a print PDF, including PDF/X-4."
             ]
           }
         }
@@ -581,7 +646,7 @@
           "choose": {
             "title": "Choose the right file",
             "paragraphs": [
-              "Keep .focale as the working project. Export a raster image for sharing, or PSD/PSB when exchanging layered content with another editor.",
+              "Keep .focale as the working photo project and .fvector as the working vector project. Export a raster image for sharing, or PSD/PSB or XCF when exchanging layered content with another editor.",
               "Changing an extension does not convert a file. Use the appropriate Save or Export command, and inspect the result when moving between applications."
             ]
           },
@@ -651,11 +716,47 @@
             }
           },
           "layered": {
-            "title": "PSD and PSB",
+            "title": "PSD, PSB and XCF",
             "paragraphs": [
               "Focale imports and exports layered Photoshop documents. Supported text, shapes, masks, adjustments and effects remain editable where they map to Focale’s model.",
-              "Unsupported semantics can use stored raster previews or a merged preview instead of being guessed. This is not a guarantee of complete Photoshop feature compatibility. Retain the original file and compare the rendered result."
+              "Unsupported semantics can use stored raster previews or a merged preview instead of being guessed. This is not a guarantee of complete Photoshop feature compatibility. Retain the original file and compare the rendered result.",
+              "GIMP XCF files, including .xcf.gz, .xcf.bz2 and .xcf.xz, open as layered documents and can be exported again as XCF. GIMP does not need to be installed."
             ]
+          },
+          "vector": {
+            "title": "Vector formats",
+            "paragraphs": [
+              "These files open as editable vector documents. Focale converts their drawing into native objects and rejects content outside the supported dialect with an explanation instead of approximating it."
+            ],
+            "table": {
+              "headers": [
+                "Format",
+                "Use in Focale",
+                "Important detail"
+              ],
+              "rows": [
+                [
+                  ".fvector",
+                  "Open / save",
+                  "Native vector project: objects, text, effects and shared resources stay editable."
+                ],
+                [
+                  "SVG / SVGZ",
+                  "Open / save",
+                  "Static drawings with paths, gradients, clipping, masks, text, images and common filters. Scripts and animation are not imported."
+                ],
+                [
+                  "PDF",
+                  "Open / save",
+                  "Each page becomes an artboard and embedded fonts are kept. Unchanged pages can be preserved; edited artwork is regenerated."
+                ],
+                [
+                  "AI (PDF-compatible)",
+                  "Open / save",
+                  "Read through its PDF representation and supported Illustrator data. Legacy PostScript AI files are rejected."
+                ]
+              ]
+            }
           },
           "raw": {
             "title": "Camera RAW",
@@ -803,6 +904,13 @@
             "paragraphs": [
               "The full Undo command history, interface layout, keyboard shortcuts and local preset catalogues are application state. They are not embedded as an editing session in the portable project.",
               "Crash-recovery checkpoints may use an adjacent shared object store. They are managed application data and must not be confused with a self-contained user .focale archive."
+            ]
+          },
+          "vector": {
+            "title": "Vector projects",
+            "paragraphs": [
+              "Vector artwork is saved as a separate .fvector project: a UTF-8 JSON document with its own version 1 envelope. Its specification is not published yet and may still change; use SVG or PDF for long-term interchange.",
+              "A .focale project can embed an editable vector document as a smart object. Opening it edits the vector source in its own tab; saving updates every placement in the photo document."
             ]
           }
         }
@@ -1078,6 +1186,13 @@
             "paragraphs": [
               "For a newer .focale format, use an application version that understands it. For damaged data, preserve the original and investigate a copy. A ZIP that contains manifest.json is not automatically a valid project.",
               "For saving, verify the destination is writable and has enough free space. Large dimensions, deep samples and many layers can exceed the configured payload or format bounds. A browser’s storage quota is separate from free disk space."
+            ]
+          },
+          "vectorFiles": {
+            "title": "A vector file is rejected or looks different",
+            "paragraphs": [
+              "Focale refuses SVG, PDF or AI content it cannot reproduce faithfully, such as scripts, animation, unsupported filter primitives or legacy PostScript AI files. The message names the unsupported feature. For an old AI file, save a PDF-compatible copy from the original application.",
+              "Text depends on the fonts installed on your machine, or on the fonts embedded in a PDF. Before saving to SVG or PDF, review the features that cannot stay editable and choose to preserve, expand or rasterize them."
             ]
           },
           "appearance": {

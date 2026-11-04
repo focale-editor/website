@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Un editor de imágenes avanzado y local",
-      "description": "Focale es un editor de imágenes de mapa de bits moderno para Linux, Windows y macOS: capas, máscaras, ajustes no destructivos, filtros y efectos de capa, con compatibilidad con los archivos de Photoshop."
+      "description": "Focale es un editor de fotos y vectores moderno para Linux, Windows y macOS: capas, máscaras, ajustes no destructivos, ilustración vectorial editable, filtros y efectos de capa, con compatibilidad con archivos de Photoshop, SVG y PDF."
     }
   },
   "common": {
@@ -181,13 +181,19 @@
     "showMore": "Más funciones"
   },
   "footer": {
-    "tagline": "Un editor de imágenes de mapa de bits avanzado y local, para Linux, Windows y macOS.",
+    "tagline": "Un editor de fotos y vectores avanzado y local, para Linux, Windows y macOS.",
     "copyright": "Copyright © {year} Hugo Delaunay, todos los derechos reservados.",
     "madeIn": "Made in Europe",
     "sections": {
       "product": "Producto",
       "openSource": "Código abierto"
     }
+  },
+  "social": {
+    "title": "Sigue el proyecto",
+    "description": "Trabajos en curso, consejos y el detrás de escena del desarrollo de Focale, en Pixels in Progress.",
+    "footer": "Síguenos",
+    "label": "Pixels in Progress en {network}"
   },
   "error": {
     "notFound": {
@@ -280,7 +286,7 @@
     },
     "browse": "Explorar la documentación",
     "startHere": "Empieza por Primeros pasos y consulta la guía de edición para el trabajo diario. La referencia detalla plataformas, compatibilidad y formatos nativos.",
-    "developmentNote": "Verificado con el código de la aplicación el 5 de octubre de 2026. Focale está en desarrollo activo; comandos y paquetes pueden variar según la compilación.",
+    "developmentNote": "Revisado con el código fuente de la aplicación el 4 de noviembre de 2026. Focale está en desarrollo activo; los comandos y paquetes disponibles pueden variar según la versión.",
     "onThisPage": "En esta página",
     "screenshotNote": "Ilustración de las capturas del editor. La interfaz puede variar en tu versión.",
     "completeReference": "Referencias completas de formatos",
@@ -296,8 +302,8 @@
             "title": "Tu primer documento",
             "steps": [
               "Descarga el paquete para tu sistema y procesador desde la sección de descargas del sitio.",
-              "En Inicio, abre una imagen o crea un documento. Nuevo documento permite elegir dimensiones, resolución, modo de color, profundidad y fondo.",
-              "Guarda una copia de trabajo con Archivo → Guardar como. .focale conserva las capas y el contenido editable.",
+              "En Inicio, abre una imagen o crea un documento. Nuevo documento permite elegir el tipo de documento, imagen o ilustración vectorial, y después dimensiones, resolución, modo de color, profundidad y fondo.",
+              "Guarda una copia de trabajo con Archivo → Guardar como. .focale (imágenes) y .fvector (ilustraciones vectoriales) conservan las capas y el contenido editable.",
               "Selecciona una capa y una herramienta. Deshacer y Rehacer permiten probar otro resultado.",
               "Usa Archivo → Exportar para compartir una imagen y conserva el proyecto .focale para seguir editando."
             ]
@@ -376,6 +382,65 @@
             "paragraphs": [
               "Archivo → Exportar ofrece formato, dimensiones y opciones del codec. Exportación rápida reutiliza el último ajuste raster, con escalas y sufijos.",
               "El menú de Capas exporta también capas, grupos y mesas de trabajo seleccionados. Las capas usan sus límites visibles; las mesas conservan su rectángulo de lienzo."
+            ]
+          }
+        }
+      },
+      "vectorGuide": {
+        "title": "Ilustración vectorial",
+        "description": "Dibuja trazados editables, pinta y reutiliza elementos, y exporta archivos SVG, PDF o AI.",
+        "sections": {
+          "start": {
+            "title": "Crear un documento vectorial",
+            "paragraphs": [
+              "En Nuevo documento, elige Ilustración vectorial como tipo de documento. También puedes abrir un proyecto .fvector o un archivo SVG, SVGZ, PDF o AI compatible con PDF: Focale convierte el dibujo en objetos editables.",
+              "Los documentos de foto y vectoriales permanecen abiertos uno junto a otro, cada uno en su pestaña. El documento activo determina las herramientas, paneles y comandos disponibles; no hay ningún modo que cambiar."
+            ]
+          },
+          "draw": {
+            "title": "Dibujar trazados y formas",
+            "paragraphs": [
+              "Pluma y Pluma de curvatura crean trazados Bézier. Las herramientas de forma crean rectángulos, elipses, polígonos, estrellas y líneas que siguen siendo paramétricos hasta que los conviertes en trazados. Selección directa edita anclas, manejadores y segmentos individuales.",
+              "Creador de formas une o resta las regiones que forman las formas superpuestas. Tijeras divide un trazado, Cuchillo corta siguiendo un gesto recto y Borrador vectorial elimina superficie pintada. Las herramientas de construcción también dibujan arcos, espirales y cuadrículas rectangulares o polares."
+            ]
+          },
+          "paint": {
+            "title": "Relleno, contorno y color",
+            "paragraphs": [
+              "Un objeto puede llevar varios rellenos y contornos. Pila de pinturas los muestra de delante hacia atrás: añádelos, reordénalos y edítalos, y aplica el resultado en un solo paso de deshacer.",
+              "Malla de degradado pinta transiciones de color suaves sobre una cuadrícula de nodos. Pintura interactiva rellena las regiones que forman los trazados superpuestos, incluso con pequeños huecos, y el color sigue a los trazados cuando los mueves.",
+              "La herramienta Anchura varía el grosor de un contorno a lo largo del trazado; la presión del lápiz puede crear el mismo perfil. Pincel vectorial aplica pinceles caligráficos, artísticos o de motivo a lo largo de un trazado editable."
+            ]
+          },
+          "reuse": {
+            "title": "Reutilizar colores y elementos",
+            "items": [
+              "Colores del documento guarda colores con nombre y tintas planas. Al cambiar un color con nombre se actualizan todos los objetos que lo usan.",
+              "Símbolos convierte un elemento en maestro: cada instancia sigue los cambios del maestro y conserva su propia colocación.",
+              "Interpolar objetos crea una fusión editable entre dos formas. Repetición en cuadrícula, Repetición radial y Repetición en espejo construyen un conjunto a partir de una sola fuente editable.",
+              "Efectos geométricos añade desplazamientos, esquinas redondeadas o curvaturas sin modificar el trazado original."
+            ]
+          },
+          "text": {
+            "title": "Maquetar texto",
+            "paragraphs": [
+              "Los marcos de texto se pueden enlazar para que una historia pase de un marco al siguiente; un indicador señala el texto que no cabe. El texto colocado en un trazado o dentro de una forma sigue vinculado a ella: al editar el trazado, el texto se recompone.",
+              "Estilos de texto del documento define formatos de carácter y de párrafo con nombre. Convertir texto en trazados transforma el texto en trazados de glifos editables, por ejemplo antes de enviar un archivo a alguien que no tiene las fuentes. Guarda una copia editable: el texto convertido ya no se edita como texto."
+            ]
+          },
+          "inspect": {
+            "title": "Vectorizar e inspeccionar",
+            "paragraphs": [
+              "Vectorizar imagen convierte una imagen rasterizada colocada en trazados de color editables. La vista previa compara el original y el resultado antes de aplicarlo.",
+              "Vista de contornos muestra la geometría sin pintura. Inspeccionar trazados señala contornos abiertos, anclas aisladas, autointersecciones y solapamientos, también en objetos ocultos o bloqueados, y puede seleccionar los objetos afectados."
+            ]
+          },
+          "export": {
+            "title": "Guardar, exportar e imprimir",
+            "paragraphs": [
+              "Guarda en .fvector para que cada objeto, efecto y recurso compartido siga siendo editable. Un proyecto de foto .focale también puede colocar un documento vectorial como objeto inteligente editable.",
+              "Antes de escribir un SVG, SVGZ o PDF, Focale enumera las funciones que el formato no puede mantener editables y te deja conservarlas, expandirlas o rasterizarlas una a una. No se escribe nada hasta que confirmas.",
+              "Prueba de impresión y verificación muestra las planchas CMYK y de tintas planas, y señala fuentes ausentes, incrustaciones restringidas e imágenes de baja resolución. Con un perfil de salida CMYK, exporta un PDF de impresión, incluido PDF/X-4."
             ]
           }
         }
@@ -581,7 +646,7 @@
           "choose": {
             "title": "Elegir el archivo",
             "paragraphs": [
-              "Conserva .focale para trabajar. Exporta una imagen raster para compartir o PSD/PSB para intercambiar capas.",
+              "Conserva .focale para trabajar en fotos y .fvector para la ilustración vectorial. Exporta una imagen raster para compartir, o PSD/PSB o XCF para intercambiar capas con otro editor.",
               "Cambiar la extensión no convierte el archivo. Usa Guardar o Exportar y comprueba el resultado en la otra aplicación."
             ]
           },
@@ -651,11 +716,47 @@
             }
           },
           "layered": {
-            "title": "PSD y PSB",
+            "title": "PSD, PSB y XCF",
             "paragraphs": [
               "Texto, formas, máscaras, ajustes y efectos permanecen editables cuando corresponden al modelo de Focale.",
-              "Las funciones no compatibles pueden usar previsualizaciones raster o fusionadas. No garantiza compatibilidad completa con Photoshop. Conserva el original y compara el resultado."
+              "Las funciones no compatibles pueden usar previsualizaciones raster o fusionadas. No garantiza compatibilidad completa con Photoshop. Conserva el original y compara el resultado.",
+              "Los archivos XCF de GIMP, incluidos .xcf.gz, .xcf.bz2 y .xcf.xz, se abren como documentos con capas y se pueden volver a exportar en XCF. No hace falta tener GIMP instalado."
             ]
+          },
+          "vector": {
+            "title": "Formatos vectoriales",
+            "paragraphs": [
+              "Estos archivos se abren como documentos vectoriales editables. Focale convierte el dibujo en objetos nativos y rechaza, con una explicación, el contenido fuera del dialecto compatible en lugar de aproximarlo."
+            ],
+            "table": {
+              "headers": [
+                "Formato",
+                "Uso",
+                "Detalle"
+              ],
+              "rows": [
+                [
+                  ".fvector",
+                  "Apertura / guardado",
+                  "Proyecto vectorial nativo: objetos, texto, efectos y recursos compartidos siguen siendo editables."
+                ],
+                [
+                  "SVG / SVGZ",
+                  "Apertura / guardado",
+                  "Dibujos estáticos con trazados, degradados, recortes, máscaras, texto, imágenes y filtros habituales. Los scripts y animaciones no se importan."
+                ],
+                [
+                  "PDF",
+                  "Apertura / guardado",
+                  "Cada página se convierte en una mesa de trabajo y se conservan las fuentes incrustadas. Las páginas sin cambios pueden preservarse; los elementos editados se regeneran."
+                ],
+                [
+                  "AI (compatible con PDF)",
+                  "Apertura / guardado",
+                  "Se lee mediante su representación PDF y los datos de Illustrator compatibles. Los archivos AI PostScript antiguos se rechazan."
+                ]
+              ]
+            }
           },
           "raw": {
             "title": "RAW de cámara",
@@ -803,6 +904,13 @@
             "paragraphs": [
               "El historial completo de Deshacer, distribución, atajos y catálogos locales son estado de la aplicación, no de la sesión portátil.",
               "Los puntos de recuperación pueden usar un almacén compartido adyacente. No los confundas con un .focale autónomo del usuario."
+            ]
+          },
+          "vector": {
+            "title": "Proyectos vectoriales",
+            "paragraphs": [
+              "Las ilustraciones vectoriales se guardan en un proyecto .fvector independiente: un documento JSON UTF-8 con su propia envoltura en versión 1. Su especificación aún no está publicada y puede cambiar; usa SVG o PDF para intercambios duraderos.",
+              "Un proyecto .focale puede incrustar un documento vectorial editable como objeto inteligente. Al abrirlo, se edita la fuente vectorial en su propia pestaña; al guardarlo, se actualiza cada colocación en el documento de foto."
             ]
           }
         }
@@ -1078,6 +1186,13 @@
             "paragraphs": [
               "Una versión nueva del formato requiere una aplicación compatible. Conserva originales dañados y examina copias. Un ZIP con manifest.json no basta para ser válido.",
               "Verifica permisos y espacio. Dimensiones, profundidad y capas pueden superar presupuestos. La cuota del navegador es distinta del espacio del disco."
+            ]
+          },
+          "vectorFiles": {
+            "title": "Un archivo vectorial se rechaza o se ve diferente",
+            "paragraphs": [
+              "Focale rechaza el contenido SVG, PDF o AI que no puede reproducir fielmente: scripts, animaciones, primitivas de filtro no compatibles o archivos AI PostScript antiguos. El mensaje indica la función en cuestión. Para un archivo AI antiguo, guarda una copia compatible con PDF desde la aplicación original.",
+              "El texto depende de las fuentes instaladas en tu equipo o de las incrustadas en un PDF. Antes de guardar en SVG o PDF, revisa las funciones que no pueden seguir siendo editables y elige conservarlas, expandirlas o rasterizarlas."
             ]
           },
           "appearance": {

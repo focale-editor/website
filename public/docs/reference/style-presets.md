@@ -3,9 +3,9 @@
 [Documentation](../README.md) · [File formats](README.md)
 
 Focale stores reusable layer effects and advanced blending options separately
-from documents. The **Styles** panel applies a complete preset to the selected
-layer, captures the selected layer's current style and manages portable
-libraries. Applying a preset is a normal undoable document command; editing the
+from documents. The **Styles** panel shares one catalogue between layer and
+object documents. It applies presets to the compatible selection, captures one
+selected appearance and manages portable libraries. Applying a preset is a normal undoable document command; editing the
 catalogue does not modify an open document.
 
 ## Native `.fstyle` format
@@ -60,6 +60,16 @@ catalogue does not modify an open document.
 }
 ```
 
+Readers accept versions 1 and 2. Writers use version 2 when any appearance recipe
+contains an [ordered paint stack](vectors.md#ordered-object-paints-unpublished-version-1),
+including stacks inside pattern artwork, and retain version 1 otherwise. Older
+readers reject version 2 rather than silently discarding paints. The optional
+`appearance` object retains primary paints, stroke settings, paint opacity and
+the ordered entries with their visibility, composition, effects and embedded
+textures. Geometry remains on the destination object. Missing imported textures
+fail library export/import; hidden paints and disabled effects still retain
+their stored references.
+
 Each preset identifier and name is nonempty and limited to 4,096 UTF-16 code units.
 A group hierarchy contains at most 32 nonempty segments. One library contains
 at most 4,096 presets and 256 MiB of encoded data. Duplicate identifiers or one
@@ -95,6 +105,23 @@ filename without its extension followed by its one-based position, for example
 `Studio 1` for `Studio.fstyle`. Imported patterns are grouped under that library
 name. The writer includes known, nonblank names; version-1 files without them
 remain valid. A non-null pattern name of a type other than string is rejected.
+
+Presets may additionally contain an `appearance` object with authored `fill`,
+`stroke`, stroke parameters, `opacity`, `blendMode`, group `isolated` state and
+`stylePatterns`. It uses the existing object paint codecs, including native
+colour components and embedded pattern resources. Geometry, text content and
+object identities are never captured. The panel offers complete appearance or
+layer effects only for application; capturing a preset retains its full
+appearance and resources. Incompatible paints reject the transaction without
+partial changes. Effect-only presets leave paints and object opacity unchanged.
+
+The former `vectorStyleLibrary` preference is read into this catalogue with
+stable identities; conflicting identities are reassigned deterministically.
+`legacyAppearancesMigrated` is persisted with the next
+catalogue edit so deleted entries do not reappear; the old preference remains
+available for recovery. Legacy `.vstyle` libraries can still be imported. New
+libraries use `.fstyle`. ASL export rejects presets carrying object appearance
+because ASL cannot retain that payload.
 
 ## Photoshop ASL compatibility
 

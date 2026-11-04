@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Un editor di immagini avanzato e locale",
-      "description": "Focale è un editor di immagini raster moderno per Linux, Windows e macOS: livelli, maschere, regolazioni non distruttive, filtri ed effetti di livello, con il supporto dei file di Photoshop."
+      "description": "Focale è un editor di foto e grafica vettoriale moderno per Linux, Windows e macOS: livelli, maschere, regolazioni non distruttive, disegno vettoriale modificabile, filtri ed effetti di livello, con il supporto dei file Photoshop, SVG e PDF."
     }
   },
   "common": {
@@ -181,13 +181,19 @@
     "showMore": "Altre funzionalità"
   },
   "footer": {
-    "tagline": "Un editor di immagini raster avanzato e locale, per Linux, Windows e macOS.",
+    "tagline": "Un editor di foto e grafica vettoriale avanzato e locale, per Linux, Windows e macOS.",
     "copyright": "Copyright © {year} Hugo Delaunay, tutti i diritti riservati.",
     "madeIn": "Made in Europe",
     "sections": {
       "product": "Prodotto",
       "openSource": "Open source"
     }
+  },
+  "social": {
+    "title": "Segui il progetto",
+    "description": "Lavori in corso, consigli e il dietro le quinte dello sviluppo di Focale, su Pixels in Progress.",
+    "footer": "Seguici",
+    "label": "Pixels in Progress su {network}"
   },
   "error": {
     "notFound": {
@@ -280,7 +286,7 @@
     },
     "browse": "Sfoglia la documentazione",
     "startHere": "Inizia da Primi passi, poi usa la guida alla modifica. I riferimenti descrivono piattaforme, compatibilità e formati nativi.",
-    "developmentNote": "Verificato nel codice dell’applicazione il 5 ottobre 2026. Focale è in sviluppo attivo; comandi e pacchetti possono variare per build.",
+    "developmentNote": "Verificato sul codice sorgente dell’applicazione il 4 novembre 2026. Focale è in sviluppo attivo; comandi e pacchetti disponibili possono variare in base alla build.",
     "onThisPage": "In questa pagina",
     "screenshotNote": "Illustrazione dalle schermate dell’editor. L’interfaccia può differire nella tua versione.",
     "completeReference": "Specifiche complete dei formati",
@@ -296,8 +302,8 @@
             "title": "Il primo documento",
             "steps": [
               "Scarica il pacchetto per il tuo sistema e processore dalla sezione Download.",
-              "Dalla schermata iniziale apri un’immagine o crea un documento, scegliendo dimensioni, risoluzione, modalità colore, profondità e sfondo.",
-              "Salva una copia con File → Salva con nome. .focale conserva livelli e contenuti modificabili.",
+              "Dalla schermata iniziale apri un’immagine o crea un documento. Nuovo documento ti fa scegliere il tipo di documento, immagine o disegno vettoriale, poi dimensioni, risoluzione, modalità colore, profondità e sfondo.",
+              "Salva una copia con File → Salva con nome. .focale (immagini) e .fvector (disegni vettoriali) conservano livelli e contenuti modificabili.",
               "Seleziona un livello e uno strumento. Annulla e Ripristina permettono di provare risultati diversi.",
               "Usa File → Esporta per condividere un’immagine e conserva .focale per continuare a lavorare."
             ]
@@ -376,6 +382,65 @@
             "paragraphs": [
               "File → Esporta offre formato, dimensioni e opzioni del codec. L’esportazione rapida riusa l’ultimo preset raster, comprese scale e suffissi.",
               "Il menu Livelli esporta livelli, gruppi e tavole da disegno selezionati. I livelli usano i limiti visibili, le tavole il proprio rettangolo di tela."
+            ]
+          }
+        }
+      },
+      "vectorGuide": {
+        "title": "Illustrazione vettoriale",
+        "description": "Disegna tracciati modificabili, colora e riutilizza elementi, poi esporta file SVG, PDF o AI.",
+        "sections": {
+          "start": {
+            "title": "Creare un documento vettoriale",
+            "paragraphs": [
+              "In Nuovo documento, scegli Disegno vettoriale come tipo di documento. Puoi anche aprire un progetto .fvector o un file SVG, SVGZ, PDF o AI compatibile con PDF: Focale converte il disegno in oggetti modificabili.",
+              "I documenti fotografici e vettoriali restano aperti fianco a fianco, ciascuno nella propria scheda. Il documento attivo determina strumenti, pannelli e comandi disponibili; non c’è una modalità da cambiare."
+            ]
+          },
+          "draw": {
+            "title": "Disegnare tracciati e forme",
+            "paragraphs": [
+              "Penna e Penna curvatura creano tracciati di Bézier. Gli strumenti forma creano rettangoli, ellissi, poligoni, stelle e linee che restano parametrici finché non li converti in tracciati. Selezione diretta modifica singoli punti di ancoraggio, maniglie e segmenti.",
+              "Crea forme unisce o sottrae le regioni create da forme sovrapposte. Forbici divide un tracciato, Coltello taglia lungo un gesto rettilineo e Gomma vettoriale rimuove superficie dipinta. Gli strumenti di costruzione disegnano anche archi, spirali e griglie rettangolari o polari."
+            ]
+          },
+          "paint": {
+            "title": "Riempimento, contorno e colore",
+            "paragraphs": [
+              "Un oggetto può avere più riempimenti e contorni. Pila di pitture li elenca dal primo piano allo sfondo: aggiungili, riordinali e modificali, poi applica il risultato in un solo passo di annullamento.",
+              "Trama sfumata dipinge transizioni di colore morbide su una griglia di nodi. Pittura dinamica riempie le regioni formate da tracciati sovrapposti, anche attraverso piccoli spazi, e il colore segue i tracciati quando li sposti.",
+              "Lo strumento Larghezza varia lo spessore di un contorno lungo il tracciato; la pressione della penna può creare lo stesso profilo. Pennello vettoriale applica pennelli calligrafici, artistici o a pattern lungo un tracciato modificabile."
+            ]
+          },
+          "reuse": {
+            "title": "Riutilizzare colori ed elementi",
+            "items": [
+              "Colori del documento memorizza colori con nome e inchiostri spot. Modificare un colore con nome aggiorna tutti gli oggetti che lo usano.",
+              "Simboli trasforma un elemento in master: ogni istanza segue le modifiche del master e mantiene il proprio posizionamento.",
+              "Interpola oggetti crea una fusione modificabile tra due forme. Ripetizione a griglia, Ripetizione radiale e Ripetizione speculare costruiscono un insieme da un’unica sorgente modificabile.",
+              "Effetti geometrici aggiunge offset, angoli arrotondati o curvature senza modificare il tracciato originale."
+            ]
+          },
+          "text": {
+            "title": "Impaginare il testo",
+            "paragraphs": [
+              "Le cornici di testo possono essere collegate perché un testo scorra da una cornice alla successiva; un indicatore segnala il testo che non entra. Il testo su un tracciato o dentro una forma resta collegato a essa: modificando il tracciato, il testo si ricompone.",
+              "Stili di testo del documento definisce formati di carattere e di paragrafo con nome. Converti testo in tracciati trasforma il testo in tracciati di glifi modificabili, per esempio prima di inviare un file a chi non ha i font. Conserva una copia modificabile: il testo convertito non si modifica più come testo."
+            ]
+          },
+          "inspect": {
+            "title": "Vettorializzare e ispezionare",
+            "paragraphs": [
+              "Vettorializza immagine converte un’immagine raster inserita in tracciati di colore modificabili. L’anteprima confronta sorgente e risultato prima dell’applicazione.",
+              "Vista contorni mostra la geometria senza colore. Ispeziona tracciati segnala contorni aperti, punti isolati, autointersezioni e sovrapposizioni, anche su oggetti nascosti o bloccati, e può selezionare gli oggetti interessati."
+            ]
+          },
+          "export": {
+            "title": "Salvare, esportare e stampare",
+            "paragraphs": [
+              "Salva in .fvector per mantenere modificabili tutti gli oggetti, gli effetti e le risorse condivise. Un progetto fotografico .focale può anche inserire un documento vettoriale come oggetto avanzato modificabile.",
+              "Prima di scrivere un SVG, SVGZ o PDF, Focale elenca le funzioni che il formato non può mantenere modificabili e ti lascia conservarle, espanderle o rasterizzarle una per una. Nulla viene scritto finché non confermi.",
+              "Prova di stampa e verifica preliminare mostra le lastre CMYK e spot e segnala font mancanti, incorporamenti limitati e immagini a bassa risoluzione. Con un profilo di uscita CMYK, esporta un PDF di stampa, anche PDF/X-4."
             ]
           }
         }
@@ -581,7 +646,7 @@
           "choose": {
             "title": "Scegliere il file",
             "paragraphs": [
-              "Mantieni .focale per lavorare. Esporta un raster per condividere o PSD/PSB per scambiare livelli.",
+              "Mantieni .focale per le foto e .fvector per il disegno vettoriale. Esporta un raster per condividere o PSD/PSB o XCF per scambiare livelli con un altro editor.",
               "Cambiare estensione non converte. Usa Salva o Esporta e controlla il risultato nell’altra applicazione."
             ]
           },
@@ -651,11 +716,47 @@
             }
           },
           "layered": {
-            "title": "PSD e PSB",
+            "title": "PSD, PSB e XCF",
             "paragraphs": [
               "Testo, forme, maschere, regolazioni ed effetti restano modificabili quando corrispondono al modello di Focale.",
-              "Funzioni non supportate possono usare anteprime raster o unite. Non garantisce compatibilità Photoshop completa. Conserva l’originale e confronta il risultato."
+              "Funzioni non supportate possono usare anteprime raster o unite. Non garantisce compatibilità Photoshop completa. Conserva l’originale e confronta il risultato.",
+              "I file XCF di GIMP, compresi .xcf.gz, .xcf.bz2 e .xcf.xz, si aprono come documenti a livelli e possono essere riesportati in XCF. Non serve installare GIMP."
             ]
+          },
+          "vector": {
+            "title": "Formati vettoriali",
+            "paragraphs": [
+              "Questi file si aprono come documenti vettoriali modificabili. Focale converte il disegno in oggetti nativi e rifiuta, con una spiegazione, i contenuti fuori dal dialetto supportato invece di approssimarli."
+            ],
+            "table": {
+              "headers": [
+                "Formato",
+                "Uso",
+                "Dettaglio"
+              ],
+              "rows": [
+                [
+                  ".fvector",
+                  "Apertura / salvataggio",
+                  "Progetto vettoriale nativo: oggetti, testo, effetti e risorse condivise restano modificabili."
+                ],
+                [
+                  "SVG / SVGZ",
+                  "Apertura / salvataggio",
+                  "Disegni statici con tracciati, sfumature, ritagli, maschere, testo, immagini e filtri comuni. Script e animazioni non vengono importati."
+                ],
+                [
+                  "PDF",
+                  "Apertura / salvataggio",
+                  "Ogni pagina diventa una tavola da disegno e i font incorporati vengono mantenuti. Le pagine non modificate possono essere preservate; gli elementi modificati vengono rigenerati."
+                ],
+                [
+                  "AI (compatibile con PDF)",
+                  "Apertura / salvataggio",
+                  "Letto tramite la sua rappresentazione PDF e i dati Illustrator supportati. I vecchi file AI PostScript vengono rifiutati."
+                ]
+              ]
+            }
           },
           "raw": {
             "title": "RAW fotografici",
@@ -803,6 +904,13 @@
             "paragraphs": [
               "Cronologia completa Annulla, layout, scorciatoie e cataloghi locali sono stato dell’applicazione, non una sessione portatile.",
               "Il recupero può usare un archivio di oggetti adiacente condiviso: è distinto da un .focale utente autonomo."
+            ]
+          },
+          "vector": {
+            "title": "Progetti vettoriali",
+            "paragraphs": [
+              "I disegni vettoriali si salvano in un progetto .fvector separato: un documento JSON UTF-8 con un proprio involucro in versione 1. La sua specifica non è ancora pubblicata e può cambiare; usa SVG o PDF per gli scambi duraturi.",
+              "Un progetto .focale può incorporare un documento vettoriale modificabile come oggetto avanzato. Aprendolo si modifica la sorgente vettoriale nella propria scheda; salvandolo si aggiorna ogni posizionamento nel documento fotografico."
             ]
           }
         }
@@ -1078,6 +1186,13 @@
             "paragraphs": [
               "Un formato più recente richiede una versione compatibile. Conserva originali danneggiati e ispeziona copie. Un ZIP con manifest.json non è necessariamente valido.",
               "Verifica permessi e spazio. Dimensioni, profondità e livelli possono superare limiti. La quota browser è distinta dallo spazio disco."
+            ]
+          },
+          "vectorFiles": {
+            "title": "Un file vettoriale viene rifiutato o appare diverso",
+            "paragraphs": [
+              "Focale rifiuta i contenuti SVG, PDF o AI che non può riprodurre fedelmente: script, animazioni, primitive di filtro non supportate o vecchi file AI PostScript. Il messaggio indica la funzione in questione. Per un vecchio file AI, salva una copia compatibile con PDF dall’applicazione originale.",
+              "Il testo dipende dai font installati sul computer o da quelli incorporati in un PDF. Prima di salvare in SVG o PDF, controlla le funzioni che non possono restare modificabili e scegli se conservarle, espanderle o rasterizzarle."
             ]
           },
           "appearance": {
