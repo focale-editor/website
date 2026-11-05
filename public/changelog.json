@@ -2,6 +2,124 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "version": "0.0.18",
+      "date": "2026-11-05",
+      "changes": [
+        {
+          "kind": "FIX",
+          "description": "Fixed audited persistence and editing regressions."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed various compilation errors."
+        }
+      ]
+    },
+    {
+      "version": "0.0.17",
+      "date": "2026-11-05",
+      "changes": [
+        {
+          "kind": "CHORE",
+          "description": "Updated release utility."
+        }
+      ]
+    },
+    {
+      "version": "0.0.16",
+      "date": "2026-11-04",
+      "changes": [
+        {
+          "kind": "PERF",
+          "description": "Optimized pixel processing, color conversion and multicore native rendering."
+        },
+        {
+          "kind": "PERF",
+          "description": "Faster canvas navigation and display of raster documents."
+        },
+        {
+          "kind": "PERF",
+          "description": "Improved gradient editing and reduced slowdowns with 16-bit images."
+        },
+        {
+          "kind": "PERF",
+          "description": "Reduced rendering work and panel rebuilds while editing vector documents."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added a vector editor."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added editable GIMP XCF support."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added SVG filters support."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added settings to show tab list buttons and the panel collapse button."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed transparency handling in eyedropper and color sampler measurements."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed Linux restart after automatic updates."
+        },
+        {
+          "kind": "FIX",
+          "description": "Restored Linux title-bar interactions and transparent window margins."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed the application freezing when quitting."
+        },
+        {
+          "kind": "FIX",
+          "description": "Save now preserves embedded color profiles and 16-bit precision in eligible PNG documents."
+        },
+        {
+          "kind": "FIX",
+          "description": "Improved document opening progress and bounded recovery decoding by the history memory limit."
+        },
+        {
+          "kind": "FIX",
+          "description": "Improved SVG import compatibility with embedded images, font-size keywords and conditional content."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed open Pen paths and completion of vector drawing and selection gestures."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed selection outlines on transformed layers and kept queued painting tied to the selected target."
+        },
+        {
+          "kind": "FIX",
+          "description": "Color Range and color-based selections now use the visible animation frame and reject stale results."
+        },
+        {
+          "kind": "FIX",
+          "description": "Quick Export now lets users choose a filename when exporting a single output."
+        },
+        {
+          "kind": "FIX",
+          "description": "Localized new vector object and image file names."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Harmonized panels, toolbars, document tabs and failure notices across editors."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Removed the alpha founders dialog from App Store builds."
+        }
+      ]
+    },
+    {
       "version": "0.0.15",
       "date": "2026-10-25",
       "changes": [
