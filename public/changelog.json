@@ -2,6 +2,80 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "version": "0.0.19",
+      "date": "2026-11-07",
+      "changes": [
+        {
+          "kind": "PERF",
+          "description": "Improved PDF rendering and editing."
+        },
+        {
+          "kind": "PERF",
+          "description": "Kept Live Paint parts, projected bounds and stroke outlines across scene edits."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Improved PDF support."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed an error related to temporary files naming in the user home directory."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed an occurring while using `Apply an image`."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed some errors related to misread PSD blocks."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed tool defects found while drawing raster and vector artwork."
+        },
+        {
+          "kind": "FIX",
+          "description": "Now distributing the correct VC++ DDLs alongside the Focale binaries."
+        },
+        {
+          "kind": "FIX",
+          "description": "PDF canvas is now white."
+        },
+        {
+          "kind": "FIX",
+          "description": "Preserve modified deletion shortcuts."
+        },
+        {
+          "kind": "FIX",
+          "description": "Preserve ownership when opening is canceled."
+        },
+        {
+          "kind": "FIX",
+          "description": "Preserve rendered pixels and reopen tiled projects."
+        },
+        {
+          "kind": "FIX",
+          "description": "Preserve transparent GIF frames."
+        },
+        {
+          "kind": "FIX",
+          "description": "Respect vector content locks."
+        },
+        {
+          "kind": "FIX",
+          "description": "Serialize cancellation and recover failed shutdowns."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Now using a more neutral tone in some languages."
+        },
+        {
+          "kind": "REFACTOR",
+          "description": "Cleaned-up some internal code."
+        }
+      ]
+    },
+    {
       "version": "0.0.18",
       "date": "2026-11-05",
       "changes": [
