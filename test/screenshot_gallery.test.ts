@@ -12,6 +12,8 @@ test('regional locale tags select their translated interface captures', () => {
     for (const theme of ['dark', 'light'] as const) {
       const screenshots = editorScreenshots(locale, theme)
       assert.equal(screenshots.length, 6)
+      assert.equal(screenshots.at(-1)?.id, 'home', 'Home stays last')
+      assert.equal(screenshots[3]?.id, 'typography', 'the vector poster keeps its stable asset path')
       for (const screenshot of screenshots) {
         const prefix = `/images/screenshots/${language}/${theme}/`
         assert.ok(screenshot.src.startsWith(prefix))

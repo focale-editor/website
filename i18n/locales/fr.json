@@ -18,13 +18,14 @@
     "preview": "Aperçu",
     "language": "Langue",
     "openMenu": "Ouvrir le menu",
-    "closeMenu": "Fermer le menu"
+    "closeMenu": "Fermer le menu",
+    "faq": "FAQ"
   },
   "hero": {
     "badge": "Éditeur d’images pour ordinateur",
     "title": "Retouchez, composez et créez",
     "titleAccent": "avec précision.",
-    "subtitle": "Un éditeur d'images avancé qui travaille entièrement sur votre machine, de la retouche photo à la composition en calques. Vos fichiers Photoshop s'y ouvrent directement.",
+    "subtitle": "Retouchez vos photos, composez avec des calques et dessinez des illustrations vectorielles dans une même application locale. Gardez vos créations modifiables, avec vos documents photo et vectoriels ouverts côte à côte.",
     "platformsLabel": "Disponible pour"
   },
   "principles": {
@@ -86,8 +87,8 @@
         "alt": "Réglage des courbes dans Focale avec aperçu de l'image et points de contrôle."
       },
       "typography": {
-        "title": "Typographie",
-        "alt": "Affiche Éclipse dans Focale avec calques de texte, formes et panneau de typographie."
+        "title": "Illustration vectorielle",
+        "alt": "Affiche Éclipse dans l’éditeur vectoriel de Focale avec textes et formes modifiables, liste des objets et réglages typographiques."
       },
       "brushes": {
         "title": "Pinceaux",
@@ -101,7 +102,7 @@
   },
   "features": {
     "eyebrow": "Fonctionnalités",
-    "title": "Tout ce qu'une vraie séance de retouche demande.",
+    "title": "De la retouche photo à l’illustration vectorielle.",
     "description": "Tout ce qui suit est déjà dans l'alpha, prêt à être essayé. Focale est encore jeune : les corrections et la stabilisation se poursuivent d'une version à l'autre.",
     "items": {
       "localFirst": {
@@ -141,8 +142,8 @@
         "description": "Lassos libre, polygonal et magnétique, baguette magique, sélection rapide et pinceau de sélection. Combinez vos sélections et affinez les zones visibles avec des masques peints ou vectoriels."
       },
       "vector": {
-        "title": "Texte, tracés et formes",
-        "description": "Texte éditable, plume et plume de courbure, points d'ancrage et formes personnalisées. Créez des calques de forme avec fond et contour, ou transformez vos tracés en sélections."
+        "title": "Un espace vectoriel complet",
+        "description": "Créez des illustrations, logos et affiches avec des objets modifiables et des plans de travail. Ouvrez vos documents photo et vectoriels côte à côte, et conservez vos créations dans des projets .fvector."
       },
       "filters": {
         "title": "Filtres et galerie de filtres",
@@ -170,11 +171,23 @@
       },
       "formats": {
         "title": "Ouvrir, modifier, exporter",
-        "description": "PNG, JPEG, WebP, AVIF, HEIF/HEIC, JPEG XL, TIFF, BMP, QOI, TGA, GIF et OpenEXR, ainsi que PSD/PSB avec calques. Exportez avec redimensionnement et options adaptées à chaque format."
+        "description": "Ouvrez des images, des fichiers PSD/PSB et XCF avec calques, ou des créations SVG/SVGZ, PDF et AI compatibles PDF modifiables. Gardez vos projets .focale et .fvector, puis exportez pour le Web ou l’impression selon les possibilités de chaque format."
       },
       "recovery": {
         "title": "Sauvegarde et récupération après plantage",
         "description": "Les instantanés vivent à côté de l'application, jamais par-dessus votre fichier, et un document récupéré s'ouvre non enregistré : rien sur le disque ne peut être écrasé par accident."
+      },
+      "vectorDrawing": {
+        "title": "Tracés, formes et couleurs",
+        "description": "Dessinez à la plume, modifiez les points d’ancrage et combinez les formes avec le concepteur de formes. Variez la largeur des contours, utilisez les pinceaux vectoriels, la peinture dynamique et les filets de dégradé."
+      },
+      "vectorTypography": {
+        "title": "Une typographie pour vos compositions",
+        "description": "Faites circuler le texte entre des blocs liés, le long d’un tracé ou dans une forme. Réutilisez vos styles de caractère et de paragraphe, puis convertissez le texte en contours modifiables si nécessaire."
+      },
+      "vectorResources": {
+        "title": "Des créations vectorielles réutilisables",
+        "description": "Modifiez un symbole pour actualiser ses instances, partagez des couleurs nommées et des styles graphiques, et créez des dégradés de formes ou des répétitions en grille, radiales et en miroir."
       }
     },
     "showLess": "Réduire la liste",
@@ -247,7 +260,7 @@
     "title": "Documentation",
     "overview": "Vue d’ensemble",
     "navigation": "Navigation de la documentation",
-    "description": "Guides et informations de référence pour Focale.",
+    "description": "Tutoriels pas à pas, explications et références pour Focale, l’éditeur photo et vectoriel local.",
     "licenses": {
       "title": "Licences et crédits",
       "description": "Les bibliothèques, modèles et données qui contribuent au fonctionnement de Focale.",
@@ -279,14 +292,16 @@
     },
     "groups": {
       "overview": "Vue d’ensemble",
-      "guides": "Aide utilisateur",
+      "guides": "Bien démarrer",
+      "tutorials": "Tutoriels",
+      "learn": "Comprendre",
       "reference": "Références techniques",
-      "about": "Licences et sources",
-      "nativeFormats": "Formats natifs"
+      "nativeFormats": "Formats natifs",
+      "about": "Licences et sources"
     },
     "browse": "Parcourir la documentation",
-    "startHere": "Commencez par la prise en main, puis consultez le guide d’édition pour le travail quotidien. Les références détaillent les plateformes, la compatibilité et les formats natifs.",
-    "developmentNote": "Documentation vérifiée dans les sources de l’application le 4 novembre 2026. Focale évolue activement ; les commandes et paquets disponibles peuvent varier selon le build.",
+    "startHere": "Vous découvrez Focale ? Commencez par la prise en main. Les tutoriels détaillent les tâches courantes pas à pas, la rubrique Comprendre explique les calques, les masques et la couleur, et les références couvrent les plateformes et les formats de fichiers.",
+    "developmentNote": "Documentation vérifiée dans les sources de l’application le 7 novembre 2026. Focale évolue activement ; les commandes et paquets disponibles peuvent varier selon le build.",
     "onThisPage": "Dans cette page",
     "screenshotNote": "Illustration issue des captures de l’éditeur. L’interface peut différer dans votre version.",
     "completeReference": "Références complètes des formats",
@@ -482,7 +497,7 @@
                   "Cmd+Shift+S"
                 ],
                 [
-                  "Exporter",
+                  "Exporter sous",
                   "Ctrl+Alt+Shift+W",
                   "Cmd+Option+Shift+W"
                 ],
@@ -517,7 +532,7 @@
                   "Cmd+T"
                 ],
                 [
-                  "Nouveau calque raster",
+                  "Nouveau calque matriciel",
                   "Ctrl+Shift+N",
                   "Cmd+Shift+N"
                 ],
@@ -527,12 +542,12 @@
                   "Cmd+G"
                 ],
                 [
-                  "Sélection vers un nouveau calque",
+                  "Calque par copier",
                   "Ctrl+J",
                   "Cmd+J"
                 ],
                 [
-                  "Adapter le canevas",
+                  "Ajuster à la fenêtre",
                   "Ctrl+0",
                   "Cmd+0"
                 ],
@@ -909,7 +924,7 @@
           "vector": {
             "title": "Projets vectoriels",
             "paragraphs": [
-              "Les dessins vectoriels s’enregistrent dans un projet .fvector distinct : un document JSON UTF-8 avec sa propre enveloppe en version 1. Sa spécification n’est pas encore publiée et peut évoluer ; utilisez SVG ou PDF pour les échanges durables.",
+              "Les dessins vectoriels s’enregistrent dans un projet .fvector distinct : un document JSON UTF-8 avec une enveloppe en version 1. Sa spécification, un exemple modifiable et les règles de stockage des ressources sont disponibles dans la référence .fvector accessible ci-dessous.",
               "Un projet .focale peut incorporer un document vectoriel modifiable comme objet dynamique. L’ouvrir modifie la source vectorielle dans son propre onglet ; l’enregistrer met à jour chaque placement dans le document photo."
             ]
           }
@@ -2171,8 +2186,906 @@
             ]
           }
         }
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "description": "Prix, confidentialité, plateformes, fichiers Photoshop, tablettes graphiques et autres questions courantes sur Focale.",
+        "sections": {
+          "what": {
+            "title": "Qu’est-ce que Focale ?",
+            "paragraphs": [
+              "Focale est un éditeur photo et vectoriel de bureau pour Linux, Windows et macOS. Il réunit la retouche photo par calques, les réglages non destructifs, le développement RAW et l’illustration vectorielle modifiable dans une seule application."
+            ]
+          },
+          "cost": {
+            "title": "Focale est-il gratuit ?",
+            "paragraphs": [
+              "Focale est actuellement en alpha et se télécharge depuis le site. Son modèle économique n’est pas encore décidé. Les dons sont facultatifs et soutiennent le développement."
+            ]
+          },
+          "privacy": {
+            "title": "Mes images sont-elles envoyées quelque part ?",
+            "paragraphs": [
+              "Non. Focale ouvre, modifie et enregistre vos documents sur votre ordinateur et fonctionne sans connexion Internet. Les builds qui intègrent le signalement d’erreurs n’envoient des événements techniques que si vous l’activez dans les préférences Diagnostics."
+            ]
+          },
+          "photoshop": {
+            "title": "Focale ouvre-t-il les fichiers Photoshop ?",
+            "paragraphs": [
+              "Oui. Les fichiers PSD et PSB s’ouvrent comme des documents à calques. Le texte, les formes, les masques, les calques de réglage, les objets dynamiques et les effets de calque restent modifiables lorsque Focale les prend en charge, et vous pouvez réexporter en PSD. Photoshop n’a pas besoin d’être installé."
+            ]
+          },
+          "alternative": {
+            "title": "Focale est-il une alternative à Photoshop ou GIMP ?",
+            "paragraphs": [
+              "Focale s’adresse à celles et ceux qui veulent un éditeur avancé, à l’interface familière, qui fonctionne nativement sous Linux comme sous Windows et macOS. Les noms d’outils et les raccourcis suivent les conventions courantes, vos habitudes restent donc valables. Le logiciel est encore jeune : consultez le journal des modifications pour suivre les nouveautés."
+            ]
+          },
+          "linux": {
+            "title": "Focale fonctionne-t-il sous Linux ?",
+            "paragraphs": [
+              "Oui. Linux est une plateforme de premier plan : Focale y est né. La section de téléchargement propose un paquet pour les systèmes x86-64 ; la page Plateformes prises en charge détaille la configuration requise."
+            ]
+          },
+          "tablet": {
+            "title": "Focale prend-il en charge les tablettes graphiques ?",
+            "paragraphs": [
+              "Oui. Les pinceaux peuvent utiliser la pression du stylet pour la taille, l’opacité et le flux, et les tracés vectoriels peuvent enregistrer la pression sous forme de profil d’épaisseur modifiable. La prise en charge dépend du pilote de la tablette et du système."
+            ]
+          },
+          "raw": {
+            "title": "Puis-je retoucher des photos RAW ?",
+            "paragraphs": [
+              "Oui. L’ouverture d’un fichier RAW lance un espace de développement avec balance des blancs, exposition, courbes, réduction du bruit, corrections d’objectif et réglages locaux. Les appareils pris en charge dépendent du décodeur RAW intégré."
+            ]
+          },
+          "vector": {
+            "title": "Puis-je créer des illustrations et des logos vectoriels ?",
+            "paragraphs": [
+              "Oui. Les documents vectoriels proposent la plume et les outils de forme, les opérations booléennes, les filets de dégradé, les symboles, les blocs de texte liés et la vectorisation d’images. Vous pouvez ouvrir et enregistrer des fichiers SVG, PDF et AI compatibles PDF."
+            ]
+          },
+          "languages": {
+            "title": "Quelles langues sont disponibles ?",
+            "paragraphs": [
+              "L’application et ce site sont disponibles en anglais, français, espagnol, italien, portugais et allemand."
+            ]
+          },
+          "help": {
+            "title": "Où obtenir de l’aide ou signaler un bug ?",
+            "paragraphs": [
+              "Posez vos questions, proposez des fonctionnalités et signalez les bugs sur Focale Community. Indiquez votre version de Focale, votre système et les étapes qui mènent au problème."
+            ]
+          }
+        }
+      },
+      "removeBackground": {
+        "title": "Supprimer l’arrière-plan d’une photo",
+        "description": "Détourez une personne ou un objet et rendez l’arrière-plan transparent, sans perdre les pixels d’origine.",
+        "sections": {
+          "select": {
+            "title": "Sélectionner le sujet",
+            "steps": [
+              "Ouvrez la photo et sélectionnez son calque dans le panneau Calques.",
+              "Choisissez l’outil Sélection rapide (W) et peignez sur le sujet. La sélection s’étend en suivant ses contours. Maintenez Alt (Option sous macOS) en peignant pour retirer les zones incluses par erreur.",
+              "Pour un sujet sur fond uni, la Baguette magique est plus rapide : cliquez sur le fond, puis choisissez Sélection → Inverser la sélection."
+            ],
+            "tip": "Zoomez pour vérifier les zones délicates comme les cheveux, les doigts et les espaces entre les bras et le corps."
+          },
+          "refine": {
+            "title": "Affiner les cheveux et les bords flous",
+            "steps": [
+              "Choisissez Sélection → Sélectionner et masquer….",
+              "Augmentez le Rayon intelligent pour que Focale réexamine la bande autour du contour.",
+              "Peignez sur les cheveux et la fourrure avec le Pinceau Amélioration des contours, puis validez."
+            ]
+          },
+          "mask": {
+            "title": "Masquer l’arrière-plan avec un masque",
+            "steps": [
+              "Choisissez Calque → Masque de fusion → Faire apparaître la sélection.",
+              "L’arrière-plan disparaît, mais il est seulement masqué. Peignez en blanc sur le masque pour faire réapparaître des zones, en noir pour en masquer davantage."
+            ],
+            "tip": "Un masque vaut mieux qu’une suppression : vous pouvez corriger le contour à tout moment. Voir Sélections et masques."
+          },
+          "export": {
+            "title": "Enregistrer le résultat transparent",
+            "paragraphs": [
+              "Enregistrez un projet .focale pour garder le masque modifiable. Pour utiliser le détourage ailleurs, choisissez Fichier → Exporter → Exporter sous… et prenez PNG, WebP ou AVIF, qui conservent la transparence. Le JPEG ne gère pas la transparence et la remplace par une couleur de fond."
+            ]
+          },
+          "alternatives": {
+            "title": "Autres façons de supprimer un fond",
+            "items": [
+              "Gomme d’arrière-plan : efface les pixels proches de la couleur située sous le centre du pinceau, utile sur les fonds uniformes.",
+              "Gomme magique : efface d’un clic une zone de couleur proche.",
+              "Filtre Couleur vers alpha : transforme une couleur, comme le blanc du papier, en transparence tout en gardant des bords doux.",
+              "Ces outils suppriment définitivement des pixels. Dupliquez d’abord le calque si vous risquez d’avoir besoin de l’original."
+            ]
+          }
+        }
+      },
+      "removeObjects": {
+        "title": "Supprimer des objets et des imperfections",
+        "description": "Éliminez poussières, taches, fils, passants et autres éléments gênants avec les outils de correction et le remplissage d’après le contenu.",
+        "sections": {
+          "prepare": {
+            "title": "Travailler sur un calque séparé",
+            "steps": [
+              "Créez un calque vide au-dessus de la photo avec Calque → Nouveau → Nouveau calque matriciel.",
+              "Dans les options de l’outil de retouche, activez Échantillonner tous les calques.",
+              "Retouchez sur ce nouveau calque. La photo d’origine reste intacte et vous pouvez baisser l’opacité du calque ou effacer une correction plus tard."
+            ]
+          },
+          "spots": {
+            "title": "Petites taches et poussières",
+            "steps": [
+              "Choisissez l’outil Correction localisée (J).",
+              "Réglez un pinceau légèrement plus grand que la tache.",
+              "Cliquez ou peignez sur la tache. Focale la remplit avec la texture environnante, ajustée à la luminosité et à la couleur locales."
+            ]
+          },
+          "heal": {
+            "title": "Zones plus grandes avec une source choisie",
+            "steps": [
+              "Choisissez l’outil Correcteur ou l’outil Duplication (S).",
+              "Faites Alt-clic (Option-clic sous macOS) sur une zone propre pour définir la source.",
+              "Peignez sur le défaut. Le Correcteur fond la texture copiée dans son environnement ; la Duplication copie les pixels à l’identique, ce qui convient mieux près des bords nets."
+            ],
+            "tip": "Avec l’option Aligné, la source suit le pinceau d’un coup de pinceau à l’autre. Désactivez-la pour repartir du même point source à chaque fois."
+          },
+          "fill": {
+            "title": "Supprimer un objet entier",
+            "steps": [
+              "Tracez une sélection approximative autour de l’objet avec le Lasso, en laissant une petite marge.",
+              "Choisissez Édition → Remplissage d’après le contenu.",
+              "Peignez la zone d’échantillonnage pour indiquer où Focale peut prendre de la texture, vérifiez l’aperçu, puis envoyez le résultat vers un nouveau calque."
+            ],
+            "tip": "L’outil Pièce est une bonne alternative : sélectionnez le défaut, puis faites glisser la sélection sur une zone propre."
+          },
+          "move": {
+            "title": "Déplacer un objet plutôt que le supprimer",
+            "paragraphs": [
+              "L’outil Déplacement basé sur le contenu déplace un objet sélectionné ailleurs et remplit le trou qu’il laisse."
+            ]
+          }
+        }
+      },
+      "cropAndStraighten": {
+        "title": "Recadrer et redresser une photo",
+        "description": "Améliorez la composition, remettez un horizon de niveau et corrigez la perspective des bâtiments et des documents.",
+        "sections": {
+          "crop": {
+            "title": "Recadrer une photo",
+            "steps": [
+              "Choisissez l’outil Recadrage (C).",
+              "Faites glisser pour définir le cadre. Pour conserver des proportions, choisissez Ratio fixe sous Dimensions et saisissez un ratio comme 3:2 ou 1:1. L’option Incrustation affiche des repères comme la règle des tiers.",
+              "Appuyez sur Entrée pour appliquer le recadrage, ou sur Échap pour l’annuler."
+            ],
+            "tip": "Désactivez Supprimer les pixels rognés pour conserver les zones masquées : vous pourrez recadrer autrement plus tard."
+          },
+          "straighten": {
+            "title": "Remettre un horizon de niveau",
+            "steps": [
+              "Avec l’outil Recadrage actif, choisissez Redresser dans les options de l’outil.",
+              "Tracez une ligne le long d’un élément qui devrait être horizontal, comme l’horizon.",
+              "Focale fait pivoter l’image pour mettre cette ligne de niveau. Ajustez le cadre, puis appuyez sur Entrée."
+            ],
+            "tip": "Réglez Remplissage sur Remplissage d’après le contenu pour compléter les coins révélés par la rotation au lieu de les laisser transparents."
+          },
+          "perspective": {
+            "title": "Corriger la perspective",
+            "steps": [
+              "Choisissez l’outil Correction de perspective.",
+              "Tracez un cadre, puis placez ses coins sur un élément qui devrait être rectangulaire : un tableau, un document ou une façade.",
+              "Appuyez sur Entrée : la zone est redressée en rectangle."
+            ]
+          },
+          "other": {
+            "title": "Autres commandes de recadrage",
+            "items": [
+              "Image → Recadrer sur la sélection recadre selon les limites de la sélection active.",
+              "Image → Rognage… supprime les bords transparents ou uniformes.",
+              "Image → Taille de la zone de travail… ajoute de l’espace autour de l’image sans la redimensionner."
+            ]
+          }
+        }
+      },
+      "resizeImage": {
+        "title": "Redimensionner une image",
+        "description": "Modifiez les dimensions en pixels ou la taille d’impression, conservez les proportions et préparez plusieurs tailles à la fois.",
+        "sections": {
+          "resize": {
+            "title": "Modifier la taille de l’image",
+            "steps": [
+              "Choisissez Image → Taille de l’image….",
+              "Laissez la largeur et la hauteur liées pour conserver les proportions.",
+              "Saisissez la nouvelle largeur ou hauteur en pixels ou en pourcentage, vérifiez la nouvelle mémoire occupée, puis validez."
+            ]
+          },
+          "print": {
+            "title": "Changer uniquement la taille d’impression",
+            "paragraphs": [
+              "Désactivez Rééchantillonner pour garder tous les pixels et modifier seulement la résolution, en pixels par pouce. Une photo de 3000 pixels de large s’imprime sur 25 cm à 300 ppp, ou sur 50 cm à 150 ppp."
+            ]
+          },
+          "quality": {
+            "title": "Garder la meilleure qualité",
+            "items": [
+              "Réduire une image ne pose pas de problème. Agrandir ne peut pas ajouter de détails qui n’ont jamais été capturés : un fort agrandissement paraît flou.",
+              "Redimensionnez une seule fois, à la fin. Chaque redimensionnement adoucit un peu plus l’image.",
+              "Gardez votre projet en pleine taille et exportez des copies redimensionnées plutôt que de redimensionner l’original."
+            ]
+          },
+          "canvas": {
+            "title": "Taille de l’image ou taille de la zone de travail ?",
+            "paragraphs": [
+              "La taille de l’image met à l’échelle toute l’image. La taille de la zone de travail modifie la surface du document sans mise à l’échelle : elle ajoute de l’espace ou coupe les bords."
+            ]
+          },
+          "several": {
+            "title": "Exporter plusieurs tailles d’un coup",
+            "paragraphs": [
+              "Dans Fichier → Exporter → Exporter sous…, ajoutez des entrées sous Tailles de sortie, par exemple 1x et 2x avec un suffixe de nom de fichier. Pour redimensionner tout un dossier de photos, voir Traiter des photos par lots."
+            ]
+          }
+        }
+      },
+      "fixExposureAndColor": {
+        "title": "Corriger l’exposition et les couleurs",
+        "description": "Éclaircissez les photos sombres, retrouvez du contraste, corrigez les dominantes et ravivez les couleurs avec des calques de réglage modifiables.",
+        "sections": {
+          "auto": {
+            "title": "Commencer par une correction automatique",
+            "paragraphs": [
+              "Image → Tonalité automatique, Contraste automatique et Couleur automatique étirent les tons de l’image sur toute la plage. Couleur automatique supprime aussi la plupart des dominantes. Annulez si le résultat va trop loin."
+            ]
+          },
+          "levels": {
+            "title": "Régler le noir et le blanc avec les Niveaux",
+            "steps": [
+              "Choisissez Calque → Nouveau calque de réglage → Niveaux….",
+              "Regardez l’histogramme : s’il n’atteint pas le bord gauche ou droit, l’image manque de noirs profonds ou de blancs francs.",
+              "Faites glisser les curseurs d’entrée noir et blanc là où l’histogramme commence et se termine.",
+              "Déplacez le curseur central pour éclaircir ou assombrir les tons moyens."
+            ]
+          },
+          "curves": {
+            "title": "Modeler le contraste avec les Courbes",
+            "steps": [
+              "Choisissez Calque → Nouveau calque de réglage → Courbes….",
+              "Ajoutez un point dans les ombres et abaissez-le légèrement, puis un point dans les hautes lumières et remontez-le : cette légère courbe en S ajoute du contraste.",
+              "Modifiez séparément la couche rouge, verte ou bleue pour corriger une dominante."
+            ],
+            "tip": "Focale garde les courbes lisses et ne leur permet jamais d’inverser les tons : vous pouvez ajouter de nombreux points sans risque."
+          },
+          "shadows": {
+            "title": "Déboucher les ombres et récupérer les hautes lumières",
+            "paragraphs": [
+              "Tons clairs / foncés éclaircit les zones sombres et atténue les zones claires indépendamment. Exposition fonctionne en diaphragmes photographiques et convient aux images en haute profondeur de couleur."
+            ]
+          },
+          "colour": {
+            "title": "Régler la couleur et la saturation",
+            "items": [
+              "Vibrance renforce davantage les couleurs ternes que celles déjà vives, ce qui préserve le naturel des peaux.",
+              "Teinte / saturation modifie toutes les couleurs ou une seule plage de couleurs.",
+              "Pour la balance des blancs, utilisez les curseurs Température et Teinte du filtre Camera Raw."
+            ]
+          },
+          "editable": {
+            "title": "Garder la retouche modifiable",
+            "paragraphs": [
+              "Les calques de réglage ne modifient jamais les pixels de la photo. Double-cliquez dessus pour changer leurs paramètres, peignez sur leur masque pour les limiter à une partie de l’image ou baissez leur opacité pour les atténuer."
+            ]
+          }
+        }
+      },
+      "blackAndWhite": {
+        "title": "Convertir une photo en noir et blanc",
+        "description": "Créez des images noir et blanc expressives et contrôlez la façon dont chaque couleur devient du gris.",
+        "sections": {
+          "adjustment": {
+            "title": "Utiliser un calque de réglage Noir et blanc",
+            "steps": [
+              "Choisissez Calque → Nouveau calque de réglage → Noir et blanc….",
+              "Déplacez les curseurs de couleur pour décider de la luminosité de chaque couleur. Assombrir les bleus rend un ciel spectaculaire ; éclaircir les rouges et les jaunes illumine la peau.",
+              "Ajoutez du contraste avec un calque de réglage Courbes au-dessus."
+            ],
+            "tip": "La photo en couleur est toujours là. Masquez le calque de réglage pour comparer, ou peignez sur son masque pour garder un peu de couleur."
+          },
+          "tint": {
+            "title": "Ajouter une teinte",
+            "paragraphs": [
+              "Activez l’option de teinte du réglage Noir et blanc pour obtenir une image sépia ou aux tons froids. Le réglage Courbe de transfert de dégradé offre un contrôle complet des couleurs utilisées pour les ombres et les hautes lumières."
+            ]
+          },
+          "mode": {
+            "title": "Convertir tout le document",
+            "paragraphs": [
+              "Image → Mode → Niveaux de gris convertit le document en une seule couche grise. La couleur est perdue définitivement et vous ne contrôlez pas la conversion des couleurs en gris : préférez le calque de réglage et ne convertissez que si un fichier en niveaux de gris est exigé."
+            ]
+          }
+        }
+      },
+      "editRawPhotos": {
+        "title": "Retoucher des photos RAW",
+        "description": "Développez des fichiers RAW : balance des blancs, exposition, réduction du bruit, corrections d’objectif et réglages locaux.",
+        "sections": {
+          "why": {
+            "title": "Pourquoi photographier en RAW ?",
+            "paragraphs": [
+              "Un fichier RAW conserve toutes les données enregistrées par le capteur, avec plus de latitude qu’un JPEG. Vous pouvez changer la balance des blancs et récupérer hautes lumières et ombres avec beaucoup moins de défauts."
+            ]
+          },
+          "develop": {
+            "title": "Développer un fichier RAW",
+            "steps": [
+              "Ouvrez le fichier RAW avec Fichier → Ouvrir…. L’espace Camera Raw s’ouvre.",
+              "Réglez la balance des blancs avec Température et Teinte, ou choisissez un préréglage.",
+              "Ajustez l’exposition, puis récupérez les zones claires et sombres avec les réglages Tons clairs et Tons foncés.",
+              "Appliquez la réduction du bruit et la netteté, et activez les corrections de profil de votre boîtier et de votre objectif.",
+              "Cliquez sur Ouvrir. L’image développée s’ouvre comme document 16 bits qui garde les réglages RAW modifiables."
+            ],
+            "tip": "Utilisez la comparaison avant/après et les avertissements d’écrêtage pour repérer les zones blanc pur ou noir pur."
+          },
+          "local": {
+            "title": "Corriger une partie de l’image",
+            "paragraphs": [
+              "Les réglages locaux appliquent des corrections au pinceau, avec un dégradé linéaire ou un dégradé radial : assombrir un ciel, éclaircir un visage ou ajouter un vignettage."
+            ]
+          },
+          "layers": {
+            "title": "Utiliser les réglages RAW sur n’importe quel calque",
+            "paragraphs": [
+              "Filtre → Filtre Camera Raw applique les mêmes réglages de développement à un calque ordinaire. Convertissez d’abord le calque pour les filtres dynamiques afin de garder les réglages modifiables."
+            ]
+          },
+          "original": {
+            "title": "Votre fichier RAW reste intact",
+            "paragraphs": [
+              "Focale ne modifie jamais le fichier RAW. Enregistrez le résultat en projet .focale ou exportez-le, et conservez le RAW d’origine comme archive. Les préréglages de développement peuvent être enregistrés et réutilisés, et les préréglages XMP d’Adobe Camera Raw importés."
+            ]
+          }
+        }
+      },
+      "panoramaAndHdr": {
+        "title": "Créer un panorama ou une image HDR",
+        "description": "Assemblez plusieurs photos en panorama, fusionnez des expositions en HDR ou combinez une série de mises au point.",
+        "sections": {
+          "shoot": {
+            "title": "Bien préparer la prise de vue",
+            "items": [
+              "Panorama : faites se chevaucher les vues successives d’environ un tiers, fixez l’exposition et la mise au point, et pivotez autour de l’appareil plutôt que de vous déplacer.",
+              "HDR : prenez plusieurs expositions de la même scène, par exemple −2, 0 et +2 IL, idéalement sur trépied.",
+              "Série de mises au point : prenez plusieurs vues mises au point à des distances différentes sans bouger l’appareil."
+            ]
+          },
+          "panorama": {
+            "title": "Assembler un panorama",
+            "steps": [
+              "Choisissez Fichier → Automatisation → Photomerge….",
+              "Ajoutez entre 2 et 32 photos.",
+              "Choisissez une disposition. Auto choisit pour vous ; Cylindrique et Sphérique conviennent aux vues larges, Perspective à quelques photos, Collage et Repositionnement se contentent de déplacer les images.",
+              "Lancez la fusion. Chaque photo devient un calque avec un masque modifiable : vous pouvez retoucher n’importe quel raccord ensuite."
+            ],
+            "tip": "Recadrez le résultat pour supprimer les bords transparents irréguliers, ou remplissez-les avec le remplissage d’après le contenu."
+          },
+          "hdr": {
+            "title": "Fusionner des expositions en HDR",
+            "steps": [
+              "Choisissez Fichier → Automatisation → Fusion HDR….",
+              "Ajoutez les photos du bracketing. Elles doivent avoir les mêmes dimensions.",
+              "Gardez l’alignement activé pour les photos prises à main levée, et activez Supprimer les fantômes si un élément a bougé entre les prises.",
+              "Choisissez HDR 32 bits pour conserver toute la plage de lumière, ou la fusion d’expositions 16 bits pour une image directement exploitable."
+            ]
+          },
+          "focus": {
+            "title": "Combiner une série de mises au point",
+            "steps": [
+              "Ouvrez les photos comme calques d’un même document et sélectionnez-les.",
+              "Choisissez Édition → Alignement automatique des calques….",
+              "Choisissez Édition → Fusion automatique des calques… avec Empiler les images. Chaque calque conserve ses zones les plus nettes grâce à son masque."
+            ]
+          }
+        }
+      },
+      "vectorizeImage": {
+        "title": "Convertir une image en vectoriel",
+        "description": "Vectorisez un logo, un croquis ou une illustration en tracés modifiables, puis exportez-le en SVG ou PDF.",
+        "sections": {
+          "when": {
+            "title": "Quand la vectorisation fonctionne le mieux",
+            "paragraphs": [
+              "La vectorisation transforme des zones de couleur en tracés qui restent nets à toutes les tailles. Elle donne les meilleurs résultats sur les logos, icônes, dessins au trait et illustrations en aplats. Les photographies produisent une multitude de petites formes et gagnent à rester des images."
+            ]
+          },
+          "trace": {
+            "title": "Vectoriser une image",
+            "steps": [
+              "Créez ou ouvrez un document vectoriel.",
+              "Placez l’image avec Fichier → Importer et incorporer…, ou collez-la.",
+              "Sélectionnez l’image, puis choisissez Sélection → Vectoriser une image….",
+              "Choisissez Noir et blanc avec un seuil pour un dessin au trait, ou Couleurs avec un nombre maximal de couleurs.",
+              "Augmentez le rayon du bruit et l’aire minimale pour ignorer les petites taches, et ajustez la tolérance des courbes : plus basse, elle garde plus de détails ; plus haute, elle donne des tracés plus lisses et plus simples.",
+              "Comparez la source et le résultat, puis choisissez Décomposer en tracés."
+            ],
+            "tip": "Les images jusqu’à environ un mégapixel peuvent être vectorisées : réduisez d’abord les images plus grandes. Augmenter le contraste et supprimer le fond au préalable donne aussi des tracés plus propres."
+          },
+          "after": {
+            "title": "Après la vectorisation",
+            "items": [
+              "Le résultat est un groupe de tracés ordinaires : recolorez-les, fusionnez des formes avec le Concepteur de formes ou simplifiez-les.",
+              "Annuler restaure l’image d’origine en une seule étape.",
+              "Enregistrez un projet .fvector, ou exportez en SVG ou PDF pour le Web, l’impression ou d’autres logiciels."
+            ]
+          }
+        }
+      },
+      "exportForWeb": {
+        "title": "Exporter des images pour le Web",
+        "description": "Choisissez entre JPEG, PNG, WebP et AVIF, équilibrez qualité et poids, et exportez plusieurs tailles d’un coup.",
+        "sections": {
+          "format": {
+            "title": "Choisir le bon format",
+            "table": {
+              "headers": [
+                "Format",
+                "Idéal pour",
+                "Transparence"
+              ],
+              "rows": [
+                [
+                  "JPEG",
+                  "Photographies ; reconnu partout",
+                  "Non"
+                ],
+                [
+                  "PNG",
+                  "Captures d’écran, logos, graphismes aux bords nets",
+                  "Oui"
+                ],
+                [
+                  "WebP",
+                  "Graphismes et photos ; actuellement exporté sans perte par Focale",
+                  "Oui"
+                ],
+                [
+                  "AVIF",
+                  "Photographies au poids le plus faible",
+                  "Oui"
+                ],
+                [
+                  "SVG",
+                  "Logos et icônes issus de documents vectoriels",
+                  "Oui"
+                ]
+              ]
+            }
+          },
+          "export": {
+            "title": "Exporter une image",
+            "steps": [
+              "Choisissez Fichier → Exporter → Exporter sous….",
+              "Choisissez un format et réglez la qualité. Comparez l’aperçu de l’original et celui de l’export, et vérifiez le poids estimé.",
+              "Définissez les dimensions et ajoutez des entrées sous Tailles de sortie pour les écrans haute densité, par exemple 1x et 2x avec un suffixe de nom de fichier.",
+              "Exportez. Votre projet .focale n’est pas modifié."
+            ],
+            "tip": "Laissez Incorporer le profil sRVB activé pour que les couleurs soient identiques dans tous les navigateurs."
+          },
+          "quick": {
+            "title": "Réexporter rapidement",
+            "paragraphs": [
+              "Fichier → Exporter → Exportation rapide réutilise votre dernier format et vos derniers réglages sans ouvrir la boîte de dialogue. Réexporter répète le dernier export."
+            ]
+          },
+          "parts": {
+            "title": "Exporter des calques, des plans de travail ou des tranches",
+            "paragraphs": [
+              "Fichier → Exporter → Exporter les éléments sélectionnés… exporte les calques, groupes ou plans de travail choisis dans des fichiers séparés. Fichier → Exporter → Enregistrer pour le Web… exporte les tranches d’une maquette Web."
+            ]
+          }
+        }
+      },
+      "openPsdFiles": {
+        "title": "Ouvrir et modifier des fichiers PSD sans Photoshop",
+        "description": "Ouvrez les fichiers PSD et PSB de Photoshop avec leurs calques, modifiez-les et réexportez-les, sous Linux, Windows ou macOS.",
+        "sections": {
+          "open": {
+            "title": "Ouvrir un fichier Photoshop",
+            "steps": [
+              "Choisissez Fichier → Ouvrir… et sélectionnez un fichier .psd ou .psb, ou faites-le glisser sur Focale.",
+              "Vérifiez le panneau Calques : groupes, masques, modes de fusion et opacité sont conservés.",
+              "Enregistrez une copie de travail en projet .focale."
+            ]
+          },
+          "editable": {
+            "title": "Ce qui reste modifiable",
+            "items": [
+              "Les calques de pixels, groupes, masques de fusion, masques vectoriels et masques d’écrêtage.",
+              "Les calques de texte, lorsque les polices sont installées sur votre ordinateur.",
+              "Les calques de forme, de remplissage et de réglage comme Courbes, Niveaux et Teinte / saturation.",
+              "Les objets dynamiques et de nombreux effets de calque comme les ombres, les lueurs et les contours."
+            ]
+          },
+          "limits": {
+            "title": "Si quelque chose s’affiche différemment",
+            "paragraphs": [
+              "Les fonctions que Focale ne sait pas reproduire exactement sont affichées à partir des pixels enregistrés dans le fichier : l’image reste correcte, mais cette partie n’est pas modifiable. Les polices manquantes sont remplacées à l’affichage : installez-les pour obtenir la mise en page exacte. Conservez votre fichier d’origine lors des échanges."
+            ]
+          },
+          "export": {
+            "title": "Renvoyer le fichier en PSD",
+            "paragraphs": [
+              "Choisissez Fichier → Exporter → Exporter sous… puis PSD ou PSB pour partager un fichier à calques avec une personne qui utilise Photoshop. Les fichiers GIMP (XCF) s’ouvrent et s’exportent aussi."
+            ]
+          }
+        }
+      },
+      "batchProcessing": {
+        "title": "Traiter des photos par lots",
+        "description": "Convertissez, redimensionnez et traitez des dossiers entiers d’images avec le Processeur d’images, les actions et le traitement par lots.",
+        "sections": {
+          "convert": {
+            "title": "Convertir et redimensionner un dossier",
+            "steps": [
+              "Choisissez Fichier → Automatisation → Processeur d’images….",
+              "Choisissez un dossier source et un dossier de destination.",
+              "Choisissez le type de fichier et la qualité.",
+              "Activez Redimensionner pour tenir, saisissez une largeur et une hauteur maximales, et laissez Ne pas agrandir activé pour les petites images.",
+              "Choisissez quoi faire des fichiers existants, puis lancez le traitement."
+            ]
+          },
+          "record": {
+            "title": "Enregistrer une action",
+            "steps": [
+              "Ouvrez une image d’exemple et le panneau Actions.",
+              "Créez une nouvelle action et démarrez l’enregistrement.",
+              "Appliquez vos retouches, par exemple un réglage, un redimensionnement et un filtre de netteté, puis arrêtez l’enregistrement.",
+              "Lisez l’action sur une autre image pour la tester."
+            ],
+            "tip": "Les étapes qui ne peuvent pas être rejouées sont signalées dans le panneau ; supprimez-les avant d’utiliser l’action dans un lot."
+          },
+          "batch": {
+            "title": "Appliquer une action à de nombreux fichiers",
+            "steps": [
+              "Choisissez Fichier → Automatisation → Traitement par lots….",
+              "Choisissez l’action, le dossier source et la destination.",
+              "Lancez le traitement et vérifiez quelques résultats avant de vous fier au lot."
+            ]
+          },
+          "share": {
+            "title": "Partager et importer des actions",
+            "paragraphs": [
+              "Exportez un ensemble d’actions pour le réutiliser sur un autre ordinateur. Les ensembles d’actions ATN de Photoshop peuvent être importés, et les ensembles exportés au format Photoshop."
+            ]
+          }
+        }
+      },
+      "layersAndBlendModes": {
+        "title": "Comprendre les calques et les modes de fusion",
+        "description": "Comprenez comment les calques s’empilent, ce que font l’opacité et les modes de fusion, et quand utiliser groupes et masques d’écrêtage.",
+        "sections": {
+          "stack": {
+            "title": "Une pile de feuilles transparentes",
+            "paragraphs": [
+              "Imaginez les calques comme des feuilles transparentes empilées sur la photo. Chaque feuille contient un élément : une retouche, un texte, une forme ou une correction. Le panneau Calques montre la pile de haut en bas, et ce que vous voyez est le résultat de toutes les feuilles superposées.",
+              "Des calques séparés permettent de modifier un élément sans toucher aux autres, et d’essayer des idées que vous pourrez retirer ensuite."
+            ]
+          },
+          "kinds": {
+            "title": "Les types de calques",
+            "table": {
+              "headers": [
+                "Calque",
+                "Contient",
+                "Usage typique"
+              ],
+              "rows": [
+                [
+                  "Matriciel",
+                  "Des pixels",
+                  "Photos, peinture, retouche"
+                ],
+                [
+                  "Texte",
+                  "Du texte modifiable",
+                  "Titres, légendes"
+                ],
+                [
+                  "Forme",
+                  "Une géométrie vectorielle",
+                  "Boutons, logos, cadres"
+                ],
+                [
+                  "Remplissage",
+                  "Une couleur, un dégradé ou un motif",
+                  "Fonds, teintes"
+                ],
+                [
+                  "Réglage",
+                  "Des paramètres de correction",
+                  "Exposition, couleur, noir et blanc"
+                ],
+                [
+                  "Objet dynamique",
+                  "Un contenu incorporé ou lié",
+                  "Mise à l’échelle et filtres sans perte"
+                ]
+              ]
+            }
+          },
+          "opacity": {
+            "title": "Opacité et remplissage",
+            "paragraphs": [
+              "L’opacité atténue tout le calque, effets compris. Le remplissage n’atténue que les pixels du calque et laisse les effets comme les contours et les ombres à pleine intensité."
+            ]
+          },
+          "blend": {
+            "title": "Les modes de fusion",
+            "paragraphs": [
+              "Un mode de fusion détermine comment les couleurs d’un calque se combinent avec les calques inférieurs, au lieu de simplement les recouvrir."
+            ],
+            "items": [
+              "Produit assombrit : le blanc disparaît. Utilisez-le pour les ombres, ou pour poser un dessin scanné sur un fond.",
+              "Superposition éclaircit : le noir disparaît. Utilisez-le pour les fuites de lumière, le feu et les étincelles.",
+              "Incrustation et Lumière tamisée ajoutent du contraste : le gris à 50 % disparaît. Peignez plus clair ou plus foncé sur un calque gris en Lumière tamisée pour éclaircir et assombrir sans toucher à la photo.",
+              "Couleur applique la teinte et la saturation du calque en gardant la luminosité inférieure : idéal pour recolorer.",
+              "Luminosité fait l’inverse, et sert à renforcer la netteté ou le contraste sans décaler les couleurs."
+            ]
+          },
+          "groups": {
+            "title": "Groupes et masques d’écrêtage",
+            "paragraphs": [
+              "Les groupes organisent les calques et peuvent être déplacés, masqués ou dotés d’un masque ensemble. Un masque d’écrêtage limite un calque au contenu visible du calque situé juste en dessous : posez une texture sur un texte, ou appliquez un réglage à un seul objet, avec Calque → Créer un masque d’écrêtage."
+            ]
+          }
+        }
+      },
+      "selectionsAndMasks": {
+        "title": "Comprendre les sélections et les masques",
+        "description": "Découvrez comment les sélections limitent les retouches, comment les masques cachent sans supprimer, et quel outil de sélection choisir.",
+        "sections": {
+          "selection": {
+            "title": "Les sélections limitent la zone de travail",
+            "paragraphs": [
+              "Une sélection est indiquée par un contour pointillé animé. Tant qu’elle est active, la peinture, les filtres et les réglages n’agissent que sur la zone sélectionnée. Désélectionnez avec Ctrl+D (Cmd+D sous macOS) quand vous avez terminé."
+            ]
+          },
+          "tools": {
+            "title": "Choisir un outil de sélection",
+            "table": {
+              "headers": [
+                "Outil",
+                "Idéal pour"
+              ],
+              "rows": [
+                [
+                  "Sélection rectangulaire et elliptique",
+                  "Zones géométriques simples"
+                ],
+                [
+                  "Lasso et lasso polygonal",
+                  "Zones à main levée ou à bords droits"
+                ],
+                [
+                  "Lasso magnétique",
+                  "Contours bien contrastés"
+                ],
+                [
+                  "Sélection rapide",
+                  "Objets et personnes, peints approximativement"
+                ],
+                [
+                  "Baguette magique",
+                  "Zones de couleur proche, comme un ciel"
+                ],
+                [
+                  "Plage de couleurs",
+                  "Tous les pixels d’une couleur dans l’image"
+                ]
+              ]
+            }
+          },
+          "combine": {
+            "title": "Ajouter, retirer et affiner",
+            "items": [
+              "Maintenez Maj pour ajouter à la sélection et Alt (Option sous macOS) pour en retirer.",
+              "Sélection → Modifier → Contour progressif… adoucit le bord pour que les corrections se fondent.",
+              "Sélection → Sélectionner et masquer… affine les contours difficiles comme les cheveux.",
+              "Sélection → Enregistrer la sélection… mémorise une sélection pour la recharger plus tard."
+            ]
+          },
+          "masks": {
+            "title": "Les masques cachent sans supprimer",
+            "paragraphs": [
+              "Un masque de fusion est une image en noir et blanc associée à un calque. Le blanc affiche le calque, le noir le cache et le gris l’affiche partiellement. Comme rien n’est effacé, vous pouvez toujours faire réapparaître les parties cachées.",
+              "Créez-en un à partir d’une sélection avec Calque → Masque de fusion → Faire apparaître la sélection. Sélectionnez ensuite la vignette du masque dans le panneau Calques et peignez en noir ou en blanc pour l’affiner."
+            ],
+            "tip": "Si la peinture ne fait pas ce que vous attendez, vérifiez si c’est la vignette de l’image ou celle du masque qui est sélectionnée dans le panneau Calques."
+          },
+          "vector": {
+            "title": "Les masques vectoriels",
+            "paragraphs": [
+              "Un masque vectoriel utilise un tracé au lieu de pixels. Son bord reste parfaitement net à toutes les tailles et se modifie avec les outils de tracé, ce qui convient aux détourages géométriques et aux photos de produits."
+            ]
+          }
+        }
+      },
+      "nonDestructiveEditing": {
+        "title": "Comprendre la retouche non destructive",
+        "description": "Retouchez sans perte de qualité : calques de réglage, masques, objets dynamiques et filtres dynamiques rendent chaque modification réversible.",
+        "sections": {
+          "idea": {
+            "title": "Garder l’original, mémoriser la modification",
+            "paragraphs": [
+              "Une retouche destructive remplace des pixels : une fois enregistré, l’original est perdu. Une retouche non destructive mémorise la modification à part et l’applique à l’affichage. Vous pouvez l’ajuster ou la supprimer à tout moment, même après avoir rouvert le projet."
+            ]
+          },
+          "tools": {
+            "title": "La boîte à outils non destructive",
+            "table": {
+              "headers": [
+                "Au lieu de",
+                "Utilisez",
+                "Pourquoi"
+              ],
+              "rows": [
+                [
+                  "Image → Réglages",
+                  "Un calque de réglage",
+                  "Les paramètres restent modifiables et peuvent être masqués"
+                ],
+                [
+                  "La gomme",
+                  "Un masque de fusion",
+                  "Les parties cachées peuvent réapparaître"
+                ],
+                [
+                  "Retoucher le calque de la photo",
+                  "Un calque de retouche séparé",
+                  "Les corrections peuvent être atténuées ou supprimées"
+                ],
+                [
+                  "Appliquer un filtre",
+                  "Un filtre dynamique sur un objet dynamique",
+                  "Les paramètres du filtre restent modifiables"
+                ],
+                [
+                  "Redimensionner les pixels plusieurs fois",
+                  "Un objet dynamique",
+                  "Chaque mise à l’échelle repart de l’original"
+                ]
+              ]
+            }
+          },
+          "smart": {
+            "title": "Objets dynamiques et filtres dynamiques",
+            "steps": [
+              "Sélectionnez un calque et choisissez Filtre → Convertir pour les filtres dynamiques.",
+              "Appliquez un filtre comme Flou gaussien ou Accentuation.",
+              "Le filtre apparaît sous le calque. Modifiez ses paramètres, masquez-le ou peignez sur son masque pour le limiter."
+            ]
+          },
+          "save": {
+            "title": "Enregistrer en .focale",
+            "paragraphs": [
+              "Seul un projet .focale conserve calques, masques, calques de réglage et objets dynamiques. Les fichiers JPEG ou PNG exportés sont des copies aplaties : gardez le projet pour continuer à retoucher."
+            ]
+          }
+        }
+      },
+      "colorModesAndBitDepth": {
+        "title": "Comprendre les modes colorimétriques, la profondeur et les profils",
+        "description": "RVB ou CMJN, 8 ou 16 bits, sRVB ou Adobe RGB : choisissez les bons réglages pour l’écran et l’impression.",
+        "sections": {
+          "modes": {
+            "title": "Modes colorimétriques",
+            "table": {
+              "headers": [
+                "Mode",
+                "À utiliser pour"
+              ],
+              "rows": [
+                [
+                  "RVB",
+                  "Écrans, photos, Web ; le bon choix pour la plupart des travaux"
+                ],
+                [
+                  "CMJN",
+                  "Documents envoyés à un imprimeur professionnel"
+                ],
+                [
+                  "Niveaux de gris",
+                  "Sorties en noir et blanc sur une seule couche"
+                ],
+                [
+                  "Lab",
+                  "Corrections colorimétriques avancées"
+                ]
+              ]
+            },
+            "tip": "Travaillez en RVB et ne convertissez en CMJN que si votre imprimeur le demande, avec le profil qu’il recommande."
+          },
+          "depth": {
+            "title": "Profondeur de couleur",
+            "paragraphs": [
+              "La profondeur indique la finesse avec laquelle chaque couleur est enregistrée. 8 bits donnent 256 niveaux par couche, suffisants pour afficher une image. 16 bits en donnent 65 536 : les réglages forts restent fluides au lieu de créer des bandes dans les ciels et les dégradés. 32 bits mémorisent une lumière plus intense que le blanc pour le HDR.",
+              "Retouchez les RAW et les photos fortement corrigées en 16 bits, et exportez en 8 bits pour le Web."
+            ]
+          },
+          "profiles": {
+            "title": "Profils colorimétriques",
+            "paragraphs": [
+              "Un profil colorimétrique indique aux autres logiciels ce que signifient les valeurs du fichier. Le sRVB est la norme des écrans et du Web. Adobe RGB et ProPhoto RGB contiennent des couleurs plus saturées et conviennent à l’impression et au développement RAW.",
+              "Édition → Profil colorimétrique permet d’attribuer ou de convertir un profil. Attribuer change la façon dont les valeurs sont interprétées ; convertir garde l’apparence et change les valeurs. Exportez avec un profil sRVB pour le Web."
+            ]
+          }
+        }
+      },
+      "vectorFormat": {
+        "title": "Projets vectoriels (.fvector)",
+        "description": "Spécification JSON en version 1 : dessin modifiable, bibliothèques du document et ressources binaires partagées.",
+        "sections": {
+          "schema": {
+            "title": "Structure du fichier",
+            "paragraphs": [
+              "Un fichier .fvector est un document JSON UTF-8. Ses champs racine obligatoires sont format, version, id, name et scene. L’exemple ci-dessous est un projet complet contenant une ellipse modifiable. L’écriture utilise la version 1 ; le lecteur accepte aussi les enveloppes de développement 2 à 9 et les réenregistre en version 1. Les versions inconnues sont refusées."
+            ]
+          },
+          "scene": {
+            "title": "Scène et objets modifiables",
+            "paragraphs": [
+              "La scène conserve ses dimensions, sa résolution, ses profils colorimétriques et les objets dans leur ordre de peinture. Les objets gardent formes, tracés de Bézier, textes, transformations, fonds, contours et enfants. Symboles, couleurs nommées, styles graphiques, styles de texte, plans de travail et métadonnées de production restent modifiables. Les coordonnées des enfants sont locales au parent."
+            ]
+          },
+          "resources": {
+            "title": "Ressources binaires partagées",
+            "paragraphs": [
+              "La table facultative binaryResources indexe les charges Base64 par SHA-256. Chaque entrée déclare byteLength et bytes ; les champs concernés référencent son empreinte. Cela couvre les sources placées, les fichiers PDF/AI conservés, les polices, les profils et les motifs. Les anciennes chaînes Base64 intégrées restent lisibles. Les ressources absentes, inutilisées ou incohérentes sont refusées."
+            ]
+          },
+          "limits": {
+            "title": "Validation et limites",
+            "paragraphs": [
+              "Les limites actuelles sont de 128 Mio de JSON UTF-8, une profondeur de 100, deux millions de valeurs JSON et 100 000 entrées par collection. Jusqu’à 4 096 ressources binaires distinctes partagent un budget de 80 Mio décodés. Des limites propres à chaque champ s’appliquent aussi. La disposition de l’interface, la sélection et l’historique d’annulation sont exclus."
+            ]
+          },
+          "exchange": {
+            "title": "Enregistrement natif et échanges",
+            "paragraphs": [
+              "Conservez .fvector pour préserver le document modifiable. Les échanges SVG, PDF et AI ont des limites par fonctionnalité décrites dans la référence vectorielle téléchargeable ; les filtres SVG ont leur propre référence. Une collecte de ressources réunit les sources capturées, les polices collectables et un rapport des dépendances avec une copie du projet. La publication de ces spécifications ne change pas l’enveloppe en version 1."
+            ]
+          }
+        }
+      },
+      "resourceCollection": {
+        "title": "Collectes de ressources vectorielles (.zip)",
+        "description": "Organisation de l’archive, dépendances capturées et rapport de collecte en version 1.",
+        "sections": {
+          "structure": {
+            "title": "Contenu de l’archive",
+            "paragraphs": [
+              "Le ZIP contient project.fvector, report.json et, si nécessaire, des entrées resources/ et fonts/ nommées par SHA-256. Extrayez-le puis ouvrez project.fvector. La copie du projet incorpore les instantanés liés disponibles sans actualiser les fichiers externes ni modifier le document d’origine. Les polices séparées conservent leurs noms de famille et doivent être installées sur le système destinataire."
+            ]
+          },
+          "schema": {
+            "title": "Rapport des dépendances",
+            "paragraphs": [
+              "Le rapport utilise le format focale-resource-collection en version 1. Il répertorie les placements, les chemins d’origine, les fichiers capturés, la disponibilité des polices et les chemins de jeux de données non collectés. L’exemple décrit un projet sans dépendance externe. Un rapport incomplet signale des instantanés absents, des sources limitées à un aperçu, des polices à récupérer ou des dépendances imbriquées non inspectées."
+            ]
+          },
+          "limits": {
+            "title": "Limites et complétude",
+            "paragraphs": [
+              "L’exporteur demande une acceptation avant d’écrire une collecte incomplète. L’archive est limitée à 128 Mio d’entrées décompressées et 128 Mio de ZIP encodé, 10 000 entrées, 4 096 placements et 4 096 chemins de jeux de données inactifs. L’inspection des polices autorise 256 variantes et 64 Mio de programmes distincts. Les limites du projet imbriqué s’appliquent aussi ; ses dépendances ne sont pas collectées récursivement."
+            ]
+          }
+        }
       }
-    }
+    },
+    "tip": "Astuce :",
+    "relatedGuides": "Guides associés"
   },
   "support": {
     "title": "Supporter Focale",

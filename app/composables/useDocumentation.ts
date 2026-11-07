@@ -1,4 +1,4 @@
-import { type DocumentationArticleId, documentationArticles } from '~/utils/documentation'
+import { type DocumentationArticleId, documentationArticles, documentationGroups } from '~/utils/documentation'
 
 /** Stable documentation routes shared by the index and the article sidebar. */
 export function useDocumentation() {
@@ -17,7 +17,7 @@ export function useDocumentation() {
     { to: localePath('/docs/licenses'), title: t('docs.licenses.title'), description: t('docs.licenses.description'), icon: 'lucide:scale', group: 'about', article: undefined },
     { to: localePath('/docs/sources'), title: t('docs.sources.title'), description: t('docs.sources.description'), icon: 'lucide:code-xml', group: 'about', article: undefined },
   ])
-  const groups = computed(() => ['overview', 'guides', 'reference', 'nativeFormats', 'about'].map(id => ({
+  const groups = computed(() => documentationGroups.map(id => ({
     id,
     title: t(`docs.groups.${id}`),
     pages: pages.value.filter(page => page.group === id),

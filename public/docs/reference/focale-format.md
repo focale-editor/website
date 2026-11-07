@@ -2534,3 +2534,13 @@ edits. Original source objects remain editable and ordinary smart-filter history
 and serialization retain the graph. Unknown primitives and invalid references
 are rejected. See [the supported dialect and limits](svg-filters.md) and
 [ADR 0451](../adr/0451-retained-svg-filter-graphs.md).
+
+## Deferred PDF pages in editable vector content
+
+Embedded unpublished version-1 vector content may retain a `deferredPdf` source
+reference on an artboard group. The shared original PDF bytes and page index
+travel with copy/paste and native persistence; they never depend on an external
+file path. Native-layer projection resolves the referenced page before painting.
+See the [PDF interchange schema](vectors.md#pdf-interchange-and-shared-graphics-unreleased-version-1)
+for bounds, asynchronous ownership and export rules. The `.focale` envelope
+version is unchanged.

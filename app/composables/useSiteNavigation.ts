@@ -21,8 +21,7 @@ export interface NavigationSection {
 /**
  * Single source of truth for the site's navigation.
  *
- * Pages that do not exist yet — FAQ, terms, contact —
- * are added here once, and both the header and the footer pick them up.
+ * Shared localized routes keep desktop, mobile and footer links consistent.
  */
 export function useSiteNavigation() {
   const { public: config } = useRuntimeConfig()
@@ -32,6 +31,7 @@ export function useSiteNavigation() {
   const headerLinks = computed<NavigationLink[]>(() => [
     { label: 'nav.homePage', to: localePath('index') },
     { label: 'docs.title', to: localePath('/docs') },
+    { label: 'nav.faq', to: localePath('/docs/faq') },
     { label: 'nav.contribute', to: localePath('/support') },
   ])
 
@@ -42,6 +42,7 @@ export function useSiteNavigation() {
         { label: 'nav.features', to: home('#features') },
         { label: 'nav.preview', to: home('#preview') },
         { label: 'docs.title', to: localePath('/docs') },
+        { label: 'nav.faq', to: localePath('/docs/faq') },
         { label: 'changelog.title', to: localePath('/changelog') },
         { label: 'support.title', to: localePath('/support') },
         { label: 'privacy.title', to: localePath('/privacy') },

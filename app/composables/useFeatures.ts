@@ -15,6 +15,7 @@ export interface FeatureCard {
 export function useFeatures(): FeatureCard[] {
   return [
     { id: 'localFirst', icon: 'lucide:hard-drive' },
+    { id: 'vector', icon: 'lucide:pen-tool' },
     { id: 'layers', icon: 'lucide:layers' },
     { id: 'nonDestructive', icon: 'lucide:sliders-horizontal' },
     { id: 'smartObjects', icon: 'lucide:component' },
@@ -23,7 +24,9 @@ export function useFeatures(): FeatureCard[] {
     { id: 'colorManagement', icon: 'lucide:palette' },
     { id: 'tools', icon: 'lucide:brush' },
     { id: 'masks', icon: 'lucide:circle-dashed' },
-    { id: 'vector', icon: 'lucide:pen-tool' },
+    { id: 'vectorDrawing', icon: 'lucide:spline' },
+    { id: 'vectorTypography', icon: 'lucide:type' },
+    { id: 'vectorResources', icon: 'lucide:shapes' },
     { id: 'filters', icon: 'lucide:wand-sparkles' },
     { id: 'layerEffects', icon: 'lucide:sparkles' },
     { id: 'presets', icon: 'lucide:swatch-book' },

@@ -214,6 +214,9 @@ library has its own page: `.fbrush`, `.fpattern`, `.fshape`, `.fstyle`, `.fswatc
 `.fhuesaturation`, `.fselectivecolor`, `.fchannelmixer`, `.fblackandwhite`,
 `.fduotone`, `.fcameraraw` and `.fcolorlookup`, with usage, schema, examples, validation
 limits and interchange directions.
+The `.fvector` project and resource-collection ZIP also have dedicated references
+at `/docs/fvector` and `/docs/resource-collection`, with complete JSON examples.
+The downloads include the detailed vector schemas and supported SVG filter dialect.
 All pages ship in the six site languages.
 
 `DocumentationArticle` renders the structured `docs.articles` content in the

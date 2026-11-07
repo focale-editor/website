@@ -3,8 +3,28 @@
   "references": [
     {
       "file": "focale-format.md",
-      "bytes": 130240,
-      "sha256": "f0163477ba2705ae11b8a557d13f4619ba06ed3239d8cc5ad0e2a3c7a2d4c25b"
+      "bytes": 130809,
+      "sha256": "11c50597503d774ab9475b10d0994ea4e92740d63c2eddb0fb1e0b33c2c274c9"
+    },
+    {
+      "file": "fvector.md",
+      "bytes": 12704,
+      "sha256": "82ce3afa5bbafbd8cdccce9de9c02c38c78dd75ab5220eb1470a8f8e85639db8"
+    },
+    {
+      "file": "vectors.md",
+      "bytes": 98106,
+      "sha256": "efab871af9727e11c242205aa473396d491c0da7dc53ae6976fa463c91ea4304"
+    },
+    {
+      "file": "svg-filters.md",
+      "bytes": 3058,
+      "sha256": "3e22423e53cd61e1a994e8645fa859d68f2495b5146b66cd572f7e0056bb42f5"
+    },
+    {
+      "file": "resource-collection.md",
+      "bytes": 5543,
+      "sha256": "62952eaf23e55ac4bbe8b6e5322fa927337bd163e5d9787adabf2984f01ca83c"
     },
     {
       "file": "brush-presets.md",

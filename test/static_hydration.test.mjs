@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict'
-import { readFile } from 'node:fs/promises'
-import { webcrypto } from 'node:crypto'
-import { fileURLToPath } from 'node:url'
-import { resolve } from 'node:path'
+import {readFile} from 'node:fs/promises'
+import {webcrypto} from 'node:crypto'
+import {fileURLToPath} from 'node:url'
+import {resolve} from 'node:path'
 import test from 'node:test'
 import vm from 'node:vm'
-import { JSDOM, VirtualConsole } from 'jsdom'
+import {JSDOM, VirtualConsole} from 'jsdom'
 
 const output = resolve(process.env.FOCALE_OUTPUT || fileURLToPath(new URL('../.output/public', import.meta.url)))
 const origin = 'https://focale-editor.app'
@@ -305,8 +305,25 @@ for (const locale of locales) {
         const document = window.document
         await waitFor(() => document.querySelector('.download-fallback-link'))
         assertDownloadActions(document, locale === 'en' ? '/' : `/${locale}`)
+        const faqRoute = `${path}docs/faq`
+        for (const selector of ['.header-nav', 'footer']) {
+          assert.equal(document.querySelector(`${selector} a[href="${faqRoute}"]`)?.textContent.trim(), translations.nav.faq)
+        }
+        const cards = [...document.querySelectorAll('.features-cell')]
+        const vectorCard = cards.find(card => card.querySelector('h3')?.textContent.trim() === translations.features.items.vector.title)
+        assert.ok(vectorCard, 'the vector workspace has a feature card')
+        assert.notEqual(vectorCard.style.display, 'none', 'vector editing is visible before expanding the features')
+        document.querySelector('.features-toggle').click()
+        await waitFor(() => document.querySelector('.features-toggle')?.getAttribute('aria-expanded') === 'true')
+        for (const id of ['vectorDrawing', 'vectorTypography', 'vectorResources']) {
+          const card = cards.find(card => card.querySelector('h3')?.textContent.trim() === translations.features.items[id].title)
+          assert.ok(card, `${id} is translated and rendered`)
+          assert.notEqual(card.style.display, 'none')
+        }
         const screenshots = [...document.querySelectorAll('.preview-image')]
         assert.equal(screenshots.length, 6)
+        assert.ok(screenshots.at(-1).getAttribute('src').includes('06-home'), 'Home stays last')
+        assert.equal(screenshots[3].alt, `${translations.preview.slides.typography.alt} — ${translations.preview.themes.dark}`)
         for (const screenshot of screenshots) {
           assert.ok(screenshot.getAttribute('src').startsWith(`/images/screenshots/${locale}/`), 'the gallery uses the translated interface')
         }

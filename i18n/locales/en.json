@@ -18,13 +18,14 @@
     "preview": "Preview",
     "language": "Language",
     "openMenu": "Open the menu",
-    "closeMenu": "Close the menu"
+    "closeMenu": "Close the menu",
+    "faq": "FAQ"
   },
   "hero": {
     "badge": "Desktop image editor",
     "title": "Retouch, compose and create",
     "titleAccent": "with precision.",
-    "subtitle": "An advanced image editor that works entirely on your machine, from photo retouching to layered compositions. Your Photoshop files open straight away.",
+    "subtitle": "Retouch photos, build layered compositions and draw vector illustrations in one local application. Keep your artwork editable with photo and vector documents open side by side.",
     "platformsLabel": "Available for"
   },
   "principles": {
@@ -86,8 +87,8 @@
         "alt": "Curves adjustment in Focale with an image preview and control points."
       },
       "typography": {
-        "title": "Typography",
-        "alt": "Eclipse poster in Focale with text layers, shapes and typography controls."
+        "title": "Vector illustration",
+        "alt": "Eclipse poster in Focale’s vector editor with editable text and shapes, the object list and typography controls."
       },
       "brushes": {
         "title": "Brushes",
@@ -101,7 +102,7 @@
   },
   "features": {
     "eyebrow": "Features",
-    "title": "Everything a serious editing session needs.",
+    "title": "From photo retouching to vector illustration.",
     "description": "Everything below is already in the alpha, ready to try. Focale is still young: fixes and stabilization continue from one release to the next.",
     "items": {
       "localFirst": {
@@ -141,8 +142,8 @@
         "description": "Freehand, polygonal and magnetic lassos, magic wand, quick selection and selection brush. Combine selections and refine visible areas with painted or vector masks."
       },
       "vector": {
-        "title": "Text, paths and shapes",
-        "description": "Editable text, pen and curvature pen, anchor points and custom shapes. Create shape layers with fills and strokes, or turn paths into selections."
+        "title": "A complete vector workspace",
+        "description": "Create illustrations, logos and posters with editable objects and artboards. Keep photo and vector documents open side by side, and save your artwork as .fvector projects."
       },
       "filters": {
         "title": "Filters and filter gallery",
@@ -170,11 +171,23 @@
       },
       "formats": {
         "title": "Open, edit, export",
-        "description": "PNG, JPEG, WebP, AVIF, HEIF/HEIC, JPEG XL, TIFF, BMP, QOI, TGA, GIF and OpenEXR, plus layered PSD/PSB. Export with resizing and options suited to each format."
+        "description": "Open images, layered PSD/PSB and XCF files, or editable SVG/SVGZ, PDF and PDF-compatible AI artwork. Keep native .focale and .fvector projects, then export for the web or print within each format’s supported features."
       },
       "recovery": {
         "title": "Autosave and crash recovery",
         "description": "Snapshots live beside the application, never on top of your file, and a recovered document opens unsaved so nothing on disk can be overwritten by accident."
+      },
+      "vectorDrawing": {
+        "title": "Paths, shapes and colour",
+        "description": "Draw with the Pen, edit anchors and combine shapes with Shape Builder. Vary stroke widths, paint with vector brushes and Live Paint, or build smooth colour transitions with gradient meshes."
+      },
+      "vectorTypography": {
+        "title": "Typography for your layouts",
+        "description": "Flow text through linked frames, along a path or inside a shape. Reuse character and paragraph styles, then convert text to editable outlines when your workflow calls for it."
+      },
+      "vectorResources": {
+        "title": "Reusable vector artwork",
+        "description": "Edit a symbol to update its instances, share named colours and graphic styles, and build blends or grid, radial and mirror repeats from editable source objects."
       }
     },
     "showLess": "Show fewer features",
@@ -247,7 +260,7 @@
     "title": "Documentation",
     "overview": "Overview",
     "navigation": "Documentation navigation",
-    "description": "Guides and reference information for Focale.",
+    "description": "Step-by-step tutorials, explanations and reference information for Focale, the local photo and vector editor.",
     "licenses": {
       "title": "Licenses and credits",
       "description": "The libraries, models and data that help make Focale work.",
@@ -279,14 +292,16 @@
     },
     "groups": {
       "overview": "Overview",
-      "guides": "User guides",
+      "guides": "Get started",
+      "tutorials": "Tutorials",
+      "learn": "Understand",
       "reference": "Technical reference",
-      "about": "Licenses and sources",
-      "nativeFormats": "Native file formats"
+      "nativeFormats": "Native file formats",
+      "about": "Licenses and sources"
     },
     "browse": "Browse documentation",
-    "startHere": "Start with Getting started, then use the editing guide for everyday work. The technical reference covers platforms, file compatibility and the native formats.",
-    "developmentNote": "Reviewed against the application source on 4 November 2026. Focale is in active development; available commands and published packages may differ by build.",
+    "startHere": "New to Focale? Start with Getting started. The tutorials walk through common tasks step by step, the Understand section explains layers, masks and colour, and the reference covers platforms and file formats.",
+    "developmentNote": "Reviewed against the application source on 7 November 2026. Focale is in active development; available commands and published packages may differ by build.",
     "onThisPage": "On this page",
     "screenshotNote": "Illustration from the editor screenshot collection. The interface may differ in your build.",
     "completeReference": "Complete format references",
@@ -477,12 +492,12 @@
                   "Cmd+S"
                 ],
                 [
-                  "Save As",
+                  "Save as",
                   "Ctrl+Shift+S",
                   "Cmd+Shift+S"
                 ],
                 [
-                  "Export",
+                  "Export as",
                   "Ctrl+Alt+Shift+W",
                   "Cmd+Option+Shift+W"
                 ],
@@ -497,7 +512,7 @@
                   "Cmd+Shift+Z"
                 ],
                 [
-                  "Select All",
+                  "Select all",
                   "Ctrl+A",
                   "Cmd+A"
                 ],
@@ -512,7 +527,7 @@
                   "Cmd+Shift+I"
                 ],
                 [
-                  "Free Transform",
+                  "Free transform",
                   "Ctrl+T",
                   "Cmd+T"
                 ],
@@ -527,12 +542,12 @@
                   "Cmd+G"
                 ],
                 [
-                  "Selection to new layer",
+                  "Layer via copy",
                   "Ctrl+J",
                   "Cmd+J"
                 ],
                 [
-                  "Fit canvas",
+                  "Fit to window",
                   "Ctrl+0",
                   "Cmd+0"
                 ],
@@ -542,7 +557,7 @@
                   "Cmd+1"
                 ],
                 [
-                  "Preferences",
+                  "Settings",
                   "Ctrl+K",
                   "Cmd+K"
                 ],
@@ -909,7 +924,7 @@
           "vector": {
             "title": "Vector projects",
             "paragraphs": [
-              "Vector artwork is saved as a separate .fvector project: a UTF-8 JSON document with its own version 1 envelope. Its specification is not published yet and may still change; use SVG or PDF for long-term interchange.",
+              "Vector artwork is saved as a separate .fvector project: a UTF-8 JSON document with a version-1 envelope. Its specification, editable example and resource rules are available on the .fvector reference page linked below.",
               "A .focale project can embed an editable vector document as a smart object. Opening it edits the vector source in its own tab; saving updates every placement in the photo document."
             ]
           }
@@ -2171,8 +2186,906 @@
             ]
           }
         }
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "description": "Price, privacy, platforms, Photoshop files, graphics tablets and other common questions about Focale.",
+        "sections": {
+          "what": {
+            "title": "What is Focale?",
+            "paragraphs": [
+              "Focale is a desktop photo and vector editor for Linux, Windows and macOS. It combines layered photo retouching, non-destructive adjustments, RAW development and editable vector illustration in one application."
+            ]
+          },
+          "cost": {
+            "title": "Is Focale free?",
+            "paragraphs": [
+              "Focale is currently in alpha and can be downloaded from the website. Its future business model is not decided yet. Donations are optional and help development."
+            ]
+          },
+          "privacy": {
+            "title": "Are my images uploaded anywhere?",
+            "paragraphs": [
+              "No. Focale opens, edits and saves your documents on your own computer and works without an internet connection. Builds that include error reporting only send technical error events if you enable it in the Diagnostics preferences."
+            ]
+          },
+          "photoshop": {
+            "title": "Can Focale open Photoshop files?",
+            "paragraphs": [
+              "Yes. PSD and PSB files open as layered documents. Text, shapes, masks, adjustment layers, smart objects and layer effects stay editable where Focale supports them, and you can export back to PSD. Photoshop does not need to be installed."
+            ]
+          },
+          "alternative": {
+            "title": "Is Focale an alternative to Photoshop or GIMP?",
+            "paragraphs": [
+              "Focale is designed for people who want an advanced, familiar-looking editor that runs natively on Linux as well as Windows and macOS. Tool names and shortcuts follow common conventions, so habits from other editors carry over. It is still young: check the changelog to see what has been added recently."
+            ]
+          },
+          "linux": {
+            "title": "Does Focale run on Linux?",
+            "paragraphs": [
+              "Yes. Linux is a first-class platform: Focale started there. The download section provides a package for x86-64 systems; see Supported platforms for requirements."
+            ]
+          },
+          "tablet": {
+            "title": "Does Focale support graphics tablets?",
+            "paragraphs": [
+              "Yes. Brushes can use pen pressure for size, opacity and flow, and vector strokes can record pressure as an editable width profile. Pressure support depends on your tablet driver and operating system."
+            ]
+          },
+          "raw": {
+            "title": "Can I edit RAW photos?",
+            "paragraphs": [
+              "Yes. Opening a camera RAW file starts a development workspace with white balance, exposure, curves, noise reduction, lens corrections and local adjustments. Supported cameras depend on the bundled RAW decoder."
+            ]
+          },
+          "vector": {
+            "title": "Can I make vector illustrations and logos?",
+            "paragraphs": [
+              "Yes. Vector documents offer the pen and shape tools, Boolean operations, gradient meshes, symbols, linked text frames and image tracing. You can open and save SVG, PDF and PDF-compatible AI files."
+            ]
+          },
+          "languages": {
+            "title": "Which languages are available?",
+            "paragraphs": [
+              "The application and this website are available in English, French, Spanish, Italian, Portuguese and German."
+            ]
+          },
+          "help": {
+            "title": "Where can I get help or report a bug?",
+            "paragraphs": [
+              "Ask questions, suggest features and report bugs on Focale Community. Include your Focale version, operating system and the steps that lead to the problem."
+            ]
+          }
+        }
+      },
+      "removeBackground": {
+        "title": "Remove the background from a photo",
+        "description": "Cut out a person or an object and make the background transparent, without losing the original pixels.",
+        "sections": {
+          "select": {
+            "title": "Select your subject",
+            "steps": [
+              "Open the photo and select its layer in the Layers panel.",
+              "Choose the Quick selection tool (W) and paint over the subject. The selection grows to follow its edges. Hold Alt (Option on macOS) and paint to remove areas that were included by mistake.",
+              "For a subject on a plain background, the Magic wand is faster: click the background, then use Select → Invert selection."
+            ],
+            "tip": "Zoom in to check difficult areas such as hair, fingers and gaps between arms and body."
+          },
+          "refine": {
+            "title": "Refine hair and soft edges",
+            "steps": [
+              "Choose Select → Select and mask….",
+              "Increase Smart radius so Focale re-examines the band around the edge.",
+              "Paint over hair and fur with the Refine edge brush, then confirm."
+            ]
+          },
+          "mask": {
+            "title": "Hide the background with a mask",
+            "steps": [
+              "Choose Layer → Raster mask → Reveal selection.",
+              "The background disappears, but it is only hidden. Paint white on the mask to bring parts back, black to hide more."
+            ],
+            "tip": "A mask is better than deleting: you can fix the edge at any time. See Selections and masks."
+          },
+          "export": {
+            "title": "Save the transparent result",
+            "paragraphs": [
+              "Save a .focale project to keep the mask editable. To use the cut-out elsewhere, choose File → Export → Export as… and pick PNG, WebP or AVIF, which keep transparency. JPEG has no transparency and fills it with a background colour."
+            ]
+          },
+          "alternatives": {
+            "title": "Other ways to remove a background",
+            "items": [
+              "Background eraser: erases pixels similar to the colour under the centre of the brush, useful for uniform backgrounds.",
+              "Magic eraser: erases a similar-coloured area with one click.",
+              "Color to alpha filter: turns one colour, such as white paper, into transparency while keeping soft edges.",
+              "These tools delete pixels permanently. Duplicate the layer first if you might need the original."
+            ]
+          }
+        }
+      },
+      "removeObjects": {
+        "title": "Remove unwanted objects and blemishes",
+        "description": "Clean up dust, spots, wires, tourists and other distractions with healing tools and content-aware fill.",
+        "sections": {
+          "prepare": {
+            "title": "Work on a separate layer",
+            "steps": [
+              "Create a new empty layer above the photo with Layer → New → New raster layer.",
+              "In the options of the retouching tool, enable Sample all layers.",
+              "Retouch on the new layer. The original photo stays untouched, and you can lower the layer's opacity or erase a correction later."
+            ]
+          },
+          "spots": {
+            "title": "Small spots and dust",
+            "steps": [
+              "Choose the Spot healing brush (J).",
+              "Set a brush slightly larger than the spot.",
+              "Click or paint over the spot. Focale fills it with surrounding texture matched to the local brightness and colour."
+            ]
+          },
+          "heal": {
+            "title": "Larger areas with a chosen source",
+            "steps": [
+              "Choose the Healing brush or the Clone stamp (S).",
+              "Alt-click (Option-click on macOS) a clean area to set the source.",
+              "Paint over the defect. The Healing brush blends the copied texture into its surroundings; the Clone stamp copies pixels exactly, which is better near sharp edges."
+            ],
+            "tip": "With Aligned enabled, the source follows your brush from one stroke to the next. Disable it to restart from the same source point at every stroke."
+          },
+          "fill": {
+            "title": "Remove a whole object",
+            "steps": [
+              "Draw a loose selection around the object with the Lasso, leaving a small margin.",
+              "Choose Edit → Content-aware fill.",
+              "Paint the sampling area to tell Focale where it may take texture from, check the preview, and output the result to a new layer."
+            ],
+            "tip": "The Patch tool is a good alternative: select the defect, then drag the selection onto a clean area."
+          },
+          "move": {
+            "title": "Move an object instead",
+            "paragraphs": [
+              "The Content-aware move tool moves a selected object to another place and fills the hole it leaves behind."
+            ]
+          }
+        }
+      },
+      "cropAndStraighten": {
+        "title": "Crop and straighten a photo",
+        "description": "Improve composition, level a tilted horizon and correct the perspective of buildings and documents.",
+        "sections": {
+          "crop": {
+            "title": "Crop a photo",
+            "steps": [
+              "Choose the Crop tool (C).",
+              "Drag to set the crop frame. To keep proportions, choose Fixed ratio under Dimensions and enter a ratio such as 3:2 or 1:1. The Overlay option shows guides such as the rule of thirds.",
+              "Press Enter to apply the crop, or Escape to cancel."
+            ],
+            "tip": "Disable Delete cropped pixels to keep the hidden areas: you can reframe later."
+          },
+          "straighten": {
+            "title": "Level a tilted horizon",
+            "steps": [
+              "With the Crop tool active, choose Straighten in the tool options.",
+              "Draw a line along something that should be horizontal, such as the horizon.",
+              "Focale rotates the image to make that line level. Adjust the frame, then press Enter."
+            ],
+            "tip": "Set Fill to Content-aware fill to complete the corners revealed by the rotation instead of leaving them transparent."
+          },
+          "perspective": {
+            "title": "Correct perspective",
+            "steps": [
+              "Choose the Perspective crop tool.",
+              "Drag to draw a frame, then move its corners onto something that should be rectangular, such as a painting, a document or a facade.",
+              "Press Enter: the area is straightened into a rectangle."
+            ]
+          },
+          "other": {
+            "title": "Other cropping commands",
+            "items": [
+              "Image → Crop to selection crops to the bounds of the current selection.",
+              "Image → Trim… removes transparent or uniform borders.",
+              "Image → Canvas size… adds space around the image without scaling it."
+            ]
+          }
+        }
+      },
+      "resizeImage": {
+        "title": "Resize an image",
+        "description": "Change pixel dimensions or print size, keep proportions and prepare several sizes at once.",
+        "sections": {
+          "resize": {
+            "title": "Change the image size",
+            "steps": [
+              "Choose Image → Image size….",
+              "Keep the link between width and height enabled to preserve proportions.",
+              "Enter the new width or height in pixels or as a percentage, check the new pixel memory, and confirm."
+            ]
+          },
+          "print": {
+            "title": "Change the print size only",
+            "paragraphs": [
+              "Disable Resample to keep every pixel and change only the resolution, in pixels per inch. A 3000-pixel-wide photo prints 25 cm wide at 300 ppi, or 50 cm wide at 150 ppi."
+            ]
+          },
+          "quality": {
+            "title": "Keep the best quality",
+            "items": [
+              "Reducing an image is safe. Enlarging cannot add detail that was never captured: a strong enlargement looks soft.",
+              "Resize once, at the end. Repeated resizing softens the image a little more each time.",
+              "Keep your full-size project and export resized copies instead of resizing the original."
+            ]
+          },
+          "canvas": {
+            "title": "Image size or canvas size?",
+            "paragraphs": [
+              "Image size scales the whole picture. Canvas size changes the document area without scaling: it adds space or cuts edges."
+            ]
+          },
+          "several": {
+            "title": "Export several sizes at once",
+            "paragraphs": [
+              "In File → Export → Export as…, add entries under Output sizes, for example 1x and 2x with a filename suffix. To resize a whole folder of photos, see Batch processing."
+            ]
+          }
+        }
+      },
+      "fixExposureAndColor": {
+        "title": "Fix exposure and colours",
+        "description": "Brighten dark photos, recover contrast, correct colour casts and boost colour with editable adjustment layers.",
+        "sections": {
+          "auto": {
+            "title": "Start with an automatic correction",
+            "paragraphs": [
+              "Image → Auto tone, Auto contrast and Auto color stretch the tones of the image to the full range. Auto color also removes most colour casts. Undo if the result goes too far."
+            ]
+          },
+          "levels": {
+            "title": "Set black and white points with Levels",
+            "steps": [
+              "Choose Layer → New adjustment layer → Levels….",
+              "Look at the histogram: if it does not reach the left or right edge, the image lacks deep blacks or clean whites.",
+              "Drag the black and white input sliders to where the histogram starts and ends.",
+              "Move the middle slider to brighten or darken the midtones."
+            ]
+          },
+          "curves": {
+            "title": "Shape contrast with Curves",
+            "steps": [
+              "Choose Layer → New adjustment layer → Curves….",
+              "Add a point in the shadows and pull it down slightly, then add a point in the highlights and push it up: this gentle S-curve adds contrast.",
+              "Edit the red, green or blue channel separately to correct a colour cast."
+            ],
+            "tip": "Focale keeps curves smooth and never lets them reverse tones, so you can add many points safely."
+          },
+          "shadows": {
+            "title": "Open up shadows and recover highlights",
+            "paragraphs": [
+              "Shadows / highlights brightens dark areas and tames bright ones independently. Exposure works in photographic stops and is ideal for high bit depth images."
+            ]
+          },
+          "colour": {
+            "title": "Adjust colour and saturation",
+            "items": [
+              "Vibrance boosts dull colours more than already vivid ones, which keeps skin tones natural.",
+              "Hue / saturation changes all colours or a single colour range.",
+              "For white balance, use the Temperature and Tint sliders of the Camera Raw filter."
+            ]
+          },
+          "editable": {
+            "title": "Keep it editable",
+            "paragraphs": [
+              "Adjustment layers never change the photo's pixels. Double-click them to change their settings, paint on their mask to limit them to part of the image, or lower their opacity to soften them."
+            ]
+          }
+        }
+      },
+      "blackAndWhite": {
+        "title": "Convert a photo to black and white",
+        "description": "Create expressive black-and-white images and control how each colour becomes grey.",
+        "sections": {
+          "adjustment": {
+            "title": "Use a Black and white adjustment layer",
+            "steps": [
+              "Choose Layer → New adjustment layer → Black and white….",
+              "Move the colour sliders to decide how bright each colour becomes. Darkening blues makes a sky dramatic; lightening reds and yellows brightens skin.",
+              "Add contrast with a Curves adjustment layer above it."
+            ],
+            "tip": "The colour photo is still there. Hide the adjustment layer to compare, or paint on its mask to keep some colour."
+          },
+          "tint": {
+            "title": "Add a tone",
+            "paragraphs": [
+              "Enable the tint option of the Black and white adjustment to create a sepia or cool-toned image. A Gradient map adjustment gives full control over the colours used for shadows and highlights."
+            ]
+          },
+          "mode": {
+            "title": "Convert the whole document",
+            "paragraphs": [
+              "Image → Mode → Grayscale converts the document to a single grey channel. It discards colour permanently and gives no control over how colours become grey, so prefer the adjustment layer and convert only when a grayscale file is required."
+            ]
+          }
+        }
+      },
+      "editRawPhotos": {
+        "title": "Edit RAW photos",
+        "description": "Develop camera RAW files: white balance, exposure, noise reduction, lens corrections and local adjustments.",
+        "sections": {
+          "why": {
+            "title": "Why shoot RAW?",
+            "paragraphs": [
+              "A RAW file keeps all the data recorded by the sensor, with more tonal range than a JPEG. You can change white balance and recover highlights and shadows with far fewer artefacts."
+            ]
+          },
+          "develop": {
+            "title": "Develop a RAW file",
+            "steps": [
+              "Open the RAW file with File → Open…. The Camera Raw workspace opens.",
+              "Set the white balance with Temperature and Tint, or choose a preset.",
+              "Adjust exposure, then recover bright and dark areas with the highlights and shadows controls.",
+              "Apply noise reduction and sharpening, and enable lens corrections for your camera and lens.",
+              "Click Open. The developed image opens as a 16-bit document that keeps the RAW settings editable."
+            ],
+            "tip": "Use the before/after comparison and the clipping warnings to see which areas are pure white or pure black."
+          },
+          "local": {
+            "title": "Correct part of the image",
+            "paragraphs": [
+              "Local adjustments apply corrections through a brush, a linear gradient or a radial gradient: darken a sky, brighten a face or add a vignette."
+            ]
+          },
+          "layers": {
+            "title": "Use RAW controls on any layer",
+            "paragraphs": [
+              "Filter → Camera Raw filter brings the same development controls to an ordinary layer. Convert the layer for smart filters first to keep the settings editable."
+            ]
+          },
+          "original": {
+            "title": "Your RAW file stays untouched",
+            "paragraphs": [
+              "Focale never modifies the RAW file. Save the result as a .focale project or export it, and keep the original RAW file as your archive. Development presets can be saved and reused, and Adobe Camera Raw XMP presets can be imported."
+            ]
+          }
+        }
+      },
+      "panoramaAndHdr": {
+        "title": "Create a panorama or an HDR image",
+        "description": "Stitch several photos into a panorama, merge bracketed exposures to HDR or combine focus stacks.",
+        "sections": {
+          "shoot": {
+            "title": "Shoot for merging",
+            "items": [
+              "Panorama: overlap consecutive shots by about a third, keep exposure and focus fixed, and rotate around the camera rather than walking.",
+              "HDR: take several exposures of the same scene, for example −2, 0 and +2 EV, ideally on a tripod.",
+              "Focus stack: take several shots focused at different distances without moving the camera."
+            ]
+          },
+          "panorama": {
+            "title": "Stitch a panorama",
+            "steps": [
+              "Choose File → Automate → Photomerge….",
+              "Add between 2 and 32 photos.",
+              "Choose a layout. Auto picks one for you; Cylindrical and Spherical suit wide views, Perspective suits a few shots, Collage and Reposition only move the images.",
+              "Run the merge. Each photo becomes a layer with an editable mask, so you can adjust any seam afterwards."
+            ],
+            "tip": "Crop the result to remove the irregular transparent edges, or fill them with Content-aware fill."
+          },
+          "hdr": {
+            "title": "Merge exposures to HDR",
+            "steps": [
+              "Choose File → Automate → Merge to HDR….",
+              "Add the bracketed photos. They must have the same dimensions.",
+              "Keep alignment enabled for hand-held shots, and enable Remove ghosts if something moved between shots.",
+              "Choose 32-bit HDR to keep the full range of light, or 16-bit exposure fusion for an image that is ready to use."
+            ]
+          },
+          "focus": {
+            "title": "Combine a focus stack",
+            "steps": [
+              "Open the photos as layers in one document and select them.",
+              "Choose Edit → Auto-align layers….",
+              "Choose Edit → Auto-blend layers… with Stack images. Each layer keeps the sharpest regions through its mask."
+            ]
+          }
+        }
+      },
+      "vectorizeImage": {
+        "title": "Convert an image to vector",
+        "description": "Trace a logo, sketch or illustration into editable vector paths and export it as SVG or PDF.",
+        "sections": {
+          "when": {
+            "title": "When tracing works best",
+            "paragraphs": [
+              "Tracing turns areas of colour into vector paths that stay sharp at any size. It works best on logos, icons, line art and flat illustrations. Photographs produce many small shapes and are better kept as images."
+            ]
+          },
+          "trace": {
+            "title": "Trace an image",
+            "steps": [
+              "Create or open a vector document.",
+              "Place the image with File → Place embedded…, or paste it.",
+              "Select the image, then choose Select → Trace image….",
+              "Choose Black and white with a threshold for line art, or Color with a maximum number of colours.",
+              "Increase the noise radius and minimum area to ignore specks, and adjust the curve tolerance: lower keeps more detail, higher gives smoother, simpler paths.",
+              "Compare the source and the trace, then choose Expand to paths."
+            ],
+            "tip": "Images up to about one megapixel can be traced: reduce larger images first. Increasing contrast and removing the background beforehand also gives cleaner paths."
+          },
+          "after": {
+            "title": "After tracing",
+            "items": [
+              "The result is a group of ordinary paths: recolour them, merge shapes with Shape builder or simplify them.",
+              "Undo restores the original image in one step.",
+              "Save a .fvector project, or export SVG or PDF for the web, print or other software."
+            ]
+          }
+        }
+      },
+      "exportForWeb": {
+        "title": "Export images for the web",
+        "description": "Choose between JPEG, PNG, WebP and AVIF, balance quality and file size, and export several sizes at once.",
+        "sections": {
+          "format": {
+            "title": "Choose the right format",
+            "table": {
+              "headers": [
+                "Format",
+                "Best for",
+                "Transparency"
+              ],
+              "rows": [
+                [
+                  "JPEG",
+                  "Photographs; universally supported",
+                  "No"
+                ],
+                [
+                  "PNG",
+                  "Screenshots, logos, graphics with sharp edges",
+                  "Yes"
+                ],
+                [
+                  "WebP",
+                  "Graphics and photographs; currently exported losslessly by Focale",
+                  "Yes"
+                ],
+                [
+                  "AVIF",
+                  "Photographs at the smallest file size",
+                  "Yes"
+                ],
+                [
+                  "SVG",
+                  "Logos and icons from vector documents",
+                  "Yes"
+                ]
+              ]
+            }
+          },
+          "export": {
+            "title": "Export an image",
+            "steps": [
+              "Choose File → Export → Export as….",
+              "Pick a format and set the quality. Compare the original and export previews and check the estimated file size.",
+              "Set the dimensions, and add entries under Output sizes for high-density screens, for example 1x and 2x with a filename suffix.",
+              "Export. Your .focale project is not modified."
+            ],
+            "tip": "Keep Embed sRGB profile enabled so colours look the same in every browser."
+          },
+          "quick": {
+            "title": "Export again quickly",
+            "paragraphs": [
+              "File → Export → Quick export reuses your last format and settings without opening the dialog. Export again repeats the last export."
+            ]
+          },
+          "parts": {
+            "title": "Export layers, artboards or slices",
+            "paragraphs": [
+              "File → Export → Export selected assets… exports chosen layers, groups or artboards as separate files. File → Export → Save for web… exports slices of a web design."
+            ]
+          }
+        }
+      },
+      "openPsdFiles": {
+        "title": "Open and edit PSD files without Photoshop",
+        "description": "Open Photoshop PSD and PSB files with their layers, edit them and export them back, on Linux, Windows or macOS.",
+        "sections": {
+          "open": {
+            "title": "Open a Photoshop file",
+            "steps": [
+              "Choose File → Open… and select a .psd or .psb file, or drag it onto Focale.",
+              "Check the Layers panel: groups, masks, blend modes and opacity are kept.",
+              "Save a working copy as a .focale project."
+            ]
+          },
+          "editable": {
+            "title": "What stays editable",
+            "items": [
+              "Pixel layers, groups, layer masks, vector masks and clipping masks.",
+              "Text layers, when the fonts are installed on your computer.",
+              "Shape layers, fill layers and adjustment layers such as Curves, Levels and Hue / saturation.",
+              "Smart objects and many layer effects such as shadows, glows and strokes."
+            ]
+          },
+          "limits": {
+            "title": "When something looks different",
+            "paragraphs": [
+              "Features Focale cannot reproduce exactly are shown using the pixels stored in the file, so the image still looks right, but that part is not editable. Missing fonts are substituted for display: install them to get the exact layout. Keep your original file when exchanging documents."
+            ]
+          },
+          "export": {
+            "title": "Send it back as PSD",
+            "paragraphs": [
+              "Choose File → Export → Export as… and select PSD or PSB to share a layered file with someone who uses Photoshop. GIMP files (XCF) can be opened and exported too."
+            ]
+          }
+        }
+      },
+      "batchProcessing": {
+        "title": "Batch edit many photos",
+        "description": "Convert, resize and process whole folders of images with the Image processor, actions and batch processing.",
+        "sections": {
+          "convert": {
+            "title": "Convert and resize a folder",
+            "steps": [
+              "Choose File → Automate → Image processor….",
+              "Choose a source folder and a destination folder.",
+              "Choose the file type and quality.",
+              "Enable Resize to fit, enter a maximum width and height, and keep Do not enlarge enabled for small images.",
+              "Choose what to do with existing files, then run."
+            ]
+          },
+          "record": {
+            "title": "Record an action",
+            "steps": [
+              "Open a sample image and the Actions panel.",
+              "Create a new action and start recording.",
+              "Apply your edits, for example an adjustment, a resize and a sharpening filter, then stop recording.",
+              "Play the action on another image to test it."
+            ],
+            "tip": "Steps that cannot be replayed are marked in the panel; remove them before using the action in a batch."
+          },
+          "batch": {
+            "title": "Apply an action to many files",
+            "steps": [
+              "Choose File → Automate → Batch….",
+              "Choose the action, the source folder and the destination.",
+              "Run, and check a few results before relying on the output."
+            ]
+          },
+          "share": {
+            "title": "Share and import actions",
+            "paragraphs": [
+              "Export an action set to reuse it on another computer. Photoshop ATN action sets can be imported, and sets can be exported in Photoshop format."
+            ]
+          }
+        }
+      },
+      "layersAndBlendModes": {
+        "title": "Layers and blend modes explained",
+        "description": "Understand how layers stack, what opacity and blend modes do, and when to use groups and clipping masks.",
+        "sections": {
+          "stack": {
+            "title": "A stack of transparent sheets",
+            "paragraphs": [
+              "Think of layers as transparent sheets stacked on top of the photo. Each sheet holds one element: a retouch, a text, a shape or a correction. The Layers panel shows the stack from top to bottom, and what you see is the result of looking through all of them.",
+              "Separate layers let you change one element without touching the others, and try ideas you can remove later."
+            ]
+          },
+          "kinds": {
+            "title": "Kinds of layers",
+            "table": {
+              "headers": [
+                "Layer",
+                "Holds",
+                "Typical use"
+              ],
+              "rows": [
+                [
+                  "Raster",
+                  "Pixels",
+                  "Photos, painting, retouching"
+                ],
+                [
+                  "Text",
+                  "Editable type",
+                  "Titles, captions"
+                ],
+                [
+                  "Shape",
+                  "Vector geometry",
+                  "Buttons, logos, frames"
+                ],
+                [
+                  "Fill",
+                  "A colour, gradient or pattern",
+                  "Backgrounds, tints"
+                ],
+                [
+                  "Adjustment",
+                  "Correction settings",
+                  "Exposure, colour, black and white"
+                ],
+                [
+                  "Smart object",
+                  "Embedded or linked content",
+                  "Scaling and filtering without loss"
+                ]
+              ]
+            }
+          },
+          "opacity": {
+            "title": "Opacity and fill",
+            "paragraphs": [
+              "Opacity fades a whole layer, including its effects. Fill fades only the layer's own pixels and keeps effects such as strokes and shadows at full strength."
+            ]
+          },
+          "blend": {
+            "title": "Blend modes",
+            "paragraphs": [
+              "A blend mode decides how a layer's colours combine with the layers below, instead of simply covering them."
+            ],
+            "items": [
+              "Multiply darkens: white disappears. Use it for shadows, or to place a scanned drawing over a background.",
+              "Screen lightens: black disappears. Use it for light leaks, fire and sparks.",
+              "Overlay and Soft light add contrast: 50% grey disappears. Paint lighter or darker on a grey layer in Soft light to dodge and burn without touching the photo.",
+              "Color applies the hue and saturation of the layer while keeping the brightness below: ideal for recolouring.",
+              "Luminosity does the opposite, and is useful to sharpen or adjust contrast without shifting colours."
+            ]
+          },
+          "groups": {
+            "title": "Groups and clipping masks",
+            "paragraphs": [
+              "Groups organize layers and can be moved, hidden or masked together. A clipping mask limits a layer to the visible content of the layer directly below it: place a texture on text, or apply an adjustment to one object only, with Layer → Create clipping mask."
+            ]
+          }
+        }
+      },
+      "selectionsAndMasks": {
+        "title": "Selections and masks explained",
+        "description": "Learn how selections limit edits, how masks hide without deleting, and which selection tool to use.",
+        "sections": {
+          "selection": {
+            "title": "Selections limit where you edit",
+            "paragraphs": [
+              "A selection is shown by a moving dotted outline. While it is active, painting, filters and adjustments only affect the selected area. Deselect with Ctrl+D (Cmd+D on macOS) when you are done."
+            ]
+          },
+          "tools": {
+            "title": "Choose a selection tool",
+            "table": {
+              "headers": [
+                "Tool",
+                "Best for"
+              ],
+              "rows": [
+                [
+                  "Rectangular and elliptical select",
+                  "Simple geometric areas"
+                ],
+                [
+                  "Lasso and polygonal lasso",
+                  "Rough freehand or straight-edged areas"
+                ],
+                [
+                  "Magnetic lasso",
+                  "Outlines with clear contrast"
+                ],
+                [
+                  "Quick selection",
+                  "Objects and people, painted roughly"
+                ],
+                [
+                  "Magic wand",
+                  "Areas of similar colour, such as a sky"
+                ],
+                [
+                  "Color range",
+                  "Every pixel of a colour across the image"
+                ]
+              ]
+            }
+          },
+          "combine": {
+            "title": "Add, subtract and refine",
+            "items": [
+              "Hold Shift to add to the selection and Alt (Option on macOS) to subtract from it.",
+              "Select → Modify → Feather… softens the edge so corrections blend smoothly.",
+              "Select → Select and mask… refines difficult edges such as hair.",
+              "Select → Save selection… stores a selection so you can load it again later."
+            ]
+          },
+          "masks": {
+            "title": "Masks hide without deleting",
+            "paragraphs": [
+              "A layer mask is a black-and-white image attached to a layer. White shows the layer, black hides it and grey partly shows it. Because nothing is erased, you can always bring hidden parts back.",
+              "Create one from a selection with Layer → Raster mask → Reveal selection. Then select the mask thumbnail in the Layers panel and paint with black or white to refine it."
+            ],
+            "tip": "When painting does not work as expected, check whether the image thumbnail or the mask thumbnail is selected in the Layers panel."
+          },
+          "vector": {
+            "title": "Vector masks",
+            "paragraphs": [
+              "A vector mask uses a path instead of pixels. Its edge stays perfectly sharp at any size and can be edited with the path tools, which suits geometric cut-outs and product shots."
+            ]
+          }
+        }
+      },
+      "nonDestructiveEditing": {
+        "title": "Non-destructive editing explained",
+        "description": "Edit without losing quality: adjustment layers, masks, smart objects and smart filters keep every change reversible.",
+        "sections": {
+          "idea": {
+            "title": "Keep the original, store the change",
+            "paragraphs": [
+              "A destructive edit overwrites pixels: once saved, the original is gone. A non-destructive edit stores the change separately and applies it when the image is displayed. You can adjust or remove it at any time, even after reopening the project."
+            ]
+          },
+          "tools": {
+            "title": "The non-destructive toolbox",
+            "table": {
+              "headers": [
+                "Instead of",
+                "Use",
+                "Why"
+              ],
+              "rows": [
+                [
+                  "Image → Adjustments",
+                  "An adjustment layer",
+                  "Settings stay editable and can be masked"
+                ],
+                [
+                  "The eraser",
+                  "A layer mask",
+                  "Hidden parts can be brought back"
+                ],
+                [
+                  "Retouching the photo layer",
+                  "A separate retouch layer",
+                  "Corrections can be faded or removed"
+                ],
+                [
+                  "Applying a filter",
+                  "A smart filter on a smart object",
+                  "Filter settings stay editable"
+                ],
+                [
+                  "Scaling pixels repeatedly",
+                  "A smart object",
+                  "Scaling reads the original each time"
+                ]
+              ]
+            }
+          },
+          "smart": {
+            "title": "Smart objects and smart filters",
+            "steps": [
+              "Select a layer and choose Filter → Convert for smart filters.",
+              "Apply a filter such as Gaussian blur or Unsharp mask.",
+              "The filter appears under the layer. Change its settings, hide it, or paint on its mask to limit it."
+            ]
+          },
+          "save": {
+            "title": "Save as .focale",
+            "paragraphs": [
+              "Only a .focale project keeps layers, masks, adjustment layers and smart objects. Exported JPEG or PNG files are flattened copies: keep the project to continue editing."
+            ]
+          }
+        }
+      },
+      "colorModesAndBitDepth": {
+        "title": "Colour modes, bit depth and profiles explained",
+        "description": "RGB or CMYK, 8 or 16 bits, sRGB or Adobe RGB: choose the right settings for screen and print.",
+        "sections": {
+          "modes": {
+            "title": "Colour modes",
+            "table": {
+              "headers": [
+                "Mode",
+                "Use it for"
+              ],
+              "rows": [
+                [
+                  "RGB",
+                  "Screens, photos, the web; the right choice for most work"
+                ],
+                [
+                  "CMYK",
+                  "Documents sent to a commercial printer"
+                ],
+                [
+                  "Grayscale",
+                  "Black-and-white output with a single channel"
+                ],
+                [
+                  "Lab",
+                  "Advanced colour correction"
+                ]
+              ]
+            },
+            "tip": "Edit in RGB and convert to CMYK only when your printer asks for it, using the profile they recommend."
+          },
+          "depth": {
+            "title": "Bit depth",
+            "paragraphs": [
+              "Bit depth is how finely each colour is stored. 8 bits give 256 levels per channel, enough to display an image. 16 bits give 65,536 levels: strong adjustments stay smooth instead of showing bands in skies and gradients. 32 bits store light brighter than white for HDR work.",
+              "Edit RAW and heavily corrected photos in 16 bits, and export in 8 bits for the web."
+            ]
+          },
+          "profiles": {
+            "title": "Colour profiles",
+            "paragraphs": [
+              "A colour profile tells other software what the numbers in the file mean. sRGB is the standard for screens and the web. Adobe RGB and ProPhoto RGB contain more saturated colours and suit printing and RAW editing.",
+              "Edit → Color profile lets you assign or convert a profile. Assigning changes how the numbers are interpreted; converting keeps the appearance and changes the numbers. Export with an sRGB profile for the web."
+            ]
+          }
+        }
+      },
+      "vectorFormat": {
+        "title": "Vector projects (.fvector)",
+        "description": "Version-1 JSON specification: editable artwork, document libraries and shared binary resources.",
+        "sections": {
+          "schema": {
+            "title": "File structure",
+            "paragraphs": [
+              "A .fvector file is UTF-8 JSON. Its required root fields are format, version, id, name and scene. The example below is a complete project with one editable ellipse. Writers use version 1; readers also accept development envelopes 2–9 and save them as version 1. Unknown versions are rejected."
+            ]
+          },
+          "scene": {
+            "title": "Editable scene and objects",
+            "paragraphs": [
+              "The scene stores its dimensions, resolution, colour profiles and objects in painting order. Objects retain shapes, Bézier paths, text, transforms, fills, strokes and children. Symbols, named colours, graphic styles, text styles, artboards and production metadata remain editable. Child coordinates are local to their parent."
+            ]
+          },
+          "resources": {
+            "title": "Shared binary resources",
+            "paragraphs": [
+              "The optional binaryResources table indexes Base64 payloads by SHA-256. Each entry declares byteLength and bytes; participating fields reference its digest. This covers placed sources, retained PDF/AI files, fonts, profiles and patterns. Legacy inline Base64 remains readable. Missing, unused or inconsistent resources are rejected."
+            ]
+          },
+          "limits": {
+            "title": "Validation and limits",
+            "paragraphs": [
+              "The current limits are 128 MiB of UTF-8 JSON, a nesting depth of 100, two million JSON values and 100,000 entries per collection. Up to 4,096 distinct binary resources share an 80 MiB decoded budget. Per-field limits also apply. Interface layout, selection and undo history are excluded."
+            ]
+          },
+          "exchange": {
+            "title": "Native saving and interchange",
+            "paragraphs": [
+              "Keep .fvector to preserve the editable document. SVG, PDF and AI interchange has feature-specific limits described in the downloadable vector reference; SVG filters have their own reference. A resource collection packages captured sources, collectable fonts and a dependency report alongside a project copy. Publishing these specifications does not change the version-1 envelope."
+            ]
+          }
+        }
+      },
+      "resourceCollection": {
+        "title": "Vector resource collections (.zip)",
+        "description": "Archive layout, captured dependencies and the version-1 collection report.",
+        "sections": {
+          "structure": {
+            "title": "Archive contents",
+            "paragraphs": [
+              "The ZIP contains project.fvector, report.json and optional resources/ and fonts/ entries named by SHA-256. Extract it and open project.fvector. The project copy embeds available linked snapshots without refreshing external files or changing the original document. Loose fonts retain their family names and need installation on the receiving system."
+            ]
+          },
+          "schema": {
+            "title": "Dependency report",
+            "paragraphs": [
+              "The report uses format focale-resource-collection and version 1. It lists source placements, original paths, captured files, font availability and uncollected data-set paths. The example describes a project without external dependencies. An incomplete report identifies missing snapshots, preview-only sources, fonts needing recovery or uninspected nested dependencies."
+            ]
+          },
+          "limits": {
+            "title": "Bounds and completeness",
+            "paragraphs": [
+              "The exporter requires acceptance before writing an incomplete collection. The archive is limited to 128 MiB of uncompressed entries and 128 MiB of encoded ZIP, 10,000 entries, 4,096 source placements and 4,096 inactive data-set paths. Font inspection allows 256 faces and 64 MiB of distinct programs. Nested project limits still apply; nested dependencies are not recursively collected."
+            ]
+          }
+        }
       }
-    }
+    },
+    "tip": "Tip:",
+    "relatedGuides": "Related guides"
   },
   "support": {
     "title": "Support Focale",

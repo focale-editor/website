@@ -11,6 +11,7 @@ interface ArticleSection {
   paragraphs?: Message[]
   items?: Message[]
   steps?: Message[]
+  tip?: Message
   table?: { headers: Message[], rows: Message[][] }
 }
 
@@ -19,9 +20,47 @@ const sections = computed(() => Object.entries(tm(`${prefix.value}.sections`) as
 const extras = computed(() => documentationExtras[props.article])
 const captures = computed(() => editorScreenshots(locale.value, 'dark'))
 const { pages } = useDocumentation()
-const related = computed(() => pages.value.filter(page => page.article && page.article !== props.article))
+const suggested = computed(() => (extras.value?.related ?? [])
+  .map(id => pages.value.find(page => page.article === id))
+  .filter(page => page !== undefined))
+const related = computed(() => pages.value.filter(page => page.article && page.article !== props.article && !suggested.value.includes(page)))
 
 usePageSeo(() => ({ title: t(`${prefix.value}.title`), description: t(`${prefix.value}.description`) }))
+
+/** Describes task articles and the FAQ in schema.org terms for search engines. */
+const structuredData = computed(() => {
+  const schema = extras.value?.schema
+  if (!schema) {
+    return undefined
+  }
+  const name = t(`${prefix.value}.title`)
+  const description = t(`${prefix.value}.description`)
+  const entries = sections.value.map(([, section]) => section)
+  if (schema === 'faq') {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      'mainEntity': entries.map(section => ({
+        '@type': 'Question',
+        'name': rt(section.title),
+        'acceptedAnswer': { '@type': 'Answer', 'text': (section.paragraphs ?? []).map(paragraph => rt(paragraph)).join(' ') },
+      })),
+    }
+  }
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name,
+    description,
+    'step': entries.flatMap(section => (section.steps ?? []).map(step => ({ '@type': 'HowToStep', 'text': rt(step) }))),
+  }
+})
+
+useHead(() => ({
+  script: structuredData.value
+    ? [{ key: 'documentation-structured-data', type: 'application/ld+json', innerHTML: JSON.stringify(structuredData.value) }]
+    : [],
+}))
 
 function captureFor(section: string) {
   const id = extras.value?.images?.[section]
@@ -87,6 +126,19 @@ function captureFor(section: string) {
           {{ rt(item) }}
         </li>
       </ul>
+      <aside
+        v-if="section.tip"
+        class="article-tip"
+      >
+        <Icon
+          name="lucide:lightbulb"
+          aria-hidden="true"
+        />
+        <p>
+          <strong>{{ t('docs.tip') }}</strong>
+          {{ rt(section.tip) }}
+        </p>
+      </aside>
       <div
         v-if="section.table"
         class="article-table"
@@ -168,6 +220,29 @@ function captureFor(section: string) {
       </ul>
     </section>
 
+    <section
+      v-if="suggested.length"
+      class="article-section article-next"
+    >
+      <h2>{{ t('docs.relatedGuides') }}</h2>
+      <div class="article-next-cards">
+        <NuxtLink
+          v-for="page in suggested"
+          :key="page.to"
+          :to="page.to"
+          class="article-next-card"
+        >
+          <Icon
+            :name="page.icon"
+            aria-hidden="true"
+          />
+          <span>
+            <strong>{{ page.title }}</strong>
+            <span>{{ page.description }}</span>
+          </span>
+        </NuxtLink>
+      </div>
+    </section>
     <details class="article-related">
       <summary>{{ t('docs.otherGuides') }}</summary>
       <ul class="article-list">
@@ -211,6 +286,80 @@ function captureFor(section: string) {
 
 .article-section {
   scroll-margin-top: calc(var(--header-height) + 1.5rem);
+}
+
+.article-tip {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-top: 1.25rem;
+  padding: 0.875rem 1rem;
+  font-size: 0.9375rem;
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  .iconify {
+    flex: none;
+    margin-top: 0.2rem;
+    color: var(--color-accent-bright);
+  }
+
+  strong {
+    color: var(--color-text);
+  }
+
+  p {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+}
+
+.article-next-cards {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+
+  @include from($breakpoint-md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.article-next-card {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 1rem;
+  color: var(--color-text) !important;
+  text-decoration: none !important;
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+
+  &:hover {
+    border-color: var(--color-accent-line);
+    background: var(--color-panel-hover);
+  }
+
+  .iconify {
+    flex: none;
+    margin-top: 0.15rem;
+    color: var(--color-accent-bright);
+    font-size: 1.125rem;
+  }
+
+  strong {
+    display: block;
+    font-size: 0.9375rem;
+  }
+
+  strong + span {
+    display: block;
+    margin-top: 0.25rem;
+    color: var(--color-text-muted);
+    font-size: 0.8125rem;
+    line-height: 1.55;
+  }
 }
 
 .article-list {

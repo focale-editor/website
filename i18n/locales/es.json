@@ -18,19 +18,20 @@
     "preview": "Vista previa",
     "language": "Idioma",
     "openMenu": "Abrir el menú",
-    "closeMenu": "Cerrar el menú"
+    "closeMenu": "Cerrar el menú",
+    "faq": "FAQ"
   },
   "hero": {
     "badge": "Editor de imágenes para ordenador",
-    "title": "Retoca, compón y crea",
+    "title": "Retocar, componer y crear",
     "titleAccent": "con precisión.",
-    "subtitle": "Un editor de imágenes avanzado que trabaja íntegramente en tu equipo, del retoque fotográfico a la composición por capas. Tus archivos de Photoshop se abren directamente.",
+    "subtitle": "Retoca fotos, compón con capas y dibuja ilustraciones vectoriales en una misma aplicación local. Conserva tus creaciones editables, con documentos fotográficos y vectoriales abiertos a la vez.",
     "platformsLabel": "Disponible para"
   },
   "principles": {
     "advanced": {
       "title": "Un editor avanzado",
-      "description": "Revelado RAW, capas y máscaras, objetos inteligentes, ajustes no destructivos y automatización: herramientas para crear una imagen y revisar tus decisiones."
+      "description": "Revelado RAW, capas y máscaras, objetos inteligentes, ajustes no destructivos y automatización: herramientas para crear una imagen y revisar cada decisión."
     },
     "crossPlatform": {
       "title": "Un editor, tres sistemas",
@@ -38,7 +39,7 @@
     },
     "photoshop": {
       "title": "Compatible con Photoshop",
-      "description": "Abre documentos PSD, pinceles ABR, motivos PAT y formas personalizadas CSH: años de trabajo y de preajustes te acompañan."
+      "description": "Abre documentos PSD, pinceles ABR, motivos PAT y formas personalizadas CSH: años de trabajo y de preajustes siguen siendo útiles."
     }
   },
   "origins": {
@@ -46,7 +47,7 @@
     "need": "Focale nació de una necesidad muy concreta: retocar mis fotos en Linux con un editor avanzado, local y cómodo de usar. No encontraba una herramienta que encajara con mi forma de trabajar.",
     "alternatives": "Entre las que había probado, KolourPaint era demasiado sencillo para mis necesidades, Krita estaba demasiado orientado al dibujo y Photopea estaba pensado principalmente para la web, con publicidad. GIMP, por su parte, me resultaba complicado de aprender.",
     "linux": "Photoshop y Affinity no estaban dirigidos a Linux. Para mí, usarlos en mi sistema implicaba una máquina virtual para Photoshop o recurrir a Wine para Affinity.",
-    "vision": "Así que empecé a construir el editor que me faltaba. Focale nació en Linux y también está pensado para Windows y macOS, con el mismo objetivo: herramientas de edición avanzadas, una interfaz familiar e imágenes que permanecen en tu equipo."
+    "vision": "Así que empecé a construir el editor que me faltaba. Focale nació en Linux y también está pensado para Windows y macOS, con el mismo objetivo: herramientas de edición avanzadas, una interfaz familiar e imágenes que permanecen en su equipo."
   },
   "preview": {
     "eyebrow": "Un vistazo al editor",
@@ -55,7 +56,7 @@
     "tag": "En curso",
     "caption": "Capturas de una versión de desarrollo. La interfaz sigue evolucionando.",
     "notes": {
-      "menus": "Una barra de menús de verdad y atajos de teclado, donde los esperas.",
+      "menus": "Una barra de menús de verdad y atajos de teclado, donde se esperan.",
       "panels": "Capas, canales, trazados, historial y muestras, en paneles acoplables.",
       "canvas": "Un lienzo que amplía sobre el puntero y se desplaza con el panel táctil."
     },
@@ -86,8 +87,8 @@
         "alt": "Ajuste de curvas en Focale con vista previa de la imagen y puntos de control."
       },
       "typography": {
-        "title": "Tipografía",
-        "alt": "Cartel Eclipse en Focale con capas de texto, formas y controles tipográficos."
+        "title": "Ilustración vectorial",
+        "alt": "Cartel Eclipse en el editor vectorial de Focale con texto y formas editables, lista de objetos y controles tipográficos."
       },
       "brushes": {
         "title": "Pinceles",
@@ -101,32 +102,32 @@
   },
   "features": {
     "eyebrow": "Funciones",
-    "title": "Todo lo que pide una sesión de edición de verdad.",
+    "title": "Del retoque fotográfico a la ilustración vectorial.",
     "description": "Todo lo que sigue ya está en la alfa, listo para probar. Focale aún es joven: las correcciones y la estabilización continúan de una versión a otra.",
     "items": {
       "localFirst": {
         "title": "Local por diseño",
-        "description": "Tus documentos viven en tu disco. Focale los abre, los edita y los guarda en local, y nunca envía tu trabajo a ninguna parte."
+        "description": "Sus documentos permanecen en su disco. Focale los abre, los edita y los guarda en local, y nunca envía su trabajo a ninguna parte."
       },
       "layers": {
         "title": "Capas y grupos",
-        "description": "Capas de mapa de bits, texto, formas, relleno y ajuste, grupos anidados y máscaras de recorte. Organízalas arrastrando, con modos de fusión, bloqueo y miniaturas en vivo."
+        "description": "Capas de mapa de bits, texto, formas, relleno y ajuste, grupos anidados y máscaras de recorte. Se organizan arrastrando, con modos de fusión, bloqueo y miniaturas en vivo."
       },
       "nonDestructive": {
         "title": "Ajustes no destructivos",
-        "description": "Niveles, curvas, exposición, equilibrio de color y tablas de consulta: utiliza los ajustes compatibles en pilas reeditables o capas de ajuste sin alterar los píxeles originales."
+        "description": "Niveles, curvas, exposición, equilibrio de color y tablas de consulta: los ajustes compatibles se usan en pilas reeditables o capas de ajuste sin alterar los píxeles originales."
       },
       "smartObjects": {
         "title": "Objetos y filtros inteligentes",
-        "description": "Incrusta o enlaza fuentes, edita su contenido y aplica transformaciones y filtros reeditables. Actualiza un archivo enlazado o crea una copia independiente cuando lo necesites."
+        "description": "Incrustación o enlace de fuentes, edición de su contenido y transformaciones y filtros reeditables. Un archivo enlazado se actualiza o se convierte en copia independiente cuando hace falta."
       },
       "raw": {
         "title": "Revelado RAW",
-        "description": "Un espacio dedicado con balance de blancos, exposición, curvas, reducción de ruido, correcciones de lente y ajustes locales. Usa también estos controles en tus capas con el filtro Camera Raw."
+        "description": "Un espacio dedicado con equilibrio de blancos, exposición, curvas, reducción de ruido, correcciones de objetivo y ajustes locales. Los mismos controles están disponibles para las capas con el filtro de Camera Raw."
       },
       "photoMerge": {
         "title": "Panorámicas y fusión HDR",
-        "description": "Une varias tomas en una panorámica o combínalas en HDR. El resultado se abre en un documento nuevo, y cada fuente de la panorámica sigue siendo una capa con su máscara editable."
+        "description": "Varias tomas se unen en una panorámica o se combinan en HDR. El resultado se abre en un documento nuevo, y cada fuente de la panorámica sigue siendo una capa con su máscara editable."
       },
       "colorManagement": {
         "title": "Color y alta precisión",
@@ -134,47 +135,59 @@
       },
       "tools": {
         "title": "Pintura y retoque",
-        "description": "Pinceles personalizables, pincel mezclador, borradores, tampones, correctores, parche y movimiento según el contenido. Completa tus retoques con recorte, transformaciones, degradados y herramientas de sobreexposición y subexposición."
+        "description": "Pinceles personalizables, pincel mezclador, borradores, tampones, correctores, parche y movimiento según el contenido. Recorte, transformaciones, degradados y herramientas de sobreexposición y subexposición completan el retoque."
       },
       "masks": {
         "title": "Selecciones y máscaras",
-        "description": "Lazos libre, poligonal y magnético, varita mágica, selección rápida y pincel de selección. Combina selecciones y ajusta las zonas visibles con máscaras pintadas o vectoriales."
+        "description": "Lazos libre, poligonal y magnético, varita mágica, selección rápida y pincel de selección. Las selecciones se combinan y las zonas visibles se ajustan con máscaras pintadas o vectoriales."
       },
       "vector": {
-        "title": "Texto, trazados y formas",
-        "description": "Texto editable, pluma y pluma de curvatura, puntos de ancla y formas personalizadas. Crea capas de forma con relleno y trazo, o convierte trazados en selecciones."
+        "title": "Un espacio vectorial completo",
+        "description": "Crea ilustraciones, logotipos y carteles con objetos editables y mesas de trabajo. Abre documentos fotográficos y vectoriales a la vez y guarda tus creaciones como proyectos .fvector."
       },
       "filters": {
         "title": "Filtros y galería de filtros",
-        "description": "Desenfoque, distorsión, ruido, enfoque y efectos artísticos, con vista previa y opción de deshacer. Combina efectos en la galería y usa los filtros compatibles en una pila inteligente reeditable."
+        "description": "Desenfoque, distorsión, ruido, enfoque y efectos artísticos, con vista previa y opción de deshacer. La galería combina efectos, y los filtros compatibles se usan en una pila inteligente reeditable."
       },
       "layerEffects": {
         "title": "Efectos y estilos de capa",
-        "description": "Bisel, trazo, sombras, resplandores, satinado y superposiciones de color, degradado o motivo. Reutiliza tus combinaciones con estilos Focale e importación y exportación de bibliotecas Photoshop ASL."
+        "description": "Bisel, trazo, sombras, resplandores, satinado y superposiciones de color, degradado o motivo. Las combinaciones se reutilizan con estilos Focale e importación y exportación de bibliotecas Photoshop ASL."
       },
       "presets": {
         "title": "Bibliotecas de ajustes preestablecidos",
-        "description": "Pinceles, motivos, formas, estilos, muestras, degradados, curvas y contornos se guardan en bibliotecas reutilizables. Importa las de Photoshop: ABR, PAT, CSH, ASL, ACO, GRD o ACV."
+        "description": "Pinceles, motivos, formas, estilos, muestras, degradados, curvas y contornos se guardan en bibliotecas reutilizables. Las de Photoshop se importan: ABR, PAT, CSH, ASL, ACO, GRD o ACV."
       },
       "automation": {
         "title": "Acciones y procesamiento por lotes",
-        "description": "Graba y reproduce secuencias de operaciones y compártelas como archivos .faction. Procesa una carpeta o tus documentos abiertos con opciones de exportación y nombres de archivo."
+        "description": "Secuencias de operaciones grabadas, reproducidas y compartidas como archivos .faction. Procesamiento de una carpeta o de los documentos abiertos con opciones de exportación y nombres de archivo."
       },
       "animation": {
         "title": "GIF animados editables",
-        "description": "Abre un GIF como fotogramas editables, ajusta su duración y visibilidad y previsualiza la reproducción en bucle. Conserva la animación en tu proyecto .focale y expórtala como GIF."
+        "description": "Un GIF se abre como fotogramas editables, con duración y visibilidad ajustables y reproducción en bucle. La animación se conserva en el proyecto .focale y se exporta como GIF."
       },
       "workspaces": {
-        "title": "Espacios de trabajo a tu medida",
-        "description": "Acopla, agrupa o separa los paneles y guarda tu disposición. Encuentra cualquier comando con la búsqueda y asígnale el atajo de teclado que prefieras."
+        "title": "Espacios de trabajo a medida",
+        "description": "Paneles acoplables, agrupables o separables, y disposiciones guardadas. Cualquier comando se encuentra con la búsqueda y admite el atajo de teclado que se prefiera."
       },
       "formats": {
         "title": "Abrir, editar, exportar",
-        "description": "PNG, JPEG, WebP, AVIF, HEIF/HEIC, JPEG XL, TIFF, BMP, QOI, TGA, GIF y OpenEXR, además de PSD/PSB con capas. Exporta con redimensionado y opciones adaptadas a cada formato."
+        "description": "Abre imágenes, archivos PSD/PSB y XCF con capas, o ilustraciones editables SVG/SVGZ, PDF y AI compatibles con PDF. Conserva proyectos .focale y .fvector y exporta para la web o impresión según las funciones de cada formato."
       },
       "recovery": {
         "title": "Autoguardado y recuperación",
-        "description": "Las instantáneas viven junto a la aplicación, nunca encima de tu archivo, y un documento recuperado se abre sin guardar, de modo que nada del disco puede sobrescribirse por accidente."
+        "description": "Las instantáneas se guardan junto a la aplicación, nunca encima del archivo, y un documento recuperado se abre sin guardar, de modo que nada del disco puede sobrescribirse por accidente."
+      },
+      "vectorDrawing": {
+        "title": "Trazados, formas y color",
+        "description": "Dibuja con la Pluma, edita anclajes y combina formas con el Creador de formas. Varía el grosor del trazo, utiliza pinceles vectoriales y Pintura interactiva, o crea transiciones con mallas de degradado."
+      },
+      "vectorTypography": {
+        "title": "Tipografía para tus composiciones",
+        "description": "Distribuye texto entre marcos enlazados, sobre un trazado o dentro de una forma. Reutiliza estilos de carácter y párrafo y convierte el texto en contornos editables cuando lo necesites."
+      },
+      "vectorResources": {
+        "title": "Ilustraciones vectoriales reutilizables",
+        "description": "Edita un símbolo para actualizar sus instancias, comparte colores con nombre y estilos gráficos, y crea fusiones o repeticiones en cuadrícula, radiales y en espejo a partir de objetos editables."
       }
     },
     "showLess": "Mostrar menos funciones",
@@ -190,9 +203,9 @@
     }
   },
   "social": {
-    "title": "Sigue el proyecto",
+    "title": "Seguir el proyecto",
     "description": "Trabajos en curso, consejos y el detrás de escena del desarrollo de Focale, en Pixels in Progress.",
-    "footer": "Síguenos",
+    "footer": "Seguir",
     "label": "Pixels in Progress en {network}"
   },
   "error": {
@@ -210,51 +223,51 @@
     "eyebrow": "Windows, macOS y Linux",
     "title": "Descargar Focale",
     "available": "v{version} disponible",
-    "release": "v{version} disponible. Descubre sus novedades en las {notes}.",
+    "release": "v{version} disponible. Sus novedades figuran en las {notes}.",
     "releaseNotes": "notas de la versión",
     "toggle": "Descargar",
     "optionsFor": "Opciones de descarga para {platform}",
     "downloadFor": "Descargar para {platform}",
     "installer": "Instalador {format}",
     "archive": "Archivo {format}",
-    "installerHint": "Descarga el archivo y ábrelo para instalar Focale.",
+    "installerHint": "Descargue el archivo y ábralo para instalar Focale.",
     "storeHint": "Instalación y actualizaciones gestionadas por Microsoft Store.",
     "snapHint": "Abre la página de Focale en Snap Store.",
-    "archiveHint": "Descarga el archivo y sigue los pasos de instalación.",
+    "archiveHint": "Descargue el archivo y siga los pasos de instalación.",
     "unsignedPreview": "Todavía sin certificado público de firma.",
     "soon": "Pronto",
     "storeSoon": "Aún no está disponible en la tienda.",
-    "flatpakHint": "Abre la instalación en tu centro de software, que después gestiona las actualizaciones.",
+    "flatpakHint": "Abre la instalación en el centro de software, que después gestiona las actualizaciones.",
     "oneCommand": "Instalación con un comando",
-    "oneCommandHint": "Descarga la última versión y la instala en tu carpeta personal.",
+    "oneCommandHint": "Descarga la última versión y la instala en la carpeta personal.",
     "copyCommand": "Copiar el comando",
     "commandCopied": "Comando copiado",
     "autoUpdateTitle": "Actualizaciones automáticas",
-    "autoUpdate": "Instala Focale una sola vez: la aplicación te ofrecerá las nuevas versiones en cuanto se publiquen.",
-    "installHint": "Guarda tus proyectos y cierra Focale antes de instalar una nueva versión.",
+    "autoUpdate": "Basta con instalar Focale una vez: la aplicación propone las nuevas versiones en cuanto se publican.",
+    "installHint": "Guarde sus proyectos y cierre Focale antes de instalar una nueva versión.",
     "loading": "Cargando las descargas…",
-    "unavailable": "Los enlaces de descarga no están disponibles temporalmente. Puedes encontrar Focale en GitHub.",
+    "unavailable": "Los enlaces de descarga no están disponibles temporalmente. Focale también está disponible en GitHub.",
     "browseReleases": "Ver versiones en GitHub",
     "archiveInstructionsTitle": "Instalar desde el archivo ZIP",
-    "archiveExtract": "Descarga el archivo ZIP y extrae todo su contenido en una carpeta.",
-    "archiveRun": "Abre un terminal en la carpeta extraída y ejecuta:",
+    "archiveExtract": "Descargue el archivo ZIP y extraiga todo su contenido en una carpeta.",
+    "archiveRun": "Abra un terminal en la carpeta extraída y ejecute:",
     "linuxRequirements": "Compatible con distribuciones Linux recientes que incluyan GTK 3.",
-    "terminalStep": "Abre un terminal, copia y ejecuta este comando:",
-    "commandCopyError": "No se pudo copiar el comando. Selecciónalo y cópialo manualmente.",
+    "terminalStep": "Abra un terminal, copie y ejecute este comando:",
+    "commandCopyError": "No se pudo copiar el comando. Selecciónelo y cópielo manualmente.",
     "close": "Cerrar"
   },
   "docs": {
     "title": "Documentación",
     "overview": "Resumen",
     "navigation": "Navegación de la documentación",
-    "description": "Guías e información de referencia para Focale.",
+    "description": "Tutoriales paso a paso, explicaciones y referencias para Focale, el editor local de fotos y gráficos vectoriales.",
     "licenses": {
       "title": "Licencias y créditos",
       "description": "Las bibliotecas, modelos y datos que hacen posible Focale.",
-      "rightsTitle": "Tus derechos",
+      "rightsTitle": "Sus derechos",
       "rights": "Focale incluye código de aplicación propietario y componentes de terceros. Cada componente conserva su licencia. Estos derechos siguen vigentes, incluida la modificación y la ingeniería inversa para depurar cambios en componentes LGPL.",
       "offlineTitle": "Disponible sin conexión",
-      "offline": "Abre Acerca de Focale → Licencias para buscar los avisos de tu versión instalada. Los textos y las direcciones del código fuente están disponibles sin conexión.",
+      "offline": "Acerca de Focale → Licencias permite buscar los avisos de la versión instalada. Los textos y las direcciones del código fuente están disponibles sin conexión.",
       "dataTitle": "Perfiles ópticos y datos lingüísticos",
       "data": "La base Lensfun se adapta a un catálogo JSON compacto: se seleccionan campos y se normalizan entradas. Esta adaptación conserva CC BY-SA 3.0 y el reconocimiento a los colaboradores de Lensfun. Los patrones de separación silábica, los datos Unicode y el modelo de detección facial conservan también sus avisos.",
       "catalogueTitle": "Avisos adicionales",
@@ -262,35 +275,37 @@
     },
     "sources": {
       "title": "Código fuente de terceros",
-      "description": "Obtén las fuentes correspondientes y recompila las bibliotecas nativas reemplazables.",
-      "downloadTitle": "Encuentra tu versión",
+      "description": "Obtener las fuentes correspondientes y recompilar las bibliotecas nativas reemplazables.",
+      "downloadTitle": "Encontrar la versión",
       "download": "El botón de código fuente de esta versión, en Acerca de → Licencias, abre el archivo correspondiente. También está entre los archivos de la publicación pública. Deben coincidir la versión y el número de compilación; las últimas fuentes originales no los sustituyen.",
       "releases": "Ver versiones publicadas",
       "contentsTitle": "Contenido del archivo",
       "contents": "El archivo contiene los paquetes públicos exactos de RawKit, ImcodecNative y dbus, las fuentes de los códecs, los parches aplicados por los scripts, los avisos y las instrucciones de compilación. Un manifiesto registra versiones y sumas SHA-256. El código de Focale es independiente.",
-      "rebuildTitle": "Recompila una biblioteca",
-      "rebuild": "Instala Python 3.12+, CMake 3.25+ y las herramientas C/C++ de tu sistema. Extrae el archivo, ejecuta el primer comando, modifica la biblioteca en work/ y compila la interfaz deseada. README.txt detalla las opciones de arquitectura y compilador.",
-      "replaceTitle": "Usa tu biblioteca modificada",
-      "replace": "Cierra Focale y reemplaza la biblioteca en una copia de la aplicación con permisos de escritura. Conserva su nombre y una interfaz C compatible. Guarda la instalación original para poder recuperarla.",
+      "rebuildTitle": "Recompilar una biblioteca",
+      "rebuild": "Instale Python 3.12+, CMake 3.25+ y las herramientas C/C++ de su sistema. Extraiga el archivo, ejecute el primer comando, modifique la biblioteca en work/ y compile la interfaz deseada. README.txt detalla las opciones de arquitectura y compilador.",
+      "replaceTitle": "Usar la biblioteca modificada",
+      "replace": "Cierre Focale y reemplace la biblioteca en una copia de la aplicación con permisos de escritura. Conserve su nombre y una interfaz C compatible. Guarde la instalación original para poder recuperarla.",
       "macos": "En macOS, replace_macos.py crea una aplicación independiente firmada localmente con la biblioteca reconstruida. La aplicación oficial conserva su política de firma. La copia local deja de ser una versión notarizada de Focale.",
-      "managed": "Para Microsoft Store y Flatpak, sigue las instrucciones del archivo para crear una copia modificable fuera de la instalación gestionada. Conserva el entorno de ejecución y la arquitectura correspondientes.",
+      "managed": "Para Microsoft Store y Flatpak, siga las instrucciones del archivo para crear una copia modificable fuera de la instalación gestionada. Conserve el entorno de ejecución y la arquitectura correspondientes.",
       "patentsTitle": "Patentes de los códecs",
       "patents": "Las licencias de software y los derechos de patentes son distintos. Los avisos y el archivo de fuentes no conceden una licencia general de patentes, en particular para HEVC/HEIC."
     },
     "groups": {
       "overview": "Resumen",
-      "guides": "Guías de usuario",
+      "guides": "Primeros pasos",
+      "tutorials": "Tutoriales",
+      "learn": "Comprender",
       "reference": "Referencia técnica",
-      "about": "Licencias y fuentes",
-      "nativeFormats": "Formatos nativos"
+      "nativeFormats": "Formatos nativos",
+      "about": "Licencias y fuentes"
     },
     "browse": "Explorar la documentación",
-    "startHere": "Empieza por Primeros pasos y consulta la guía de edición para el trabajo diario. La referencia detalla plataformas, compatibilidad y formatos nativos.",
-    "developmentNote": "Revisado con el código fuente de la aplicación el 4 de noviembre de 2026. Focale está en desarrollo activo; los comandos y paquetes disponibles pueden variar según la versión.",
+    "startHere": "¿Descubre Focale por primera vez? Empiece por Primeros pasos. Los tutoriales explican las tareas habituales paso a paso, la sección Comprender aclara capas, máscaras y color, y la referencia cubre plataformas y formatos de archivo.",
+    "developmentNote": "Revisado con el código fuente de la aplicación el 7 de noviembre de 2026. Focale está en desarrollo activo; los comandos y paquetes disponibles pueden variar según la versión.",
     "onThisPage": "En esta página",
-    "screenshotNote": "Ilustración de las capturas del editor. La interfaz puede variar en tu versión.",
+    "screenshotNote": "Ilustración de las capturas del editor. La interfaz puede variar según la versión.",
     "completeReference": "Referencias completas de formatos",
-    "referenceDescription": "Descarga especificaciones Markdown completas en inglés, con esquemas, validación y compatibilidad.",
+    "referenceDescription": "Especificaciones Markdown completas en inglés, con esquemas, validación y compatibilidad, para descargar.",
     "downloadReference": "Descargar {file}",
     "otherGuides": "Otras páginas de documentación",
     "articles": {
@@ -299,34 +314,34 @@
         "description": "Abrir una imagen, hacer una primera edición y guardar un proyecto editable.",
         "sections": {
           "first": {
-            "title": "Tu primer documento",
+            "title": "El primer documento",
             "steps": [
-              "Descarga el paquete para tu sistema y procesador desde la sección de descargas del sitio.",
-              "En Inicio, abre una imagen o crea un documento. Nuevo documento permite elegir el tipo de documento, imagen o ilustración vectorial, y después dimensiones, resolución, modo de color, profundidad y fondo.",
-              "Guarda una copia de trabajo con Archivo → Guardar como. .focale (imágenes) y .fvector (ilustraciones vectoriales) conservan las capas y el contenido editable.",
-              "Selecciona una capa y una herramienta. Deshacer y Rehacer permiten probar otro resultado.",
-              "Usa Archivo → Exportar para compartir una imagen y conserva el proyecto .focale para seguir editando."
+              "Descargue el paquete para su sistema y su procesador desde la sección de descargas del sitio.",
+              "En Inicio, abra una imagen o cree un documento. Nuevo documento permite elegir el tipo de documento, imagen o ilustración vectorial, y después dimensiones, resolución, modo de color, profundidad y fondo.",
+              "Guarde una copia de trabajo con Archivo → Guardar como…. .focale (imágenes) y .fvector (ilustraciones vectoriales) conservan las capas y el contenido editable.",
+              "Seleccione una capa, elija una herramienta y haga una edición. Deshacer y Rehacer permiten probar otro resultado.",
+              "Use Archivo → Exportar → Exportar como… para compartir una imagen y conserve el proyecto .focale para seguir editando."
             ]
           },
           "workspace": {
             "title": "Orientarse en el editor",
             "paragraphs": [
               "Las herramientas están a la izquierda, sus opciones encima del lienzo y los paneles Capas e Historial a la derecha. Cada documento tiene su pestaña.",
-              "Haz clic derecho en un grupo para elegir otra herramienta. En Capas, selecciona la miniatura de imagen para editar píxeles o la de máscara para editar cobertura."
+              "Un clic derecho en un grupo de herramientas permite elegir otra herramienta. En Capas, la miniatura de imagen sirve para editar píxeles y la de máscara para editar la cobertura."
             ]
           },
           "save": {
             "title": "Guardar y exportar",
             "paragraphs": [
               "Guardar en .focale conserva la estructura. Exportar crea una imagen o documento de intercambio separado, sin sustituir el proyecto editable.",
-              "La edición no modifica las imágenes ni los RAW importados. Un objeto inteligente vinculado puede depender de un archivo externo: consérvalo o incrústalo antes de compartir."
+              "La edición no modifica las imágenes ni los RAW importados. Un objeto inteligente vinculado puede depender de un archivo externo: conviene conservarlo o incrustarlo antes de compartir."
             ]
           },
           "recover": {
             "title": "Proteger el trabajo",
             "paragraphs": [
-              "Activa las instantáneas en Preferencias → Guardado automático. Se conservan en el almacenamiento de la aplicación y no sobrescriben el proyecto.",
-              "Tras una interrupción, recupera los documentos propuestos y guárdalos explícitamente. Se abren sin guardar para que elijas el destino."
+              "Active las instantáneas en Ajustes → Guardado automático. Se conservan en el almacenamiento de la aplicación y no sobrescriben el proyecto.",
+              "Tras una interrupción, recupere los documentos propuestos y guárdelos explícitamente. Se abren sin guardar para que usted elija el destino."
             ]
           }
         }
@@ -338,49 +353,49 @@
           "layers": {
             "title": "Elegir la capa",
             "paragraphs": [
-              "Separa píxeles, texto, formas y ajustes en capas. Ponles nombres y agrupa los elementos relacionados.",
-              "Visibilidad, opacidad y modo de fusión controlan el resultado. Antes de pintar, elige la miniatura adecuada: una máscara recibe cobertura, no color."
+              "Separe píxeles, texto, formas y ajustes en capas distintas. Asígneles nombres y agrupe los elementos relacionados.",
+              "Visibilidad, opacidad y modo de fusión controlan el resultado. Antes de pintar, elija la miniatura adecuada: una máscara recibe cobertura, no color."
             ]
           },
           "selections": {
             "title": "Limitar una edición",
             "paragraphs": [
               "Marco, lazo, selección rápida y varita mágica definen el área. Añadir, restar e intersectar la refinan; Seleccionar y aplicar máscara refina los bordes.",
-              "Una máscara oculta sin borrar: negro oculta, blanco revela y gris cubre parcialmente. Deselecciona si una selección anterior limita el pincel."
+              "Una máscara oculta sin borrar: negro oculta, blanco revela y gris cubre parcialmente. Si una selección anterior limita el pincel, anule la selección."
             ]
           },
           "adjustments": {
             "title": "Ajustar tonos y colores",
             "paragraphs": [
               "Una capa de ajuste mantiene editable la corrección, separada de los píxeles originales.",
-              "Los ajustes destructivos y filtros cambian píxeles y se registran en el historial. Los objetos inteligentes conservan filtros inteligentes editables para operaciones compatibles. Comprueba capa y selección antes de aplicar."
+              "Los ajustes destructivos y filtros cambian píxeles y se registran en el historial. Los objetos inteligentes conservan filtros inteligentes editables para operaciones compatibles. Compruebe la capa y la selección antes de aplicar."
             ]
           },
           "retouch": {
             "title": "Retocar fotografías",
             "paragraphs": [
               "Pincel y borrador actúan sobre los píxeles o la máscara seleccionada. Correctores y tampón reparan áreas pequeñas; las herramientas de muestreo necesitan una fuente.",
-              "Empieza con un tamaño moderado y revisa al 100 %. Tamaño, dureza, opacidad y dinámica tienen funciones diferentes. La presión depende de la tableta y plataforma."
+              "Empiece con un tamaño moderado y revise al 100 %. Tamaño, dureza, opacidad y dinámica tienen funciones diferentes. La presión depende de la tableta y la plataforma."
             ]
           },
           "text": {
             "title": "Texto y formas",
             "paragraphs": [
-              "El texto conserva su tipografía editable y las formas su geometría vectorial. Elige el modo de salida: formas, trazados o píxeles.",
-              "Las fuentes se buscan en el equipo. Una sustitución visual conserva la familia solicitada en el documento. Instala la fuente original para reproducir la composición."
+              "El texto conserva su tipografía editable y las formas su geometría vectorial. Elija el modo de salida antes de dibujar: formas, trazados o píxeles.",
+              "Las fuentes se buscan en el equipo. Una sustitución visual conserva la familia solicitada en el documento. Instale la fuente original para reproducir la composición."
             ]
           },
           "workflow": {
             "title": "Paneles y automatización",
             "paragraphs": [
-              "Ventana → Espacio de trabajo ofrece Esenciales, Fotografía, Pintura y Preimpresión. Mueve pestañas, separa paletas dentro del editor y guarda tu distribución.",
-              "Acciones graba y reproduce operaciones compatibles. El procesamiento por lotes aplica una acción a varios archivos. Revisa pasos no compatibles y prueba con copias."
+              "Ventana → Espacio de trabajo ofrece Esenciales, Fotografía, Pintura y Preimpresión. Las pestañas se pueden mover entre paneles, separarse dentro del editor y guardarse como distribución propia.",
+              "Acciones graba y reproduce operaciones compatibles. El procesamiento por lotes aplica una acción a varios archivos. Revise los pasos no compatibles y pruebe con copias."
             ]
           },
           "exports": {
             "title": "Exportar documentos o capas",
             "paragraphs": [
-              "Archivo → Exportar ofrece formato, dimensiones y opciones del codec. Exportación rápida reutiliza el último ajuste raster, con escalas y sufijos.",
+              "Archivo → Exportar → Exportar como… ofrece formato, dimensiones y opciones del códec. Exportación rápida reutiliza el último ajuste raster, con escalas y sufijos.",
               "El menú de Capas exporta también capas, grupos y mesas de trabajo seleccionados. Las capas usan sus límites visibles; las mesas conservan su rectángulo de lienzo."
             ]
           }
@@ -388,27 +403,27 @@
       },
       "vectorGuide": {
         "title": "Ilustración vectorial",
-        "description": "Dibuja trazados editables, pinta y reutiliza elementos, y exporta archivos SVG, PDF o AI.",
+        "description": "Dibujar trazados editables, pintar y reutilizar elementos, y exportar archivos SVG, PDF o AI.",
         "sections": {
           "start": {
             "title": "Crear un documento vectorial",
             "paragraphs": [
-              "En Nuevo documento, elige Ilustración vectorial como tipo de documento. También puedes abrir un proyecto .fvector o un archivo SVG, SVGZ, PDF o AI compatible con PDF: Focale convierte el dibujo en objetos editables.",
+              "En Nuevo documento, elija Ilustración vectorial como tipo de documento. También puede abrir un proyecto .fvector o un archivo SVG, SVGZ, PDF o AI compatible con PDF: Focale convierte el dibujo en objetos editables.",
               "Los documentos de foto y vectoriales permanecen abiertos uno junto a otro, cada uno en su pestaña. El documento activo determina las herramientas, paneles y comandos disponibles; no hay ningún modo que cambiar."
             ]
           },
           "draw": {
             "title": "Dibujar trazados y formas",
             "paragraphs": [
-              "Pluma y Pluma de curvatura crean trazados Bézier. Las herramientas de forma crean rectángulos, elipses, polígonos, estrellas y líneas que siguen siendo paramétricos hasta que los conviertes en trazados. Selección directa edita anclas, manejadores y segmentos individuales.",
+              "Pluma y Pluma de curvatura crean trazados Bézier. Las herramientas de forma crean rectángulos, elipses, polígonos, estrellas y líneas que siguen siendo paramétricos hasta su conversión en trazados. Selección directa edita anclas, manejadores y segmentos individuales.",
               "Creador de formas une o resta las regiones que forman las formas superpuestas. Tijeras divide un trazado, Cuchillo corta siguiendo un gesto recto y Borrador vectorial elimina superficie pintada. Las herramientas de construcción también dibujan arcos, espirales y cuadrículas rectangulares o polares."
             ]
           },
           "paint": {
             "title": "Relleno, contorno y color",
             "paragraphs": [
-              "Un objeto puede llevar varios rellenos y contornos. Pila de pinturas los muestra de delante hacia atrás: añádelos, reordénalos y edítalos, y aplica el resultado en un solo paso de deshacer.",
-              "Malla de degradado pinta transiciones de color suaves sobre una cuadrícula de nodos. Pintura interactiva rellena las regiones que forman los trazados superpuestos, incluso con pequeños huecos, y el color sigue a los trazados cuando los mueves.",
+              "Un objeto puede llevar varios rellenos y contornos. Pila de pinturas los muestra de delante hacia atrás: se añaden, se reordenan y se editan, y el resultado se aplica en un solo paso de deshacer.",
+              "Malla de degradado pinta transiciones de color suaves sobre una cuadrícula de nodos. Pintura interactiva rellena las regiones que forman los trazados superpuestos, incluso con pequeños huecos, y el color sigue a los trazados cuando se mueven.",
               "La herramienta Anchura varía el grosor de un contorno a lo largo del trazado; la presión del lápiz puede crear el mismo perfil. Pincel vectorial aplica pinceles caligráficos, artísticos o de motivo a lo largo de un trazado editable."
             ]
           },
@@ -425,7 +440,7 @@
             "title": "Maquetar texto",
             "paragraphs": [
               "Los marcos de texto se pueden enlazar para que una historia pase de un marco al siguiente; un indicador señala el texto que no cabe. El texto colocado en un trazado o dentro de una forma sigue vinculado a ella: al editar el trazado, el texto se recompone.",
-              "Estilos de texto del documento define formatos de carácter y de párrafo con nombre. Convertir texto en trazados transforma el texto en trazados de glifos editables, por ejemplo antes de enviar un archivo a alguien que no tiene las fuentes. Guarda una copia editable: el texto convertido ya no se edita como texto."
+              "Estilos de texto del documento define formatos de carácter y de párrafo con nombre. Convertir texto en trazados transforma el texto en trazados de glifos editables, por ejemplo antes de enviar un archivo a alguien que no tiene las fuentes. Guarde una copia editable: el texto convertido ya no se edita como texto."
             ]
           },
           "inspect": {
@@ -438,9 +453,9 @@
           "export": {
             "title": "Guardar, exportar e imprimir",
             "paragraphs": [
-              "Guarda en .fvector para que cada objeto, efecto y recurso compartido siga siendo editable. Un proyecto de foto .focale también puede colocar un documento vectorial como objeto inteligente editable.",
-              "Antes de escribir un SVG, SVGZ o PDF, Focale enumera las funciones que el formato no puede mantener editables y te deja conservarlas, expandirlas o rasterizarlas una a una. No se escribe nada hasta que confirmas.",
-              "Prueba de impresión y verificación muestra las planchas CMYK y de tintas planas, y señala fuentes ausentes, incrustaciones restringidas e imágenes de baja resolución. Con un perfil de salida CMYK, exporta un PDF de impresión, incluido PDF/X-4."
+              "Guarde en .fvector para que cada objeto, efecto y recurso compartido siga siendo editable. Un proyecto de foto .focale también puede colocar un documento vectorial como objeto inteligente editable.",
+              "Antes de escribir un SVG, SVGZ o PDF, Focale enumera las funciones que el formato no puede mantener editables y permite conservarlas, expandirlas o rasterizarlas una a una. No se escribe nada hasta su confirmación.",
+              "Prueba de impresión y verificación muestra las planchas CMYK y de tintas planas, y señala fuentes ausentes, incrustaciones restringidas e imágenes de baja resolución. Con un perfil de salida CMYK se puede exportar un PDF de impresión, incluido PDF/X-4."
             ]
           }
         }
@@ -482,7 +497,7 @@
                   "Cmd+Shift+S"
                 ],
                 [
-                  "Exportar",
+                  "Exportar como",
                   "Ctrl+Alt+Shift+W",
                   "Cmd+Option+Shift+W"
                 ],
@@ -517,7 +532,7 @@
                   "Cmd+T"
                 ],
                 [
-                  "Nueva capa raster",
+                  "Nueva capa rasterizada",
                   "Ctrl+Shift+N",
                   "Cmd+Shift+N"
                 ],
@@ -527,12 +542,12 @@
                   "Cmd+G"
                 ],
                 [
-                  "Selección a nueva capa",
+                  "Capa vía copiar",
                   "Ctrl+J",
                   "Cmd+J"
                 ],
                 [
-                  "Ajustar lienzo",
+                  "Encajar en ventana",
                   "Ctrl+0",
                   "Cmd+0"
                 ],
@@ -542,7 +557,7 @@
                   "Cmd+1"
                 ],
                 [
-                  "Preferencias",
+                  "Ajustes",
                   "Ctrl+K",
                   "Cmd+K"
                 ],
@@ -564,7 +579,7 @@
           "customize": {
             "title": "Personalizar atajos",
             "paragraphs": [
-              "En Ventana → Atajos de teclado, busca el comando y elige Cambiar. Quitar desactiva una asignación; Restaurar recupera una; Restaurar valores predeterminados borra las personalizaciones.",
+              "En Ventana → Atajos de teclado…, busque el comando y elija Cambiar. Quitar desactiva una asignación; Restaurar recupera una; Restaurar valores predeterminados borra las personalizaciones.",
               "Una combinación ya usada pasa al nuevo comando y deja al anterior sin atajo. Espacios de trabajo y atajos son preferencias de la aplicación, no del proyecto .focale."
             ]
           }
@@ -577,7 +592,7 @@
           "desktop": {
             "title": "Versiones de escritorio",
             "paragraphs": [
-              "Estas plataformas están configuradas en el código actual. Consulta Descargas para saber qué paquetes se han publicado; una configuración no garantiza un instalador disponible."
+              "Estas plataformas están configuradas en el código actual. La sección Descargas indica qué paquetes se han publicado; una configuración no garantiza un instalador disponible."
             ],
             "table": {
               "headers": [
@@ -594,7 +609,7 @@
                 [
                   "Windows",
                   "x86-64",
-                  "Instalador nativo; consulta los requisitos de la versión publicada."
+                  "Instalador nativo; los requisitos acompañan a la versión publicada."
                 ],
                 [
                   "macOS",
@@ -612,29 +627,29 @@
           "linux": {
             "title": "Instalar en Linux",
             "paragraphs": [
-              "Extrae el ZIP completo, cierra Focale y ejecuta install.sh desde esa carpeta. Instala para el usuario actual en ~/.local/opt/focale y registra el lanzador y tipos de archivo.",
-              "Necesita GTK 3 y shared-mime-info para la instalación. Copiar solo el ejecutable omite bibliotecas y recursos. Flatpak es un canal gestionado separado del ZIP."
+              "Extraiga el ZIP completo, cierre Focale y ejecute install.sh desde esa carpeta. El script instala para el usuario actual en ~/.local/opt/focale y registra el lanzador y los tipos de archivo.",
+              "La instalación necesita GTK 3 y shared-mime-info. Copiar solo el ejecutable omite bibliotecas y recursos. Flatpak es un canal gestionado separado del ZIP."
             ]
           },
           "macos": {
             "title": "Instalar en macOS",
             "paragraphs": [
-              "Elige Apple Silicon o Intel, abre el DMG y copia Focale.app a Aplicaciones. Conserva el paquete completo.",
+              "Elija Apple Silicon o Intel según su Mac, abra el DMG y copie Focale.app en Aplicaciones. Conserve el paquete completo.",
               "El estado de firma acompaña al paquete publicado. El objetivo del código no demuestra pruebas en todas las versiones o dispositivos."
             ]
           },
           "windows": {
             "title": "Instalar en Windows",
             "paragraphs": [
-              "Usa el instalador x64 de la versión y guarda antes de reemplazar la instalación. Microsoft Store constituye otro canal gestionado.",
+              "Use el instalador x64 de la versión y guarde sus proyectos antes de reemplazar la instalación. Microsoft Store constituye otro canal gestionado.",
               "Store y Flatpak reciben actualizaciones desde sus canales, sin el actualizador directo."
             ]
           },
           "resources": {
             "title": "Memoria y actualizaciones",
             "paragraphs": [
-              "No se ha medido un mínimo universal de RAM. Dimensiones, profundidad, capas e historial influyen. Preferencias → Rendimiento limita cargas de datos; codecs y GPU pueden consumir memoria adicional.",
-              "Guarda y cierra antes de actualizar. Conserva una copia anterior al cambiar de versión."
+              "No se ha medido un mínimo universal de RAM. Dimensiones, profundidad, capas e historial influyen. Ajustes → Rendimiento limita las cargas de datos; los códecs y la GPU pueden consumir memoria adicional.",
+              "Guarde y cierre los documentos antes de actualizar. Conserve una copia anterior al cambiar de versión."
             ]
           }
         }
@@ -646,8 +661,8 @@
           "choose": {
             "title": "Elegir el archivo",
             "paragraphs": [
-              "Conserva .focale para trabajar en fotos y .fvector para la ilustración vectorial. Exporta una imagen raster para compartir, o PSD/PSB o XCF para intercambiar capas con otro editor.",
-              "Cambiar la extensión no convierte el archivo. Usa Guardar o Exportar y comprueba el resultado en la otra aplicación."
+              "Conserve .focale para trabajar en fotos y .fvector para la ilustración vectorial. Exporte una imagen raster para compartir, o PSD/PSB o XCF para intercambiar capas con otro editor.",
+              "Cambiar la extensión no convierte el archivo. Use Guardar o Exportar y compruebe el resultado en la otra aplicación."
             ]
           },
           "raster": {
@@ -670,7 +685,7 @@
                 [
                   "JPEG (.jpg, .jpeg)",
                   "Importación / exportación",
-                  "Calidad con pérdida; sin alfa. Elige fondo para zonas transparentes."
+                  "Calidad con pérdida; sin alfa. Hay que elegir un fondo para las zonas transparentes."
                 ],
                 [
                   "GIF",
@@ -710,7 +725,7 @@
                 [
                   "BMP, QOI, TGA",
                   "Importación / exportación",
-                  "Otros contenedores raster; comprueba la transparencia en destino."
+                  "Otros contenedores raster; conviene comprobar la transparencia en destino."
                 ]
               ]
             }
@@ -719,7 +734,7 @@
             "title": "PSD, PSB y XCF",
             "paragraphs": [
               "Texto, formas, máscaras, ajustes y efectos permanecen editables cuando corresponden al modelo de Focale.",
-              "Las funciones no compatibles pueden usar previsualizaciones raster o fusionadas. No garantiza compatibilidad completa con Photoshop. Conserva el original y compara el resultado.",
+              "Las funciones no compatibles pueden usar previsualizaciones raster o fusionadas. No se garantiza la compatibilidad completa con Photoshop. Conserve el original y compare el resultado.",
               "Los archivos XCF de GIMP, incluidos .xcf.gz, .xcf.bz2 y .xcf.xz, se abren como documentos con capas y se pueden volver a exportar en XCF. No hace falta tener GIMP instalado."
             ]
           },
@@ -761,15 +776,15 @@
           "raw": {
             "title": "RAW de cámara",
             "paragraphs": [
-              "Abre RAW habituales en el espacio de revelado. Ajusta exposición, color, óptica y correcciones locales antes de pasar la imagen al editor.",
-              "Solo importación: la exportación no recrea datos del sensor. La cámara depende de RawKit y su decodificador; conserva el original."
+              "Los RAW habituales se abren en el espacio de revelado. Exposición, color, óptica y correcciones locales se ajustan antes de pasar la imagen al editor.",
+              "Solo importación: la exportación no recrea datos del sensor. La compatibilidad de cada cámara depende de RawKit y su decodificador; conserve el original."
             ]
           },
           "colour": {
             "title": "Color y precisión",
             "paragraphs": [
-              "El proyecto conserva modos nativos, profundidad y perfiles ICC compatibles. Un exportado aplanado depende del codificador y del procesamiento: revisa las opciones para archivar alta precisión.",
-              "PNG y JPEG ofrecen opciones de metadatos y perfil sRGB. No todos los codecs las ofrecen. Usa .focale para conservar información de color editable."
+              "El proyecto conserva modos nativos, profundidad y perfiles ICC compatibles. Un archivo exportado aplanado depende del codificador y del procesamiento: revise las opciones para archivar en alta precisión.",
+              "PNG y JPEG ofrecen opciones de metadatos y perfil sRGB. No todos los códecs las ofrecen. Use .focale para conservar información de color editable."
             ]
           }
         }
@@ -896,20 +911,20 @@
             "title": "Validación y portabilidad",
             "paragraphs": [
               "Límites actuales: ZIP de 1 GiB, 10 000 entradas, manifiesto de 16 MiB y 512 MiB por entrada. Los rasters decodificados tienen límites adicionales. Nombres duplicados, datos obligatorios ausentes y muestras incompatibles se rechazan.",
-              "Las fuentes incrustadas viajan con el proyecto; las vinculadas pueden necesitar su ruta original. No se incrustan fuentes tipográficas. Inspecciona una copia y consulta la especificación completa."
+              "Las fuentes incrustadas viajan con el proyecto; las vinculadas pueden necesitar su ruta original. No se incrustan fuentes tipográficas. Inspeccione una copia y consulte la especificación completa."
             ]
           },
           "history": {
             "title": "Datos ajenos al proyecto",
             "paragraphs": [
               "El historial completo de Deshacer, distribución, atajos y catálogos locales son estado de la aplicación, no de la sesión portátil.",
-              "Los puntos de recuperación pueden usar un almacén compartido adyacente. No los confundas con un .focale autónomo del usuario."
+              "Los puntos de recuperación pueden usar un almacén compartido adyacente. No deben confundirse con un .focale autónomo del usuario."
             ]
           },
           "vector": {
             "title": "Proyectos vectoriales",
             "paragraphs": [
-              "Las ilustraciones vectoriales se guardan en un proyecto .fvector independiente: un documento JSON UTF-8 con su propia envoltura en versión 1. Su especificación aún no está publicada y puede cambiar; usa SVG o PDF para intercambios duraderos.",
+              "Las ilustraciones vectoriales se guardan en un proyecto .fvector independiente: un documento JSON UTF-8 con una envoltura en versión 1. Su especificación, un ejemplo editable y las reglas de recursos están disponibles en la referencia .fvector enlazada más abajo.",
               "Un proyecto .focale puede incrustar un documento vectorial editable como objeto inteligente. Al abrirlo, se edita la fuente vectorial en su propia pestaña; al guardarlo, se actualiza cada colocación en el documento de foto."
             ]
           }
@@ -922,7 +937,7 @@
           "catalogue": {
             "title": "Identificadores",
             "paragraphs": [
-              "Estos formatos usan JSON UTF-8 con una etiqueta de formato y una versión explícitas. Guarda o exporta desde el editor o catálogo correspondiente para respaldar y compartir ajustes. Las cachés locales son detalles de implementación."
+              "Estos formatos usan JSON UTF-8 con una etiqueta de formato y una versión explícitas. Guarde o exporte desde el editor o catálogo correspondiente para respaldar y compartir ajustes. Las cachés locales son detalles de implementación."
             ],
             "table": {
               "headers": [
@@ -1168,52 +1183,52 @@
           "recovery": {
             "title": "Tras una interrupción",
             "paragraphs": [
-              "Al reiniciar, selecciona documentos y pulsa Recuperar. Los no seleccionados quedan para después; los descartados no son copias de seguridad.",
-              "Se abren sin guardar. Usa Guardar como y comprueba antes de reemplazar un proyecto. Conserva copias periódicas."
+              "Al reiniciar, seleccione los documentos y pulse Recuperar. Los no seleccionados quedan para después; los descartados no son copias de seguridad.",
+              "Se abren sin guardar. Use Guardar como y compruebe el contenido antes de reemplazar un proyecto. Conserve copias periódicas."
             ]
           },
           "painting": {
             "title": "Una herramienta no cambia la imagen",
             "items": [
-              "Comprueba documento y capa activos.",
-              "Selecciona la miniatura de píxeles o de máscara adecuada.",
-              "Comprueba visibilidad, bloqueo, opacidad y selección.",
-              "Algunas herramientas requieren capa raster, muestra o contexto de texto/trazado. Consulta disponibilidad en menús y búsqueda."
+              "Compruebe el documento y la capa activos.",
+              "Seleccione la miniatura de píxeles o de máscara adecuada.",
+              "Compruebe visibilidad, bloqueo, opacidad y selección.",
+              "Algunas herramientas requieren una capa raster, una muestra o un contexto de texto o trazado. La disponibilidad se indica en los menús y en la búsqueda de comandos."
             ]
           },
           "files": {
             "title": "No se abre o guarda un archivo",
             "paragraphs": [
-              "Una versión nueva del formato requiere una aplicación compatible. Conserva originales dañados y examina copias. Un ZIP con manifest.json no basta para ser válido.",
-              "Verifica permisos y espacio. Dimensiones, profundidad y capas pueden superar presupuestos. La cuota del navegador es distinta del espacio del disco."
+              "Una versión nueva del formato requiere una aplicación compatible. Conserve los originales dañados y examine copias. Un ZIP con manifest.json no basta para ser válido.",
+              "Verifique permisos y espacio libre. Dimensiones, profundidad y capas pueden superar los presupuestos. La cuota del navegador es distinta del espacio del disco."
             ]
           },
           "vectorFiles": {
             "title": "Un archivo vectorial se rechaza o se ve diferente",
             "paragraphs": [
-              "Focale rechaza el contenido SVG, PDF o AI que no puede reproducir fielmente: scripts, animaciones, primitivas de filtro no compatibles o archivos AI PostScript antiguos. El mensaje indica la función en cuestión. Para un archivo AI antiguo, guarda una copia compatible con PDF desde la aplicación original.",
-              "El texto depende de las fuentes instaladas en tu equipo o de las incrustadas en un PDF. Antes de guardar en SVG o PDF, revisa las funciones que no pueden seguir siendo editables y elige conservarlas, expandirlas o rasterizarlas."
+              "Focale rechaza el contenido SVG, PDF o AI que no puede reproducir fielmente: scripts, animaciones, primitivas de filtro no compatibles o archivos AI PostScript antiguos. El mensaje indica la función en cuestión. Para un archivo AI antiguo, guarde una copia compatible con PDF desde la aplicación original.",
+              "El texto depende de las fuentes instaladas en su equipo o de las incrustadas en un PDF. Antes de guardar en SVG o PDF, revise las funciones que no pueden seguir siendo editables y elija conservarlas, expandirlas o rasterizarlas."
             ]
           },
           "appearance": {
             "title": "Fuentes o colores distintos",
             "paragraphs": [
-              "Instala las fuentes y revisa asignación, conversión y prueba de color. Funciones PSD/PSB no compatibles pueden aparecer como previsualizaciones raster.",
-              "Revincula o incrusta fuentes externas de objetos inteligentes. Compara en una aplicación que respete perfiles."
+              "Instale las fuentes y revise la asignación, la conversión y la prueba de color. Las funciones PSD/PSB no compatibles pueden aparecer como previsualizaciones raster.",
+              "Vuelva a vincular o incruste las fuentes externas de los objetos inteligentes. Compare en una aplicación que respete los perfiles."
             ]
           },
           "diagnostics": {
             "title": "Diagnóstico y trabajo local",
             "paragraphs": [
-              "La edición es local. Una compilación configurada puede enviar eventos técnicos si Preferencias → Diagnóstico → Enviar informes automáticamente está activo.",
-              "No se adjuntan deliberadamente capturas ni documentos, pero volcados nativos pueden contener fragmentos de memoria. Desactiva para impedir nuevos envíos. En Linux y Windows reinicia tras reactivar la captura nativa."
+              "La edición es local. Una compilación configurada puede enviar eventos técnicos si Ajustes → Diagnóstico → Enviar informes automáticamente está activo.",
+              "No se adjuntan deliberadamente capturas ni documentos, pero los volcados nativos pueden contener fragmentos de memoria. Desactive la opción para impedir nuevos envíos. En Linux y Windows, reinicie tras reactivarla para restablecer la captura nativa."
             ]
           },
           "report": {
             "title": "Preparar un informe",
             "paragraphs": [
-              "Incluye versión y compilación, sistema y procesador, pasos, formato, dimensiones, error y resultado con un documento pequeño.",
-              "Usa un ejemplo mínimo no sensible o captura revisada. No envíes proyectos privados ni carpetas de recuperación por defecto. Indica fuentes, recursos vinculados y bibliotecas implicados."
+              "Incluya versión y compilación, sistema y procesador, pasos, formato, dimensiones, error y resultado con un documento pequeño.",
+              "Use un ejemplo mínimo no sensible o una captura revisada. No envíe por defecto proyectos privados ni carpetas de recuperación. Indique las fuentes, recursos vinculados y bibliotecas implicados."
             ]
           }
         }
@@ -1225,7 +1240,7 @@
           "use": {
             "title": "Uso en la aplicación",
             "paragraphs": [
-              "El panel Pinceles crea, renombra, importa y exporta ajustes del usuario. Editar → Definir pincel captura la selección visible o el documento. Los pinceles integrados no se exportan."
+              "El panel Pinceles crea, renombra, importa y exporta ajustes del usuario. Edición → Definir pincel preestablecido… captura la selección visible o el documento. Los pinceles integrados no se exportan."
             ]
           },
           "schema": {
@@ -1268,7 +1283,7 @@
           "exchange": {
             "title": "Intercambio con Photoshop",
             "paragraphs": [
-              "ABR importa y exporta pinceles compatibles. No todos los ajustes Photoshop coinciden; conserva .fbrush como copia nativa."
+              "ABR importa y exporta pinceles compatibles. No todos los ajustes de Photoshop coinciden; conserve .fbrush como copia nativa."
             ]
           }
         }
@@ -1280,7 +1295,7 @@
           "use": {
             "title": "Uso en la aplicación",
             "paragraphs": [
-              "Importa o exporta desde el selector de patrones. Editar → Definir patrón captura el documento o una selección rectangular sin suavizado. Editar un patrón abre una copia; define el resultado como nuevo ajuste."
+              "La importación y exportación se hacen desde el selector de patrones. Edición → Definir motivo… captura el documento o una selección rectangular sin suavizado. Editar un patrón abre una copia; el resultado se define como nuevo ajuste."
             ]
           },
           "schema": {
@@ -1335,7 +1350,7 @@
           "use": {
             "title": "Uso en la aplicación",
             "paragraphs": [
-              "El catálogo de formas personalizadas importa y exporta formas del usuario. Dibújalas como capas de forma para conservar geometría editable. Borrar una entrada no cambia formas ya colocadas."
+              "El catálogo de formas personalizadas importa y exporta formas del usuario. Dibujarlas como capas de forma conserva la geometría editable. Borrar una entrada no cambia formas ya colocadas."
             ]
           },
           "schema": {
@@ -1378,7 +1393,7 @@
           "exchange": {
             "title": "Intercambio con Photoshop",
             "paragraphs": [
-              "CSH intercambia contornos, manejadores, proporciones, orden y grupos compatibles. .fcshape es caché interna; usa .fshape para compartir."
+              "CSH intercambia contornos, manejadores, proporciones, orden y grupos compatibles. .fcshape es una caché interna; para compartir, use .fshape."
             ]
           }
         }
@@ -1612,7 +1627,7 @@
           "use": {
             "title": "Uso en la aplicación",
             "paragraphs": [
-              "Acciones importa, exporta, graba y reproduce un conjunto. Revisa los pasos; Archivo → Automatizar → Lote aplica una acción a varios archivos."
+              "Acciones importa, exporta, graba y reproduce un conjunto. Revise los pasos; Archivo → Automatizar → Lote… aplica una acción a varios archivos."
             ]
           },
           "schema": {
@@ -2171,38 +2186,936 @@
             ]
           }
         }
+      },
+      "faq": {
+        "title": "Preguntas frecuentes",
+        "description": "Precio, privacidad, plataformas, archivos de Photoshop, tabletas gráficas y otras preguntas habituales sobre Focale.",
+        "sections": {
+          "what": {
+            "title": "¿Qué es Focale?",
+            "paragraphs": [
+              "Focale es un editor de fotos y gráficos vectoriales de escritorio para Linux, Windows y macOS. Reúne el retoque fotográfico por capas, los ajustes no destructivos, el revelado RAW y la ilustración vectorial editable en una sola aplicación."
+            ]
+          },
+          "cost": {
+            "title": "¿Focale es gratuito?",
+            "paragraphs": [
+              "Focale está en fase alfa y se descarga desde el sitio web. Su modelo de negocio aún no está decidido. Las donaciones son opcionales y ayudan al desarrollo."
+            ]
+          },
+          "privacy": {
+            "title": "¿Se suben mis imágenes a algún sitio?",
+            "paragraphs": [
+              "No. Focale abre, edita y guarda sus documentos en su propio ordenador y funciona sin conexión a Internet. Las versiones que incluyen el informe de errores solo envían eventos técnicos si usted lo activa en las preferencias de Diagnóstico."
+            ]
+          },
+          "photoshop": {
+            "title": "¿Focale abre archivos de Photoshop?",
+            "paragraphs": [
+              "Sí. Los archivos PSD y PSB se abren como documentos con capas. El texto, las formas, las máscaras, las capas de ajuste, los objetos inteligentes y los efectos de capa siguen siendo editables cuando Focale los admite, y puede volver a exportar a PSD. No hace falta tener Photoshop instalado."
+            ]
+          },
+          "alternative": {
+            "title": "¿Es Focale una alternativa a Photoshop o GIMP?",
+            "paragraphs": [
+              "Focale está pensado para quien busca un editor avanzado, con una interfaz familiar, que funcione de forma nativa en Linux además de en Windows y macOS. Los nombres de herramientas y los atajos siguen las convenciones habituales, así que sus costumbres le seguirán sirviendo. Todavía es joven: consulte el registro de cambios para ver las novedades."
+            ]
+          },
+          "linux": {
+            "title": "¿Focale funciona en Linux?",
+            "paragraphs": [
+              "Sí. Linux es una plataforma principal: Focale nació allí. La sección de descargas ofrece un paquete para sistemas x86-64; consulte Plataformas compatibles para ver los requisitos."
+            ]
+          },
+          "tablet": {
+            "title": "¿Admite tabletas gráficas?",
+            "paragraphs": [
+              "Sí. Los pinceles pueden usar la presión del lápiz para el tamaño, la opacidad y el flujo, y los trazos vectoriales pueden guardar la presión como un perfil de grosor editable. La compatibilidad depende del controlador de la tableta y del sistema."
+            ]
+          },
+          "raw": {
+            "title": "¿Puedo editar fotos RAW?",
+            "paragraphs": [
+              "Sí. Al abrir un archivo RAW se inicia un espacio de revelado con equilibrio de blancos, exposición, curvas, reducción de ruido, correcciones de objetivo y ajustes locales. Las cámaras compatibles dependen del decodificador RAW incluido."
+            ]
+          },
+          "vector": {
+            "title": "¿Puedo crear ilustraciones y logotipos vectoriales?",
+            "paragraphs": [
+              "Sí. Los documentos vectoriales ofrecen la pluma y las herramientas de forma, operaciones booleanas, mallas de degradado, símbolos, marcos de texto enlazados y vectorización de imágenes. Puede abrir y guardar archivos SVG, PDF y AI compatibles con PDF."
+            ]
+          },
+          "languages": {
+            "title": "¿En qué idiomas está disponible?",
+            "paragraphs": [
+              "La aplicación y este sitio están disponibles en inglés, francés, español, italiano, portugués y alemán."
+            ]
+          },
+          "help": {
+            "title": "¿Dónde puedo pedir ayuda o informar de un error?",
+            "paragraphs": [
+              "Haga sus preguntas, proponga funciones e informe de errores en Focale Community. Indique su versión de Focale, su sistema y los pasos que llevan al problema."
+            ]
+          }
+        }
+      },
+      "removeBackground": {
+        "title": "Quitar el fondo de una foto",
+        "description": "Recorte una persona o un objeto y haga transparente el fondo sin perder los píxeles originales.",
+        "sections": {
+          "select": {
+            "title": "Seleccione el sujeto",
+            "steps": [
+              "Abra la foto y seleccione su capa en el panel Capas.",
+              "Elija la herramienta Selección rápida (W) y pinte sobre el sujeto. La selección crece siguiendo sus bordes. Mantenga Alt (Opción en macOS) mientras pinta para quitar zonas incluidas por error.",
+              "Si el sujeto está sobre un fondo liso, la Varita mágica es más rápida: haga clic en el fondo y luego elija Selección → Invertir selección."
+            ],
+            "tip": "Amplíe la vista para revisar las zonas difíciles, como el pelo, los dedos y los huecos entre los brazos y el cuerpo."
+          },
+          "refine": {
+            "title": "Afine el pelo y los bordes suaves",
+            "steps": [
+              "Elija Selección → Seleccionar y aplicar máscara….",
+              "Aumente el Radio inteligente para que Focale vuelva a analizar la franja alrededor del borde.",
+              "Pinte sobre el pelo y el pelaje con el Pincel para perfeccionar bordes y confirme."
+            ]
+          },
+          "mask": {
+            "title": "Oculte el fondo con una máscara",
+            "steps": [
+              "Elija Capa → Máscara rasterizada → Descubrir selección.",
+              "El fondo desaparece, pero solo está oculto. Pinte en blanco sobre la máscara para recuperar zonas y en negro para ocultar más."
+            ],
+            "tip": "Una máscara es mejor que borrar: puede corregir el borde en cualquier momento. Consulte Selecciones y máscaras."
+          },
+          "export": {
+            "title": "Guarde el resultado transparente",
+            "paragraphs": [
+              "Guarde un proyecto .focale para mantener la máscara editable. Para usar el recorte en otro lugar, elija Archivo → Exportar → Exportar como… y escoja PNG, WebP o AVIF, que conservan la transparencia. JPEG no admite transparencia y la rellena con un color de fondo."
+            ]
+          },
+          "alternatives": {
+            "title": "Otras formas de quitar un fondo",
+            "items": [
+              "Borrador de fondos: borra los píxeles parecidos al color que hay bajo el centro del pincel, útil en fondos uniformes.",
+              "Borrador mágico: borra con un clic una zona de color parecido.",
+              "Filtro Color a alfa: convierte un color, como el blanco del papel, en transparencia manteniendo los bordes suaves.",
+              "Estas herramientas eliminan píxeles de forma definitiva. Duplique antes la capa si puede necesitar el original."
+            ]
+          }
+        }
+      },
+      "removeObjects": {
+        "title": "Eliminar objetos e imperfecciones",
+        "description": "Limpie polvo, manchas, cables, turistas y otras distracciones con las herramientas de corrección y el relleno según el contenido.",
+        "sections": {
+          "prepare": {
+            "title": "Trabaje en una capa aparte",
+            "steps": [
+              "Cree una capa vacía encima de la foto con Capa → Nuevo → Nueva capa rasterizada.",
+              "En las opciones de la herramienta de retoque, active Muestrear todas las capas.",
+              "Retoque en la nueva capa. La foto original queda intacta y más tarde puede bajar la opacidad de la capa o borrar una corrección."
+            ]
+          },
+          "spots": {
+            "title": "Manchas pequeñas y polvo",
+            "steps": [
+              "Elija el Pincel corrector puntual (J).",
+              "Use un pincel algo más grande que la mancha.",
+              "Haga clic o pinte sobre la mancha. Focale la rellena con la textura de alrededor, ajustada al brillo y al color locales."
+            ]
+          },
+          "heal": {
+            "title": "Zonas más grandes con un origen elegido",
+            "steps": [
+              "Elija el Pincel corrector o el Tampón de clonar (S).",
+              "Haga Alt-clic (Opción-clic en macOS) en una zona limpia para fijar el origen.",
+              "Pinte sobre el defecto. El Pincel corrector integra la textura copiada en su entorno; el Tampón de clonar copia los píxeles tal cual, lo que funciona mejor cerca de bordes nítidos."
+            ],
+            "tip": "Con Alineado activado, el origen sigue al pincel de un trazo a otro. Desactívelo para volver al mismo punto de origen en cada trazo."
+          },
+          "fill": {
+            "title": "Eliminar un objeto entero",
+            "steps": [
+              "Dibuje una selección aproximada alrededor del objeto con el Lazo, dejando un pequeño margen.",
+              "Elija Edición → Relleno según el contenido.",
+              "Pinte la zona de muestreo para indicar de dónde puede tomar textura Focale, revise la vista previa y envíe el resultado a una capa nueva."
+            ],
+            "tip": "La herramienta Parche es una buena alternativa: seleccione el defecto y arrastre la selección sobre una zona limpia."
+          },
+          "move": {
+            "title": "Mover un objeto en lugar de borrarlo",
+            "paragraphs": [
+              "La herramienta Movimiento según el contenido lleva un objeto seleccionado a otro lugar y rellena el hueco que deja."
+            ]
+          }
+        }
+      },
+      "cropAndStraighten": {
+        "title": "Recortar y enderezar una foto",
+        "description": "Mejore el encuadre, nivele un horizonte torcido y corrija la perspectiva de edificios y documentos.",
+        "sections": {
+          "crop": {
+            "title": "Recortar una foto",
+            "steps": [
+              "Elija la herramienta Recortar (C).",
+              "Arrastre para definir el marco. Para mantener la proporción, elija Proporción fija en Dimensiones e introduzca una relación como 3:2 o 1:1. La opción Superposición muestra guías como la regla de los tercios.",
+              "Pulse Intro para aplicar el recorte o Esc para cancelarlo."
+            ],
+            "tip": "Desactive Eliminar píxeles recortados para conservar las zonas ocultas: podrá reencuadrar más tarde."
+          },
+          "straighten": {
+            "title": "Nivelar un horizonte torcido",
+            "steps": [
+              "Con la herramienta Recortar activa, elija Enderezar en las opciones de la herramienta.",
+              "Dibuje una línea a lo largo de algo que debería ser horizontal, como el horizonte.",
+              "Focale gira la imagen para nivelar esa línea. Ajuste el marco y pulse Intro."
+            ],
+            "tip": "Ponga Relleno en Relleno según el contenido para completar las esquinas que deja al descubierto la rotación en lugar de dejarlas transparentes."
+          },
+          "perspective": {
+            "title": "Corregir la perspectiva",
+            "steps": [
+              "Elija la herramienta Recorte con perspectiva.",
+              "Dibuje un marco y lleve sus esquinas sobre algo que debería ser rectangular, como un cuadro, un documento o una fachada.",
+              "Pulse Intro: la zona se endereza en un rectángulo."
+            ]
+          },
+          "other": {
+            "title": "Otros comandos de recorte",
+            "items": [
+              "Imagen → Recortar a la selección recorta según los límites de la selección actual.",
+              "Imagen → Cortar… elimina los bordes transparentes o uniformes.",
+              "Imagen → Tamaño de lienzo… añade espacio alrededor de la imagen sin escalarla."
+            ]
+          }
+        }
+      },
+      "resizeImage": {
+        "title": "Cambiar el tamaño de una imagen",
+        "description": "Cambie las dimensiones en píxeles o el tamaño de impresión, conserve la proporción y prepare varios tamaños a la vez.",
+        "sections": {
+          "resize": {
+            "title": "Cambiar el tamaño de la imagen",
+            "steps": [
+              "Elija Imagen → Tamaño de imagen….",
+              "Mantenga enlazados el ancho y el alto para conservar la proporción.",
+              "Introduzca el nuevo ancho o alto en píxeles o en porcentaje, revise la nueva memoria de píxeles y confirme."
+            ]
+          },
+          "print": {
+            "title": "Cambiar solo el tamaño de impresión",
+            "paragraphs": [
+              "Desactive Remuestrear para conservar todos los píxeles y cambiar solo la resolución, en píxeles por pulgada. Una foto de 3000 píxeles de ancho se imprime a 25 cm de ancho a 300 ppp, o a 50 cm a 150 ppp."
+            ]
+          },
+          "quality": {
+            "title": "Conservar la mejor calidad",
+            "items": [
+              "Reducir una imagen es seguro. Ampliarla no puede añadir detalles que nunca se capturaron: una ampliación fuerte se ve blanda.",
+              "Cambie el tamaño una sola vez, al final. Cada cambio de tamaño suaviza un poco más la imagen.",
+              "Conserve el proyecto a tamaño completo y exporte copias redimensionadas en lugar de redimensionar el original."
+            ]
+          },
+          "canvas": {
+            "title": "¿Tamaño de imagen o tamaño de lienzo?",
+            "paragraphs": [
+              "El tamaño de imagen escala toda la imagen. El tamaño de lienzo cambia la superficie del documento sin escalar: añade espacio o recorta los bordes."
+            ]
+          },
+          "several": {
+            "title": "Exportar varios tamaños a la vez",
+            "paragraphs": [
+              "En Archivo → Exportar → Exportar como…, añada entradas en Tamaños de salida, por ejemplo 1x y 2x con un sufijo en el nombre de archivo. Para redimensionar una carpeta entera de fotos, consulte Editar muchas fotos por lotes."
+            ]
+          }
+        }
+      },
+      "fixExposureAndColor": {
+        "title": "Corregir la exposición y los colores",
+        "description": "Aclare fotos oscuras, recupere el contraste, corrija dominantes de color y avive los colores con capas de ajuste editables.",
+        "sections": {
+          "auto": {
+            "title": "Empiece con una corrección automática",
+            "paragraphs": [
+              "Imagen → Tono automático, Contraste automático y Color automático estiran los tonos de la imagen a todo el rango. Color automático también elimina la mayoría de las dominantes. Deshaga si el resultado se excede."
+            ]
+          },
+          "levels": {
+            "title": "Fije el negro y el blanco con Niveles",
+            "steps": [
+              "Elija Capa → Nueva capa de ajuste → Niveles….",
+              "Observe el histograma: si no llega al borde izquierdo o derecho, a la imagen le faltan negros profundos o blancos limpios.",
+              "Arrastre los reguladores de entrada negro y blanco hasta donde empieza y termina el histograma.",
+              "Mueva el regulador central para aclarar u oscurecer los tonos medios."
+            ]
+          },
+          "curves": {
+            "title": "Modele el contraste con Curvas",
+            "steps": [
+              "Elija Capa → Nueva capa de ajuste → Curvas….",
+              "Añada un punto en las sombras y bájelo un poco; luego añada un punto en las luces y súbalo: esta suave curva en S añade contraste.",
+              "Edite por separado el canal rojo, verde o azul para corregir una dominante."
+            ],
+            "tip": "Focale mantiene las curvas suaves y nunca deja que inviertan los tonos, así que puede añadir muchos puntos sin riesgo."
+          },
+          "shadows": {
+            "title": "Abra las sombras y recupere las luces",
+            "paragraphs": [
+              "Sombras / iluminaciones aclara las zonas oscuras y suaviza las claras de forma independiente. Exposición trabaja en pasos fotográficos y es ideal para imágenes de alta profundidad de bits."
+            ]
+          },
+          "colour": {
+            "title": "Ajuste el color y la saturación",
+            "items": [
+              "Intensidad refuerza más los colores apagados que los ya vivos, lo que mantiene naturales los tonos de piel.",
+              "Tono / saturación cambia todos los colores o una sola gama de colores.",
+              "Para el equilibrio de blancos, use los reguladores Temperatura y Matiz del Filtro de Camera Raw."
+            ]
+          },
+          "editable": {
+            "title": "Mantenga la edición editable",
+            "paragraphs": [
+              "Las capas de ajuste nunca cambian los píxeles de la foto. Haga doble clic en ellas para cambiar sus parámetros, pinte en su máscara para limitarlas a una parte de la imagen o baje su opacidad para suavizarlas."
+            ]
+          }
+        }
+      },
+      "blackAndWhite": {
+        "title": "Convertir una foto a blanco y negro",
+        "description": "Cree imágenes en blanco y negro expresivas y controle cómo cada color se convierte en gris.",
+        "sections": {
+          "adjustment": {
+            "title": "Use una capa de ajuste Blanco y negro",
+            "steps": [
+              "Elija Capa → Nueva capa de ajuste → Blanco y negro….",
+              "Mueva los reguladores de color para decidir el brillo de cada color. Oscurecer los azules hace un cielo dramático; aclarar rojos y amarillos ilumina la piel.",
+              "Añada contraste con una capa de ajuste Curvas por encima."
+            ],
+            "tip": "La foto en color sigue ahí. Oculte la capa de ajuste para comparar o pinte en su máscara para conservar algo de color."
+          },
+          "tint": {
+            "title": "Añada un tono",
+            "paragraphs": [
+              "Active la opción de tono del ajuste Blanco y negro para obtener una imagen sepia o de tonos fríos. Un ajuste Mapa de degradado da control total sobre los colores de sombras y luces."
+            ]
+          },
+          "mode": {
+            "title": "Convertir todo el documento",
+            "paragraphs": [
+              "Imagen → Modo → Escala de grises convierte el documento a un solo canal gris. Elimina el color de forma definitiva y no permite controlar cómo se convierten los colores en gris, así que es preferible usar la capa de ajuste y convertir solo cuando se exija un archivo en escala de grises."
+            ]
+          }
+        }
+      },
+      "editRawPhotos": {
+        "title": "Editar fotos RAW",
+        "description": "Revele archivos RAW: equilibrio de blancos, exposición, reducción de ruido, correcciones de objetivo y ajustes locales.",
+        "sections": {
+          "why": {
+            "title": "¿Por qué disparar en RAW?",
+            "paragraphs": [
+              "Un archivo RAW conserva todos los datos registrados por el sensor, con más margen tonal que un JPEG. Puede cambiar el equilibrio de blancos y recuperar luces y sombras con muchos menos defectos."
+            ]
+          },
+          "develop": {
+            "title": "Revelar un archivo RAW",
+            "steps": [
+              "Abra el archivo RAW con Archivo → Abrir…. Se abre el espacio de trabajo Camera Raw.",
+              "Ajuste el equilibrio de blancos con Temperatura y Matiz, o elija un ajuste preestablecido.",
+              "Ajuste la exposición y recupere las zonas claras y oscuras con los controles Iluminaciones y Sombras.",
+              "Aplique reducción de ruido y enfoque, y active las correcciones de perfil para su cámara y su objetivo.",
+              "Haga clic en Abrir. La imagen revelada se abre como documento de 16 bits que mantiene editables los ajustes RAW."
+            ],
+            "tip": "Use la comparación antes/después y los avisos de recorte para ver qué zonas son blanco puro o negro puro."
+          },
+          "local": {
+            "title": "Corregir una parte de la imagen",
+            "paragraphs": [
+              "Los ajustes locales aplican correcciones con un pincel, un degradado lineal o un degradado radial: oscurecer un cielo, aclarar una cara o añadir una viñeta."
+            ]
+          },
+          "layers": {
+            "title": "Use los controles RAW en cualquier capa",
+            "paragraphs": [
+              "Filtro → Filtro de Camera Raw lleva los mismos controles de revelado a una capa normal. Convierta antes la capa para filtros inteligentes para mantener los ajustes editables."
+            ]
+          },
+          "original": {
+            "title": "Su archivo RAW no se modifica",
+            "paragraphs": [
+              "Focale nunca modifica el archivo RAW. Guarde el resultado como proyecto .focale o expórtelo, y conserve el RAW original como archivo. Los ajustes de revelado se pueden guardar y reutilizar, y se pueden importar ajustes XMP de Adobe Camera Raw."
+            ]
+          }
+        }
+      },
+      "panoramaAndHdr": {
+        "title": "Crear un panorama o una imagen HDR",
+        "description": "Una varias fotos en un panorama, combine exposiciones en HDR o apile fotos con distintos enfoques.",
+        "sections": {
+          "shoot": {
+            "title": "Dispare pensando en la combinación",
+            "items": [
+              "Panorama: solape cada toma con la siguiente alrededor de un tercio, fije la exposición y el enfoque, y gire alrededor de la cámara en lugar de desplazarse.",
+              "HDR: tome varias exposiciones de la misma escena, por ejemplo −2, 0 y +2 EV, preferiblemente con trípode.",
+              "Apilamiento de enfoque: tome varias fotos enfocadas a distintas distancias sin mover la cámara."
+            ]
+          },
+          "panorama": {
+            "title": "Unir un panorama",
+            "steps": [
+              "Elija Archivo → Automatizar → Photomerge….",
+              "Añada entre 2 y 32 fotos.",
+              "Elija una composición. Automática decide por usted; Cilíndrica y Esférica sirven para vistas amplias, Perspectiva para pocas tomas, y Collage y Cambiar posición solo mueven las imágenes.",
+              "Ejecute la unión. Cada foto se convierte en una capa con una máscara editable, así que puede retocar cualquier costura después."
+            ],
+            "tip": "Recorte el resultado para quitar los bordes transparentes irregulares o rellénelos con Relleno según el contenido."
+          },
+          "hdr": {
+            "title": "Combinar exposiciones en HDR",
+            "steps": [
+              "Elija Archivo → Automatizar → Combinar para HDR….",
+              "Añada las fotos horquilladas. Deben tener las mismas dimensiones.",
+              "Mantenga activada la alineación para fotos a pulso y active Quitar fantasmas si algo se movió entre tomas.",
+              "Elija HDR de 32 bits para conservar todo el rango de luz, o fusión de exposiciones de 16 bits para una imagen lista para usar."
+            ]
+          },
+          "focus": {
+            "title": "Combinar un apilamiento de enfoque",
+            "steps": [
+              "Abra las fotos como capas de un mismo documento y selecciónelas.",
+              "Elija Edición → Alinear capas automáticamente….",
+              "Elija Edición → Fusionar capas automáticamente… con Apilar imágenes. Cada capa conserva sus zonas más nítidas mediante su máscara."
+            ]
+          }
+        }
+      },
+      "vectorizeImage": {
+        "title": "Convertir una imagen a vectores",
+        "description": "Vectorice un logotipo, un boceto o una ilustración en trazados editables y expórtelo como SVG o PDF.",
+        "sections": {
+          "when": {
+            "title": "Cuándo funciona mejor la vectorización",
+            "paragraphs": [
+              "La vectorización convierte zonas de color en trazados que se mantienen nítidos a cualquier tamaño. Funciona mejor con logotipos, iconos, dibujos de línea e ilustraciones planas. Las fotografías generan muchas formas pequeñas y es mejor mantenerlas como imágenes."
+            ]
+          },
+          "trace": {
+            "title": "Vectorizar una imagen",
+            "steps": [
+              "Cree o abra un documento vectorial.",
+              "Coloque la imagen con Archivo → Colocar elemento incrustado…, o péguela.",
+              "Seleccione la imagen y elija Selección → Vectorizar imagen….",
+              "Elija Blanco y negro con un umbral para dibujos de línea, o Color con un número máximo de colores.",
+              "Aumente el radio de ruido y el área mínima para ignorar motas, y ajuste la tolerancia de curvas: más baja conserva más detalle, más alta da trazados más suaves y sencillos.",
+              "Compare el origen con el resultado y elija Expandir a trazados."
+            ],
+            "tip": "Se pueden vectorizar imágenes de hasta un megapíxel aproximadamente: reduzca antes las más grandes. Aumentar el contraste y quitar el fondo previamente también da trazados más limpios."
+          },
+          "after": {
+            "title": "Después de vectorizar",
+            "items": [
+              "El resultado es un grupo de trazados normales: cambie sus colores, fusione formas con el Creador de formas o simplifíquelas.",
+              "Deshacer restaura la imagen original en un solo paso.",
+              "Guarde un proyecto .fvector o exporte a SVG o PDF para la web, la impresión u otros programas."
+            ]
+          }
+        }
+      },
+      "exportForWeb": {
+        "title": "Exportar imágenes para la web",
+        "description": "Elija entre JPEG, PNG, WebP y AVIF, equilibre calidad y peso, y exporte varios tamaños a la vez.",
+        "sections": {
+          "format": {
+            "title": "Elija el formato adecuado",
+            "table": {
+              "headers": [
+                "Formato",
+                "Ideal para",
+                "Transparencia"
+              ],
+              "rows": [
+                [
+                  "JPEG",
+                  "Fotografías; compatible en todas partes",
+                  "No"
+                ],
+                [
+                  "PNG",
+                  "Capturas de pantalla, logotipos, gráficos con bordes nítidos",
+                  "Sí"
+                ],
+                [
+                  "WebP",
+                  "Gráficos y fotos; Focale lo exporta actualmente sin pérdida",
+                  "Sí"
+                ],
+                [
+                  "AVIF",
+                  "Fotografías con el menor peso",
+                  "Sí"
+                ],
+                [
+                  "SVG",
+                  "Logotipos e iconos de documentos vectoriales",
+                  "Sí"
+                ]
+              ]
+            }
+          },
+          "export": {
+            "title": "Exportar una imagen",
+            "steps": [
+              "Elija Archivo → Exportar → Exportar como….",
+              "Elija un formato y ajuste la calidad. Compare las vistas previas del original y de la exportación y revise el tamaño estimado.",
+              "Defina las dimensiones y añada entradas en Tamaños de salida para pantallas de alta densidad, por ejemplo 1x y 2x con un sufijo en el nombre de archivo.",
+              "Exporte. Su proyecto .focale no se modifica."
+            ],
+            "tip": "Deje activado Incrustar perfil sRGB para que los colores se vean igual en todos los navegadores."
+          },
+          "quick": {
+            "title": "Volver a exportar rápidamente",
+            "paragraphs": [
+              "Archivo → Exportar → Exportación rápida reutiliza su último formato y sus últimos ajustes sin abrir el cuadro de diálogo. Volver a exportar repite la última exportación."
+            ]
+          },
+          "parts": {
+            "title": "Exportar capas, mesas de trabajo o sectores",
+            "paragraphs": [
+              "Archivo → Exportar → Exportar recursos seleccionados… exporta las capas, grupos o mesas de trabajo elegidos como archivos separados. Archivo → Exportar → Guardar para web… exporta los sectores de un diseño web."
+            ]
+          }
+        }
+      },
+      "openPsdFiles": {
+        "title": "Abrir y editar archivos PSD sin Photoshop",
+        "description": "Abra archivos PSD y PSB de Photoshop con sus capas, edítelos y vuelva a exportarlos, en Linux, Windows o macOS.",
+        "sections": {
+          "open": {
+            "title": "Abrir un archivo de Photoshop",
+            "steps": [
+              "Elija Archivo → Abrir… y seleccione un archivo .psd o .psb, o arrástrelo sobre Focale.",
+              "Revise el panel Capas: se conservan los grupos, las máscaras, los modos de fusión y la opacidad.",
+              "Guarde una copia de trabajo como proyecto .focale."
+            ]
+          },
+          "editable": {
+            "title": "Qué sigue siendo editable",
+            "items": [
+              "Las capas de píxeles, los grupos, las máscaras de capa, las máscaras vectoriales y las máscaras de recorte.",
+              "Las capas de texto, si las fuentes están instaladas en su ordenador.",
+              "Las capas de forma, de relleno y de ajuste como Curvas, Niveles y Tono / saturación.",
+              "Los objetos inteligentes y muchos efectos de capa como sombras, resplandores y trazos."
+            ]
+          },
+          "limits": {
+            "title": "Si algo se ve diferente",
+            "paragraphs": [
+              "Las funciones que Focale no puede reproducir exactamente se muestran con los píxeles guardados en el archivo, así que la imagen se ve bien, pero esa parte no es editable. Las fuentes que faltan se sustituyen en pantalla: instálelas para obtener la maquetación exacta. Conserve su archivo original al intercambiar documentos."
+            ]
+          },
+          "export": {
+            "title": "Devolverlo como PSD",
+            "paragraphs": [
+              "Elija Archivo → Exportar → Exportar como… y seleccione PSD o PSB para compartir un archivo con capas con alguien que use Photoshop. Los archivos de GIMP (XCF) también se pueden abrir y exportar."
+            ]
+          }
+        }
+      },
+      "batchProcessing": {
+        "title": "Editar muchas fotos por lotes",
+        "description": "Convierta, redimensione y procese carpetas enteras de imágenes con el Procesador de imágenes, las acciones y el procesamiento por lotes.",
+        "sections": {
+          "convert": {
+            "title": "Convertir y redimensionar una carpeta",
+            "steps": [
+              "Elija Archivo → Automatizar → Procesador de imágenes….",
+              "Elija una carpeta de origen y una carpeta de destino.",
+              "Elija el tipo de archivo y la calidad.",
+              "Active Redimensionar para encajar, introduzca un ancho y un alto máximos y deje activado No ampliar para las imágenes pequeñas.",
+              "Elija qué hacer con los archivos existentes y ejecute."
+            ]
+          },
+          "record": {
+            "title": "Grabar una acción",
+            "steps": [
+              "Abra una imagen de ejemplo y el panel Acciones.",
+              "Cree una acción nueva e inicie la grabación.",
+              "Aplique sus ediciones, por ejemplo un ajuste, un cambio de tamaño y un filtro de enfoque, y detenga la grabación.",
+              "Reproduzca la acción en otra imagen para probarla."
+            ],
+            "tip": "Los pasos que no se pueden reproducir aparecen marcados en el panel; elimínelos antes de usar la acción en un lote."
+          },
+          "batch": {
+            "title": "Aplicar una acción a muchos archivos",
+            "steps": [
+              "Elija Archivo → Automatizar → Lote….",
+              "Elija la acción, la carpeta de origen y el destino.",
+              "Ejecute y revise algunos resultados antes de confiar en el lote."
+            ]
+          },
+          "share": {
+            "title": "Compartir e importar acciones",
+            "paragraphs": [
+              "Exporte un conjunto de acciones para reutilizarlo en otro ordenador. Se pueden importar conjuntos de acciones ATN de Photoshop y exportar conjuntos en formato de Photoshop."
+            ]
+          }
+        }
+      },
+      "layersAndBlendModes": {
+        "title": "Capas y modos de fusión explicados",
+        "description": "Entienda cómo se apilan las capas, qué hacen la opacidad y los modos de fusión, y cuándo usar grupos y máscaras de recorte.",
+        "sections": {
+          "stack": {
+            "title": "Una pila de hojas transparentes",
+            "paragraphs": [
+              "Imagine las capas como hojas transparentes apiladas sobre la foto. Cada hoja contiene un elemento: un retoque, un texto, una forma o una corrección. El panel Capas muestra la pila de arriba abajo, y lo que usted ve es el resultado de mirar a través de todas ellas.",
+              "Las capas separadas permiten cambiar un elemento sin tocar los demás y probar ideas que puede quitar después."
+            ]
+          },
+          "kinds": {
+            "title": "Tipos de capas",
+            "table": {
+              "headers": [
+                "Capa",
+                "Contiene",
+                "Uso típico"
+              ],
+              "rows": [
+                [
+                  "Rasterizada",
+                  "Píxeles",
+                  "Fotos, pintura, retoque"
+                ],
+                [
+                  "Texto",
+                  "Texto editable",
+                  "Títulos, pies de foto"
+                ],
+                [
+                  "Forma",
+                  "Geometría vectorial",
+                  "Botones, logotipos, marcos"
+                ],
+                [
+                  "Relleno",
+                  "Un color, un degradado o un motivo",
+                  "Fondos, tintes"
+                ],
+                [
+                  "Ajuste",
+                  "Parámetros de corrección",
+                  "Exposición, color, blanco y negro"
+                ],
+                [
+                  "Objeto inteligente",
+                  "Contenido incrustado o enlazado",
+                  "Escalar y filtrar sin pérdida"
+                ]
+              ]
+            }
+          },
+          "opacity": {
+            "title": "Opacidad y relleno",
+            "paragraphs": [
+              "La opacidad atenúa toda la capa, efectos incluidos. El relleno atenúa solo los píxeles propios de la capa y mantiene los efectos, como trazos y sombras, con toda su intensidad."
+            ]
+          },
+          "blend": {
+            "title": "Modos de fusión",
+            "paragraphs": [
+              "Un modo de fusión decide cómo se combinan los colores de una capa con los de las capas inferiores, en lugar de simplemente cubrirlos."
+            ],
+            "items": [
+              "Multiplicar oscurece: el blanco desaparece. Úselo para sombras o para colocar un dibujo escaneado sobre un fondo.",
+              "Trama aclara: el negro desaparece. Úselo para fugas de luz, fuego y chispas.",
+              "Superponer y Luz suave añaden contraste: el gris al 50 % desaparece. Pinte más claro u oscuro en una capa gris en Luz suave para sobreexponer y subexponer sin tocar la foto.",
+              "Color aplica el tono y la saturación de la capa conservando la luminosidad inferior: ideal para cambiar colores.",
+              "Luminosidad hace lo contrario y sirve para enfocar o ajustar el contraste sin desplazar los colores."
+            ]
+          },
+          "groups": {
+            "title": "Grupos y máscaras de recorte",
+            "paragraphs": [
+              "Los grupos organizan las capas y se pueden mover, ocultar o enmascarar juntos. Una máscara de recorte limita una capa al contenido visible de la capa que tiene justo debajo: coloque una textura sobre un texto o aplique un ajuste a un solo objeto con Capa → Crear máscara de recorte."
+            ]
+          }
+        }
+      },
+      "selectionsAndMasks": {
+        "title": "Selecciones y máscaras explicadas",
+        "description": "Aprenda cómo las selecciones limitan las ediciones, cómo las máscaras ocultan sin borrar y qué herramienta de selección usar.",
+        "sections": {
+          "selection": {
+            "title": "Las selecciones limitan dónde edita",
+            "paragraphs": [
+              "Una selección se muestra con un contorno de puntos en movimiento. Mientras está activa, la pintura, los filtros y los ajustes solo afectan a la zona seleccionada. Deseleccione con Ctrl+D (Cmd+D en macOS) al terminar."
+            ]
+          },
+          "tools": {
+            "title": "Elija una herramienta de selección",
+            "table": {
+              "headers": [
+                "Herramienta",
+                "Ideal para"
+              ],
+              "rows": [
+                [
+                  "Marco rectangular y elíptico",
+                  "Zonas geométricas sencillas"
+                ],
+                [
+                  "Lazo y lazo poligonal",
+                  "Zonas a mano alzada o con bordes rectos"
+                ],
+                [
+                  "Lazo magnético",
+                  "Contornos con buen contraste"
+                ],
+                [
+                  "Selección rápida",
+                  "Objetos y personas, pintados a grandes rasgos"
+                ],
+                [
+                  "Varita mágica",
+                  "Zonas de color parecido, como un cielo"
+                ],
+                [
+                  "Gama de colores",
+                  "Todos los píxeles de un color en la imagen"
+                ]
+              ]
+            }
+          },
+          "combine": {
+            "title": "Añadir, restar y afinar",
+            "items": [
+              "Mantenga Mayús para añadir a la selección y Alt (Opción en macOS) para restar.",
+              "Selección → Modificar → Desvanecer… suaviza el borde para que las correcciones se integren.",
+              "Selección → Seleccionar y aplicar máscara… afina bordes difíciles como el pelo.",
+              "Selección → Guardar selección… guarda una selección para cargarla más tarde."
+            ]
+          },
+          "masks": {
+            "title": "Las máscaras ocultan sin borrar",
+            "paragraphs": [
+              "Una máscara de capa es una imagen en blanco y negro asociada a una capa. El blanco muestra la capa, el negro la oculta y el gris la muestra parcialmente. Como no se borra nada, siempre puede recuperar las partes ocultas.",
+              "Cree una a partir de una selección con Capa → Máscara rasterizada → Descubrir selección. Después seleccione la miniatura de la máscara en el panel Capas y pinte en negro o blanco para afinarla."
+            ],
+            "tip": "Si al pintar no ocurre lo esperado, compruebe si está seleccionada la miniatura de la imagen o la de la máscara en el panel Capas."
+          },
+          "vector": {
+            "title": "Máscaras vectoriales",
+            "paragraphs": [
+              "Una máscara vectorial usa un trazado en lugar de píxeles. Su borde se mantiene perfectamente nítido a cualquier tamaño y se edita con las herramientas de trazado, algo ideal para recortes geométricos y fotos de producto."
+            ]
+          }
+        }
+      },
+      "nonDestructiveEditing": {
+        "title": "La edición no destructiva explicada",
+        "description": "Edite sin perder calidad: capas de ajuste, máscaras, objetos inteligentes y filtros inteligentes hacen reversible cada cambio.",
+        "sections": {
+          "idea": {
+            "title": "Conserve el original, guarde el cambio",
+            "paragraphs": [
+              "Una edición destructiva sobrescribe píxeles: una vez guardada, el original se pierde. Una edición no destructiva guarda el cambio aparte y lo aplica al mostrar la imagen. Puede ajustarlo o quitarlo en cualquier momento, incluso tras volver a abrir el proyecto."
+            ]
+          },
+          "tools": {
+            "title": "La caja de herramientas no destructiva",
+            "table": {
+              "headers": [
+                "En lugar de",
+                "Use",
+                "Por qué"
+              ],
+              "rows": [
+                [
+                  "Imagen → Ajustes",
+                  "Una capa de ajuste",
+                  "Los parámetros siguen siendo editables y se pueden enmascarar"
+                ],
+                [
+                  "El borrador",
+                  "Una máscara de capa",
+                  "Las partes ocultas se pueden recuperar"
+                ],
+                [
+                  "Retocar la capa de la foto",
+                  "Una capa de retoque aparte",
+                  "Las correcciones se pueden atenuar o quitar"
+                ],
+                [
+                  "Aplicar un filtro",
+                  "Un filtro inteligente en un objeto inteligente",
+                  "Los parámetros del filtro siguen siendo editables"
+                ],
+                [
+                  "Escalar píxeles una y otra vez",
+                  "Un objeto inteligente",
+                  "Cada escalado parte del original"
+                ]
+              ]
+            }
+          },
+          "smart": {
+            "title": "Objetos inteligentes y filtros inteligentes",
+            "steps": [
+              "Seleccione una capa y elija Filtro → Convertir para filtros inteligentes.",
+              "Aplique un filtro como Desenfoque gaussiano o Máscara de enfoque.",
+              "El filtro aparece bajo la capa. Cambie sus parámetros, ocúltelo o pinte en su máscara para limitarlo."
+            ]
+          },
+          "save": {
+            "title": "Guarde en .focale",
+            "paragraphs": [
+              "Solo un proyecto .focale conserva capas, máscaras, capas de ajuste y objetos inteligentes. Los archivos JPEG o PNG exportados son copias acopladas: conserve el proyecto para seguir editando."
+            ]
+          }
+        }
+      },
+      "colorModesAndBitDepth": {
+        "title": "Modos de color, profundidad de bits y perfiles explicados",
+        "description": "RGB o CMYK, 8 o 16 bits, sRGB o Adobe RGB: elija los ajustes adecuados para pantalla e impresión.",
+        "sections": {
+          "modes": {
+            "title": "Modos de color",
+            "table": {
+              "headers": [
+                "Modo",
+                "Úselo para"
+              ],
+              "rows": [
+                [
+                  "RGB",
+                  "Pantallas, fotos, web; la opción adecuada para la mayoría de trabajos"
+                ],
+                [
+                  "CMYK",
+                  "Documentos que se envían a una imprenta"
+                ],
+                [
+                  "Escala de grises",
+                  "Salidas en blanco y negro con un solo canal"
+                ],
+                [
+                  "Lab",
+                  "Corrección de color avanzada"
+                ]
+              ]
+            },
+            "tip": "Edite en RGB y convierta a CMYK solo cuando su imprenta lo pida, con el perfil que le recomiende."
+          },
+          "depth": {
+            "title": "Profundidad de bits",
+            "paragraphs": [
+              "La profundidad de bits indica con qué finura se guarda cada color. 8 bits dan 256 niveles por canal, suficientes para mostrar una imagen. 16 bits dan 65 536: los ajustes fuertes se mantienen suaves en lugar de crear bandas en cielos y degradados. 32 bits guardan luz más intensa que el blanco para trabajos HDR.",
+              "Edite los RAW y las fotos muy corregidas en 16 bits, y exporte en 8 bits para la web."
+            ]
+          },
+          "profiles": {
+            "title": "Perfiles de color",
+            "paragraphs": [
+              "Un perfil de color indica a otros programas qué significan los números del archivo. sRGB es el estándar de las pantallas y la web. Adobe RGB y ProPhoto RGB contienen colores más saturados y son adecuados para imprimir y revelar RAW.",
+              "Edición → Perfil de color permite asignar o convertir un perfil. Asignar cambia cómo se interpretan los números; convertir mantiene el aspecto y cambia los números. Exporte con un perfil sRGB para la web."
+            ]
+          }
+        }
+      },
+      "vectorFormat": {
+        "title": "Proyectos vectoriales (.fvector)",
+        "description": "Especificación JSON en versión 1: ilustración editable, bibliotecas del documento y recursos binarios compartidos.",
+        "sections": {
+          "schema": {
+            "title": "Estructura del archivo",
+            "paragraphs": [
+              "Un archivo .fvector contiene JSON UTF-8. Sus campos raíz obligatorios son format, version, id, name y scene. El ejemplo siguiente es un proyecto completo con una elipse editable. La escritura usa la versión 1; el lector también acepta las envolturas de desarrollo 2–9 y las guarda en versión 1. Las versiones desconocidas se rechazan."
+            ]
+          },
+          "scene": {
+            "title": "Escena y objetos editables",
+            "paragraphs": [
+              "La escena conserva dimensiones, resolución, perfiles de color y objetos en orden de pintado. Los objetos mantienen formas, trazados Bézier, texto, transformaciones, rellenos, contornos e hijos. Símbolos, colores con nombre, estilos gráficos y de texto, mesas de trabajo y metadatos de producción siguen siendo editables. Las coordenadas de los hijos son locales al padre."
+            ]
+          },
+          "resources": {
+            "title": "Recursos binarios compartidos",
+            "paragraphs": [
+              "La tabla opcional binaryResources indexa datos Base64 mediante SHA-256. Cada entrada declara byteLength y bytes; los campos correspondientes hacen referencia a su huella. Incluye fuentes colocadas, archivos PDF/AI conservados, tipografías, perfiles y patrones. Las antiguas cadenas Base64 integradas siguen siendo legibles. Se rechazan los recursos ausentes, sin usar o incoherentes."
+            ]
+          },
+          "limits": {
+            "title": "Validación y límites",
+            "paragraphs": [
+              "Los límites actuales son 128 MiB de JSON UTF-8, una profundidad de 100, dos millones de valores JSON y 100 000 entradas por colección. Hasta 4096 recursos binarios distintos comparten un presupuesto de 80 MiB decodificados. También se aplican límites por campo. La disposición de la interfaz, la selección y el historial de deshacer quedan excluidos."
+            ]
+          },
+          "exchange": {
+            "title": "Guardado nativo e intercambio",
+            "paragraphs": [
+              "Conserve .fvector para mantener el documento editable. Los intercambios SVG, PDF y AI tienen límites por función descritos en la referencia vectorial descargable; los filtros SVG disponen de su propia referencia. Una recopilación de recursos reúne instantáneas, tipografías recopilables y un informe de dependencias junto a una copia del proyecto. Publicar estas especificaciones no cambia la envoltura en versión 1."
+            ]
+          }
+        }
+      },
+      "resourceCollection": {
+        "title": "Recopilaciones de recursos vectoriales (.zip)",
+        "description": "Estructura del archivo, dependencias capturadas e informe de recopilación en versión 1.",
+        "sections": {
+          "structure": {
+            "title": "Contenido del archivo",
+            "paragraphs": [
+              "El ZIP contiene project.fvector, report.json y entradas opcionales resources/ y fonts/ con nombres SHA-256. Extráigalo y abra project.fvector. La copia del proyecto incorpora las instantáneas vinculadas disponibles sin actualizar archivos externos ni modificar el original. Las tipografías separadas conservan sus nombres de familia y requieren instalación en el sistema de destino."
+            ]
+          },
+          "schema": {
+            "title": "Informe de dependencias",
+            "paragraphs": [
+              "El informe utiliza format focale-resource-collection y version 1. Enumera colocaciones, rutas originales, archivos capturados, disponibilidad de tipografías y rutas de conjuntos de datos no recopiladas. El ejemplo describe un proyecto sin dependencias externas. Un informe incompleto identifica instantáneas ausentes, fuentes limitadas a una vista previa, tipografías por recuperar o dependencias anidadas sin inspeccionar."
+            ]
+          },
+          "limits": {
+            "title": "Límites e integridad",
+            "paragraphs": [
+              "El exportador requiere aceptación antes de escribir una recopilación incompleta. El archivo admite 128 MiB de entradas sin comprimir y 128 MiB de ZIP codificado, 10 000 entradas, 4096 colocaciones y 4096 rutas de datos inactivas. La inspección tipográfica admite 256 variantes y 64 MiB de programas distintos. También se aplican los límites del proyecto anidado; sus dependencias no se recopilan recursivamente."
+            ]
+          }
+        }
       }
-    }
+    },
+    "tip": "Consejo:",
+    "relatedGuides": "Guías relacionadas"
   },
   "support": {
     "title": "Apoyar Focale",
     "home": {
       "title": "Hagamos crecer Focale juntos.",
-      "description": "Prueba Focale, comparte una idea, da a conocer el proyecto o haz una donación: hay muchas formas de contribuir.",
+      "description": "Probar Focale, compartir una idea, dar a conocer el proyecto o hacer una donación: hay muchas formas de contribuir.",
       "action": "Cómo contribuir"
     },
-    "eyebrow": "Ayuda a Focale a crecer",
-    "heading": "Una herramienta creativa que crece contigo.",
-    "description": "Focale está en alfa y su modelo de negocio aún no está decidido. Probarlo, compartir tu experiencia o apoyar su desarrollo ayuda a dar forma al proyecto.",
+    "eyebrow": "Ayudar a Focale a crecer",
+    "heading": "Una herramienta creativa que crece con sus usuarios.",
+    "description": "Focale está en alfa y su modelo de negocio aún no está decidido. Probarlo, compartir su experiencia o apoyar su desarrollo ayuda a dar forma al proyecto.",
     "donateTitle": "Apoyar el desarrollo",
-    "donateDescription": "Tu contribución da a Focale más tiempo para crecer. Las donaciones son opcionales e independientes del registro entre los fundadores.",
+    "donateDescription": "Su contribución da a Focale más tiempo para crecer. Las donaciones son opcionales e independientes del registro entre los fundadores.",
     "donateAction": "Hacer una donación",
-    "tryTitle": "Pruébalo. Cuéntanos qué importa.",
-    "tryDescription": "Usa Focale en un proyecto real, explora sus herramientas y comparte lo que funciona y lo que se puede mejorar.",
+    "tryTitle": "Probarlo y contar qué importa",
+    "tryDescription": "Use Focale en un proyecto real, explore sus herramientas y comparta lo que funciona y lo que se puede mejorar.",
     "tryAction": "Descargar Focale",
     "bugTitle": "Informar de un error",
-    "bugDescription": "Incluye los pasos para reproducirlo, tu sistema operativo y la versión de Focale. Un pequeño archivo de ejemplo puede ayudar si no contiene información privada.",
+    "bugDescription": "Incluya los pasos para reproducirlo, su sistema operativo y la versión de Focale. Un pequeño archivo de ejemplo puede ayudar si no contiene información privada.",
     "bugAction": "Crear un informe de error",
     "ideaTitle": "Compartir una idea",
-    "ideaDescription": "Un flujo incómodo, una función que falta o un pequeño detalle: explica qué quieres lograr y cómo Focale podría ayudarte.",
+    "ideaDescription": "Un flujo incómodo, una función que falta o un pequeño detalle: explique qué quiere lograr y cómo Focale podría ayudarle.",
     "ideaAction": "Sugerir una mejora",
     "shareTitle": "Dar a conocer el proyecto",
-    "shareDescription": "Comparte Focale con alguien a quien le guste editar imágenes. Tus proyectos y comentarios ayudan a otras personas a descubrirlo.",
+    "shareDescription": "Comparta Focale con alguien a quien le guste editar imágenes. Sus proyectos y comentarios ayudan a otras personas a descubrirlo.",
     "shareAction": "Copiar el enlace del sitio",
     "copied": "Enlace copiado",
-    "copyError": "No se pudo copiar. Puedes compartir https://focale-editor.app directamente.",
+    "copyError": "No se pudo copiar. También puede compartir https://focale-editor.app directamente.",
     "foundersTitle": "¿Aquí desde el principio?",
-    "foundersDescription": "Registra tu email en el diálogo de bienvenida de la aplicación para unirte a los fundadores. Si el modelo de negocio cambia, los fundadores recibirán gratis una clave de licencia. No se requiere ninguna donación.",
+    "foundersDescription": "Registre su email en el diálogo de bienvenida de la aplicación para unirse a los fundadores. Si el modelo de negocio cambia, los fundadores recibirán gratis una clave de licencia. No se requiere ninguna donación.",
     "thanks": "Gracias por ayudar a dar forma a Focale."
   },
   "changelog": {
@@ -2210,13 +3123,13 @@
     "description": "Novedades, mejoras y correcciones de cada versión de Focale.",
     "eyebrow": "Actualizaciones de Focale",
     "emptyTitle": "No hay notas de versión disponibles",
-    "emptyDescription": "Las notas de versión aún no están disponibles aquí. Consulta las versiones publicadas en la sección de descargas.",
+    "emptyDescription": "Las notas de versión aún no están disponibles aquí. Las versiones publicadas figuran en la sección de descargas.",
     "originalLanguage": "Las notas de versión se muestran en su idioma original.",
     "noChanges": "No se indican cambios adicionales para esta versión."
   },
   "privacy": {
     "title": "Política de privacidad",
-    "description": "Qué hacen Focale y este sitio con tus datos, y qué dejan intacto.",
+    "description": "Qué hacen Focale y este sitio con sus datos, y qué dejan intacto.",
     "eyebrow": "Privacidad",
     "updated": "Última actualización: 13 de octubre de 2026",
     "contact": "Contactar con el editor",
@@ -2224,50 +3137,50 @@
       "summary": {
         "title": "En resumen",
         "paragraphs": [
-          "Focale edita tus imágenes en tu ordenador. No tiene cuenta, publicidad ni analítica de uso, y nunca sube tus documentos a Internet.",
-          "Los datos salen de tu dispositivo solo en tres casos: los informes de error automáticos, que puedes desactivar; la búsqueda de actualizaciones; y el registro como fundador, si decides dar tu dirección de correo electrónico."
+          "Focale edita sus imágenes en su ordenador. No tiene cuenta, publicidad ni analítica de uso, y nunca sube sus documentos a Internet.",
+          "Los datos salen de su dispositivo solo en tres casos: los informes de error automáticos, que puede desactivar; la búsqueda de actualizaciones; y el registro como fundador, si decide facilitar su dirección de correo electrónico."
         ]
       },
       "controller": {
         "title": "Quién es el responsable",
         "paragraphs": [
-          "Focale y este sitio los publica Hugo Delaunay, que decide cómo se usan los datos descritos aquí. Para cualquier pregunta o solicitud sobre tus datos, escribe a {email}."
+          "Focale y este sitio los publica Hugo Delaunay, que decide cómo se usan los datos descritos aquí. Para cualquier pregunta o solicitud sobre sus datos, escriba a {email}."
         ]
       },
       "documents": {
-        "title": "Tus imágenes y proyectos",
+        "title": "Sus imágenes y proyectos",
         "paragraphs": [
-          "Las imágenes que abres, tus proyectos .focale, tus ajustes preestablecidos, tus preferencias, la lista de archivos recientes y las copias de recuperación se guardan en tu dispositivo. Focale no los envía a ninguna parte, y el editor no tiene acceso a ellos."
+          "Las imágenes que abre, sus proyectos .focale, sus ajustes preestablecidos, sus preferencias, la lista de archivos recientes y las copias de recuperación se guardan en su dispositivo. Focale no los envía a ninguna parte, y el editor no tiene acceso a ellos."
         ]
       },
       "errors": {
         "title": "Informes de error",
         "paragraphs": [
-          "Cuando Focale encuentra un error inesperado o se cierra de forma anómala, envía un informe técnico para que el fallo pueda corregirse. Esta opción está activada por defecto. Puedes desactivarla en cualquier momento en Ajustes → Diagnóstico → Enviar informes de error automáticamente.",
+          "Cuando Focale encuentra un error inesperado o se cierra de forma anómala, envía un informe técnico para que el fallo pueda corregirse. Esta opción está activada por defecto. Puede desactivarla en cualquier momento en Ajustes → Diagnóstico → Enviar informes de error automáticamente.",
           "Un informe contiene:"
         ],
         "items": [
           "el tipo de error, su mensaje y el lugar del código de Focale donde se produjo;",
-          "la versión de Focale, tu sistema operativo y su versión, y características generales de tu dispositivo, como su modelo, la arquitectura del procesador, la memoria y el tamaño de la pantalla;",
+          "la versión de Focale, su sistema operativo y su versión, y características generales de su dispositivo, como su modelo, la arquitectura del procesador, la memoria y el tamaño de la pantalla;",
           "los momentos en que la aplicación se abrió, se pausó o se reanudó antes del error."
         ],
         "notes": [
-          "Focale elimina los identificadores de usuario, el nombre de tu ordenador y las rutas de archivo y direcciones de correo que aparecen en los mensajes de error. Los informes nunca incluyen capturas de pantalla ni el contenido de tus documentos. Hay una excepción que conviene señalar: cuando la aplicación se cierra bruscamente, el informe incluye una copia de parte de su memoria, que puede contener fragmentos de lo que estaba abierto en ese momento.",
+          "Focale elimina los identificadores de usuario, el nombre de su ordenador y las rutas de archivo y direcciones de correo que aparecen en los mensajes de error. Los informes nunca incluyen capturas de pantalla ni el contenido de sus documentos. Hay una excepción que conviene señalar: cuando la aplicación se cierra bruscamente, el informe incluye una copia de parte de su memoria, que puede contener fragmentos de lo que estaba abierto en ese momento.",
           "Los informes los recibe Sentry, un servicio de supervisión de errores gestionado por Functional Software, Inc., que actúa por cuenta del editor. Como en cualquier conexión a Internet, Sentry ve la dirección IP de la que procede el informe. Los informes se conservan 90 días como máximo y después se eliminan. Solo se usan para diagnosticar y corregir fallos, sobre la base del interés legítimo del editor en mantener Focale fiable."
         ]
       },
       "updates": {
         "title": "Actualizaciones",
         "paragraphs": [
-          "Las versiones descargadas desde este sitio buscan una nueva versión al iniciarse leyendo un canal de publicación firmado en get.focale-editor.app. La solicitud no lleva ningún identificador ni revela sobre ti más de lo que revela cualquier descarga: tu dirección IP y la versión del software que hace la solicitud. Puedes desactivar la búsqueda en Ajustes → Actualizaciones → Buscar actualizaciones al iniciar. No se instala nada sin tu confirmación.",
+          "Las versiones descargadas desde este sitio buscan una nueva versión al iniciarse leyendo un canal de publicación firmado en get.focale-editor.app. La solicitud no lleva ningún identificador ni revela sobre usted más de lo que revela cualquier descarga: su dirección IP y la versión del software que hace la solicitud. Puede desactivar la búsqueda en Ajustes → Actualizaciones → Buscar actualizaciones al iniciar. No se instala nada sin su confirmación.",
           "Las versiones instaladas desde Microsoft Store, Mac App Store, Snap Store o como Flatpak las distribuye y actualiza esa tienda, según su propia política de privacidad."
         ]
       },
       "founders": {
         "title": "Registro como fundador",
         "paragraphs": [
-          "Focale puede invitarte a unirte a sus fundadores. Es opcional. Si aceptas, la dirección de correo que escribes, el idioma de la aplicación y el hecho de que te registraste desde la aplicación se envían a Loops, el servicio de correo que utiliza el editor.",
-          "Tu dirección se usa para registrarte, enviarte novedades sobre Focale y, si su modelo de negocio cambia, tu clave de licencia. La base es tu consentimiento: cada correo incluye un enlace para darte de baja, y puedes pedir que se elimine tu dirección escribiendo a {email}. Se conserva hasta entonces.",
+          "Focale puede invitarle a unirse a sus fundadores. Es opcional. Si acepta, la dirección de correo que escribe, el idioma de la aplicación y el hecho de que se registró desde la aplicación se envían a Loops, el servicio de correo que utiliza el editor.",
+          "Su dirección se usa para registrarle, enviarle novedades sobre Focale y, si su modelo de negocio cambia, su clave de licencia. La base es su consentimiento: cada correo incluye un enlace para darse de baja, y puede pedir que se elimine su dirección escribiendo a {email}. Se conserva hasta entonces.",
           "Loops está gestionado por Loops, Inc., una empresa establecida en Estados Unidos."
         ]
       },
@@ -2275,16 +3188,16 @@
         "title": "Este sitio web",
         "paragraphs": [
           "El sitio se compone de páginas estáticas alojadas en GitHub Pages. No utiliza analítica, publicidad ni rastreadores de terceros, y sus fuentes se sirven desde el propio sitio. Como cualquier servicio de alojamiento, GitHub registra las direcciones IP de los visitantes en sus registros técnicos, con fines de seguridad; el editor no tiene acceso a ellos.",
-          "Una única cookie, focale_locale, se guarda durante un año cuando eliges un idioma con el selector de idioma, para que el sitio se abra en ese idioma la próxima vez. No se guarda en ningún otro caso y no sirve para seguirte.",
+          "Una única cookie, focale_locale, se guarda durante un año cuando se elige un idioma con el selector de idioma, para que el sitio se abra en ese idioma la próxima vez. No se guarda en ningún otro caso y no sirve para seguir a nadie.",
           "La lista de descargas se carga desde get.focale-editor.app, alojado también en GitHub Pages. Los enlaces a GitHub, a las tiendas y a las plataformas de donación llevan a servicios con sus propias políticas de privacidad."
         ]
       },
       "rights": {
-        "title": "Tus derechos",
+        "title": "Sus derechos",
         "paragraphs": [
-          "El Reglamento General de Protección de Datos te permite solicitar el acceso a tus datos personales, su rectificación o su supresión, limitar su uso u oponerte a él, recibirlos en un formato portable y retirar un consentimiento que hayas dado. Escribe a {email}; recibirás una respuesta en el plazo de un mes.",
-          "Los informes de error no llevan nombre, cuenta ni dirección de correo, por lo que en general es imposible localizar los que proceden de tu dispositivo. Desactivar el envío impide cualquier informe posterior.",
-          "Si consideras que tus datos no se tratan correctamente, puedes presentar una reclamación ante la autoridad de protección de datos de tu país."
+          "El Reglamento General de Protección de Datos le permite solicitar el acceso a sus datos personales, su rectificación o su supresión, limitar su uso u oponerse a él, recibirlos en un formato portable y retirar un consentimiento que haya dado. Escriba a {email}; recibirá una respuesta en el plazo de un mes.",
+          "Los informes de error no llevan nombre, cuenta ni dirección de correo, por lo que en general es imposible localizar los que proceden de su dispositivo. Desactivar el envío impide cualquier informe posterior.",
+          "Si considera que sus datos no se tratan correctamente, puede presentar una reclamación ante la autoridad de protección de datos de su país."
         ]
       },
       "changes": {

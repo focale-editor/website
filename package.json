@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Landing page for Focale, a modern local-first raster image editor.",
+  "description": "Landing page for Focale, a modern local-first photo and vector editor.",
   "packageManager": "pnpm@12.9.1",
   "engines": {
     "node": ">=22.0.0"

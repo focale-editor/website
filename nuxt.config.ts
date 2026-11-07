@@ -99,7 +99,7 @@ export default defineNuxtConfig({
       { code: 'fr', language: 'fr-FR', name: 'Français', file: 'fr.json', dir: 'ltr' },
       { code: 'es', language: 'es-ES', name: 'Español', file: 'es.json', dir: 'ltr' },
       { code: 'it', language: 'it-IT', name: 'Italiano', file: 'it.json', dir: 'ltr' },
-      { code: 'pt', language: 'pt-PT', name: 'Português', file: 'pt.json', dir: 'ltr' },
+      { code: 'pt', language: 'pt-BR', name: 'Português', file: 'pt.json', dir: 'ltr' },
       { code: 'de', language: 'de-DE', name: 'Deutsch', file: 'de.json', dir: 'ltr' },
     ],
     defaultDirection: 'ltr',
@@ -115,7 +115,7 @@ export default defineNuxtConfig({
       scan: true,
       sizeLimitKb: 512,
       // Navigation icons come from data, so include them for static client routing.
-      icons: ['lucide:book-open', 'lucide:scale', 'lucide:code-xml', ...Object.values(documentationArticles).map(page => page.icon), ...socialLinks.map(link => link.icon)],
+      icons: ['lucide:book-open', 'lucide:scale', 'lucide:code-xml', 'lucide:lightbulb', ...Object.values(documentationArticles).map(page => page.icon), ...socialLinks.map(link => link.icon)],
     },
   },
 
