@@ -296,6 +296,22 @@
       "sourceUrl": "https://github.com/emscripten-core/emscripten/tree/4.0.15",
       "notice": "emscripten.txt",
       "sha256": "e3f687a70db39fbaaa3f6bc0c6f38ee34e6b509f47518a161f6595f581039aa7"
+    },
+    {
+      "name": "pdf-fax",
+      "version": "15.0.0",
+      "license": "Apache-2.0",
+      "sourceUrl": "https://pub.dev/packages/pdf_cos/versions/15.0.0",
+      "notice": "pdf-fax.txt",
+      "sha256": "9632fd163cebade765602d7d669ed14c08f4e6cca04c4dccaa07c37f41fb7766"
+    },
+    {
+      "name": "imcodec-jbig2",
+      "version": "0.5.7",
+      "license": "Apache-2.0",
+      "sourceUrl": "https://pub.dev/packages/imcodec/versions/0.5.7",
+      "notice": "jbig2.txt",
+      "sha256": "f5775f2ad0fa7d3d4b136e29252f2d762bc4b3ff9a847aea2488aa32ba2d56ba"
     }
   ]
 }
