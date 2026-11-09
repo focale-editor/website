@@ -230,10 +230,11 @@ function captureFor(section: string) {
           v-for="page in suggested"
           :key="page.to"
           :to="page.to"
-          class="article-next-card"
+          class="article-next-card motion-trigger"
         >
-          <Icon
+          <AnimatedIcon
             :name="page.icon"
+            class="article-next-icon"
             aria-hidden="true"
           />
           <span>
@@ -243,7 +244,7 @@ function captureFor(section: string) {
         </NuxtLink>
       </div>
     </section>
-    <details class="article-related">
+    <AnimatedDetails class="article-related">
       <summary>{{ t('docs.otherGuides') }}</summary>
       <ul class="article-list">
         <li
@@ -253,7 +254,7 @@ function captureFor(section: string) {
           <NuxtLink :to="page.to">{{ page.title }}</NuxtLink>
         </li>
       </ul>
-    </details>
+    </AnimatedDetails>
   </DocumentationLayout>
 </template>
 
@@ -341,8 +342,7 @@ function captureFor(section: string) {
     background: var(--color-panel-hover);
   }
 
-  .iconify {
-    flex: none;
+  .article-next-icon {
     margin-top: 0.15rem;
     color: var(--color-accent-bright);
     font-size: 1.125rem;

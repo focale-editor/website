@@ -60,6 +60,7 @@ const platforms = computed<Platform[]>(() => [
 ])
 
 const expanded = ref<Record<string, boolean>>({})
+
 const instructionsVisible = ref(false)
 const instructionsMode = ref<'archive' | 'command'>('archive')
 
@@ -136,103 +137,104 @@ function openInstructions(mode: 'archive' | 'command'): void {
             </template>
           </Button>
 
-          <ul
-            v-show="expanded[platform.id]"
-            :id="`downloads-${platform.id}`"
-            class="download-menu"
-            role="list"
-            :aria-label="t('downloads.optionsFor', { platform: platform.name })"
-          >
-            <li
-              v-for="(option, index) in platform.options"
-              :key="index"
+          <CollapsiblePanel :open="!!expanded[platform.id]">
+            <ul
+              :id="`downloads-${platform.id}`"
+              class="download-menu"
+              role="list"
+              :aria-label="t('downloads.optionsFor', { platform: platform.name })"
             >
-              <a
-                v-if="option.kind === 'file'"
-                :href="latestRelease.downloads[option.target].url"
-                :aria-label="`${option.label} · ${t('downloads.downloadFor', { platform: `${platform.name} ${option.detail}` })}`"
-                class="download-option"
+              <li
+                v-for="(option, index) in platform.options"
+                :key="index"
               >
-                <span class="option-copy">
-                  <span class="option-title">
-                    <Icon
-                      name="lucide:download"
-                      class="option-icon"
-                      aria-hidden="true"
-                    />
-                    <span class="option-label">{{ option.label }}</span>
-                    <span class="option-tag">{{ option.detail }}</span>
+                <a
+                  v-if="option.kind === 'file'"
+                  :href="latestRelease.downloads[option.target].url"
+                  :aria-label="`${option.label} · ${t('downloads.downloadFor', { platform: `${platform.name} ${option.detail}` })}`"
+                  class="download-option"
+                >
+                  <span class="option-copy">
+                    <span class="option-title">
+                      <Icon
+                        name="lucide:download"
+                        class="option-icon"
+                        aria-hidden="true"
+                      />
+                      <span class="option-label">{{ option.label }}</span>
+                      <span class="option-tag">{{ option.detail }}</span>
+                    </span>
+                    <span class="option-note">{{ noteFor(option) }}</span>
                   </span>
-                  <span class="option-note">{{ noteFor(option) }}</span>
-                </span>
-              </a>
+                </a>
 
-              <a
-                v-else-if="option.kind === 'link'"
-                :href="option.href"
-                class="download-option"
-              >
-                <span class="option-copy">
-                  <span class="option-title">
-                    <Icon
-                      :name="option.icon ?? 'lucide:package'"
-                      class="option-icon"
-                      aria-hidden="true"
-                    />
-                    <span class="option-label">{{ option.label }}</span>
-                    <span
-                      v-if="option.detail"
-                      class="option-tag"
-                    >{{ option.detail }}</span>
+                <a
+                  v-else-if="option.kind === 'link'"
+                  :href="option.href"
+                  class="download-option"
+                >
+                  <span class="option-copy">
+                    <span class="option-title">
+                      <Icon
+                        :name="option.icon ?? 'lucide:package'"
+                        class="option-icon"
+                        aria-hidden="true"
+                      />
+                      <span class="option-label">{{ option.label }}</span>
+                      <span
+                        v-if="option.detail"
+                        class="option-tag"
+                      >{{ option.detail }}</span>
+                    </span>
+                    <span class="option-note">{{ option.note }}</span>
                   </span>
-                  <span class="option-note">{{ option.note }}</span>
-                </span>
-              </a>
+                </a>
 
-              <div
-                v-else-if="option.kind === 'store'"
-                class="download-option download-option-disabled"
-                aria-disabled="true"
-              >
-                <span class="option-copy">
-                  <span class="option-title">
-                    <Icon
-                      name="lucide:store"
-                      class="option-icon"
-                      aria-hidden="true"
-                    />
-                    <span class="option-label">{{ option.label }}</span>
-                    <span class="option-tag">{{ t('downloads.soon') }}</span>
+                <div
+                  v-else-if="option.kind === 'store'"
+                  class="download-option download-option-disabled"
+                  aria-disabled="true"
+                >
+                  <span class="option-copy">
+                    <span class="option-title">
+                      <Icon
+                        name="lucide:store"
+                        class="option-icon"
+                        aria-hidden="true"
+                      />
+                      <span class="option-label">{{ option.label }}</span>
+                      <span class="option-tag">{{ t('downloads.soon') }}</span>
+                    </span>
+                    <span class="option-note">{{ t('downloads.storeSoon') }}</span>
                   </span>
-                  <span class="option-note">{{ t('downloads.storeSoon') }}</span>
-                </span>
-              </div>
+                </div>
 
-              <button
-                v-else
-                type="button"
-                class="download-option"
-                aria-haspopup="dialog"
-                @click="openInstructions(option.mode)"
-              >
-                <span class="option-copy">
-                  <span class="option-title">
-                    <Icon
-                      :name="option.mode === 'archive' ? 'lucide:download' : 'lucide:terminal'"
-                      class="option-icon"
-                      aria-hidden="true"
-                    />
-                    <span class="option-label">{{ option.label }}</span>
-                    <span
-                      v-if="option.detail"
-                      class="option-tag"
-                    >{{ option.detail }}</span>
+                <button
+                  v-else
+                  type="button"
+                  class="download-option"
+                  aria-haspopup="dialog"
+                  @click="openInstructions(option.mode)"
+                >
+                  <span class="option-copy">
+                    <span class="option-title">
+                      <Icon
+                        :name="option.mode === 'archive' ? 'lucide:download' : 'lucide:terminal'"
+                        class="option-icon"
+                        aria-hidden="true"
+                      />
+                      <span class="option-label">{{ option.label }}</span>
+                      <span
+                        v-if="option.detail"
+                        class="option-tag"
+                      >{{ option.detail }}</span>
+                    </span>
+                    <span class="option-note">{{ option.note }}</span>
                   </span>
-                  <span class="option-note">{{ option.note }}</span>
-                </span>
-              </button>
-            </li>
-          </ul>
+                </button>
+              </li>
+            </ul>
+          </CollapsiblePanel>
         </li>
       </ul>
 
@@ -334,7 +336,6 @@ function openInstructions(mode: 'archive' | 'command'): void {
 
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
   padding: 1.5rem;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-panel);
@@ -351,6 +352,7 @@ function openInstructions(mode: 'archive' | 'command'): void {
 
 .download-heading {
   display: grid;
+  flex-shrink: 0;
   grid-template-columns: auto minmax(0, 1fr);
   gap: 0.875rem;
   align-items: center;
@@ -378,8 +380,10 @@ function openInstructions(mode: 'archive' | 'command'): void {
 }
 
 .download-toggle {
+  flex-shrink: 0;
   justify-content: center;
   width: 100%;
+  margin-top: 1.25rem;
 }
 
 .download-chevron {
@@ -395,7 +399,7 @@ function openInstructions(mode: 'archive' | 'command'): void {
 // The options read as a small menu unfolding under the button, separated by
 // the same hairlines as the editor's panels.
 .download-menu {
-  margin-top: -0.25rem;
+  margin-top: 1rem;
   overflow: hidden;
   background: var(--color-canvas-raised);
   border: 1px solid var(--color-line);

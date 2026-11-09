@@ -2,6 +2,8 @@
 const { t } = useI18n()
 const localePath = useLocalePath()
 const shareStatus = ref<'idle' | 'copied' | 'error'>('idle')
+const support = useTemplateRef('support')
+usePageMotion(support, { reveal: '.support-donation, .support-card, .support-social, .support-founders' })
 
 usePageSeo(() => ({ title: t('support.title'), description: t('support.description') }))
 
@@ -26,7 +28,10 @@ async function copyLink(): Promise<void> {
 </script>
 
 <template>
-  <div class="support-page">
+  <div
+    ref="support"
+    class="support-page"
+  >
     <header class="support-heading">
       <p class="support-eyebrow">
         <Icon
@@ -74,8 +79,8 @@ async function copyLink(): Promise<void> {
     </section>
 
     <div class="support-grid">
-      <section class="support-card">
-        <Icon
+      <section class="support-card motion-trigger">
+        <AnimatedIcon
           class="support-icon"
           name="lucide:brush"
           aria-hidden="true"
@@ -90,8 +95,8 @@ async function copyLink(): Promise<void> {
           aria-hidden="true"
         /></NuxtLink>
       </section>
-      <section class="support-card">
-        <Icon
+      <section class="support-card motion-trigger">
+        <AnimatedIcon
           class="support-icon"
           name="lucide:bug"
           aria-hidden="true"
@@ -108,8 +113,8 @@ async function copyLink(): Promise<void> {
           aria-hidden="true"
         /></a>
       </section>
-      <section class="support-card">
-        <Icon
+      <section class="support-card motion-trigger">
+        <AnimatedIcon
           class="support-icon"
           name="lucide:lightbulb"
           aria-hidden="true"
@@ -126,8 +131,8 @@ async function copyLink(): Promise<void> {
           aria-hidden="true"
         /></a>
       </section>
-      <section class="support-card">
-        <Icon
+      <section class="support-card motion-trigger">
+        <AnimatedIcon
           class="support-icon"
           name="lucide:send"
           aria-hidden="true"

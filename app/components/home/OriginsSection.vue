@@ -9,8 +9,12 @@ const paragraphs = ['need', 'alternatives', 'linux', 'vision'] as const
     class="origins"
     aria-labelledby="origins-title"
   >
-    <details class="origins-disclosure">
-      <summary class="origins-summary">
+    <AnimatedDetails
+      class="origins-disclosure"
+    >
+      <summary
+        class="origins-summary"
+      >
         <span
           class="origins-symbol"
           aria-hidden="true"
@@ -60,7 +64,7 @@ const paragraphs = ['need', 'alternatives', 'linux', 'vision'] as const
           </div>
         </div>
       </div>
-    </details>
+    </AnimatedDetails>
   </section>
 </template>
 
@@ -150,6 +154,17 @@ const paragraphs = ['need', 'alternatives', 'linux', 'vision'] as const
 
 .origins-disclosure[open] .origins-chevron {
   transform: rotate(180deg);
+}
+
+@include motion-safe {
+  .origins-symbol {
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .origins-summary:is(:hover, :focus-visible) .origins-symbol {
+    background: var(--color-accent-line);
+    box-shadow: 0 0 1rem var(--color-accent-soft);
+  }
 }
 
 .origins-content {

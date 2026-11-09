@@ -22,10 +22,11 @@ usePageSeo(() => ({ title: t('docs.title'), description: t('docs.description') }
           v-for="page in group.pages"
           :key="page.to"
           :to="page.to"
-          class="docs-card"
+          class="docs-card motion-trigger"
         >
-          <Icon
+          <AnimatedIcon
             :name="page.icon"
+            class="docs-card-icon"
             aria-hidden="true"
           />
           <h3>{{ page.title }}</h3>
@@ -65,7 +66,7 @@ usePageSeo(() => ({ title: t('docs.title'), description: t('docs.description') }
     background: var(--color-panel-hover);
   }
 
-  .iconify {
+  .docs-card-icon {
     margin-bottom: 1rem;
     color: var(--color-accent-bright);
     font-size: 1.375rem;

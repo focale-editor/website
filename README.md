@@ -113,16 +113,6 @@ The sections in `app/components/home/` belong to the homepage. They are excluded
 from Nuxt's component auto-imports and imported explicitly by `app/pages/index.vue`.
 Shared layout, documentation and UI components retain flat auto-imported names.
 
-The header has three page links: Home, Documentation and Contribute (`/support`).
-Social profiles live in `app/utils/socialLinks.ts`; `SocialLinks` renders them as
-icon buttons in the footer and as labelled tiles on the support page. Handles stay
-out of the locale files because vue-i18n reserves `@`.
-Homepage section anchors remain in the footer. `SupportSection` introduces ways
-to help the project after the downloads and links to the localized support page;
-its copy lives in `support.home` in each locale file. The hero and header link
-to `#downloads`, which remains available while the catalog loads or is unavailable.
-The website no longer contains an alpha signup form.
-
 **Using a new OpenVue component means naming it in `primevue.components.include`
 in `nuxt.config.ts`.** Auto-import is deliberately off: it registers all eighty-odd
 components and inlines every one's theme CSS into every page, which tripled the

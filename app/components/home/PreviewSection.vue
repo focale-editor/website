@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { CarouselPassThroughOptions } from 'openvue/carousel'
-import { editorScreenshots, screenshotLanguage, type ScreenshotTheme } from '~/utils/screenshotGallery'
+import { editorScreenshots, type ScreenshotTheme } from '~/utils/screenshotGallery'
 
 const { t, locale } = useI18n()
 const theme = ref<ScreenshotTheme>('dark')
@@ -9,7 +9,53 @@ const page = ref(0)
 const announcement = ref('')
 const screenshots = computed(() => editorScreenshots(locale.value, theme.value))
 const currentView = computed(() => screenshots.value[page.value]?.id ?? 'editor')
-const carouselKey = computed(() => `${screenshotLanguage(locale.value)}-${theme.value}`)
+const previousScreenshot = ref<(typeof screenshots.value)[number] | null>(null)
+const thumbnails = useTemplateRef('thumbnails')
+const selection = ref<{ width: string, height: string, transform: string } | null>(null)
+let thumbnailObserver: ResizeObserver | undefined
+
+function changeTheme(option: ScreenshotTheme) {
+  if (option === theme.value) return
+  // Keep the cached image over the new carousel until its replacement decodes.
+  previousScreenshot.value ??= screenshots.value[page.value] ?? null
+  theme.value = option
+}
+
+async function imageReady(event: Event, src: string) {
+  const image = event.currentTarget as HTMLImageElement
+  if (image.decode) await image.decode().catch(() => {})
+  if (image.complete && image.naturalWidth && src === screenshots.value[page.value]?.src) {
+    previousScreenshot.value = null
+  }
+}
+
+async function moveSelection() {
+  await nextTick()
+  const target = thumbnails.value?.querySelector<HTMLElement>('[aria-pressed="true"]')
+  if (!target || !target.offsetWidth) return
+  selection.value = {
+    width: `${target.offsetWidth}px`,
+    height: `${target.offsetHeight}px`,
+    transform: `translate(${target.offsetLeft}px, ${target.offsetTop}px)`,
+  }
+}
+
+onMounted(() => {
+  if (thumbnails.value) {
+    thumbnailObserver = new ResizeObserver(() => {
+      void moveSelection()
+    })
+    thumbnailObserver.observe(thumbnails.value)
+    void moveSelection()
+  }
+})
+
+onBeforeUnmount(() => thumbnailObserver?.disconnect())
+
+watch([page, locale], () => {
+  previousScreenshot.value = null
+  void moveSelection()
+})
 
 const carouselPt = computed<CarouselPassThroughOptions>(() => ({
   root: { 'aria-roledescription': t('preview.carouselRole') },
@@ -45,9 +91,19 @@ watch([page, theme, locale], () => {
   >
     <div class="preview">
       <div class="preview-toolbar">
-        <h3 class="preview-heading">
-          {{ t(`preview.slides.${currentView}.title`) }}
-        </h3>
+        <div class="preview-heading-slot">
+          <Transition
+            name="preview-title"
+            mode="out-in"
+          >
+            <h3
+              :key="currentView"
+              class="preview-heading"
+            >
+              {{ t(`preview.slides.${currentView}.title`) }}
+            </h3>
+          </Transition>
+        </div>
         <div
           class="preview-themes"
           role="group"
@@ -59,7 +115,7 @@ watch([page, theme, locale], () => {
             type="button"
             class="preview-theme"
             :aria-pressed="theme === option"
-            @click="theme = option"
+            @click="changeTheme(option)"
           >
             <Icon
               :name="option === 'dark' ? 'lucide:moon' : 'lucide:sun'"
@@ -71,38 +127,55 @@ watch([page, theme, locale], () => {
       </div>
 
       <figure class="preview-frame">
-        <Carousel
-          id="preview-carousel"
-          :key="carouselKey"
-          v-model:page="page"
-          class="preview-carousel"
-          :value="screenshots"
-          :num-visible="1"
-          :num-scroll="1"
-          :show-navigators="false"
-          :show-indicators="false"
-          :pt="carouselPt"
-          :aria-label="t('preview.carouselLabel')"
-          tabindex="0"
-          @keydown.left.prevent="changePage(-1)"
-          @keydown.right.prevent="changePage(1)"
-          @keydown.home.prevent="page = 0"
-          @keydown.end.prevent="page = screenshots.length - 1"
-        >
-          <template #item="{ data }">
+        <div class="preview-stage">
+          <Carousel
+            id="preview-carousel"
+            v-model:page="page"
+            class="preview-carousel"
+            :value="screenshots"
+            :num-visible="1"
+            :num-scroll="1"
+            :show-navigators="false"
+            :show-indicators="false"
+            :pt="carouselPt"
+            :aria-label="t('preview.carouselLabel')"
+            tabindex="0"
+            @keydown.left.prevent="changePage(-1)"
+            @keydown.right.prevent="changePage(1)"
+            @keydown.home.prevent="page = 0"
+            @keydown.end.prevent="page = screenshots.length - 1"
+          >
+            <template #item="{ data }">
+              <img
+                :src="data.src"
+                :srcset="data.srcset"
+                sizes="(min-width: 74rem) 69rem, 90vw"
+                class="preview-image"
+                :width="data.width"
+                :height="data.height"
+                :alt="`${t(`preview.slides.${data.id}.alt`)} — ${t(`preview.themes.${theme}`)}`"
+                loading="lazy"
+                decoding="async"
+                @load="imageReady($event, data.src)"
+                @error="data.src === screenshots[page]?.src && (previousScreenshot = null)"
+              >
+            </template>
+          </Carousel>
+          <Transition name="preview-theme-fade">
             <img
-              :src="data.src"
-              :srcset="data.srcset"
+              v-if="previousScreenshot"
+              :key="previousScreenshot.src"
+              class="preview-previous"
+              :src="previousScreenshot.src"
+              :srcset="previousScreenshot.srcset"
               sizes="(min-width: 74rem) 69rem, 90vw"
-              class="preview-image"
-              :width="data.width"
-              :height="data.height"
-              :alt="`${t(`preview.slides.${data.id}.alt`)} — ${t(`preview.themes.${theme}`)}`"
-              loading="lazy"
-              decoding="async"
+              :width="previousScreenshot.width"
+              :height="previousScreenshot.height"
+              alt=""
+              aria-hidden="true"
             >
-          </template>
-        </Carousel>
+          </Transition>
+        </div>
 
         <figcaption class="preview-footer">
           <div class="preview-caption">
@@ -153,7 +226,9 @@ watch([page, theme, locale], () => {
       </figure>
 
       <div
+        ref="thumbnails"
         class="preview-thumbnails"
+        :class="{ 'has-selection': selection }"
         role="group"
         :aria-label="t('preview.chooseView')"
       >
@@ -176,6 +251,12 @@ watch([page, theme, locale], () => {
           >
           <span>{{ t(`preview.slides.${screenshot.id}.title`) }}</span>
         </button>
+        <span
+          v-if="selection"
+          class="preview-selection"
+          :style="selection"
+          aria-hidden="true"
+        />
       </div>
       <p
         class="visually-hidden"
@@ -221,6 +302,25 @@ watch([page, theme, locale], () => {
 
 .preview-heading {
   font-size: 1.125rem;
+}
+
+.preview-heading-slot {
+  min-height: 1.5rem;
+}
+
+.preview-stage {
+  position: relative;
+}
+
+.preview-previous {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-lg);
+  pointer-events: none;
 }
 
 .preview-themes {
@@ -331,6 +431,7 @@ watch([page, theme, locale], () => {
 }
 
 .preview-thumbnails {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
@@ -342,6 +443,49 @@ watch([page, theme, locale], () => {
 
   @include from($breakpoint-lg) {
     grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+.preview-selection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid var(--color-accent-bright);
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+}
+
+@include motion-safe {
+  .preview-selection {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), width 0.3s ease, height 0.3s ease;
+  }
+
+  .preview-theme,
+  .preview-thumbnail {
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .preview-title-enter-active,
+  .preview-title-leave-active {
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+
+  .preview-title-enter-from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  .preview-title-leave-to {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  .preview-theme-fade-leave-active {
+    transition: opacity 0.4s ease;
+  }
+
+  .preview-theme-fade-leave-to {
+    opacity: 0;
   }
 }
 
@@ -372,6 +516,11 @@ watch([page, theme, locale], () => {
     border-color: var(--color-accent-bright);
     box-shadow: 0 0 0 1px var(--color-accent-bright) inset;
   }
+}
+
+.has-selection .preview-thumbnail[aria-pressed='true'] {
+  border-color: var(--color-line);
+  box-shadow: none;
 }
 
 @media (hover: hover) {

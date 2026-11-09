@@ -8,6 +8,12 @@ import NoScriptDownloads from '~/components/home/NoScriptDownloads.vue'
 import SupportSection from '~/components/home/SupportSection.vue'
 
 const { t } = useI18n()
+const home = useTemplateRef('home')
+usePageMotion(home, {
+  reveal: '.hero-principle, .origins, .section-inner',
+  ambient: '.hero-scene, .support-orbit',
+  stagger: '.hero-principle',
+})
 
 usePageSeo(() => ({
   title: t('meta.home.title'),
@@ -17,7 +23,10 @@ usePageSeo(() => ({
 </script>
 
 <template>
-  <div>
+  <div
+    ref="home"
+    class="home-page"
+  >
     <HeroSection />
     <OriginsSection />
     <PreviewSection />

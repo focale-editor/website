@@ -76,18 +76,26 @@ const landscape = landscapeSource
     :deep(g[fill="url(#reflection)"] > path) {
       transform-box: fill-box;
       transform-origin: center;
-      animation: water-shimmer 4.2s ease-in-out -1.4s infinite;
+      animation: water-shimmer 8.4s ease-in-out -2.8s infinite;
     }
 
     :deep(g[fill="url(#reflection)"] > path:nth-child(2n)) {
-      animation-duration: 5.4s;
-      animation-delay: -3.2s;
+      animation-duration: 10.8s;
+      animation-delay: -6.4s;
       animation-direction: reverse;
     }
 
     :deep(g[fill="url(#reflection)"] > path:nth-child(3n)) {
-      animation-duration: 3.6s;
-      animation-delay: -2.3s;
+      animation-duration: 7.2s;
+      animation-delay: -4.6s;
+    }
+
+    // Rock the hull, mast and sails around the same waterline pivot. The last
+    // path is the reflection beneath the boat, so keep it on the water.
+    :deep(g:has(> path[fill="#151B2B"]) > path:not([stroke-opacity])) {
+      transform-box: view-box;
+      transform-origin: 1544px 560px;
+      animation: boat-rock 8s ease-in-out -2s infinite;
     }
   }
 }
@@ -140,6 +148,16 @@ const landscape = landscapeSource
   50% {
     opacity: 1;
     transform: translate(10px, 1.5px) scale(1.22, 1.25);
+  }
+}
+
+@keyframes boat-rock {
+  0%, 100% {
+    transform: translateY(2px) rotate(-3deg);
+  }
+
+  50% {
+    transform: translateY(-2px) rotate(3deg);
   }
 }
 </style>

@@ -3,6 +3,14 @@ const { t } = useI18n()
 const features = useFeatures()
 const previewCount = 3
 const expanded = ref(false)
+const list = useTemplateRef('list')
+const resize = useHeightTransition()
+
+function toggleFeatures() {
+  void resize(list.value, () => {
+    expanded.value = !expanded.value
+  })
+}
 </script>
 
 <template>
@@ -14,17 +22,21 @@ const expanded = ref(false)
   >
     <ul
       id="features-list"
+      ref="list"
       class="features"
+      :class="{ 'features-expanded': expanded }"
       role="list"
     >
       <li
         v-for="(feature, index) in features"
         v-show="expanded || index < previewCount"
         :key="feature.id"
-        class="features-cell"
+        class="features-cell motion-trigger"
+        :data-feature="feature.id"
+        :style="{ '--feature-delay': `${Math.max(0, Math.min(index - previewCount, 5)) * 35}ms` }"
       >
         <span class="features-icon">
-          <Icon :name="feature.icon" />
+          <AnimatedIcon :name="feature.icon" />
         </span>
         <h3 class="features-title">
           {{ t(`features.items.${feature.id}.title`) }}
@@ -47,11 +59,12 @@ const expanded = ref(false)
         :label="expanded ? t('features.showLess') : t('features.showMore')"
         :aria-expanded="expanded"
         aria-controls="features-list"
-        @click="expanded = !expanded"
+        @click="toggleFeatures"
       >
         <template #icon>
           <Icon
-            :name="expanded ? 'lucide:chevron-up' : 'lucide:chevron-down'"
+            name="lucide:chevron-down"
+            class="features-chevron"
             aria-hidden="true"
           />
         </template>
@@ -122,5 +135,32 @@ const expanded = ref(false)
 .features-toggle {
   min-height: 2.75rem;
   text-align: center;
+}
+
+@include motion-safe {
+  .features-chevron {
+    transition: transform 0.25s ease;
+  }
+
+  .features-toggle[aria-expanded='true'] .features-chevron {
+    transform: rotate(180deg);
+  }
+
+  .features-expanded .features-cell:nth-child(n + 4) {
+    animation: feature-appear 320ms ease-out var(--feature-delay) both;
+  }
+
+}
+
+@keyframes feature-appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 </style>
