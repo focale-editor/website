@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import HeroLandscape from './HeroLandscape.vue'
+
 const { t } = useI18n()
 const principles = usePrinciples()
 const { latestRelease } = useDownloads()
@@ -14,15 +16,7 @@ const platforms = [
 <template>
   <section class="hero">
     <div class="hero-scene">
-      <img
-        src="/images/branding/hero_background_dark.svg"
-        class="hero-landscape"
-        alt=""
-        aria-hidden="true"
-        width="2048"
-        height="682"
-        fetchpriority="high"
-      >
+      <HeroLandscape class="hero-landscape" />
 
       <div class="hero-inner">
         <div class="hero-copy">
@@ -139,8 +133,6 @@ const platforms = [
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: right center;
   pointer-events: none;
 }
 

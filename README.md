@@ -151,38 +151,6 @@ HTML or Markdown execution. The editor exporter understands its configured
 links. Coordinate format changes with `tool/website_sync/changelog.py` in Focale.
 Do not invent release entries here; the source changelog is authoritative.
 
-## Editor branding and screenshots
-
-The private Focale application's **Publish Focale** workflow produces the logo,
-favicons, social image, reviewed notices and downloadable format references. It
-commits only selected public resources to this repository; the resulting push
-runs the Pages deployment. Building or developing this website requires neither
-private source access nor an editor checkout.
-
-Maintainers with access to Focale can run **Publish Focale → website** on a chosen
-source ref to refresh resources without a desktop release. Enable `screenshots`
-only when regenerating the gallery. Release publication updates other resources
-automatically from its source tag. The workflow and its `FOCALE_WEBSITE_TOKEN`
-are configured in Focale, not here; no local directory conventions are required.
-
-The gallery uses four scenes, both themes and captures in all six site languages,
-encoded as 1600/3200-pixel WebP images plus 320-pixel thumbnails. Each locale uses
-its translated interface captures. Changes to scene IDs or image dimensions
-require coordinating this public contract with the editor.
-Palette tokens and the OpenVue preset are maintained in `app/assets/styles` and
-`app/theme/openvue-preset.ts`.
-The hero places its translated introduction beside the editor's moonlit
-archipelago, using `public/images/branding/hero_background_dark.svg`. The artwork
-keeps the editor's geometry and logo palette; its graphite edge is adapted to
-the website's navy canvas. CSS fades blend it into the page, with the landscape
-below the copy on narrow screens.
-
-The 1200 × 630 English social image uses the same landscape beside the logo,
-“Retouch, compose and create” and the blue “with precision.”. Its metadata includes
-image dimensions and a localized text alternative. Both images are generated
-together by Focale's `tool/website_sync/branding.py`; change that generator when
-updating the artwork so subsequent publication preserves the composition.
-
 ## Desktop downloads
 
 `useDownloads` loads `https://get.focale-editor.app/downloads.json` in the browser.
@@ -203,28 +171,3 @@ extension and public release path must match the catalog entry.
 
 Catalog checks: `node --experimental-strip-types --test test/download_catalog.test.ts`.
 Validation: `pnpm lint`, `pnpm typecheck`, `pnpm generate` (inspect `.output/public`).
-
-## Documentation and third-party notices
-
-`app/pages/docs/` provides getting started, editing, vector illustration, shortcuts,
-troubleshooting, platforms, import/export formats, native projects and native preset libraries,
-alongside the existing licenses and corresponding-source pages. Each portable
-library has its own page: `.fbrush`, `.fpattern`, `.fshape`, `.fstyle`, `.fswatch`,
-`.fgradient`, `.fcurve`, `.fcontour`, `.faction`, `.flevels`,
-`.fhuesaturation`, `.fselectivecolor`, `.fchannelmixer`, `.fblackandwhite`,
-`.fduotone`, `.fcameraraw` and `.fcolorlookup`, with usage, schema, examples, validation
-limits and interchange directions.
-The `.fvector` project and resource-collection ZIP also have dedicated references
-at `/docs/fvector` and `/docs/resource-collection`, with complete JSON examples.
-The downloads include the detailed vector schemas and supported SVG filter dialect.
-All pages ship in the six site languages.
-
-`DocumentationArticle` renders the structured `docs.articles` content in the
-locale JSON files; `DocumentationLayout` also serves the notices pages.
-`app/utils/documentation.ts` registers stable routes, groups, code samples and
-downloadable references. Add a route under `app/pages/docs/`, its metadata there
-and the article in all six locales. Code samples stay outside translated strings
-so JSON braces are not parsed as translation placeholders. `useDocumentation`
-supplies both the index and navigation. `documentationExamples.ts` holds the
-dedicated native-library JSON examples. Navigation back to homepage anchors
-works from documentation routes too.
