@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { id, eyebrow, title, description, narrow = false, muted = false } = defineProps<{
+const { id, eyebrow, title, description, narrow = false, muted = false, asideStart = false } = defineProps<{
   /** Anchor identifier, so the navigation can link straight to the section. */
   id?: string
   /** Small label shown above the heading. */
@@ -12,6 +12,8 @@ const { id, eyebrow, title, description, narrow = false, muted = false } = defin
   narrow?: boolean
   /** Whether the section sits on a slightly raised background band. */
   muted?: boolean
+  /** Place the decorative illustration before the copy on wide screens. */
+  asideStart?: boolean
 }>()
 
 const slots = defineSlots<{
@@ -32,7 +34,7 @@ const headingId = computed(() => (id ? `${id}-title` : undefined))
   >
     <div
       class="section-inner"
-      :class="{ 'section-inner-narrow': narrow, 'section-inner-split': slots.aside }"
+      :class="{ 'section-inner-narrow': narrow, 'section-inner-split': slots.aside, 'section-inner-aside-start': slots.aside && asideStart }"
     >
       <div class="section-main">
         <header
@@ -108,6 +110,22 @@ const headingId = computed(() => (id ? `${id}-title` : undefined))
   @include from($breakpoint-lg) {
     display: grid;
     place-items: center;
+  }
+}
+
+@include from($breakpoint-lg) {
+  .section-inner-aside-start {
+    grid-template-columns: minmax(16rem, 0.6fr) minmax(0, 1fr);
+
+    .section-aside {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .section-main {
+      grid-column: 2;
+      grid-row: 1;
+    }
   }
 }
 

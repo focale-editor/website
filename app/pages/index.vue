@@ -5,6 +5,7 @@ import PreviewSection from '~/components/home/PreviewSection.vue'
 import FeaturesSection from '~/components/home/FeaturesSection.vue'
 import DownloadsSection from '~/components/home/DownloadsSection.vue'
 import NoScriptDownloads from '~/components/home/NoScriptDownloads.vue'
+import WebSection from '~/components/home/WebSection.vue'
 import SupportSection from '~/components/home/SupportSection.vue'
 
 const { t } = useI18n()
@@ -33,6 +34,7 @@ usePageSeo(() => ({
     <FeaturesSection />
     <DownloadsSection />
     <NoScriptDownloads />
+    <WebSection />
     <SupportSection />
   </div>
 </template>

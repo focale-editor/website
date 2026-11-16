@@ -15,6 +15,7 @@ const contributions = [
 <template>
   <PageSection
     id="support"
+    muted
     :eyebrow="t('support.eyebrow')"
     :title="t('support.home.title')"
     :description="t('support.home.description')"

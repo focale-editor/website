@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Un editor di immagini avanzato e locale",
-      "description": "Focale è un editor di foto e grafica vettoriale moderno per Linux, Windows e macOS: livelli, maschere, regolazioni non distruttive, disegno vettoriale modificabile, filtri ed effetti di livello, con il supporto dei file Photoshop, SVG e PDF."
+      "description": "Focale è un editor di foto e grafica vettoriale moderno per Linux, Windows, macOS e il web: livelli, maschere, regolazioni non distruttive, disegno vettoriale modificabile, filtri ed effetti di livello, con il supporto dei file Photoshop, SVG e PDF."
     }
   },
   "common": {
@@ -22,11 +22,19 @@
     "faq": "FAQ"
   },
   "hero": {
-    "badge": "Editor di immagini per desktop",
+    "badge": "Editor di foto e grafica vettoriale",
     "title": "Ritoccare, comporre e creare",
     "titleAccent": "con precisione.",
     "subtitle": "Ritocca foto, componi con i livelli e disegna illustrazioni vettoriali in un’unica applicazione locale. Mantieni modificabili le tue creazioni, con documenti fotografici e vettoriali aperti insieme.",
     "platformsLabel": "Disponibile per"
+  },
+  "webEdition": {
+    "name": "Focale Web",
+    "action": "Aprire Focale Web",
+    "title": "Focale nel browser",
+    "description": "Fotoritocco e grafica vettoriale, senza installazione. I documenti vengono elaborati localmente.",
+    "saveHint": "Il salvataggio o l’esportazione scarica una copia delle creazioni. Le funzionalità disponibili dipendono dal browser.",
+    "discover": "Scoprire la versione web"
   },
   "principles": {
     "advanced": {
@@ -34,8 +42,8 @@
       "description": "Sviluppo RAW, livelli e maschere, oggetti avanzati, regolazioni non distruttive e automazione: strumenti per costruire un'immagine e rivedere ogni scelta."
     },
     "crossPlatform": {
-      "title": "Un editor, tre sistemi",
-      "description": "Lo stesso codice punta a Linux, Windows e macOS: un progetto passa dall'uno all'altro senza ritocchi."
+      "title": "Sul desktop e sul web",
+      "description": "Focale è disponibile per Linux, Windows e macOS, oppure in versione web direttamente nel browser, senza installazione."
     },
     "photoshop": {
       "title": "Compatibile con Photoshop",
@@ -107,7 +115,7 @@
     "items": {
       "localFirst": {
         "title": "Locale per scelta",
-        "description": "I documenti restano sul Suo disco. Focale li apre, li modifica e li salva in locale, e non invia mai il Suo lavoro da nessuna parte."
+        "description": "I documenti vengono elaborati sul dispositivo, sia nell’applicazione sia nel browser. Foto e creazioni non vengono inviate a un server."
       },
       "layers": {
         "title": "Livelli e gruppi",
@@ -194,7 +202,7 @@
     "showMore": "Altre funzionalità"
   },
   "footer": {
-    "tagline": "Un editor di foto e grafica vettoriale avanzato e locale, per Linux, Windows e macOS.",
+    "tagline": "Un editor di foto e grafica vettoriale avanzato e locale per Linux, Windows, macOS e il browser.",
     "copyright": "Copyright © {year} Hugo Delaunay, tutti i diritti riservati.",
     "madeIn": "Made in Europe",
     "sections": {

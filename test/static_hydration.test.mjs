@@ -145,6 +145,13 @@ function assertDownloadActions(document, home) {
   for (const selector of ['.header-cta', '.hero-actions a']) {
     assert.ok(document.querySelector(`${selector} svg[aria-hidden="true"]`), 'download buttons include a decorative icon')
   }
+  assert.ok(document.querySelector('.hero-actions a[href="#web"].p-button-link'), 'the hero links to the web section with a link-style button')
+  assert.ok(document.querySelector('section#web[aria-labelledby="web-title"]'), 'the web edition has its own labelled section')
+  assert.equal(document.querySelector('#downloads #web'), null, 'web and desktop have separate sections')
+  assert.ok(document.getElementById('downloads').compareDocumentPosition(document.getElementById('web')) & 4, 'the web section follows downloads')
+  for (const selector of ['#web', 'footer']) {
+    assert.ok(document.querySelector(`${selector} a[href="https://web.focale-editor.app"]`), 'the web edition remains accessible independently of the desktop catalog')
+  }
 }
 
 for (const failure of ['unreachable', 'invalid']) {
@@ -198,6 +205,7 @@ test('loading shows an informational status, then a complete release replaces it
         assert.equal(document.querySelector('.download-notice'), null)
         assert.equal(document.querySelector('.hero-status')?.textContent.trim(), translations.downloads.available.replace('{version}', version))
         assert.equal(document.querySelectorAll('.download-card').length, 3)
+        assertDownloadActions(document, '/fr')
         for (const [target, asset] of Object.entries(downloads)) {
           if (target === 'linux-x64') continue // This download is offered inside its instructions dialog.
           assert.ok([...document.querySelectorAll('.download-option[href]')].some(link => link.href === asset.url))
@@ -305,6 +313,8 @@ for (const locale of locales) {
         const document = window.document
         await waitFor(() => document.querySelector('.download-fallback-link'))
         assertDownloadActions(document, locale === 'en' ? '/' : `/${locale}`)
+        assert.equal(document.querySelector('.hero-actions a[href="#web"]')?.textContent.trim(), translations.webEdition.discover)
+        assert.equal(document.querySelector('.web-edition-action')?.textContent.trim(), translations.webEdition.action)
         const faqRoute = `${path}docs/faq`
         for (const selector of ['.header-nav', 'footer']) {
           assert.equal(document.querySelector(`${selector} a[href="${faqRoute}"]`)?.textContent.trim(), translations.nav.faq)

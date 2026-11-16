@@ -1,3 +1,5 @@
+import { FOCALE_WEB_URL } from '~/utils/productLinks'
+
 /** A single entry of the header or footer navigation. */
 export interface NavigationLink {
   /** Translation key holding the visible label, or a literal when `raw` is set. */
@@ -41,6 +43,7 @@ export function useSiteNavigation() {
       links: [
         { label: 'nav.features', to: home('#features') },
         { label: 'nav.preview', to: home('#preview') },
+        { label: 'webEdition.name', to: FOCALE_WEB_URL, external: true },
         { label: 'docs.title', to: localePath('/docs') },
         { label: 'nav.faq', to: localePath('/docs/faq') },
         { label: 'changelog.title', to: localePath('/changelog') },

@@ -10,6 +10,7 @@ const platforms = [
   { name: 'Linux', icon: 'simple-icons:linux' },
   { name: 'Windows', icon: 'simple-icons:windows' },
   { name: 'macOS', icon: 'simple-icons:apple' },
+  { name: 'Web', icon: 'lucide:globe' },
 ]
 </script>
 
@@ -53,6 +54,22 @@ const platforms = [
                 />
               </template>
             </Button>
+            <Button
+              as="a"
+              href="#web"
+              size="large"
+              variant="link"
+              class="hero-web-link"
+              :label="t('webEdition.discover')"
+              icon-pos="right"
+            >
+              <template #icon>
+                <Icon
+                  name="lucide:globe"
+                  aria-hidden="true"
+                />
+              </template>
+            </Button>
           </div>
 
           <ul
@@ -83,10 +100,10 @@ const platforms = [
       <li
         v-for="(principle, index) in principles"
         :key="principle.id"
-        class="hero-principle"
+        class="hero-principle motion-trigger"
       >
         <span class="hero-principle-index">{{ String(index + 1).padStart(2, '0') }}</span>
-        <Icon
+        <AnimatedIcon
           :name="principle.icon"
           class="hero-principle-icon"
         />
@@ -194,7 +211,42 @@ const platforms = [
 }
 
 .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  max-width: 100%;
   margin-top: 1.875rem;
+
+  :deep(.p-button) {
+    max-width: 100%;
+    white-space: normal;
+  }
+}
+
+.hero-web-link {
+  --p-button-link-color: var(--color-text);
+  --p-button-link-hover-color: var(--color-text);
+  --p-button-link-active-color: var(--color-text);
+
+  opacity: 0.75;
+
+  @include motion-safe {
+    transition: opacity 0.18s ease;
+  }
+
+  &:hover,
+  &:focus-visible {
+    opacity: 1;
+  }
+
+  &:not(:disabled):hover {
+    text-decoration: none;
+
+    :deep(.p-button-label) {
+      text-decoration: none;
+    }
+  }
 }
 
 .hero-platforms {
@@ -315,6 +367,17 @@ const platforms = [
 
   .hero-platforms {
     justify-content: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+}
+
+@include until($breakpoint-sm) {
+  .hero-actions {
+    flex-direction: column;
+    align-self: stretch;
   }
 }
 </style>

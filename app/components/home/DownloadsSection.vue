@@ -514,7 +514,6 @@ button.download-option {
 }
 
 .update-copy p {
-  max-width: 80ch;
   margin-top: 0.25rem;
   color: var(--color-text-muted);
   font-size: 0.9375rem;

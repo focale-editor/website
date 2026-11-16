@@ -1,7 +1,13 @@
-# Focale Website
+<p align="center">
+  <a href="https://focale-editor.app">
+    <img src=".github/assets/focale.png" alt="Focale app logo" width="112" height="112">
+  </a>
+</p>
+
+<h1 align="center">Focale Website</h1>
 
 The landing page for Focale, an advanced, local-first photo and vector editor
-for Linux, Windows and macOS.
+for Linux, Windows, macOS and the web.
 
 The site is a statically generated Nuxt application, published to GitHub Pages at
 <https://focale-editor.app>. It presents the editor and its downloads,

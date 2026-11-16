@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "An advanced local image editor",
-      "description": "Focale is a modern photo and vector editor for Linux, Windows and macOS: layers, masks, non-destructive adjustments, editable vector artwork, filters and layer effects, with support for Photoshop, SVG and PDF files."
+      "description": "Focale is a modern photo and vector editor for Linux, Windows, macOS and the web: layers, masks, non-destructive adjustments, editable vector artwork, filters and layer effects, with support for Photoshop, SVG and PDF files."
     }
   },
   "common": {
@@ -22,11 +22,19 @@
     "faq": "FAQ"
   },
   "hero": {
-    "badge": "Desktop image editor",
+    "badge": "Photo and vector editor",
     "title": "Retouch, compose and create",
     "titleAccent": "with precision.",
     "subtitle": "Retouch photos, build layered compositions and draw vector illustrations in one local application. Keep your artwork editable with photo and vector documents open side by side.",
     "platformsLabel": "Available for"
+  },
+  "webEdition": {
+    "name": "Focale Web",
+    "action": "Open Focale Web",
+    "title": "Focale in your browser",
+    "description": "Photo editing and vector design, with no installation. Your documents are processed locally.",
+    "saveHint": "Save or export your work to download a copy. Capabilities vary by browser.",
+    "discover": "Discover the web version"
   },
   "principles": {
     "advanced": {
@@ -34,8 +42,8 @@
       "description": "RAW development, layers and masks, smart objects, non-destructive adjustments and automation: tools to build an image and revisit your choices."
     },
     "crossPlatform": {
-      "title": "One editor, three systems",
-      "description": "The same codebase targets Linux, Windows and macOS, so a project moves between them untouched."
+      "title": "On desktop and on the web",
+      "description": "Use Focale on Linux, Windows and macOS, or open the web version in your browser with no installation."
     },
     "photoshop": {
       "title": "At home with Photoshop",
@@ -107,7 +115,7 @@
     "items": {
       "localFirst": {
         "title": "Local-first by design",
-        "description": "Documents live on your disk. Focale opens, edits and saves them locally, and never sends your work anywhere."
+        "description": "Your documents are processed on your device, both in the application and in the browser. Your photos and artwork are not sent to a server."
       },
       "layers": {
         "title": "Layers and groups",
@@ -194,7 +202,7 @@
     "showMore": "More features"
   },
   "footer": {
-    "tagline": "An advanced, local-first photo and vector editor for Linux, Windows and macOS.",
+    "tagline": "An advanced, local-first photo and vector editor for Linux, Windows, macOS and your browser.",
     "copyright": "Copyright © {year} Hugo Delaunay, all rights reserved.",
     "madeIn": "Made in Europe",
     "sections": {
