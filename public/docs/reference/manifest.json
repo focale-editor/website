@@ -3,18 +3,18 @@
   "references": [
     {
       "file": "focale-format.md",
-      "bytes": 130809,
-      "sha256": "11c50597503d774ab9475b10d0994ea4e92740d63c2eddb0fb1e0b33c2c274c9"
+      "bytes": 139282,
+      "sha256": "f8a2301416f75b0b53f4f218b592349f8eb76e7e86493c7e10189b3139cff87c"
     },
     {
       "file": "fvector.md",
-      "bytes": 12704,
-      "sha256": "82ce3afa5bbafbd8cdccce9de9c02c38c78dd75ab5220eb1470a8f8e85639db8"
+      "bytes": 12711,
+      "sha256": "295fc622d2d5084ded67ffcc07669a6cf140991809e70a233bafa342445089d5"
     },
     {
       "file": "vectors.md",
-      "bytes": 98106,
-      "sha256": "efab871af9727e11c242205aa473396d491c0da7dc53ae6976fa463c91ea4304"
+      "bytes": 105793,
+      "sha256": "a59ec86c4278123daaed2d15f27274ba32ab088b6839aaa9114433cc53a0b28e"
     },
     {
       "file": "svg-filters.md",
@@ -48,13 +48,13 @@
     },
     {
       "file": "reusable-presets.md",
-      "bytes": 5966,
-      "sha256": "79e732e15e693e06244ca76ebf7dfaeaa67f393fb4f35c11cd8048011be69074"
+      "bytes": 6115,
+      "sha256": "3ceb1bcffb9ac080370eb7cc5a46bda04d9a31a938021e2756fe24ae9cf3f206"
     },
     {
       "file": "actions.md",
-      "bytes": 17495,
-      "sha256": "8c5926e44cd23e79660985705a7794552fc4608a2b205f8b1913a8926a6c0380"
+      "bytes": 22376,
+      "sha256": "075cea9be852c500872d66a057a04320b564354c64bb1e1779fc5875a74e1198"
     },
     {
       "file": "adjustment-presets.md",

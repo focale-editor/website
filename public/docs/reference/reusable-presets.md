@@ -11,7 +11,9 @@ the current editor; editing a catalogue does not alter existing documents.
 Built-in entries precede user entries and cannot be removed or exported. They
 are themselves native libraries shipped with the application and decoded once
 at startup: `assets/presets/swatches.fswatch`, `gradients.fgradient` and
-`curves.fcurve`. Being loaded from the application rather than from the user's
+`curves.fcurve`. `skies.fgradient` holds Sky replacement's gradient skies in
+the same format, with `sky.builtin.` identifiers; they do not join the
+gradient library. Being loaded from the application rather than from the user's
 catalogue is what makes an entry built-in, so none of them is written to the
 saved catalogue. Their identifiers contain `.builtin.` and are stable; the
 interface translates a built-in gradient or curve by identifier and falls back

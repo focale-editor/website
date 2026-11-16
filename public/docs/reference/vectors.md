@@ -17,9 +17,6 @@ Colours and gradients, including stops, positions and interpolation modes, are r
 
 The decoder rejects unknown formats and versions, duplicate object identifiers, non-finite values, invalid scene sizes and structures exceeding its limits. Reading and writing are limited to 128 MiB of UTF-8 JSON, a depth of 100 and two million JSON values. A lexical preflight rejects excessive nesting before JSON tree allocation. Binary resources have the separate limits below. A native save writes a temporary file in the chosen directory before renaming it. On the Web, the browser receives a `.fvector` download and chooses its destination.
 
-The [edited interchange corpus](../development/interchange-corpus.md) records
-adapter-specific editing guarantees, current limits and independent validation.
-
 SVG is a limited interchange format. Parametric shapes become paths; paints may be sampled. Export rejects text whose advanced properties cannot be kept instead of dropping them. PDF has an [editable adapter](#pdf-interchange-and-shared-graphics-unreleased-version-1); PDF-compatible AI files are imported through IllustratorKit; legacy PostScript is explicitly rejected.
 
 SVG/SVGZ/PDF export now provides [explicit output choices](../features/vector-export-review.md):
@@ -56,6 +53,8 @@ SVG interchange converts dashes to absolute units and keeps caps and joins. Soli
 ## Guides and ruler origin (optional version 1 fields)
 
 `scene.guides` uses Focale's `GuideCollection` codec: an `order` list of stable IDs and a `guides` list containing `id`, `orientation` (`horizontal` or `vertical`), finite `position`, and optional packed ARGB `color` (default `0xff00a8ff`). Absent or malformed entries are skipped by the shared tolerant reader; the native envelope retains its global size, nesting and finite-number validation. Existing order is normalized and valid unlisted IDs are appended. Empty collections are omitted.
+
+`scene.perspectiveGrid` is optional and omitted when the document has no grid. It contains `kind` (`onePoint`, `twoPoint` or `threePoint`), finite document-space `horizon`, `origin` as `[x, y]`, positive `height`, `leftVanishingX`, `rightVanishingX`, `centerVanishingX`, `verticalVanishingY`, `frontWidth`, `depth` (0.05–0.95) and integer `divisions` (1–64). Every field is written for every kind so switching kinds keeps placed vanishing points. Readers drop a grid that is malformed or whose planes would be degenerate, such as a ground point above the horizon. SVG imports have no grid and SVG exports omit it.
 
 `scene.rulerOrigin` is an optional pair of finite document-space coordinates `[x, y]`, defaulting to `[0, 0]`. It shifts ruler readings and grid coordinates without moving artwork. Object changes preserve both fields. Undo/redo records these metadata changes alongside scene snapshots. SVG imports default them and SVG exports omit them. Earlier version 1 projects remain readable; earlier application builds may drop these optional fields when re-saving.
 
@@ -269,6 +268,13 @@ fields and the SVG envelope addition do not increment the unpublished version.
 
 ## PDF interchange and shared graphics (unreleased version 1)
 
+Password-protected PDF imports authenticate before scene decoding. Retained
+source bytes are a decrypted full rewrite, so deferred pages and native project
+reopening never require a stored password. Passwords, authentication dictionaries
+and keys are not persisted. The original file is unchanged. App exports remain
+unencrypted; PdfCore's optional AES-256 export API is independent of this native
+representation. See [ADR 0497](../adr/0497-password-encrypted-pdf-import.md).
+
 Optional top-level `pdfOrigin` owns base64 PDF `bytes`, imported baseline `pages`,
 text-object-to-font-object `fonts`, and annotation-object-to-reference-pair
 `annotations`. These are immutable source context; the editable `scene` remains
@@ -341,8 +347,7 @@ false selects nearest-neighbour raster sampling.
 
 All fields are optional for older projects; the unpublished format remains
 version 1. Auxiliary editing tabs and selected mesh vertices are session state,
-not additional native artwork fields. See the [interchange corpus](../development/interchange-corpus.md) for export
-precision, retained source semantics and unsupported PDF policies.
+not additional native artwork fields.
 
 ## Precise paints and editable transfers (optional version 1 fields)
 
@@ -382,6 +387,13 @@ original Unicode strings, whose concatenation equals `textLayoutSource`.
 `textCodes`, when present, contains lowercase hexadecimal PDF character codes
 of one to four bytes. Source codes are used only with a matching retained font;
 re-embedding preserves display glyphs and emits original Unicode mappings.
+
+Embedded CID TrueType fonts can omit some or all ToUnicode entries. When the
+source encoding and CID-to-glyph map identify an existing nonzero glyph, its
+original display alias and advance remain intact; the unknown semantic cluster
+is explicitly U+FFFD. No Unicode character is inferred from a glyph number.
+This uses the existing version-one fields, including after native save and
+detached copying. Missing or out-of-range glyphs remain rejected.
 
 Each array is limited to 100,000 items, each string to 128 UTF-16 units. Glyph,
 cluster and advance counts must agree; source codes are either absent or have
@@ -583,7 +595,7 @@ and derived editable nodes survive reopening; raw device samples are not stored.
 Reverse, exact subdivision, close and opening a single closed contour preserve
 the geometry/profile pair. Other topology operations still require expansion.
 
-## Retained vector brushes (unreleased versions 1 and 2)
+## Retained vector brushes (unreleased versions 1, 2 and 3)
 
 An explicit stroke may contain a `brush` instead of `widthProfile`. Version 1
 retains open calligraphic/art brushes:
@@ -631,7 +643,30 @@ Cached outlines are never persisted. SVG/PDF receive ordinary painted contours
 from the same derived geometry as display. See [Vector brushes](../features/vector-brushes.md)
 for the supported authoring and numerical contract.
 
-## Retained Live Paint (unreleased version 1)
+Version 3 also supports `scatter`, original-colour tiles and art tiles whose
+natural aspect ratio differs from one. It retains angle, roundness and profile,
+adds required boolean `originalColors`, and carries exactly the matching payload:
+`artTile`, `pattern` or `scatter`. Art version 3 does not contain the legacy
+`artwork`/`fillRule` fields. Definitions use the smallest supported version.
+
+A coloured tile contains exactly `version: 2`, `aspectRatio` and `layers`. Each
+of its 1–16 layers contains `artwork`, `fillRule`, nontransparent unsigned ARGB
+`color` and optional matching `exactColor` with portable process components. Coordinates use the same normalized space as monochrome tiles;
+all source layers together admit 256 anchors. Boolean union produces hit coverage;
+ordered layer geometry produces paint. Derived coverage and colours are not saved.
+
+The `scatter` record contains `version: 1`, `tile`, `scale` (0.1–10), `spacing`
+(0.1–20), `sizeJitter` (0–0.95), `scatter` (0–10), `angle` (-180–180),
+`angleJitter` (0–180), boolean `followPath`, and integer `seed` (0–2147483647).
+Scale and spacing use natural motif dimensions; perpendicular variation uses
+stroke width. Three xorshift32 draws per station control size, displacement and
+angle. State starts at `(seed ^ 0x9e3779b9) & 0xffffffff`; each draw applies xor
+left-13, unsigned-right-17, left-5 with a 32-bit mask after each step, then maps
+to `state / 2147483648 - 1`. Colour paint passes are bounded to 2048 and 65536
+anchors in addition to the shared coverage budgets. Native files retain the seed,
+never a platform-specific generator state.
+
+## Retained Live Paint (unreleased versions 1 and 2)
 
 An ordinary group may contain `livePaint` beside its editable `children`:
 
@@ -647,16 +682,41 @@ Virtual gap bridges have no stroke. Gap distance and stroke widths use group pix
 Each chronological mark holds a source object ID and a point in that source's
 local frame. `edge: false` resolves into the containing face that still includes
 that source; `edge: true` resolves to its closest boundary fragment. The last
-resolving mark wins. A null colour explicitly erases paint. A split paints only the
-face containing the seed; missing faces or sources leave dormant marks. Copying
+resolving mark wins. Version-1 solid marks retain this single-seed behavior; a null
+colour explicitly erases paint. Missing faces or sources leave dormant marks. Copying
 remaps source IDs together with the group's children. Derived region IDs, edge IDs
 and caches are never serialized. See the [editing contract](../features/live-paint.md).
 
-The decoder validates version 1, finite coordinates with absolute values at most
+The decoder accepts versions 1 and 2, finite coordinates with absolute values at most
 `1e9`, widths in `(0, 1e6]`, gap distance in `[0, 1e6]`, nullable unsigned 32-bit
 colours and at most 1,024 marks. Loading validates the full binding against the
 bounded detector and its 4,000,000-operation matching budget. Invalid bindings
 fail instead of silently losing paint. No released envelope version changes.
+
+Version 2 writes each mark with `appearance`, a shared `VectorPaintEntry` whose
+role is `fill` or `stroke` according to `edge`. It retains `paint`, `opacity`,
+`blendMode`, `visible`, `style`, `stylePatterns` and edge `width`. Paints include
+portable gradients, native pattern fills, imported raster patterns and editable
+vector tiles. Texture payloads use the existing native resource table. Empty paint
+explicitly erases a region, including its effects.
+
+New fill marks also store `region`, an immutable closed `VectorPath` in the owner's
+source-local coordinates. Its even-odd coverage includes holes. Evaluation resolves
+the original seed and the interior probes of all current faces contained in that
+coverage, even when a new internal face no longer touches the original source.
+The latest resolving mark wins. Repainting one face removes older assignments only
+when they resolve exclusively to that face, preserving split siblings. Missing
+owners keep marks dormant. This spatial rule is deterministic across save/reopen;
+it does not promise topology identity under arbitrary source deformations.
+
+Gradients are frozen against the original region bounds in source-local paint
+coordinates. Derived region paths use that same source transform, preserving paint
+continuity after division. Effects and compositing parameters belong to each
+region. Retained coverage is capped at 65,536 anchors across all marks and is
+included in history memory accounting. Derived part caches are bounded separately.
+Old readers reject payload version 2 rather than silently dropping rich appearance;
+new readers preserve old marks without inventing coverage. The outer vector and
+raster document envelope versions do not change.
 
 The shared renderer and SVG/PDF preparation consume ordinary derived filled paths
 and stroke fragments; saving the native document retains the sources and marks.
@@ -1277,3 +1337,50 @@ relocation. These additive development-version fields require no version bump.
 Twelve earlier independent outputs cover initial embedded images; newly added
 attribute/lifecycle/link regressions await the final validation campaign and are
 not certified by those earlier counts. Adobe exchange remains unverified.
+
+## Retained image tracing (unreleased version 1)
+
+A generated group may contain `imageTrace` with exactly `version: 1`, `source`
+and `options`. The source uses the existing `VectorSource` encoding and shared
+binary-resource table; it must be a complete embedded raster, never a linked
+preview. Generated ordinary path/group children provide the rendered snapshot.
+They are private to tracing until explicit expansion removes `imageTrace`.
+
+The options object contains exactly `version: 1`, `mode` (`monochrome` or `color`),
+`geometry` (`regions` or `centerlines`), `threshold` (integer 0–255), `colors`
+(integer 2–32), `noiseRadius` (integer 0–2), `minimumArea` (integer 1–4096),
+`curveTolerance` (finite 0–0.45), `maximumDimension` (integer 0–1024, zero means
+original pixels), `strokeWidth` (finite 0.1–256), boolean `ignoreWhite`, and
+`palette` (empty or 2–32 portable `ProfiledColor` records). Inactive controls remain
+stored. Unknown versions/fields and unresolvable palette colours are rejected.
+
+A trace owner cannot also own a path, shape, text, raster placement, mesh, symbol,
+Live Paint, blend, repeat or another retained geometry construction. Its completed
+children admit at most 8192 nodes, depth four and 65536 anchors; they cannot own
+nested image traces, raster sources or other live constructions. Placement-only
+edits reuse already owned child collections. Retained source bytes and recipes
+contribute to history costs; unchanged embedded originals are shared.
+
+Clipboard envelope version 15 requires this payload; previous envelopes remain
+readable. The unpublished `.fvector` development envelope remains version 1.
+SVG/PDF explicitly project generated geometry and omit the recipe and hidden raster.
+
+## Freeform gradient controls (unreleased version 1)
+
+An object's `mesh` may contain exactly `kind: "freeform"`, `version: 1`, `bounds`
+(`[left, top, width, height]`), `points` (`[[x,y], ...]`), `colors` (packed ARGB),
+`spreads` (finite 0.05–2 diffusion weights), and `lines` (`[[start,end], ...]`).
+There are 2–32 points and at most 64 undirected, nonduplicate lines with distinct
+valid endpoint indices. Positions are finite local coordinates bounded to ±1e9;
+the fixed domain has finite sides of at least 1e-6 and bounded edges. Controls may
+move beyond the domain while the painted area and clipping remain unchanged.
+Arrays are independently owned; unknown fields/versions and excessive dimensions
+are rejected before copying. The record contains no triangles or derived samples.
+
+Source points, diffusion and connections define premultiplied encoded-sRGB colour
+interpolation by inverse squared normalized distance; lines contribute their
+nearest interpolated colour. Coincident constraints are averaged deterministically.
+Display/export samples are weakly cached and included in aggregate mesh memory
+admission. Clipboard envelope 16 requires freeform controls; older envelopes remain
+readable. The unpublished `.fvector` envelope remains version 1. Print-specific
+CMYK samples are transient and are never serialized here.
