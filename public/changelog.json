@@ -2,6 +2,16 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "version": "0.0.21",
+      "date": "2026-11-16",
+      "changes": [
+        {
+          "kind": "CHORE",
+          "description": "Now displaying a warning message for mobile users."
+        }
+      ]
+    },
+    {
       "version": "0.0.20",
       "date": "2026-11-16",
       "changes": [
