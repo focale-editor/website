@@ -124,7 +124,13 @@ document remain unsupported because their source pixels are neither a portable
 setting nor part of the target document. A same-document source on another
 layer is likewise recorded only when the sampling mode reads the complete
 composite; current-layer and current-and-below modes depend on a layer identity
-that cannot be transferred safely to another document.
+that cannot be transferred safely to another document. A Brush, Pencil or Eraser
+stroke painted with symmetry also stores an optional `symmetry` object with
+`kind` (`vertical`, `horizontal`, `dualAxis`, `radial`, or `mandala`), the
+centre as canvas fractions `centerX` and `centerY`, `angle` in degrees, and
+`segments` (2 to 32). It replays around the same relative centre on each
+target. A stroke without symmetry omits the field; readers reject a
+`symmetry` object that is disabled, malformed, or attached to an effect tool.
 
 ### Common object edits
 
@@ -141,6 +147,68 @@ selected root move with their ancestor once. This representation deliberately
 does not store source identifiers or the source link-group size. Consecutive
 samples compose their matrices in playback order. Alignment and distribution
 continue to place explicitly selected roots independently of links.
+
+### Vector libraries
+
+The vector Actions panel records document library authoring as semantic steps:
+
+| Identifier | Captured intent |
+|---|---|
+| `vector.library.create` | Create a linked colour, graphic style or character/paragraph style from its captured definition. |
+| `vector.library.update` | Rename or redefine an existing colour/style, or apply an edited symbol master. |
+| `vector.library.remove` | Remove an unused colour, graphic style or text style. |
+| `vector.color.apply` | Link selected writable fills/strokes with the recorded tint. |
+| `vector.color.recolor` | Redirect colour references, optionally merging the old definition. |
+| `vector.graphicStyle.apply`, `vector.graphicStyle.detach` | Apply or detach the selected objects' appearance relationship. |
+| `vector.textStyle.apply`, `vector.textStyle.reset`, `vector.textStyle.detach` | Apply, reset overrides or detach character/paragraph formatting. |
+| `vector.symbol.create` | Create a master from the currently selected ordinary artwork and retain its placement. |
+| `vector.symbol.insert` | Insert the referenced master with the recorded offset. |
+| `vector.symbol.replaceSelection` | Redefine a master using the currently selected ordinary artwork. |
+| `vector.symbol.overrides`, `vector.symbol.detach` | Set instance overrides or expand selected instances into independent artwork. |
+
+New resources receive fresh identities on every execution. Following steps refer
+to those resources through a correspondence table scoped to that execution.
+Existing resources resolve first by matching identity, name and formatting kind,
+then by a unique name/kind. An ambiguous name fails the step. Renames preserve the
+correspondence for subsequent steps. Updates and removals require an existing
+target; insertion and application may import missing resources from their captured
+fallback. Existing matching resources keep their destination values until an
+explicit update step changes them.
+
+A `resource` selector contains `type`, `id`, `name`, and the `kind` for text styles.
+Symbol selectors also carry the ordered, definition-local `targets` identities.
+They establish a correspondence with compatible destination master structure;
+retained identities take precedence and removed override targets stay dormant.
+Creation of a symbol uses destination artwork. Applying an edited master and
+creating/redefining a graphic or text style retain the captured authored recipe.
+Text-style operations recorded inside a text selection carry its UTF-16 `start`
+and `end` offsets; shorter or incompatible destination text fails before publication.
+Otherwise these commands address the current whole-object selection.
+
+The optional `resources` parameter is a UTF-8 JSON string containing a native
+resource-only scene: its object list is empty and its libraries contain only the
+requested definition and transitive dependencies. This separate bounded payload
+allows native master nesting beyond the shallow scalar Action parameter budget.
+Decoding checks a 64 MiB byte limit, native structural limits, library limits and
+complete reference binding before publication. An authored edit exceeding this
+Action budget still succeeds, but records an unsupported step. Definitions include portable paints,
+embedded appearance resources, exact colours and typography; no complete document
+or undo snapshot is recorded. Document working space and geometry remain local.
+Fonts still need to be available to the destination editor.
+
+Each step runs in a detached editing workspace and publishes once after validation
+and document/selection lifetime checks. Failed steps leave neither imported
+resources nor partial edits; successful steps support ordinary undo/redo. Global
+definition edits still reach locked users and unused masters, while applying a
+relationship respects normal target locks. Interactive and batch playback share
+this implementation. Raster documents do not execute these vector operations.
+Anonymous scene mutations and arbitrary linked-text content edits still need their
+own semantic recipes; these commands cover the document library controls and
+explicit master/instance operations. Old unsupported steps cannot be reconstructed
+automatically and must be recorded again.
+
+See [ADR 0462](../adr/0462-replayable-vector-library-actions.md). The `.faction`
+container stays at version 1; older builds preserve these identifiers as unsupported.
 
 ## Native `.faction` format
 

@@ -6,7 +6,7 @@ The `.focale` archive stores an editable document, its raster data and reusable
 resources. This reference defines its entries, metadata, validation rules and
 compatibility policy, including the distinct managed recovery representation.
 
-**Current supported version:** 2 (direct linked text frames); writers use version 1 for documents without direct frame stories.
+**Current supported version:** 3 (dynamic text wrapping and placed-recipe resources); writers use version 2 for direct linked text frames and version 1 when none of these additions is needed.
 
 A `.focale` file is an ordinary ZIP archive. Nothing in it is encrypted or
 obfuscated: a project can be inspected, repaired or salvaged with standard
@@ -42,6 +42,7 @@ project.focale
 ├── objects/raster/<number>.fcraster             deduplicated exact tile payloads
 ├── placed/<encoded-content-id>.bin             one per embedded placed source
 ├── placed_documents/<encoded-content-id>.focale optional editable nested document
+├── placed_resources/<base64url-content-id>.<resource-id>.bin recipe resources
 └── patterns/<encoded-content-id>.fptile         one per referenced imported pattern
 ```
 
@@ -747,9 +748,27 @@ parameters, eight nested container levels, a 64-character processor identifier,
 and 64 KiB of canonical UTF-8 JSON. Readers reject malformed recipes. The ready
 placed-layer preview remains authoritative for display, so a future unsupported
 recipe version does not make the document unrenderable. Processor
-`cameraRaw` version 1 contains the complete `RawDevelopmentSettings` map; the
+`cameraRaw` versions 1 to 4 contain the complete `RawDevelopmentSettings` map; the
 original camera payload remains in `placed/<encoded-content-id>.bin` and double
 clicking the placed layer can regenerate all occurrences from it.
+
+A recipe may additionally declare `resources: {resourceId: byteLength}` beside
+`parameters`. There are at most four resources and 8 MiB total. Resource IDs
+match `[a-zA-Z0-9_-]{1,80}`; lengths are positive. Their original bytes reside at
+`placed_resources/<base64url-UTF8-content-id-without-padding>.<resource-id>.bin`.
+They are embedded even when the original source is linked. Readers require every
+entry and verify its declared size; saves reject incomplete resources. The same
+paths participate in recovery checkpoints. These documents require version 3.
+Immutable resources are shared by recipe edits and source copies in memory.
+
+`cameraRaw` version 3 adds an optional `cameraProfile` identity with `id` (SHA-256
+of the original DCP), `name`, and optional `cameraModel`. The matching recipe
+resource uses the same digest as its resource ID. Reopening checks identity and
+metadata against the original DCP; missing or mismatched profiles are errors,
+never silent substitution. Standalone presets instead contain Base64 `data`
+inside this identity. DCP profiles are bounded to 8 MiB; combined portable ICC/DCP
+presets are bounded to 36 MiB. Clearing the profile removes its resource and
+allows an otherwise ordinary recipe to use its previous version.
 
 Decoder controls use `whiteBalance`, `temperature`, `tint`, `exposure`,
 `contrast`, `highlights`, `shadows`, `whites`, `blacks`, `saturation`,
@@ -783,12 +802,36 @@ usable normalized lines, each with an `orientation` of `horizontal` or
 zero to one.
 
 Calibration uses `calibrationShadowsTint` and the `Hue` and `Saturation` fields
-for the red, green, and blue camera primaries. `localAdjustments` contains at
+for the red, green, and blue camera primaries. Presence uses `texture`, `clarity`, and `dehaze`,
+each from -100 to 100. Colour grading uses the `Hue` (0 to 360 degrees),
+`Saturation` (0 to 100) and `Luminance` (-100 to 100) fields of
+`colorGradeShadow`, `colorGradeMidtone`, `colorGradeHighlight`, and
+`colorGradeGlobal`, plus `colorGradeBlending` (0 to 100, default 50) and
+`colorGradeBalance` (-100 to 100). Grain uses `grainAmount`, `grainSize`
+(default 25), and `grainRoughness` (default 50), each from 0 to 100. These
+finishing fields are written only when they differ from their default and read
+as their default when absent. A recipe whose presence, colour-grading
+saturation or luminance, or grain amount is not neutral is written as
+`cameraRaw` version 4, so an older reader keeps the cached preview instead of
+silently dropping the effect; a version-4 recipe may also carry a camera profile. `localAdjustments` contains at
 most sixteen ordered entries. Each entry has a stable `id`; a `kind` of
-`brush`, `linearGradient`, or `radialGradient`; `inverted`, `feather`, and
+`brush`, `linearGradient`, `radialGradient`, or `range`; `inverted`, `feather`, and
 geometry fields; and the local `exposure`, `contrast`, `highlights`, `shadows`,
 and `saturation` controls. A recipe retains at most 4096 brush samples in
 aggregate.
+
+Without a DCP profile, recipes with range selections use `cameraRaw` version 2;
+recipes containing only legacy masks still write version 1. A primary `range`
+stores `rangeMask`; any
+mask may also store up to four ordered `ranges`. Each range contains `kind`
+(`color` or `luminance`), `operation` (`add`, `subtract`, `intersect`), and finite
+normalized `minimum`, `maximum`, `red`, `green`, `blue`, `tolerance`, `softness`.
+Brightness limits are inclusive and ordered. Colour selection compares RGB
+chromaticity across exposure changes. Range samples come from the unchanged
+input to local corrections. Addition takes maximum coverage, intersection takes
+minimum coverage, subtraction multiplies preceding coverage by the complement.
+`inverted` applies after the complete stack. Unknown range kinds/operations,
+malformed records and excess refinements cannot be restored as valid masks.
 
 Brush samples are stored in `pointData`, a standard base64 string whose decoded
 payload is a sequence of seven-byte records. Each record contains `x` as an
@@ -1262,7 +1305,10 @@ stroke is coloured, gradient or patterned exactly like a fill is — plus
 skipped lengths expressed as multiples of the stroke width; absent or empty
 means solid), and `cap`/`join`
 (`dart:ui`'s `StrokeCap`/`StrokeJoin` names, defaulting to `butt`/`miter` when
-absent or unknown). `position` is `center`, `inside` or `outside`, defaulting
+absent or unknown). Optional `miterLimit` is the maximum miter length divided
+by half the stroke width, from 1 to 1,000; absent or invalid values use 4.
+The default is omitted when writing, keeping older archives compatible.
+`position` is `center`, `inside` or `outside`, defaulting
 to `center`; open contours such as lines render it centred because they have no
 interior or exterior.
 
@@ -1792,7 +1838,7 @@ change.
 
 ## Frame animation
 
-An optional animation orders persistent layer-visibility presentations without
+An optional animation orders persistent layer-visibility and pose presentations without
 duplicating raster data in the manifest:
 
 ```json
@@ -1825,8 +1871,9 @@ duplicating raster data in the manifest:
 
 `frames` is the presentation order and contains between 1 and 1,000 entries.
 Frame ids are stable, non-empty and unique; names are non-empty. A duration is
-an integer from 0 through 655,350 milliseconds, matching the range of the
-initial GIF interchange. A `layerVisibility` key never names the root layer;
+an integer from 0 through 65,535,000 milliseconds (the APNG delay range).
+Each interchange encoder validates its own narrower limits: GIF supports up to
+655,350 ms and WebP up to 16,777,215 ms per frame. A `layerVisibility` key never names the root layer;
 writers omit keys naming layers the document no longer contains, and readers
 drop such keys instead of rejecting the project, since they affect no
 presentation. Layers omitted from that map retain their authored visibility,
@@ -1834,12 +1881,44 @@ which allows shared overlays to appear in several frames without rewriting the
 whole sequence. Imported GIFs therefore store at most two entries per frame:
 hiding the first frame's layer and showing the frame's own one.
 
+A frame may also contain `layerPoses`, keyed by layer identity:
+
+```json
+"layerPoses": {
+  "shared-layer": {
+    "transform": {
+      "translateX": 40, "translateY": 12,
+      "scaleX": 1.5, "scaleY": 1.5,
+      "rotation": 0.5, "anchorX": 20, "anchorY": 20
+    },
+    "opacity": 0.6
+  }
+}
+```
+
+Poses use the existing decomposed layer transform (radians, local coordinates,
+optional shear and reflection flags). All numeric components must be finite;
+opacity is in `[0, 1]`. Signed and zero scales are valid, including the middle
+of a reflection tween. Missing pose entries inherit authored properties.
+Pose references follow the same root exclusion and dangling-reference pruning
+as visibility. The `.fvector` scene stores the same optional frame data.
+
+Tween insertion freezes both resolved endpoint poses and writes ordinary
+intermediate frames; no interpolation engine is required to reopen the file.
+Translation, signed scale, anchor, shear and opacity are interpolated linearly;
+rotation follows the shortest arc. A smooth ease-in/out curve may adjust the
+progress. Intermediate frames retain the starting visibility and duration.
+Onion-skin activation and opacity are view/session data, never serialized.
+Older readers ignore optional poses; versions with the former GIF-only duration
+limit can reject frames longer than 655,350 ms.
+
 `loopCount` follows the Netscape GIF convention: omission means one initial
 pass, zero means indefinitely, and a positive value counts repetitions after
-the initial pass. Imported GIFs use one complete canvas raster layer per frame;
+the initial pass. APNG/WebP total-play counts are normalized at the codec boundary.
+Imported animations use one complete canvas raster layer per frame;
 ordinary shared layers remain valid as well. Playback selection, elapsed time
 and playing state are editor-session data and are never serialized. Rendering
-projects a frame's visibility onto a transient document, leaving authored
+projects a frame's visibility, transform and opacity onto a transient document, leaving authored
 layer flags, document revision and undo history unchanged.
 
 ## Layer compositions
@@ -2031,7 +2110,9 @@ Version 1 is the first public persistence baseline and includes the complete
 layout described in this document, including exact rasters, placed content,
 colour profiles, animation and document metadata. Version 2 adds direct linked
 text frames; version-1 documents are read unchanged and still written when no
-frame story requires the new structure. Readers reject versions above 2.
+frame story requires the new structure. Version 3 adds direct text wrapping and
+placed-recipe resources; older documents keep their existing layout. Readers
+reject versions above 3.
 Future incompatible layout changes must increment the format version and
 have an explicit migration policy; optional additions retain documented defaults.
 
@@ -2055,6 +2136,9 @@ self-contained; the managed checkpoint format is internal recovery storage.
 * **2** — self-contained linked text frames in photographic text layers. No
   payload migration is needed for version 1; absent frame collections retain the
   existing point/paragraph/path/shape behavior.
+
+* **3** — separately stored placed-recipe resources and dynamic object wrapping in photographic text layers, with retained
+  local obstacle bounds. Missing `wrap` retains previous composition.
 
 ### Unreleased development history
 
@@ -2180,7 +2264,7 @@ The reference directory cannot provide arbitrary filesystem paths. Readers
 reject symbolic links in the object root, session directory and payload file.
 
 External logical names are restricted to `raster`, `masks`, `channels`, `placed`,
-`placed_documents`, `patterns` and `objects` namespaces. Empty, `.` and `..` path
+`placed_documents`, `placed_resources`, `patterns` and `objects` namespaces. Empty, `.` and `..` path
 components and backslashes are rejected. Embedded and external entries cannot
 collide. The combined logical entry count is at most 10,000, each object at most
 512 MiB, and the sum of referenced encoded payloads at most 1 GiB. Existing
@@ -2340,16 +2424,17 @@ original vector project remains editable.
 
 ## Retained Live Paint in vector artwork
 
-Optional `livePaint` on a vector group retains source-local fill/edge seeds and
+Optional `livePaint` on a vector group retains rich region appearances, split
+coverage, source-local fill/edge seeds and
 editable child paths in the unreleased `.fvector` scene schema. The payload and
-validation rules are documented in [vector projects](vectors.md#retained-live-paint-unreleased-version-1).
+validation rules are documented in [vector projects](vectors.md#retained-live-paint-unreleased-versions-1-and-2).
 Rendering and conversion consume its derived appearance. This adds no field to
 raster `.focale` shape layers and does not change the raster archive version.
 
 ## Retained vector brush payloads
 
 Editable vector documents retain brush definitions in the `.fvector` object
-model, as documented in [vector formats](vectors.md#retained-vector-brushes-unreleased-versions-1-and-2).
+model, as documented in [vector formats](vectors.md#retained-vector-brushes-unreleased-versions-1-2-and-3).
 This adds no raster `.focale` archive field; derived vector brush outlines are
 resolved by the existing vector appearance/export projection.
 
@@ -2450,6 +2535,42 @@ controls to bounded embedded PNGs, while PDF projects them to triangle shading.
 These conversions are disclosed before export and do not restore the editable
 grid on import. See the [mesh interchange contract](../features/gradient-meshes.md#persistence-and-interchange).
 
+## Dynamic object text wrapping
+
+`TextContent.wrap` is optional. It contains `version: 1`, a finite `margin`
+from 0 to 2000 document units, and at most 256 `obstacles`, each represented as
+`[left, top, right, bottom]` in text-local coordinates. Rectangles must be finite,
+nonempty, and within the existing coordinate bound. Wrapping requires area text
+or a linked-frame story; point text and along-path text cannot retain it.
+Direct photographic text layers with this field require manifest version 3.
+The unpublished `.fvector` envelope remains version 1; editable clipboard data
+with wrapping uses version 14.
+
+Visible non-text artwork above the text supplies its bounds at scene
+publication. Moving, hiding or removing artwork refreshes the snapshot before
+rendering and editing. Excess overlapping obstacles are conservatively merged,
+never omitted. The margin is applied before mapping into an individual frame.
+The compositor subtracts the obstacle across the complete line/column band,
+retaining the source, styles, frame identities and any overset text. Rendering
+isolated content uses the stored snapshot. Unsupported interchange paths retain
+an explicit outline/raster fallback instead of exporting incorrectly reflowed
+native text. See [ADR 0469](../adr/0469-dynamic-object-text-wrap.md).
+
+Opt-in contour wrapping uses a nested `wrap.version: 2` with `mode: "contour"`.
+It retains the same `margin` and fallback `obstacles`, plus `contours`. Each
+contour stores `{evenOdd, clearance, polygons}`; polygons contain `[x, y]`
+vertices in text-local coordinates. Each polygon has at least three vertices.
+The combined rectangle/contour count is at most 256, each contour at most 4096
+vertices, and the story at most 16384 vertices. Coordinates and nonnegative
+clearances are finite and bounded to ±1e9. Invalid or unknown versions fail
+explicitly. Legacy rectangle wrapping continues to write nested version 1.
+
+Contour snapshots include approximation/stroke clearance; the compositor adds
+the authored margin over the whole glyph band. Even-odd and nonzero holes remain
+available to text. Images and complex appearances retain conservative rectangle
+exclusions. Scene publication refreshes geometry; isolated text uses its snapshot.
+See [ADR 0472](../adr/0472-portable-font-axes-and-contour-wrapping.md).
+
 ## Linked text frames
 
 A direct `TextLayer.content.frames` collection requires manifest version 2. It
@@ -2544,3 +2665,19 @@ file path. Native-layer projection resolves the referenced page before painting.
 See the [PDF interchange schema](vectors.md#pdf-interchange-and-shared-graphics-unreleased-version-1)
 for bounds, asynchronous ownership and export rules. The `.focale` envelope
 version is unchanged.
+
+## Retained vector image tracing
+
+Vector projects and vector clipboard selections can retain an original embedded
+raster and its tracing recipe alongside generated paths. The versioned payload is
+documented in [vector formats](vectors.md#retained-image-tracing-unreleased-version-1).
+This adds no raster `.focale` archive field. Generated trace geometry is ordinary
+vector artwork; the hidden original is a shared binary resource in `.fvector`.
+
+## Freeform vector gradients
+
+Embedded vector artwork may retain independent colour points, diffusion weights
+and connections through the [freeform mesh payload](vectors.md#freeform-gradient-controls-unreleased-version-1).
+The enclosing raster archive is unchanged. The original shape is retained as
+vector clipping; generated display triangles and printer-specific CMYK samples
+are not stored in the `.focale` archive.

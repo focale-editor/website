@@ -2,6 +2,394 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "version": "0.0.21",
+      "date": "2026-11-16",
+      "changes": [
+        {
+          "kind": "CHORE",
+          "description": "Now displaying a warning message for mobile users."
+        }
+      ]
+    },
+    {
+      "version": "0.0.20",
+      "date": "2026-11-16",
+      "changes": [
+        {
+          "kind": "PERF",
+          "description": "Avoided rebuilding layer controls on pixel edits."
+        },
+        {
+          "kind": "PERF",
+          "description": "Bound preparation work and resource collection memory."
+        },
+        {
+          "kind": "PERF",
+          "description": "Bounded download buffers while preserving throughput."
+        },
+        {
+          "kind": "PERF",
+          "description": "Bounded vector thumbnails and shared histogram caching."
+        },
+        {
+          "kind": "PERF",
+          "description": "Further reduced subject segmentation memory peaks."
+        },
+        {
+          "kind": "PERF",
+          "description": "Improved live paint performance."
+        },
+        {
+          "kind": "PERF",
+          "description": "Improved vector documents spaning & zooming speed."
+        },
+        {
+          "kind": "PERF",
+          "description": "Moved native vector JSON work off the UI thread."
+        },
+        {
+          "kind": "PERF",
+          "description": "Reduced selection inspection and geometry work."
+        },
+        {
+          "kind": "PERF",
+          "description": "Retained bounded vector proof and comparison preparation."
+        },
+        {
+          "kind": "PERF",
+          "description": "Scoped document updates and isolated layer hover feedback."
+        },
+        {
+          "kind": "PERF",
+          "description": "Shared lazy geometry across vector editor consumers."
+        },
+        {
+          "kind": "PERF",
+          "description": "Shared lazy timelines between image and vector editors."
+        },
+        {
+          "kind": "PERF",
+          "description": "Shared retained vector projections across inspection tasks."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added AI noise reduction and super resolution."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added an AI method to Content-Aware Fill powered by LaMa."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added native text-path geometry, predefined paragraph lists and Adobe variable-font instance names."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added on-device Select Subject and Remove Background with downloadable models."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added paint symmetry to the brush, pencil and eraser."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added shared progress, cancellation and partial results."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added sky replacement and kept the canvas painted while a prepared composite starts."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added support for APNG and animated WebPs."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added texture, clarity, dehaze, color grading and grain to Camera Raw."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added the Object selection tool powered by SAM 2.1."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added the ability to have a checkerboard background for vector documents."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added the blob brush and the perspective grid."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Added tips about the vector editor and other features."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Enabled web as a target platform."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Implemented replayable vector library actions."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Improved gradients and texts handling."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Improved live paint."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Kept native precision and colour space in AI noise reduction and super resolution."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Kept native precision and colour space in the AI Content-Aware Fill."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Moved the built-in skies to an asset, accepted gradient files and removed the halo around branches in sky replacement."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Now displaying ONNX in the app settings."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Now displaying local models size in the app settings."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Opened CIELab and ICCLab TIFF files as Lab documents."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Opened the AI tools to CMYK, Lab and grayscale documents."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Shared destinations and repeat exports across editors."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Shared file drops, color sampling and keyboard pane navigation."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Shared reversible blend previews across editors."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Shared shortcut aliases and temporary vector tools."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Unified persistence and history feedback."
+        },
+        {
+          "kind": "FIX",
+          "description": "Added grain during the 16-bit conversion and processed presence, grading and grain row by row."
+        },
+        {
+          "kind": "FIX",
+          "description": "Adjusted macOS spacing for rounded window corners."
+        },
+        {
+          "kind": "FIX",
+          "description": "Aligned Sentry pins and reviewed native recipes."
+        },
+        {
+          "kind": "FIX",
+          "description": "Asked once before replacing a destination in both editors."
+        },
+        {
+          "kind": "FIX",
+          "description": "Bound shared navigator controls to their own views."
+        },
+        {
+          "kind": "FIX",
+          "description": "Bound text panels and dimensions to their documents."
+        },
+        {
+          "kind": "FIX",
+          "description": "Bound vector readouts and sampling to their owning views."
+        },
+        {
+          "kind": "FIX",
+          "description": "Classified protected placements and forwarded canvas wheel input."
+        },
+        {
+          "kind": "FIX",
+          "description": "Completed view input lifecycles and shared display controls."
+        },
+        {
+          "kind": "FIX",
+          "description": "Corrected Wayland offsets and large soft brush gradients."
+        },
+        {
+          "kind": "FIX",
+          "description": "Corrected content-aware sampling and colour adaptation."
+        },
+        {
+          "kind": "FIX",
+          "description": "Corrected sky replacement and made bright halo reduction optional."
+        },
+        {
+          "kind": "FIX",
+          "description": "Finalized shared shortcut and preview lifecycles."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed regressions from the paste, blend preview and proof review."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed regressions from the persistence and shortcut review."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed regressions from the progress and preview review."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed regressions from the scoped barriers, gradient and inspection review."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed regressions from the shared input and export review."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed stale paint command availability and shared warp overlay painting from the application review."
+        },
+        {
+          "kind": "FIX",
+          "description": "Fixed stale segmentation results and bounded model sessions."
+        },
+        {
+          "kind": "FIX",
+          "description": "Harmonized recent editor surfaces and bounded Camera Raw mask inputs."
+        },
+        {
+          "kind": "FIX",
+          "description": "Harmonized selector focus and adopted ForUI menu semantics."
+        },
+        {
+          "kind": "FIX",
+          "description": "Kept proofing and display modes independent per view."
+        },
+        {
+          "kind": "FIX",
+          "description": "Kept search and spelling bound to their document lifetime."
+        },
+        {
+          "kind": "FIX",
+          "description": "Open encrypted documents and unify canvas scrolling."
+        },
+        {
+          "kind": "FIX",
+          "description": "Precache only the current worker and runtime versions."
+        },
+        {
+          "kind": "FIX",
+          "description": "Preserved coherent saves, exports and preview targets."
+        },
+        {
+          "kind": "FIX",
+          "description": "Preserved result placement and cancelled superseded selections."
+        },
+        {
+          "kind": "FIX",
+          "description": "Preserved translucent pixels and stabilized browser validation."
+        },
+        {
+          "kind": "FIX",
+          "description": "Reduced subject segmentation memory peaks."
+        },
+        {
+          "kind": "FIX",
+          "description": "Repaired macOS inference and now downloading notarized runtimes on demand."
+        },
+        {
+          "kind": "FIX",
+          "description": "Restore locked setup in a fresh checkout."
+        },
+        {
+          "kind": "FIX",
+          "description": "Restored page loading and visible canvas scrolling."
+        },
+        {
+          "kind": "FIX",
+          "description": "Retained bounded previews with each frame's resources."
+        },
+        {
+          "kind": "FIX",
+          "description": "Scoped operation barriers and command admission to documents."
+        },
+        {
+          "kind": "FIX",
+          "description": "Serialized document pastes with shared activity feedback."
+        },
+        {
+          "kind": "FIX",
+          "description": "Shared complete wheel and trackpad navigation."
+        },
+        {
+          "kind": "FIX",
+          "description": "Shared playback visibility across editor presentations."
+        },
+        {
+          "kind": "FIX",
+          "description": "Various UI fixes and improvements."
+        },
+        {
+          "kind": "FIX",
+          "description": "Various fixes and improvements."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Cleaned analyzer hints in shared editor regressions."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Integrate concurrent browser fixes and validation guidance."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Removed redundant blend preview import."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Shared more mechanisms between the raster and the vector editors."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Various fixes and improvements."
+        },
+        {
+          "kind": "REFACTOR",
+          "description": "Retained gradient and composition state per document."
+        },
+        {
+          "kind": "REFACTOR",
+          "description": "Separated resource services and streamlined clipboard encoding."
+        },
+        {
+          "kind": "REFACTOR",
+          "description": "Shared comparison hosting and originating view scope."
+        },
+        {
+          "kind": "REFACTOR",
+          "description": "Shared window placement between photo and vector documents in the view registry."
+        },
+        {
+          "kind": "REFACTOR",
+          "description": "Unified the photo and vector view registries and viewport controllers."
+        }
+      ]
+    },
+    {
       "version": "0.0.19",
       "date": "2026-11-07",
       "changes": [
