@@ -34,6 +34,48 @@ const landscape = landscapeSource
 // Leave the original scene untouched when reduced motion is requested.
 @media (prefers-reduced-motion: no-preference) {
   .landscape {
+    // Give moving light enough contrast to remain visible through the hero's
+    // reading fades. Static/reduced-motion rendering keeps the original palette.
+    :deep([id="auroraVeil"] stop[offset="0.55"]) {
+      stop-opacity: 0.1;
+    }
+
+    :deep([id="auroraVeil"] stop[offset="0.86"]) {
+      stop-opacity: 0.38;
+    }
+
+    :deep([id="auroraVeil"] stop[offset="1"]) {
+      stop-opacity: 0.08;
+    }
+
+    :deep([id="auroraEdge"] stop[offset="0.35"]) {
+      stop-opacity: 0.4;
+    }
+
+    :deep([id="auroraEdge"] stop[offset="0.68"]) {
+      stop-opacity: 0.75;
+    }
+
+    :deep([id="moonHalo"] stop:first-child) {
+      stop-opacity: 0.34;
+    }
+
+    :deep([id="moonHalo"] stop[offset="0.45"]) {
+      stop-opacity: 0.15;
+    }
+
+    :deep([id="waterLight"] stop:first-child) {
+      stop-opacity: 0.3;
+    }
+
+    :deep([id="reflection"] stop:first-child) {
+      stop-opacity: 0.85;
+    }
+
+    :deep([id="reflection"] stop[offset="0.5"]) {
+      stop-opacity: 0.4;
+    }
+
     :deep([fill="url(#auroraVeil)"]),
     :deep([stroke="url(#auroraEdge)"]) {
       transform-origin: 1500px 150px;
@@ -42,6 +84,8 @@ const landscape = landscapeSource
 
     :deep([fill="url(#auroraVeil)"][opacity]),
     :deep([stroke="url(#auroraEdge)"][opacity]) {
+      --aurora-opacity: 0.5;
+
       animation-duration: 25s;
       animation-delay: -13s;
       animation-direction: reverse;
@@ -49,6 +93,8 @@ const landscape = landscapeSource
 
     :deep(g[fill="#EDF0F4"] > circle),
     :deep(g[stroke="#8DB5FF"] > path[opacity]) {
+      transform-box: fill-box;
+      transform-origin: center;
       animation: star-twinkle 5s ease-in-out -1s infinite;
     }
 
@@ -102,36 +148,43 @@ const landscape = landscapeSource
 
 @keyframes aurora-drift {
   0%, 100% {
-    transform: translate(0, 0) scale(1);
+    opacity: calc(var(--aurora-opacity, 1) * 0.45);
+    transform: translate(0, 8px) scale(1, 0.97);
   }
 
   50% {
-    transform: translate(16px, -8px) scale(1.025, 1.04);
+    opacity: var(--aurora-opacity, 1);
+    transform: translate(42px, -20px) scale(1.08, 1.12);
   }
 }
 
-// The endpoints inherit each star's original opacity, preserving its brightness.
 @keyframes star-twinkle {
+  0%, 100% {
+    opacity: 0.18;
+    transform: scale(0.85);
+  }
+
   50% {
-    opacity: 0.12;
+    opacity: 1;
+    transform: scale(1.45);
   }
 }
 
 @keyframes moon-glow {
   0%, 100% {
-    opacity: 0.7;
-    transform: scale(0.97);
+    opacity: 0.45;
+    transform: scale(0.9);
   }
 
   50% {
     opacity: 1;
-    transform: scale(1.05);
+    transform: scale(1.15);
   }
 }
 
 @keyframes water-glow {
   0%, 100% {
-    opacity: 0.7;
+    opacity: 0.4;
   }
 
   50% {
@@ -141,23 +194,23 @@ const landscape = landscapeSource
 
 @keyframes water-shimmer {
   0%, 100% {
-    opacity: 0.3;
-    transform: translate(-10px, -1px) scale(0.78, 0.85);
+    opacity: 0.22;
+    transform: translate(-16px, -1.5px) scale(0.7, 0.9);
   }
 
   50% {
     opacity: 1;
-    transform: translate(10px, 1.5px) scale(1.22, 1.25);
+    transform: translate(16px, 2.5px) scale(1.35, 1.5);
   }
 }
 
 @keyframes boat-rock {
   0%, 100% {
-    transform: translateY(2px) rotate(-3deg);
+    transform: translateY(3px) rotate(-5deg);
   }
 
   50% {
-    transform: translateY(-2px) rotate(3deg);
+    transform: translateY(-3px) rotate(5deg);
   }
 }
 </style>
