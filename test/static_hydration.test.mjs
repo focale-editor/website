@@ -212,7 +212,10 @@ test('loading shows an informational status, then a complete release replaces it
         }
         assert.equal(document.querySelector('#downloads-windows a[href="https://www.microsoft.com/store/apps/9NTBHV06W242"] .option-label')?.textContent.trim(), 'Microsoft Store')
         assert.equal(document.querySelector('#downloads-linux a[href="https://snapcraft.io/focale"] .option-label')?.textContent.trim(), 'Snap')
-        assert.equal(document.querySelectorAll('.download-option-disabled').length, 1, 'only the Mac App Store is still upcoming')
+        const macStore = document.querySelector('#downloads-macos a[href="https://apps.apple.com/app/id6819044826"]')
+        assert.equal(macStore?.querySelector('.option-label')?.textContent.trim(), 'Mac App Store')
+        assert.equal(macStore?.querySelector('.option-note')?.textContent.trim(), translations.downloads.storeHint.replace('{store}', 'Mac App Store'))
+        assert.equal(document.querySelectorAll('.download-option-disabled, .download-option[aria-disabled="true"]').length, 0, 'published stores are actionable links')
 
         document.querySelector('button[aria-controls="downloads-linux"]').click()
         await waitFor(() => document.querySelector('#downloads-linux').style.display !== 'none')

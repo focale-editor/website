@@ -239,7 +239,7 @@
     "installer": "{format}-Installer",
     "archive": "{format}-Archiv",
     "installerHint": "Laden Sie die Datei herunter und öffnen Sie sie, um Focale zu installieren.",
-    "storeHint": "Installation und Updates werden vom Microsoft Store verwaltet.",
+    "storeHint": "Installation und Updates werden vom {store} verwaltet.",
     "snapHint": "Öffnet die Seite von Focale im Snap Store.",
     "archiveHint": "Laden Sie das Archiv herunter und folgen Sie den Installationsschritten.",
     "unsignedPreview": "Noch ohne öffentliches Signaturzertifikat.",

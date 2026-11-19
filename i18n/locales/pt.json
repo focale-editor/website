@@ -239,7 +239,7 @@
     "installer": "Instalador {format}",
     "archive": "Arquivo {format}",
     "installerHint": "Baixe o arquivo e abra-o para instalar o Focale.",
-    "storeHint": "Instalação e atualizações gerenciadas pela Microsoft Store.",
+    "storeHint": "Instalação e atualizações gerenciadas pela {store}.",
     "snapHint": "Abre a página do Focale na Snap Store.",
     "archiveHint": "Baixe o arquivo e siga as etapas de instalação.",
     "unsignedPreview": "Ainda sem certificado de assinatura público.",

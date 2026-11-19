@@ -2,6 +2,16 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "version": "0.0.23",
+      "date": "2026-11-19",
+      "changes": [
+        {
+          "kind": "FIX",
+          "description": "Fixed some problems with remote building."
+        }
+      ]
+    },
+    {
       "version": "0.0.22",
       "date": "2026-11-19",
       "changes": [

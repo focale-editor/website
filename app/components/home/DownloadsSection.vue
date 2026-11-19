@@ -11,7 +11,6 @@ const isLoading = computed(() => status.value === 'idle' || status.value === 'lo
 type DownloadOption
   = | { kind: 'file', target: DownloadTarget, label: string, detail: string }
     | { kind: 'link', href: string, label: string, detail?: string, note: string, icon?: string }
-    | { kind: 'store', label: string }
     | { kind: 'instructions', mode: 'archive' | 'command', label: string, detail?: string, note: string }
 
 interface Platform {
@@ -30,7 +29,7 @@ const platforms = computed<Platform[]>(() => [
     summary: 'x64',
     icon: 'simple-icons:windows',
     options: [
-      { kind: 'link', href: 'https://www.microsoft.com/store/apps/9NTBHV06W242', label: 'Microsoft Store', note: t('downloads.storeHint'), icon: 'lucide:store' },
+      { kind: 'link', href: 'https://www.microsoft.com/store/apps/9NTBHV06W242', label: 'Microsoft Store', note: t('downloads.storeHint', { store: 'Microsoft Store' }), icon: 'lucide:store' },
       { kind: 'file', target: 'windows-x64', label: t('downloads.installer', { format: 'EXE' }), detail: 'x64' },
     ],
   },
@@ -40,7 +39,7 @@ const platforms = computed<Platform[]>(() => [
     summary: 'Apple Silicon · Intel',
     icon: 'simple-icons:apple',
     options: [
-      { kind: 'store', label: 'Mac App Store' },
+      { kind: 'link', href: 'https://apps.apple.com/app/id6819044826', label: 'Mac App Store', note: t('downloads.storeHint', { store: 'Mac App Store' }), icon: 'lucide:store' },
       { kind: 'file', target: 'macos-arm64', label: t('downloads.installer', { format: 'DMG' }), detail: 'Apple Silicon' },
       { kind: 'file', target: 'macos-x64', label: t('downloads.installer', { format: 'DMG' }), detail: 'Intel' },
     ],
@@ -189,25 +188,6 @@ function openInstructions(mode: 'archive' | 'command'): void {
                     <span class="option-note">{{ option.note }}</span>
                   </span>
                 </a>
-
-                <div
-                  v-else-if="option.kind === 'store'"
-                  class="download-option download-option-disabled"
-                  aria-disabled="true"
-                >
-                  <span class="option-copy">
-                    <span class="option-title">
-                      <Icon
-                        name="lucide:store"
-                        class="option-icon"
-                        aria-hidden="true"
-                      />
-                      <span class="option-label">{{ option.label }}</span>
-                      <span class="option-tag">{{ t('downloads.soon') }}</span>
-                    </span>
-                    <span class="option-note">{{ t('downloads.storeSoon') }}</span>
-                  </span>
-                </div>
 
                 <button
                   v-else
@@ -437,11 +417,6 @@ button.download-option {
   background: transparent;
   border: 0;
   cursor: pointer;
-}
-
-.download-option-disabled {
-  cursor: not-allowed;
-  opacity: 0.55;
 }
 
 .option-icon {

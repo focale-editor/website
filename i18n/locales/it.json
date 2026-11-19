@@ -239,7 +239,7 @@
     "installer": "Installer {format}",
     "archive": "Archivio {format}",
     "installerHint": "Scarichi il file, poi lo apra per installare Focale.",
-    "storeHint": "Installazione e aggiornamenti gestiti dal Microsoft Store.",
+    "storeHint": "Installazione e aggiornamenti gestiti dal {store}.",
     "snapHint": "Apre la pagina di Focale sullo Snap Store.",
     "archiveHint": "Scarichi l’archivio, poi segua i passaggi di installazione.",
     "unsignedPreview": "Per ora senza certificato di firma pubblico.",
