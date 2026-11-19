@@ -2,6 +2,60 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "version": "0.0.22",
+      "date": "2026-11-19",
+      "changes": [
+        {
+          "kind": "FEAT",
+          "description": "Added a loading screen."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Compress high-depth strips and embed descriptive XMP."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Initialize bracket exposures from EXIF."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Measure editable variable-width centerlines."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Preserve grayscale profiles and extended GIMP blend semantics."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Render and retain turbulence and displacement filters."
+        },
+        {
+          "kind": "FEAT",
+          "description": "Separate placed photographs and tiling patterns for PDF/X."
+        },
+        {
+          "kind": "FIX",
+          "description": "Preserve procedural filter coordinates during export."
+        },
+        {
+          "kind": "FIX",
+          "description": "Various fixes in batch operations."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Improved some dialogs UI and UX."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Improved the \"recent documents\" card."
+        },
+        {
+          "kind": "CHORE",
+          "description": "Various fixes and improvements."
+        }
+      ]
+    },
+    {
       "version": "0.0.21",
       "date": "2026-11-16",
       "changes": [
